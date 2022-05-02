@@ -1,4 +1,4 @@
-package main
+package tcpserver
 
 import (
 	"fmt"
@@ -7,7 +7,7 @@ import (
 
 var buf [128]byte
 
-func tcp_server() {
+func Tcpserver() {
 	fmt.Println("tcp server test---lf 2022-4-28")
 	listerer, err := net.Listen("tcp", "0.0.0.0:9090")
 	if err != nil {

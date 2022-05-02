@@ -12,7 +12,7 @@
 
         
         <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5.3.2/dist/echarts.min.js"></script>
-
+        <script type="text/javascript" src="/assets/js/api.js"></script>
 
         <script type="text/javascript">
 var dom = document.getElementById("container");
@@ -21,9 +21,13 @@ var app = {};
 
 var option;
 
-function randomData() {
+ function randomData() {
   now = new Date(+now + oneDay);
-  value = value + Math.random() * 21 - 10;
+   Get(`/device/randomData/${ Math.round(value)}`).then(res=>{
+    const {name,data:{value: v}} = res
+    value = v
+   })
+ 
   return {
     name: now.toString(),
     value: [
@@ -97,7 +101,7 @@ setInterval(function () {
       }
     ]
   });
-}, 2000);
+}, 200);
 
 if (option && typeof option === 'object') {
     myChart.setOption(option);

@@ -6,7 +6,7 @@
 
 */
 
-package main
+package model
 
 /*板卡信息*/
 //数据来源于上位机
