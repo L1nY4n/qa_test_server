@@ -18,7 +18,7 @@ func main() {
 	r := gin.Default()
 	// GET：请求方式；/hello：请求的路径
 	// 当客户端以GET方法请求/hello路径时，会执行后面的匿名函数
-	r.LoadHTMLGlob("template/*")
+	r.LoadHTMLGlob("templates/*")
 	r.GET("/test", func(c *gin.Context) {
 		// c.JSON：返回JSON格式的数据
 		c.HTML(200, "hello.html", gin.H{ // H是一个开箱即用的map
