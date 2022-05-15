@@ -1,8 +1,9 @@
 package web
 
 import (
-	"github.com/gin-gonic/gin"
 	"net/http"
+
+	"github.com/gin-gonic/gin"
 )
 
 func Router(r *gin.Engine) {
@@ -33,7 +34,6 @@ func Router(r *gin.Engine) {
 			//"Content": "内容",
 		})
 	})
-
 
 	r.GET("/index", func(c *gin.Context) {
 

@@ -90,7 +90,7 @@ option = {
   ]
 };
 setInterval(function () {
-  for (var i = 0; i < 20; i++) {
+  for (var i = 0; i < 1000; i++) {
     data.shift();
     data.push(randomData());
   }
@@ -101,7 +101,7 @@ setInterval(function () {
       }
     ]
   });
-}, 200);
+}, 1000);
 
 if (option && typeof option === 'object') {
     myChart.setOption(option);

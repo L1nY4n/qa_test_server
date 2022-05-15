@@ -8,8 +8,10 @@ import (
 var buf [128]byte
 
 func Tcpserver() {
+	go proxyStart(9999, 7777)
 	fmt.Println("tcp server test---lf 2022-4-28")
 	listerer, err := net.Listen("tcp", "0.0.0.0:9090")
+	defer listerer.Close()
 	if err != nil {
 		fmt.Printf("listen fail,err: %v\n", err)
 		return
@@ -22,7 +24,9 @@ func Tcpserver() {
 			continue
 		}
 		go process(conn)
+
 	}
+
 }
 
 func process(conn net.Conn) {
