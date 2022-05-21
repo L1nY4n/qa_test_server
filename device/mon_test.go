@@ -1,7 +1,7 @@
-package model
+package device
 
-type mon_packed struct {
-	Title   string
-	Desc    string
-	Content string
-}
+// type mon_packed struct {
+// 	Title   string
+// 	Desc    string
+// 	Content string
+// }
