@@ -10,7 +10,6 @@ func main() {
 	device.Sql_op()
 	// 启动 tcp server
 	go tcpserver.Tcpserver()
-
 	// 启动web 服务
 	web.Start()
 }

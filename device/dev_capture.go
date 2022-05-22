@@ -11,9 +11,10 @@ package device
 //数据也有可能来源于硬件采集板卡
 
 type Capture_info struct {
-	Model         string `gorm:"primaryKey"` //采集卡型号，老化卡或上位机上传
-	Hardware_bate byte   //硬件版本
-	Software_bate byte   //软件版本
+	ID uint32 `gorm:"primaryKey"` //采集卡型号，老化卡或上位机上传
+	//Name          [25]byte `gorm:"serializer:json"`
+	Hardware_bate byte //硬件版本
+	Software_bate byte //软件版本
 }
 
 //#########纳秒设备监控结构体###############//
@@ -33,33 +34,49 @@ type Dev_Laser_status struct {
 
 //电流监控参数
 type Dev_cur_mon struct {
-	Ld_cur   [2]float32 `gorm:"serializer:json"`
-	Pre_cur  [2]float32 `gorm:"serializer:json"`
-	Main_cur [4]float32 `gorm:"serializer:json"`
-	Seed_cur float32
-	Tcm_cur  float32
+	Ld_1cur   float32
+	Ld_2cur   float32
+	Pre1_cur  float32
+	Pre2_cur  float32
+	Main1_cur float32
+	Main2_cur float32
+	Main3_cur float32
+	Main4_cur float32
+	Seed_cur  float32
+	Tcm_cur   float32
 }
 
 /*电压监控 结构体*/
 type Dev_vol_mon struct {
-	Vp12_vol float32
-	Vn12_vol float32
-	Pre_vol  [2]float32 `gorm:"serializer:json"`
-	Main_vol [4]float32 `gorm:"serializer:json"`
-	N3v3_vol float32
-	F3v3_vol float32
-	F2v5_vol float32
-	Ld_vol   [2]float32 `gorm:"serializer:json"`
+	Vp12_vol  float32
+	Vn12_vol  float32
+	Pre1_vol  float32
+	Pre2_vol  float32
+	Main1_vol float32
+	Main2_vol float32
+	Main3_vol float32
+	Main4_vol float32
+	N3v3_vol  float32
+	F3v3_vol  float32
+	F2v5_vol  float32
+	Ld1_vol   float32
+	Ld2_vol   float32
 }
 
 /*温度监控*/
 type Dev_temperature_mon struct {
-	Ld_temp         [2]float32 `gorm:"serializer:json"`
-	Tcm_temp        [2]float32 `gorm:"serializer:json"`
+	Ld1_temp        float32
+	Ld2_temp        float32
+	Tcm1_temp       float32
+	Tcm2_temp       float32
 	Tcm_module_temp float32
 	Seed_temp       float32
-	Pre_pump_temp   [2]float32 `gorm:"serializer:json"`
-	Main_pump_temp  [4]float32 `gorm:"serializer:json"`
+	Pre1_temp       float32
+	Pre2_temp       float32
+	Main1_temp      float32
+	Main2_temp      float32
+	Main3_temp      float32
+	Main4_temp      float32
 	Plate_temp      float32
 	Hdc_temp        float32
 	Hdc_humi        float32
@@ -145,9 +162,9 @@ type Nano_laser_mon struct {
 }
 
 type Dev_info struct {
-	ID                 int
-	Model              string //设备型号
-	Hardware_bate      byte   //版本信息
+	ID                 uint32
+	Model              byte //设备型号
+	Hardware_bate      byte //版本信息
 	Fpga_software_bate uint16
 	Mcu_software_bate  byte
 	Nano_mon           Nano_laser_mon `gorm:"embedded"` //监控结构体
