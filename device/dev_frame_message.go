@@ -7,9 +7,7 @@ import (
 	"gorm.io/gorm"
 )
 
-var Dev_cap = Dev_capture_packed{
-	Cap_if: Capture_info{ID: 1},
-}
+var Dev_cap = Dev_capture_packed{}
 
 var DB *gorm.DB
 

@@ -1,5 +1,6 @@
 package tcpserver
 
+import "C"
 import (
 	"bytes"
 	"encoding/binary"
@@ -45,21 +46,20 @@ func process(conn net.Conn) {
 			fmt.Printf("read from connect failed, err: %v\n", err)
 			break
 		}
+		//新建二进制流
 		buf_w := &bytes.Buffer{}
-		buf_w.Write(Buf[:])
-
-		//fmt.Printf("buf=: %v\n", buf_w.Bytes())
-		binary.Read(buf_w, binary.BigEndian, &device.Dev_cap)
-		cont++
-		device.Dev_cap.Cap_if.ID = cont
-
-		device.DB.Debug().Create(&device.Dev_cap)
-		//fmt.Printf("receive from client, data: %v\n", (Buf[:n]))
-		//fmt.Printf("cap_in [name]=: %v\n", (device.Dev_cap))
-		//发送数据
+		//读入六
+		buf_w.Write(Buf[:n])
+		//写入到结构体
+		binary.Read(buf_w, binary.LittleEndian, &device.Dev_cap)
+		fmt.Printf("Dev_cap= %+v\n", device.Dev_cap)
+		fmt.Printf("##############################")
+		//fmt.Printf("msg %d\n", device.Dev_cap.Sys_para.Seed_param.Freq)
+		//device.DB.Debug().Create(&device.Dev_cap)
 		if _, err = conn.Write(Buf[:n]); err != nil {
 			fmt.Printf("write to client failed, err: %v\n", err)
 			break
 		}
+
 	}
 }

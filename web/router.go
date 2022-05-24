@@ -2,6 +2,7 @@ package web
 
 import (
 	"net/http"
+	"qa_test_server/device"
 
 	"github.com/gin-gonic/gin"
 )
@@ -38,10 +39,15 @@ func Router(r *gin.Engine) {
 	r.GET("/index", func(c *gin.Context) {
 
 		c.HTML(http.StatusOK, "index.html", gin.H{
-			"title":   "test",
+			"title":   "hello",
 			"desc":    "描述",
 			"Content": "内容",
 		})
+	})
+	r.GET("/info", func(c *gin.Context) {
+
+		c.JSON(http.StatusOK, device.Dev_cap)
+
 		//fmt.Printf("receive from client, data: %v\n", string(buf[:10]))
 		r.GET("/hello", func(c *gin.Context) {
 			c.HTML(http.StatusOK, "hello.html", gin.H{
