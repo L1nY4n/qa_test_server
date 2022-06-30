@@ -12,8 +12,9 @@ package device
 //设备信息
 
 type Capture_info struct {
-	Name [30]uint8 `gorm:"serializer:json"`
-	Bate [20]uint8 `gorm:"serializer:json"`
+	Time uint64    `gorm:"autoCreateTime:nano"` //时间戳
+	Name [30]uint8 `gorm:"-"`
+	Bate [20]uint8 `gorm:"-"`
 }
 
 //#########纳秒设备监控结构体###############//
@@ -119,81 +120,81 @@ type Dev_alarm_mon struct {
 
 /*fpga寄存器值回读*/
 type Dev_fpga_mon struct {
-	Pre_cur_set         float32 `json:"单模2电压"`
-	Main_cur_set        float32 `json:"单模2电压"`
-	Aom_vol_set         float32 `json:"单模2电压"`
-	Ap_freq             float32 `json:"单模2电压"`
-	Ap_duty             float32 `json:"单模2电压"`
-	Apm_freq            float32 `json:"单模2电压"`
-	Apm_duty            float32 `json:"单模2电压"`
-	Aom_freq            float32 `json:"单模2电压"`
-	Aom_duty            float32 `json:"单模2电压"`
-	Fpga_apm_pwm_sw     uint16  `json:"单模2电压"`
-	Fpga_aom_delay      uint16  `json:"单模2电压"`
-	Ext_io_status       uint16  `json:"单模2电压"`
-	Ext_power_level_bit uint16  `json:"单模2电压"`
+	Pre_cur_set         float32 `json:"预放电流设置"`
+	Main_cur_set        float32 `json:"主放电流设置"`
+	Aom_vol_set         float32 `json:"aom设置"`
+	Ap_freq             float32 `json:"预放频率"`
+	Ap_duty             float32 `json:"预放占空比"`
+	Apm_freq            float32 `json:"主放频率"`
+	Apm_duty            float32 `json:"主放占空比"`
+	Aom_freq            float32 `json:"声光频率"`
+	Aom_duty            float32 `json:"声光占空比"`
+	Fpga_apm_pwm_sw     uint16  `json:"pwm设置"`
+	Fpga_aom_delay      uint16  `json:"声光延时"`
+	Ext_io_status       uint16  `json:"外控io1"`
+	Ext_power_level_bit uint16  `json:"外控io2"`
 }
 
 type Dev_time struct {
-	Year   uint8 `json:"单模2电压"`
-	Month  uint8 `json:"单模2电压"`
-	Day    uint8 `json:"单模2电压"`
-	Hour   uint8 `json:"单模2电压"`
-	Miunte uint8 `json:"单模2电压"`
-	Second uint8 `json:"单模2电压"`
+	Year   uint8 `json:"年"`
+	Month  uint8 `json:"月"`
+	Day    uint8 `json:"日"`
+	Hour   uint8 `json:"时"`
+	Miunte uint8 `json:"分"`
+	Second uint8 `json:"秒"`
 }
 
 type Dev_time_mon struct {
-	Sys_time Dev_time `json:"单模2电压"`
+	Sys_time Dev_time `gorm:"embedded" json:"设备时间"`
 }
 
 type Nano_laser_mon struct {
 	HeadA     uint8
 	HeadB     uint8
-	Mon_laser Dev_Laser_status    `gorm:"embedded"`
-	Mon_cur   Dev_cur_mon         `gorm:"embedded"`
-	Mon_vol   Dev_vol_mon         `gorm:"embedded"`
-	Mon_temp  Dev_temperature_mon `gorm:"embedded"`
-	Mon_tcm   Dev_tcm_mon         `gorm:"embedded"`
-	Mon_seed  Dev_seed_mon        `gorm:"embedded"`
-	Mon_alarm Dev_alarm_mon       `gorm:"embedded"`
-	Mon_fpga  Dev_fpga_mon        `gorm:"embedded"`
-	Mon_time  Dev_time            `gorm:"embedded"`
+	Mon_laser Dev_Laser_status    `json:"激光器状态监测" gorm:"embedded"`
+	Mon_cur   Dev_cur_mon         `json:"激光器电流监测" gorm:"embedded"`
+	Mon_vol   Dev_vol_mon         `json:"激光器电压监测" gorm:"embedded"`
+	Mon_temp  Dev_temperature_mon `json:"激光器温度监测" gorm:"embedded"`
+	Mon_tcm   Dev_tcm_mon         `json:"激光器温控板监测" gorm:"embedded"`
+	Mon_seed  Dev_seed_mon        `json:"激光器种子模块监测" gorm:"embedded"`
+	Mon_alarm Dev_alarm_mon       `json:"激光器告警监测" gorm:"embedded"`
+	Mon_fpga  Dev_fpga_mon        `json:"激光器FPGA寄存器监测" gorm:"embedded"`
+	Mon_time  Dev_time            `json:"激光器时间监测" gorm:"embedded"`
 }
 
 //------------------------------------存储结构体-------------------------------------//
 type Product_info struct {
-	Model           [20]uint8 `gorm:"-"` //sn号码
-	SN              [20]uint8 `gorm:"-"` //sn号码
-	PN              [20]uint8 `gorm:"-"` //sn号码
-	Hardware_bate   [5]uint8  `gorm:"-"` //硬件版本号
-	Mcu_vision      uint8     //mcu版本号
-	Fpga_vision     uint16    //fpga 版本号
-	Storage_cnt     uint16
-	Record_time     Dev_time //此表更新时间
-	Activation_time Dev_time //激活时间
-	Deadline_time   Dev_time //失效时间
+	Model           [20]uint8 `gorm:"-"`      //sn号码
+	SN              [20]uint8 `gorm:"-"`      //sn号码
+	PN              [20]uint8 `gorm:"-"`      //sn号码
+	Hardware_bate   [5]uint8  `gorm:"-"`      //硬件版本号
+	Mcu_vision      uint8     `json:"mcu版本"`  //mcu版本号
+	Fpga_vision     uint16    `json:"fpga版本"` //fpga 版本号
+	Storage_cnt     uint16    `json:"存储次数"`
+	Record_time     Dev_time  `json:"记录次数" gorm:"embedded"` //此表更新时间
+	Activation_time Dev_time  `json:"激活时间" gorm:"embedded"` //激活时间
+	Deadline_time   Dev_time  `json:"失效时间" gorm:"embedded"` //失效时间
 }
 
 //标志位
 
 type Sys_conf_check struct {
-	IsLock      uint8 //锁机标志位
-	Unlock_time int32 //解锁次数
-	IsActive    uint8
-	IsOverdue   uint8 //超期
-	IsUpdate    uint8 //升级
-	IsFactory   uint8 //出厂
+	IsLock      uint8 `json:"锁机"`   //锁机标志位
+	Unlock_time int32 `json:"锁机次数"` //解锁次数
+	IsActive    uint8 `json:"激活状态"`
+	IsOverdue   uint8 `json:"超期"`  //超期
+	IsUpdate    uint8 `json:"升级"`  //升级
+	IsFactory   uint8 `json:"初始化"` //出厂
 }
 
 //种子参数
 type Seed_param struct {
-	Seed_board_type uint8
-	Width           uint16
-	Freq            uint16
-	Power_level     uint16
-	Trigger_mode    uint8
-	Temp            float32
+	Seed_board_type uint8   `json:"种子板类型"`
+	Width           uint16  `json:"脉宽"`
+	Freq            uint16  `json:"频率"`
+	Power_level     uint16  `json:"功率"`
+	Trigger_mode    uint8   `json:"触发模式"`
+	Temp            float32 `json:"温度"`
 }
 
 //FPGA 参数
@@ -237,85 +238,88 @@ type Seed_param struct {
 // };
 
 type PD_param struct {
-	Freq_ref    [3]float32 `gorm:"-"`
-	Protect_ref [2]float32 `gorm:"-"`
+	Freq_ref    [3]float32 `json:"测频阈值" gorm:"-"`
+	Protect_ref [2]float32 `json:"保护阈值" gorm:"-"`
 }
 
 type Temp_param struct {
-	Ld_temp      [2]float32 `gorm:"-"`
-	Ld_volt_temp [2]float32 `gorm:"-"`
-	Tcm_temp     float32
-	Seed_temp    float32
+	Ld_temp      [2]float32 `json:"单模设定温度" gorm:"-"`
+	Ld_volt_temp [2]float32 `json:"tcm过温阈值" gorm:"-"`
+	Tcm_temp     float32    `json:"tcm设定温度"`
+	Seed_temp    float32    `json:"种子温度"`
 }
 
 type PID struct {
-	Set              float32
-	Actual           float32
-	Err              float32
-	Err_last         float32
-	Kp, Ki, Kd, Kout float32
-	Voltage          float32
-	Integral         float32
-	Limit_max        float32
-	Limit_min        float32
+	Set       float32 `json:"板内pid设定值"`
+	Actual    float32 `json:"板内pid实际值"`
+	Err       float32 `json:"板内pid误差"`
+	Err_last  float32 `json:"板内pid历史误差"`
+	Kp        float32 `json:"板内pid值-p"`
+	Ki        float32 `json:"板内pid值-i"`
+	Kd        float32 `json:"板内pid值-d"`
+	Kout      float32 `json:"板内pid值-out"`
+	Voltage   float32 `json:"板内pid值-电压"`
+	Integral  float32 `json:"板内pid值-积分值"`
+	Limit_max float32 `json:"板内pid值-最大限定"`
+	Limit_min float32 `json:"板内pid值-最小限定"`
 }
 
 //温控模块控制
 
 type Tcm_control_param struct {
-	Pwm_duty      float32
-	Tcm_control_p float32
-	Tcm_control_i float32
-	Tcm_control_d float32
-	Pid           PID
+	Pwm_duty      float32 `json:"占空比"`
+	Tcm_control_p float32 `json:"温控模块-p"`
+	Tcm_control_i float32 `json:"温控模块-i"`
+	Tcm_control_d float32 `json:"温控模块-d"`
+	Pid           PID     `json:"板内温控模块" gorm:"embedded"`
 }
 
 type Cur_param struct {
-	Single_cur   [2]float32 `gorm:"-"`
-	Tcm_oven_cur float32
-	Seed_cur     float32
-	Ap_inner_cur float32
-	Apm_max_cur  float32
+	Single_cur   [2]float32 `json:"单模电流" gorm:"-"`
+	Tcm_oven_cur float32    `json:"过温"`
+	Seed_cur     float32    `json:"种子电流"`
+	Ap_inner_cur float32    `json:"预放默认电流"`
+	Apm_max_cur  float32    `json:"主放默认电流"`
 }
 
 type Mon_limit_param struct {
 	//阈值
 
-	Vol_limit_max [10]float32 `gorm:"-"`
+	Vol_limit_max [10]float32 `json:"电压限定高" gorm:"-"`
 
-	Vol_limit_min [10]float32 `gorm:"-"`
+	Vol_limit_min [10]float32 `json:"电压限定低" gorm:"-"`
 
-	Cur_limit_max [10]float32 `gorm:"-"`
+	Cur_limit_max [10]float32 `json:"电流限定高" gorm:"-"`
 
-	Cur_limit_min [10]float32 `gorm:"-"`
+	Cur_limit_min [10]float32 `json:"电流限定低" gorm:"-"`
 
-	Temp_limit_max [10]float32 `gorm:"-"`
+	Temp_limit_max [10]float32 `json:"温度限定高" gorm:"-"`
 
-	Temp_limit_min [10]float32 `gorm:"-"`
+	Temp_limit_min [10]float32 `json:"温度限定低" gorm:"-"`
 
 	//四组校准k值
 
-	Power_k    [16]float32 `gorm:"-"`
-	Fpga_thr   [40]uint8
-	Alarm_mask uint64
+	Power_k    [16]float32 `json:"三次项校准参数" gorm:"-"`
+	Fpga_thr   [40]uint8   `json:"一次项校准参数" gorm:"-"`
+	Alarm_mask uint64      `json:"告警屏蔽位"`
 }
 
 //存储合集
 
 type Sys_init_param_struct struct {
-	HeadA      uint8
-	HeadB      uint8
-	Pro_info   Product_info
-	Seed_param Seed_param
-	Sys_cc     Sys_conf_check
+	HeadA      uint8          `json:"包头1"`
+	HeadB      uint8          `json:"包头2"`
+	Pro_info   Product_info   `json:"产品信息"  gorm:"embedded"`
+	Seed_param Seed_param     `json:"种子信息"  gorm:"embedded"`
+	Sys_cc     Sys_conf_check `json:"设备标志位"  gorm:"embedded"`
 	//public fpga_init_param fpga_init_p;
-	Pd_param  PD_param
-	Temp      Temp_param
-	Tcm       Tcm_control_param
-	Cur       Cur_param
-	Mon_limit Mon_limit_param
-	CRCH      uint8
-	CRCL      uint8
+	Pd_param  PD_param          `json:"pd参数"  gorm:"embedded"`
+	Temp      Temp_param        `json:"温度参数"  gorm:"embedded"`
+	Tcm       Tcm_control_param `json:"温控参数"  gorm:"embedded"`
+	Cur       Cur_param         `json:"电流参数"  gorm:"embedded"`
+	Mon_limit Mon_limit_param   `json:"监控限定值"  gorm:"embedded"`
+	CRCH      uint8             `json:"校验1"  gorm:"embedded"`
+	CRCL      uint8             `json:"校验2"`
 }
 
 // type Dev_info struct {
@@ -331,8 +335,8 @@ type Sys_init_param_struct struct {
 //采集设备+激光器类型
 
 type Dev_capture_packed struct {
-	Cap_info Capture_info          `gorm:"embedded"` //老化板卡
-	Sys_para Sys_init_param_struct `gorm:"embedded"` //老化板卡
-	Sys_mon  Nano_laser_mon        `gorm:"embedded"` //采集数据
+	Cap_info Capture_info          `json:"采集设备信息" gorm:"embedded"` //老化板卡
+	Sys_para Sys_init_param_struct `json:"系统参数" gorm:"embedded"`   //老化板卡
+	Sys_mon  Nano_laser_mon        `json:"系统监控" gorm:"embedded"`   //采集数据
 
 }

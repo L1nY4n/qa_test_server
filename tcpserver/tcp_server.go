@@ -7,12 +7,13 @@ import (
 	"fmt"
 	"net"
 	"qa_test_server/device"
+	"time"
 )
 
 var Buf [2048]byte
 
 func Tcpserver() {
-	go proxyStart(9999, 7777)
+	go proxyStart(4003, 7777)
 	fmt.Println("tcp server test---lf 2022-4-28")
 	listerer, err := net.Listen("tcp", "0.0.0.0:4001")
 	defer listerer.Close()
@@ -49,11 +50,15 @@ func process(conn net.Conn) {
 		//新建二进制流
 		buf_w := &bytes.Buffer{}
 		//读入六
+		//var time [4]uint64 = 0
+
+		buf_w.Write(Buf[:8])
 		buf_w.Write(Buf[:n])
 		//写入到结构体
 		binary.Read(buf_w, binary.LittleEndian, &device.Dev_cap)
-		fmt.Printf("Dev_cap= %+v\n", device.Dev_cap)
-		fmt.Printf("##############################")
+		device.Dev_cap.Cap_info.Time = uint64(time.Now().Unix())
+		//fmt.Printf("Dev_cap= %+v\n", device.Dev_cap)
+		//fmt.Printf("##############################")
 		//fmt.Printf("msg %d\n", device.Dev_cap.Sys_para.Seed_param.Freq)
 		//device.DB.Debug().Create(&device.Dev_cap)
 		if _, err = conn.Write(Buf[:n]); err != nil {
