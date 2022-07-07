@@ -12,14 +12,14 @@ type Manager struct {
 	devices sync.Map
 }
 
-func Update(m *Manager, device Device) {
+func (m *Manager)Update(device Device) {
 	// todo 是否新增，通知上线等
 	m.Set(device.Sn, &device)
 }
 
 func (m *Manager) List() []Device {
 	var devicelist []Device
-	m.devices.Range(func(key, dev interface{}) bool {
+	m.devices.Range(func(_, dev interface{}) bool {
 		device := dev.(*Device)
 		devicelist = append(devicelist, *device)
 		return true

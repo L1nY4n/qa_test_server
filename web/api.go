@@ -3,7 +3,10 @@ package web
 import (
 	"fmt"
 	"math/rand"
+	"qa_test_server/device"
+	"sort"
 	"strconv"
+	"strings"
 	"time"
 
 	"github.com/gin-gonic/gin"
@@ -39,6 +42,18 @@ func sysInfo(c *gin.Context) {
 
 // 设备列表
 func deviceList(c *gin.Context) {
+
+		manager := &device.ManagerGlabal
+		list := manager.List()
+		// sn 排序
+		sort.Slice(list, func(i, j int) bool {
+			return strings.Compare(list[i].Sn, list[j].Sn) < 0
+		})
+		c.JSON(200, gin.H{
+			"data":    list,
+			"success": true,
+		})
+	
 }
 
 // 查询单个设备的信息

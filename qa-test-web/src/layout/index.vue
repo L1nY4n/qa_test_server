@@ -35,15 +35,16 @@
 <script lang="ts" setup>
 import { menus } from '@/router/routes'
 import { defineComponent, ref, h } from 'vue';
-import { useRouter, useRoute, RouterLink } from 'vue-router'
+import { useRouter, useRoute, RouterLink, RouteRecordName } from 'vue-router'
 import { MailOutlined, AppstoreOutlined, SettingOutlined,MenuFoldOutlined,MenuUnfoldOutlined } from '@ant-design/icons-vue';
 const selectedKeys = ref<string[]>(['1'])
 const collapsed = ref<boolean>(false)
 const menuOptions = menus
 const router = useRouter()
 const currentRoute = useRoute();
-const onMenuClick = ({ key }) => {
-  if (key === currentRoute.name) return;
+const onMenuClick = ( key: RouteRecordName | URL | undefined |any ) => {
+  
+  if (key  === currentRoute.name) return;
   if (/http(s)?:/.test(key)) {
     window.open(key);
   } else {
