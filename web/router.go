@@ -3,7 +3,8 @@ package web
 import (
 	"net/http"
 	"qa_test_server/device"
-
+	"sort"
+	"strings"
 	"github.com/gin-gonic/gin"
 )
 
@@ -18,6 +19,12 @@ func Router(r *gin.Engine) {
 	r.GET("/", func(c *gin.Context) {
 		c.HTML(http.StatusOK, "index.html", nil)
 	})
+
+	device_route := r.Group("/device")
+	{
+		device_route.GET("/list", devices)
+	}
+
 
 	r.GET("/test", func(c *gin.Context) {
 		// c.JSON：返回JSON格式的数据
@@ -54,5 +61,19 @@ func Router(r *gin.Engine) {
 				"test": 1,
 			})
 		})
+	})
+}
+
+
+func devices(c *gin.Context) {
+	manager := &device.ManagerGlabal
+	list := manager.List()
+	// sn 排序
+	sort.Slice(list, func(i, j int) bool {
+		return strings.Compare(list[i].Sn, list[j].Sn) < 0
+	})
+	c.JSON(200, gin.H{
+		"data":    list,
+		"success": true,
 	})
 }
