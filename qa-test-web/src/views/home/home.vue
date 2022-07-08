@@ -1,27 +1,36 @@
 <template>
-<h1>Home</h1>
+   <div class="list">
+      <DeviceVue v-for="dev in state.list" :info="dev" />
+   </div>
 </template>
 
 
 <script setup lang="ts">
+import * as API from '@/api'
+import { Device } from '@/types/api';
+import DeviceVue from '@/components/Device.vue';
+import { onMounted, reactive } from 'vue'
+
+let state = reactive<{ list: Device[] }>({ list: [] })
+
+const get_list = async () => {
+   state.list = await API.device.list()
+}
+
+onMounted(() => {
+   get_list()
+   setInterval(get_list, 10000);
+})
+
 
 </script>
-
-
-<style scoped>
-a {
-  color: #42b983;
-}
-
-label {
-  margin: 0 0.5em;
-  font-weight: bold;
-}
-
-code {
-  background-color: #eee;
-  padding: 2px 4px;
-  border-radius: 4px;
-  color: #304455;
+<style lang="less">
+.list {
+   display: grid;
+	 grid-template-columns: repeat(auto-fill, minmax(200px, 320px));
+	 grid-gap: 8px;
+   height: 100%;
+   overflow: auto;
 }
 </style>
+

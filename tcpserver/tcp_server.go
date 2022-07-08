@@ -19,7 +19,6 @@ func Tcpserver() {
 		return
 	}
 	defer listerer.Close()
-	
 	for {
 		//等待连接
 		conn, err := listerer.Accept()

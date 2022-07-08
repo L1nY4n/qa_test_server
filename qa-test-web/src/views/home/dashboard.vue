@@ -1,34 +1,4 @@
 <template>
-   <h1>设备列表</h1>
-   <div class="list">
-      <DeviceVue v-for="dev in state.list" :info="dev" />
-   </div>
+   <h1>dashboard</h1>
+  
 </template>
-
-
-<script setup lang="ts">
-import * as API from '@/api'
-import { Device } from '@/types/api';
-import DeviceVue from '@/components/Device.vue';
-import { onMounted, reactive } from 'vue'
-
-let state = reactive<{ list: Device[] }>({ list: [] })
-
-const get_list = async () => {
-   state.list = await API.device.list()
-}
-
-onMounted(() => {
-   get_list()
-   setInterval(get_list, 10000);
-})
-
-
-</script>
-<style lang="less">
-.list {
-   display: flex;
-   gap: 10px;
-}
-</style>
-
