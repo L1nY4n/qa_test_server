@@ -17,7 +17,7 @@ func Sql_op() {
 	var err error
 	DB, err = gorm.Open(mysql.Open(dsn), &gorm.Config{
 
-		//DisableForeignKeyConstraintWhenMigrating: true,
+		DisableForeignKeyConstraintWhenMigrating: true,
 	})
 	if err != nil {
 		panic("连接服务器失败")

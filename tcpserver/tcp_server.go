@@ -34,7 +34,7 @@ func Tcpserver() {
 
 }
 
-var cont uint32 = 1
+//var cont uint32 = 1
 
 func process(conn net.Conn) {
 	defer conn.Close()
@@ -55,10 +55,15 @@ func process(conn net.Conn) {
 		buf_w.Write(Buf[:8])
 		buf_w.Write(Buf[:n])
 		//写入到结构体
-		binary.Read(buf_w, binary.LittleEndian, &device.Dev_cap)
-		device.Dev_cap.Cap_info.Time = uint64(time.Now().Unix())
-		//fmt.Printf("Dev_cap= %+v\n", device.Dev_cap)
-		//fmt.Printf("##############################")
+
+
+		var temp device.Dev_capture_packed
+		binary.Read(buf_w, binary.LittleEndian, &temp)
+		temp.Cap_info.Time = uint64(time.Now().Unix())
+		fmt.Printf("Dev_cap= %+v\n", temp)
+		dev := device.Decode(temp)
+		device.ManagerGlabal.Update(dev)
+		fmt.Printf("##############################")
 		//fmt.Printf("msg %d\n", device.Dev_cap.Sys_para.Seed_param.Freq)
 		//device.DB.Debug().Create(&device.Dev_cap)
 		if _, err = conn.Write(Buf[:n]); err != nil {
