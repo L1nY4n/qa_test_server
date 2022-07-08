@@ -5,4 +5,4 @@ pnpm build
 
 rm -rf ../templates/assets
 
-cp -rf dist/* ../templates/*
+cp -rf dist/* ../templates/
