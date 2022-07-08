@@ -15,3 +15,8 @@
 # vendor/
 qa_test_server
 tmp/
+
+# vue 工程打包的文件
+templates/index.html
+templates/assets
+templatesfavicon.ico

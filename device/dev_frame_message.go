@@ -20,7 +20,7 @@ func Sql_op() {
 		DisableForeignKeyConstraintWhenMigrating: true,
 	})
 	if err != nil {
-		panic("连接服务器失败")
+		fmt.Println("连接服务器失败")
 	}
 
 	fmt.Println("连接服务器成功")

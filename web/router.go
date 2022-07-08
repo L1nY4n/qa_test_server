@@ -12,7 +12,8 @@ func Router(r *gin.Engine) {
 	// 指定模板的位置
 	r.LoadHTMLGlob("templates/*.html")
 	// 静态文件映射
-	r.StaticFS("/assets", http.Dir("assets"))
+	r.StaticFS("/assets", http.Dir("templates/assets"))
+	r.Static("favicon.ico",".templates/favicon.ico")
 
 	// 根路径加载 index 模板，web 页面的入口
 	r.GET("/", func(c *gin.Context) {

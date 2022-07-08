@@ -42,13 +42,13 @@ const collapsed = ref<boolean>(false)
 const menuOptions = menus
 const router = useRouter()
 const currentRoute = useRoute();
-const onMenuClick = ( key: RouteRecordName | URL | undefined |any ) => {
-  
+const onMenuClick = (itme : any  ) => {
+   const key = itme.key
   if (key  === currentRoute.name) return;
   if (/http(s)?:/.test(key)) {
     window.open(key);
   } else {
-    console.log(key)
+   
     router.push({ name: key}).catch(err=>{
       console.log(err)
     });

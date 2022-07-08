@@ -1,6 +1,4 @@
 package tcpserver
-
-import "C"
 import (
 	"bytes"
 	"encoding/binary"

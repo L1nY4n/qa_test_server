@@ -25,13 +25,13 @@ instance.interceptors.request.use(
 instance.interceptors.response.use(
     (response) => {
         const { data, config } = response
-        const { success, msg } = data
+        const { success, data: d } = data
         if (success) {
-            return msg
+            return d
         } else {
             return Promise.reject(
                 '请求异常:' +
-                JSON.stringify({ url: config.url, status, msg }) || 'Error'
+                JSON.stringify({ url: config.url, status, d }) || 'Error'
             )
         }
     },
