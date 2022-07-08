@@ -14,12 +14,13 @@ import { onMounted, reactive } from 'vue'
 
 let state = reactive<{ list: Device[] }>({ list: [] })
 
+const get_list = async () => {
+   state.list = await API.device.list()
+}
+
 onMounted(() => {
-   setInterval(async () => {
-      state.list = await API.device.list()
-
-   }, 5000)
-
+   get_list()
+   setInterval(get_list, 10000);
 })
 
 
