@@ -47,12 +47,18 @@ func Router(r *gin.Engine) {
 	r.GET("/info", func(c *gin.Context) {
 
 		c.JSON(http.StatusOK, device.Dev_cap)
+		// c.HTML(http.StatusOK, "device.html", gin.H{
+		// 	"capture":  (string)(device.Dev_cap.Sys_para.Pro_info.SN[:20]),
+		// 	"sys_mon":  device.Dev_cap.Sys_mon,
+		// 	"sys_para": device.Dev_cap.Sys_para,
+		// })
 
-		//fmt.Printf("receive from client, data: %v\n", string(buf[:10]))
-		r.GET("/hello", func(c *gin.Context) {
-			c.HTML(http.StatusOK, "hello.html", gin.H{
-				"test": 1,
-			})
+	})
+
+	//fmt.Printf("receive from client, data: %v\n", string(buf[:10]))
+	r.GET("/hello", func(c *gin.Context) {
+		c.HTML(http.StatusOK, "hello.html", gin.H{
+			"test": 1,
 		})
 	})
 }
