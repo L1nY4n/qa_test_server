@@ -1,8 +1,10 @@
 package web
 
 import (
+	"encoding/json"
 	"net/http"
 	"qa_test_server/model"
+
 	"github.com/gin-gonic/gin"
 )
 
@@ -12,21 +14,29 @@ func Router(r *gin.Engine) {
 	r.LoadHTMLGlob("templates/*.html")
 	// 静态文件映射
 	r.StaticFS("/assets", http.Dir("templates/assets"))
-	r.Static("favicon.ico",".templates/favicon.ico")
+	r.Static("favicon.ico", ".templates/favicon.ico")
 
 	// 根路径加载 index 模板，web 页面的入口
 	r.GET("/", func(c *gin.Context) {
 		c.HTML(http.StatusOK, "index.html", nil)
 	})
 
-
-
-
 	r.GET("/test", func(c *gin.Context) {
 		// c.JSON：返回JSON格式的数据
 		c.HTML(http.StatusOK, "hello.html", gin.H{ // H是一个开箱即用的map
 			"message": "hello world!",
 		})
+	})
+
+	// ws  推送测试
+	r.GET("/test_ws", func(c *gin.Context) {
+		dev := model.Device{}
+		go func() {
+			if d, err := json.Marshal(dev); err == nil {
+				WsManager.Groupbroadcast("device_upload", d)
+			}
+		}()
+		c.JSON(http.StatusOK, "ok")
 	})
 
 	r.GET("/dy", func(c *gin.Context) {
@@ -51,8 +61,6 @@ func Router(r *gin.Engine) {
 
 		c.JSON(http.StatusOK, model.Dev_capture_packed{})
 
-
-
 	})
 
 	//fmt.Printf("receive from client, data: %v\n", string(buf[:10]))
@@ -62,7 +70,6 @@ func Router(r *gin.Engine) {
 		})
 	})
 }
-
 
 func Cors() gin.HandlerFunc {
 	return func(c *gin.Context) {
@@ -82,4 +89,3 @@ func Cors() gin.HandlerFunc {
 		c.Next()
 	}
 }
-

@@ -1,11 +1,11 @@
 package web
 
 import (
-	"log"
-	"net/http"
 	"github.com/gin-gonic/gin"
 	"github.com/gorilla/websocket"
 	uuid "github.com/satori/go.uuid"
+	"log"
+	"net/http"
 )
 
 // WsManager WebSocket 管理器
@@ -59,7 +59,7 @@ func (c *wsClient) Write() {
 
 	for {
 		select {
-		case message, ok := <- c.Send:
+		case message, ok := <-c.Send:
 			if !ok {
 				c.Socket.WriteMessage(websocket.CloseMessage, []byte{})
 				return
@@ -131,7 +131,6 @@ func (manager *clientManager) RegisterClient(ctx *gin.Context) {
 		Socket: conn,
 		Send:   make(chan []byte, 1024),
 	}
-
 	manager.register <- client
 	go client.Read()
 	go client.Write()
@@ -146,20 +145,14 @@ func (manager *clientManager) Groupbroadcast(group string, message []byte) {
 	manager.broadcast <- data
 }
 
-
-
-
-func WsRoute(r *gin.Engine){
+func WsRoute(r *gin.Engine) {
 	stream_route := r.Group("/realtime")
 	{
 		stream_route.GET("/register/:channel", Register)
 	}
 }
 
-
 //  websocket 注册
 func Register(c *gin.Context) {
 	WsManager.RegisterClient(c)
 }
-
-

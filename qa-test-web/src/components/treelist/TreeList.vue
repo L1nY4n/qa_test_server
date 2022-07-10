@@ -1,6 +1,6 @@
 <template>
     <ul class="tree">
-        <Item  :title="'fdfad'" :data="data"></Item>
+        <Item  :title="'设备属性'" :data="data"></Item>
     </ul>
 </template>
 <script setup lang="ts">

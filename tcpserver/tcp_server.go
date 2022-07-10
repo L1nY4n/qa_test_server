@@ -10,7 +10,6 @@ import (
 	"qa_test_server/manager"
 	"qa_test_server/model"
 	"qa_test_server/web"
-
 )
 
 func Tcpserver() {
@@ -55,15 +54,17 @@ func process(conn net.Conn) {
 		buf_w.Write(buffer[:8])
 		buf_w.Write(buffer[:n])
 
-		var  temp model.Dev_capture_packed
+		var temp model.Dev_capture_packed
 		binary.Read(buf_w, binary.LittleEndian, &temp)
-		fmt.Printf("Dev_cap= %+v\n", temp)
+		//fmt.Printf("Dev_cap= %+v\n", temp)
 		dev := model.Decode(temp)
 		manager.ManagerGlabal.Update(dev)
-		go func(){if d,err :=json.Marshal(dev); err == nil {
-			web.WsManager.Groupbroadcast("",d)
-	}}()
-		fmt.Printf("##############################")
+		go func() {
+			if d, err := json.Marshal(dev); err == nil {
+				web.WsManager.Groupbroadcast("device_upload", d)
+			}
+		}()
+		//fmt.Printf("##############################")
 
 		//fmt.Printf("msg %d\n", device.Dev_cap.Sys_para.Seed_param.Freq)
 		//device.DB.Debug().Create(&device.Dev_cap)

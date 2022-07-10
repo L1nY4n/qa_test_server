@@ -11,11 +11,11 @@ export const menus: RouteRecordRaw[] = [
     redirect: 'home',
     children: [
       {
-        name: 'home',
-        path: 'home',
+        name: 'device',
+        path: 'device',
         component: () => import('@/views/home/home.vue'),
         meta: {
-          title: 'home',
+          title: 'device',
         }
       },
       {
