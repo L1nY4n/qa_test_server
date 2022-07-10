@@ -27,4 +27,23 @@ pnpm i
 
 # 开发模式 
 pnpm  dev
+
+#  前端编译打包，编译完成后得到 `dist` 文件夹，复制到 templates目录下作为 gin 的模板
+pnpm build
+
+```
+
+
+## git 相关操作
+
+```
+# 拉取远端的更新并且合并到本地
+
+git fetch upstream
+
+# 合并到本地分支，先提交本地的改动，再合并代码 
+git merge upstream/main 
+
+# 解决冲突后提交并推送
+commit  push
 ```
