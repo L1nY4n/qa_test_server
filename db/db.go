@@ -1,13 +1,11 @@
-package device
+package db
 
 import (
 	"fmt"
-
+	"qa_test_server/model"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 )
-
-var Dev_cap = Dev_capture_packed{}
 
 var DB *gorm.DB
 
@@ -24,7 +22,7 @@ func Sql_op() {
 	}
 
 	fmt.Println("连接服务器成功")
-	DB.Debug().AutoMigrate(&Dev_capture_packed{})
+	DB.Debug().AutoMigrate(model.Dev_capture_packed{})
 	// SetMaxIdleConns 设置空闲连接池中连接的最大数量
 
 	// SetMaxOpenConns 设置打开数据库连接的最大数量。

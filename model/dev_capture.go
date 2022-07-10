@@ -4,7 +4,7 @@
 	2.所连接的设备类型
 */
 
-package device
+package model
 
 /*板卡信息*/
 //数据来源于上位机

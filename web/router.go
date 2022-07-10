@@ -2,13 +2,13 @@ package web
 
 import (
 	"net/http"
-	"qa_test_server/device"
+	"qa_test_server/model"
 
 	"github.com/gin-gonic/gin"
 )
 
 func Router(r *gin.Engine) {
-   r.Use(Cors())
+
 	// 指定模板的位置
 	r.LoadHTMLGlob("templates/*.html")
 	// 静态文件映射
@@ -49,7 +49,7 @@ func Router(r *gin.Engine) {
 	})
 	r.GET("/info", func(c *gin.Context) {
 
-		c.JSON(http.StatusOK, device.Dev_cap)
+		c.JSON(http.StatusOK, model.Dev_capture_packed{})
 
 		//fmt.Printf("receive from client, data: %v\n", string(buf[:10]))
 		r.GET("/hello", func(c *gin.Context) {

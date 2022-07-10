@@ -1,4 +1,4 @@
-package device
+package model
 
 // type mon_packed struct {
 // 	Title   string

@@ -3,7 +3,7 @@ package web
 import (
 	"fmt"
 	"math/rand"
-	"qa_test_server/device"
+	"qa_test_server/manager"
 	"sort"
 	"strconv"
 	"strings"
@@ -43,7 +43,7 @@ func sysInfo(c *gin.Context) {
 // 设备列表
 func deviceList(c *gin.Context) {
 
-		manager := &device.ManagerGlabal
+		manager := &manager.ManagerGlabal
 		list := manager.List()
 		// sn 排序
 		sort.Slice(list, func(i, j int) bool {

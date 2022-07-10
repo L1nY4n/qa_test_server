@@ -1,12 +1,15 @@
 package tcpserver
 
-import "C"
 import (
 	"bytes"
 	"encoding/binary"
+	"encoding/json"
+
 	"fmt"
 	"net"
-	"qa_test_server/device"
+	"qa_test_server/manager"
+	"qa_test_server/model"
+	"qa_test_server/web"
 )
 
 var Buf [2048]byte
@@ -51,11 +54,14 @@ func process(conn net.Conn) {
 		//读入六
 		buf_w.Write(Buf[:n])
 		//写入到结构体
-		var  temp device.Dev_capture_packed
+		var  temp model.Dev_capture_packed
 		binary.Read(buf_w, binary.LittleEndian, &temp)
 		fmt.Printf("Dev_cap= %+v\n", temp)
-		dev := device.Decode(temp)
-		device.ManagerGlabal.Update(dev)
+		dev := model.Decode(temp)
+		manager.ManagerGlabal.Update(dev)
+		go func(){if d,err :=json.Marshal(dev); err == nil {
+			web.WsManager.Groupbroadcast("",d)
+	}}()
 		fmt.Printf("##############################")
 		//fmt.Printf("msg %d\n", device.Dev_cap.Sys_para.Seed_param.Freq)
 		//device.DB.Debug().Create(&device.Dev_cap)
