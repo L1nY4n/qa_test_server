@@ -24,7 +24,7 @@
         <menu-unfold-outlined v-if="collapsed" class="trigger" @click="() => (collapsed = !collapsed)" />
         <menu-fold-outlined v-else class="trigger" @click="() => (collapsed = !collapsed)" />
       </a-layout-header>
-      <a-layout-content :style="{ margin: '8px', padding: '6px', background: '#fff', height: 'calc(100vh - 80px)' }">
+      <a-layout-content class="main-content">
         <router-view #="{ Component }">
           <component :is="Component" />
         </router-view>
@@ -36,20 +36,20 @@
 import { menus } from '@/router/routes'
 import { defineComponent, ref, h } from 'vue';
 import { useRouter, useRoute, RouterLink, RouteRecordName } from 'vue-router'
-import { MailOutlined, AppstoreOutlined, SettingOutlined,MenuFoldOutlined,MenuUnfoldOutlined } from '@ant-design/icons-vue';
+import { MailOutlined, AppstoreOutlined, SettingOutlined, MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons-vue';
 const selectedKeys = ref<string[]>(['1'])
 const collapsed = ref<boolean>(false)
 const menuOptions = menus
 const router = useRouter()
 const currentRoute = useRoute();
-const onMenuClick = ( key: RouteRecordName | URL | undefined |any ) => {
-  
-  if (key  === currentRoute.name) return;
+const onMenuClick = (itme: any) => {
+  const key = itme.key
+  if (key === currentRoute.name) return;
   if (/http(s)?:/.test(key)) {
     window.open(key);
   } else {
-    console.log(key)
-    router.push({ name: key}).catch(err=>{
+
+    router.push({ name: key }).catch(err => {
       console.log(err)
     });
   }
@@ -72,5 +72,14 @@ const onMenuClick = ( key: RouteRecordName | URL | undefined |any ) => {
   height: 32px;
   background: rgba(255, 255, 255, 0.3);
   margin: 16px;
+}
+
+.main-content {
+  position: relative;
+  margin: 8px;
+  padding: 6px;
+  background: #15202e;
+  height: calc(100vh - 80px);
+  color: #fff
 }
 </style>

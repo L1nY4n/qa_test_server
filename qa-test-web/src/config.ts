@@ -1,5 +1,4 @@
 const { hostname, port } = window.location;
-console.log( import.meta.env.DEV,import.meta )
 const url =
   import.meta.env.DEV ? import.meta.env.VITE_APP_BASE_URL:`${hostname}:${port}`
 export const base_url = `http://${url}`

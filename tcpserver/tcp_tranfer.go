@@ -12,50 +12,37 @@ import (
 func proxyStart(fromport, toport int) {
 
 	fmt.Println("tcp transfer test---lf 2022-5-10")
+
+	//建立tcp服务器
 	proxyaddr := fmt.Sprintf(":%d", fromport)
 	proxylistener, err := net.Listen("tcp", proxyaddr)
 	if err != nil {
-		fmt.Println("Unable to listen on: %s, error: %s\n", proxyaddr, err.Error())
+		fmt.Printf("Unable to listen on: %s, error: %s\n", proxyaddr, err.Error())
 		//	os.Exit(1)
 	}
 	defer proxylistener.Close()
 
+	targetaddr := fmt.Sprintf(":%d", toport)
+	//targetaddr := fmt.Sprintf("localhost:%d", toport)
+	targetlisterner, err := net.Listen("tcp", targetaddr)
+
+	if err != nil {
+		fmt.Printf("Unable to connect to: %s, error: %s\n", targetaddr, err.Error())
+		//proxyconn.Close()
+		//continue
+	}
+	defer targetlisterner.Close()
+
 	for {
-		proxyconn, err := proxylistener.Accept()
-		if err != nil {
-			fmt.Printf("Unable to accept a request, error: %s\n", err.Error())
+		//建立连接
+		proxyconn, err1 := proxylistener.Accept()
+		targetconn, err2 := targetlisterner.Accept()
+		fmt.Printf("accept...\r\n")
+		if err1 != nil || err2 != nil {
+			fmt.Printf("Unable to accept a request, error: %s,%s", err1.Error(), err2.Error())
 			continue
 		}
-
-		// Read a header firstly in case you could have opportunity to check request
-		// whether to decline or proceed the request
-		//buffer := make([]byte, 1024)
-		// n, err := proxyconn.Read(buffer)
-		// if err != nil {
-		// 	fmt.Printf("Unable to read from input, error: %s\n", err.Error())
-		// 	continue
-		// }
-
-		// TODO
-		// Your choice to make decision based on request header
-		targetaddr := fmt.Sprintf(":%d", toport)
-		//targetaddr := fmt.Sprintf("localhost:%d", toport)
-		targetlisterner, err := net.Listen("tcp", targetaddr)
-		defer proxylistener.Close()
-		if err != nil {
-			fmt.Println("Unable to connect to: %s, error: %s\n", targetaddr, err.Error())
-			//proxyconn.Close()
-			continue
-		}
-		targetconn, err := targetlisterner.Accept()
-		//n, err = targetconn.Write(buffer[:n])
-		if err != nil {
-			fmt.Printf("Unable to write to output, error: %s\n", err.Error())
-			//proxyconn.Close()
-			//targetconn.Close()
-			continue
-		}
-
+		fmt.Printf("init_succeful..\r\n")
 		go proxyRequest(proxyconn, targetconn)
 		go proxyRequest(targetconn, proxyconn)
 
@@ -66,16 +53,16 @@ func proxyStart(fromport, toport int) {
 func proxyRequest(r net.Conn, w net.Conn) {
 	defer r.Close()
 	defer w.Close()
-
-	var buffer = make([]byte, 4096000)
+	fmt.Printf("data....\r\n")
+	var buffer = make([]byte, 40960)
 	for {
 		n, err := r.Read(buffer)
 		if err != nil {
 			fmt.Printf("Unable to read from input, error: %s\n", err.Error())
 			break
 		}
-
-		n, err = w.Write(buffer[:n])
+		fmt.Printf("get_data...%d\r\n", n)
+		_, err = w.Write(buffer[:n])
 		if err != nil {
 			fmt.Printf("Unable to write to output, error: %s\n", err.Error())
 			break

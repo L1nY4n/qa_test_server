@@ -1,9 +1,9 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 import routes from './routes'
 
-const history = createWebHistory()
+const history = createWebHashHistory()
 
-const router = createRouter({ history, routes })
+const router = createRouter({ history, routes})
 
 // Authorize (Make sure that is the first hook.)
 router.beforeEach(to => {
