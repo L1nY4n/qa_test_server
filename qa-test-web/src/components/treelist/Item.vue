@@ -4,7 +4,7 @@
         <ul v-if="Array.isArray(data) || (typeof data === 'object')" v-show="open">
             <Item v-for="(node, index) in data" :title="index" :data="node"></Item>
         </ul>
-         <span v-else>{{data}}</span>
+         <span v-else class="value">{{data}}</span>
     </li>
 </template>
 <script lang="ts">
@@ -16,14 +16,17 @@ export default {
 import { ref } from 'vue'
 
  defineProps<{data: any,title: any}>()
-const open = ref<boolean>(true)
+const open = ref<boolean>(false)
 const toggle = () => {
     open.value = !open.value
 }
 </script>
-<style lang="less">
+<style lang="less" scoped>
 .title{
-    color: rgb(167, 174, 79);
+    color: #e1ca72;
     margin-right: 4px
+}
+.value{
+    color: #74b087;
 }
 </style>
