@@ -59,7 +59,7 @@ func Router(r *gin.Engine) {
 	})
 	r.GET("/info", func(c *gin.Context) {
 
-		c.JSON(http.StatusOK, model.Dev_capture_packed{})
+		c.JSON(http.StatusOK, model.Nano_Dev_capture_packed{})
 
 	})
 
