@@ -3,6 +3,7 @@ package db
 import (
 	"fmt"
 	"qa_test_server/model"
+
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 )
@@ -22,7 +23,7 @@ func Sql_op() {
 	}
 
 	fmt.Println("连接服务器成功")
-	DB.Debug().AutoMigrate(model.Dev_capture_packed{})
+	DB.Debug().AutoMigrate(model.Nano_Dev_capture_packed{})
 	// SetMaxIdleConns 设置空闲连接池中连接的最大数量
 
 	// SetMaxOpenConns 设置打开数据库连接的最大数量。

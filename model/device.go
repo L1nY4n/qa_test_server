@@ -9,13 +9,13 @@ type Device struct {
 	Sn   string
 	Name string
 
-	Packet       Dev_capture_packed
+	Packet       Nano_Dev_capture_packed
 	Last_rx_time time.Time
 	// todo 添加其他需要呈现的字段，从 Dev_capture_packed 结构中解码出来利于呈现
 }
 
 // 从 原始数据中解析出设备的信息内容
-func Decode(packet Dev_capture_packed) Device {
+func Decode(packet Nano_Dev_capture_packed) Device {
 
 	name := strings.Trim(string(packet.Cap_info.Name[:]), "\x00")
 	sn := strings.Trim(string(packet.Sys_para.Pro_info.SN[:]), "\x00")

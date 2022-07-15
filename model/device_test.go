@@ -20,7 +20,7 @@ func TestDecode(t *testing.T) {
 		buffer[i] = byte(b)
 	}
 
-	var temp model.Dev_capture_packed
+	var temp model.Nano_Dev_capture_packed
 	binary.Read(bytes.NewReader(buffer[:]), binary.LittleEndian, &temp)
 	fmt.Printf("Dev_cap= %+v\n", temp)
 

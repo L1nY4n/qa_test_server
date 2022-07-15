@@ -8,7 +8,7 @@ require (
 	gorm.io/gorm v1.23.5
 )
 
-require github.com/satori/go.uuid v1.2.0 // indirect
+require github.com/satori/go.uuid v1.2.0
 
 require (
 	github.com/gin-contrib/sse v0.1.0 // indirect
