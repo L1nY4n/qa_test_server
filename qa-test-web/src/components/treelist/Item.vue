@@ -16,7 +16,7 @@ export default {
 import { ref } from 'vue'
 
  defineProps<{data: any,title: any}>()
-const open = ref<boolean>(false)
+const open = ref<boolean>(true)
 const toggle = () => {
     open.value = !open.value
 }

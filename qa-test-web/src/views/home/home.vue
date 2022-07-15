@@ -16,7 +16,7 @@
 import * as API from '@/api'
 import { Slider, Tag } from 'ant-design-vue'
 import { Device } from '@/types/api';
-import DeviceVue from '@/components/Device.vue';
+import DeviceVue from '@/components/device/Device.vue';
 import CreateWebSocket from "@/utils/ws";
 import { onBeforeUnmount, onMounted, reactive, ref } from 'vue'
 
@@ -69,7 +69,7 @@ webSocketConnect()
 
 onMounted(() => {
    get_list()
-   timer = setInterval(get_list, interval.value * 1000);
+  // timer = setInterval(get_list, interval.value * 1000);
 })
 
 onBeforeUnmount(() => {

@@ -5,7 +5,7 @@
 
 </template>
 <script lang="ts" setup>
-import TreeList from './treelist/TreeList.vue'
+import TreeList from '../treelist/TreeList.vue'
 defineProps<{info: object|any}>()
 </script>
 <style>
