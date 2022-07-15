@@ -1,29 +1,44 @@
 <template>
     <div class="device">
         <header>
-            <div> 
-            <span ref="update_ref" class='update-trigger'></span>
+            <div>
+                <span ref="update_ref" class='update-trigger'></span>
             </div>
 
             <h1 class="sn"> {{ info.Sn }}</h1>
             <h1 class="name">{{ info.Name }}</h1>
-            <div class="geer"> 
-             <Geer />
+            <div class="geer">
+                <Geer />
             </div>
-          
+
         </header>
-       <div class="time">
-        <span>{{collect_time}}</span>
-       </div>
-        <DeviceData :info="info.Packet['系统监控']" />
+        <div class="body">
+            <TimeVue :time="info.Packet['系统监控']['激光器时间监测']" />
+            <TitleCard title="状态监测">
+                <StatusVue :status="info.Packet['系统监控']['激光器状态监测']" />
+            </TitleCard>
+
+            <TitleCard title="电流监测">
+                <DeviceCurrentVue :datas="info.Packet['系统监控']['激光器电流监测']" />
+            </TitleCard>
+
+
+
+        </div>
+
     </div>
 
 </template>
 <script setup lang="ts">
 import { Device } from '@/types/api';
-import { onUpdated, ref,computed } from 'vue';
+import { onUpdated, ref, computed } from 'vue';
 import DeviceData from './DeviceData.vue';
+import TimeVue from './Time.vue'
+import StatusVue from './DeviceStatus.vue';
+import DeviceCurrentVue from './DeviceCurrent.vue';
 import Geer from '@/components/widget/svg/geer.vue'
+import TitleCard from './TitleCard.vue';
+
 const props = defineProps<{ info: Device }>()
 
 const update_ref = ref()
@@ -34,21 +49,14 @@ onUpdated(() => {
 
 })
 
-let collect_time = computed(()=>{
-     const p = props.info.Packet as any
-     const t = p ['系统监控']['激光器时间监测']
-     const {'年': year,'月':mon,'日':day,'时': hour,'分': min,'秒': sec} = t
-     return `${year}-${mon}-${day} ${hour}:${min}:${sec}`
-})
-
 </script>
 <style lang="less" scoped>
-
 @border-color: rgba(255, 255, 255, .1);
+
 .device {
 
     align-items: center;
-    border: 1px solid  @border-color;
+    border: 1px solid @border-color;
     border-radius: 4px;
     background: #1d1e22;
     box-shadow: 0 4px 30px rgb(0 0 0 / 50%);
@@ -58,7 +66,7 @@ let collect_time = computed(()=>{
         grid-template-columns: 32px 80px auto 32px;
         line-height: 32px;
         text-align: center;
-       border-bottom: 1px solid @border-color;
+        border-bottom: 1px solid @border-color;
 
         .update-trigger {
             background-color: #000;
@@ -80,7 +88,7 @@ let collect_time = computed(()=>{
             font-family: Lato, sans-serif;
             font-weight: 900;
             letter-spacing: 1.57px;
-              line-height: 32px;
+            line-height: 32px;
             margin: 0;
         }
 
