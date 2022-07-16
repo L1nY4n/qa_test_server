@@ -6,9 +6,9 @@
     "code": "ERR_PNPM_NO_IMPORTER_MANIFEST_FOUND",
     "err": {
       "name": "pnpm",
-      "message": "No package.json (or package.yaml, or package.json5) was found in \"/mnt/d/go_study/qa_test_server\".",
+      "message": "No package.json (or package.yaml, or package.json5) was found in \"/Users/l1ny4n/Documents/study/go/qa_test_server\".",
       "code": "ERR_PNPM_NO_IMPORTER_MANIFEST_FOUND",
-      "stack": "pnpm: No package.json (or package.yaml, or package.json5) was found in \"/mnt/d/go_study/qa_test_server\".\n    at readProjectManifest (/home/ly/.nvm/versions/node/v18.3.0/lib/node_modules/pnpm/dist/pnpm.cjs:20808:13)\n    at async Object.readProjectManifestOnly (/home/ly/.nvm/versions/node/v18.3.0/lib/node_modules/pnpm/dist/pnpm.cjs:20812:28)\n    at async readProjectManifestOnly (/home/ly/.nvm/versions/node/v18.3.0/lib/node_modules/pnpm/dist/pnpm.cjs:43846:24)\n    at async Object.handler (/home/ly/.nvm/versions/node/v18.3.0/lib/node_modules/pnpm/dist/pnpm.cjs:178226:24)\n    at async /home/ly/.nvm/versions/node/v18.3.0/lib/node_modules/pnpm/dist/pnpm.cjs:182795:21\n    at async run (/home/ly/.nvm/versions/node/v18.3.0/lib/node_modules/pnpm/dist/pnpm.cjs:182769:34)\n    at async runPnpm (/home/ly/.nvm/versions/node/v18.3.0/lib/node_modules/pnpm/dist/pnpm.cjs:182987:5)\n    at async /home/ly/.nvm/versions/node/v18.3.0/lib/node_modules/pnpm/dist/pnpm.cjs:182979:7"
+      "stack": "pnpm: No package.json (or package.yaml, or package.json5) was found in \"/Users/l1ny4n/Documents/study/go/qa_test_server\".\n    at readProjectManifest (/opt/homebrew/lib/node_modules/pnpm/dist/pnpm.cjs:19830:13)\n    at async Object.readProjectManifestOnly (/opt/homebrew/lib/node_modules/pnpm/dist/pnpm.cjs:19834:28)\n    at async readProjectManifestOnly (/opt/homebrew/lib/node_modules/pnpm/dist/pnpm.cjs:43791:24)\n    at async Object.handler (/opt/homebrew/lib/node_modules/pnpm/dist/pnpm.cjs:178299:24)\n    at async /opt/homebrew/lib/node_modules/pnpm/dist/pnpm.cjs:182575:21\n    at async run (/opt/homebrew/lib/node_modules/pnpm/dist/pnpm.cjs:182549:34)\n    at async runPnpm (/opt/homebrew/lib/node_modules/pnpm/dist/pnpm.cjs:182768:5)\n    at async /opt/homebrew/lib/node_modules/pnpm/dist/pnpm.cjs:182760:7"
     }
   }
 }

@@ -18,7 +18,8 @@ defineProps<{ title: string }>()
     
     .title {
         position: relative;
-        width: 4rem;
+        display: inline-block;
+        width: auto;
         box-shadow: inset 1px 1px 1px #444 ;
         text-align: center;
         padding: 2px 6px;
@@ -32,7 +33,7 @@ defineProps<{ title: string }>()
     .content {
         padding: 6px;
         background: #111;
-         box-shadow:  3px 3px 16px rgba(29, 213, 255, 0.24) ;
+      
     }
 }
 </style>

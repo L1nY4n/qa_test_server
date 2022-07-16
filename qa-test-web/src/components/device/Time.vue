@@ -1,9 +1,9 @@
 <template>
-    <div>{{ t.year }}-{{ t.mon }}-{{ t.day }} {{ t.hour }}:{{ t.min }}:{{ t.sec }}</div>
+    <div class="time">{{ t.year }}-{{ t.mon }}-{{ t.day }} {{ t.hour }}:{{ t.min }}:{{ t.sec }}</div>
 </template>
 <script lang="ts"  setup>
 import { PacketTIme } from '@/types/api';
-import {computed} from 'vue'
+import { computed } from 'vue'
 // defineProps<{time: {
 //     year: number,
 //     mon: number
@@ -14,13 +14,22 @@ import {computed} from 'vue'
 // }}>()
 
 
-const props = defineProps<{time: PacketTIme}>()
+const props = defineProps<{ time: PacketTIme }>()
 
-const t = computed(()=>{
+const t = computed(() => {
 
-    
+
     const { '年': year, '月': mon, '日': day, '时': hour, '分': min, '秒': sec } = props.time
-    return {year,mon,day,hour,min,sec}
+    return { year, mon, day, hour, min, sec }
 })
 
 </script>
+<style lang="less" scoped>
+.time {
+    padding: 2px 4px;
+    color: rgb(0, 255, 0);
+    font-family: "Graduate", cursive;
+    margin: auto;
+    //text-shadow: 1px 1px 2px rgb(0, 255, 0);
+}
+</style>

@@ -13,8 +13,8 @@
 </template>
 <script setup lang="ts">
 
-import { PacketCurrent } from '@/types/api';
-defineProps<{ datas: PacketCurrent }>()
+import { PacketVoltage } from '@/types/api';
+defineProps<{ datas: PacketVoltage }>()
 </script>
 <style lang="less" scoped>
 .wrapper {

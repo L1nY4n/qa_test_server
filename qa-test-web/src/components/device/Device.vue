@@ -7,13 +7,14 @@
 
             <h1 class="sn"> {{ info.Sn }}</h1>
             <h1 class="name">{{ info.Name }}</h1>
-            <div class="geer">
+            <div class="geer" @click="setting">
                 <Geer />
             </div>
 
         </header>
         <div class="body">
-            <TimeVue :time="info.Packet['系统监控']['激光器时间监测']" />
+            <TimeVue class="time" :time="info.Packet['系统监控']['激光器时间监测']" />
+            <Alarm  class="alarm"  :alarm=" info.Packet['系统监控']['激光器告警监测']"/>
             <TitleCard title="状态监测">
                 <StatusVue :status="info.Packet['系统监控']['激光器状态监测']" />
             </TitleCard>
@@ -22,8 +23,24 @@
                 <DeviceCurrentVue :datas="info.Packet['系统监控']['激光器电流监测']" />
             </TitleCard>
 
-
-
+            <TitleCard title="电压监测">
+                <DeviceVoltage :datas="info.Packet['系统监控']['激光器电压监测']" />
+            </TitleCard>
+  <TitleCard title="温度监测">
+                <DeviceVoltage :datas="info.Packet['系统监控']['激光器温度监测']" />
+            </TitleCard>
+              <TitleCard title="温控板">
+              <DeviceTempBoard :datas="info.Packet['系统监控']['激光器温控板监测']" />
+            </TitleCard>
+              <TitleCard title="种子模块">
+              <DeviceSeedModule  :datas="info.Packet['系统监控']['激光器种子模块监测']"/>
+           
+            </TitleCard>
+              <TitleCard title="FPGA寄存器">
+              <DeviceFPGA :datas="info.Packet['系统监控']['激光器FPGA寄存器监测']" />
+            </TitleCard>
+          
+            
         </div>
 
     </div>
@@ -38,6 +55,11 @@ import StatusVue from './DeviceStatus.vue';
 import DeviceCurrentVue from './DeviceCurrent.vue';
 import Geer from '@/components/widget/svg/geer.vue'
 import TitleCard from './TitleCard.vue';
+import DeviceVoltage from './DeviceVoltage.vue';
+import DeviceFPGA from './DeviceFPGA.vue';
+import DeviceSeedModule from './DeviceSeedModule.vue';
+import DeviceTempBoard from './DeviceTempBoard.vue';
+import Alarm from './Alarm.vue';
 
 const props = defineProps<{ info: Device }>()
 
@@ -49,12 +71,16 @@ onUpdated(() => {
 
 })
 
+const setting= ()=>{
+    alert("setting click")
+}
+
 </script>
 <style lang="less" scoped>
 @border-color: rgba(255, 255, 255, .1);
 
 .device {
-
+   position: relative;
     align-items: center;
     border: 1px solid @border-color;
     border-radius: 4px;
@@ -100,21 +126,29 @@ onUpdated(() => {
 
         .sn {
             text-align: left;
-            color: #d2d232;
-
-
-
-
+            color: #00dcfe;
+        }
+        .geer{
+            cursor: pointer;
         }
     }
 
-    &.has-failed {
+  .body{
+    position: relative;
+    .alarm{
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+}
+
+    &.hasAlarm{
         box-shadow: 0px 4px 15px rgba(0, 0, 0, .2);
-        border-color: #d22c32;
+        border-color: #c8161c;
         animation: alertblink 2s ease-in-out infinite;
 
         &:hover {
-            background-color: rgba(210, 44, 50, .2);
+            background-color: rgba(252, 12, 20, 0.496);
             animation: none;
         }
     }

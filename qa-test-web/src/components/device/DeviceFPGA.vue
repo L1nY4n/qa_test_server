@@ -13,8 +13,8 @@
 </template>
 <script setup lang="ts">
 
-import { PacketCurrent } from '@/types/api';
-defineProps<{ datas: PacketCurrent }>()
+import { PacketFPGA } from '@/types/api';
+defineProps<{ datas: PacketFPGA }>()
 </script>
 <style lang="less" scoped>
 .wrapper {
