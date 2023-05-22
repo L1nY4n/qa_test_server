@@ -1,7 +1,7 @@
 <template>
    <div class="wrapper">
       <div class="option">
-         <span>轮训间隔：<Tag>{{ interval }}</Tag></span>
+         <span>轮询间隔：<Tag>{{ interval }}</Tag></span>
          <Slider v-model:value="interval" :min="5" :max="60" size="small" @change="resetInterval" />
 
       </div>
@@ -35,7 +35,8 @@ const webSocketConnect = () => {
       reader.readAsText(event.data, 'utf-8')
       reader.onload = () => {
          const update_dev: Device = JSON.parse(reader.result as string)
-         //console.log(`实时数据更新: ${update_dev.Name}[${update_dev.Sn}]`)
+         
+         console.log(`实时数据更新: ${update_dev.Name}[${update_dev.Sn}]`)
          // 根据sn 查找和替换数组设备
          const index = state.list.findIndex((dev) => dev.Sn === update_dev.Sn)
          if (index > -1) {
@@ -95,7 +96,7 @@ const resetInterval = (inteval: any) => {
 
    .list {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 300px));
+      grid-template-columns: repeat(auto-fill, minmax(300, 2000px));
       grid-gap: 8px;
       height: calc(100% - 60px);
       overflow: auto;

@@ -13,20 +13,29 @@
 
         </header>
         <div class="body">
-            <TimeVue class="time" :time="info.Packet['系统监控']['激光器时间监测']" />
-            <Alarm  class="alarm"  :alarm=" info.Packet['系统监控']['激光器告警监测']"/>
-            <TitleCard title="状态监测">
-                <StatusVue :status="info.Packet['系统监控']['激光器状态监测']" />
+            <!-- <TimeVue class="time" :time="info.Packet['系统监控']['激光器时间监测']" />
+            <Alarm  class="alarm"  :alarm=" info.Packet['系统监控']['激光器告警监测']"/> -->
+
+            <TitleCard title="版本信息">
+                <DeviceBate :datas="info.Packet['Femto_input_reg']['Femto_input_reg_bate']" />
+            </TitleCard> 
+
+            <TitleCard title="外部IO">
+                <DeviceBate :datas="info.Packet['Femto_input_reg']['Femto_input_reg_db25']" />
             </TitleCard>
 
-            <TitleCard title="电流监测">
-                <DeviceCurrentVue :datas="info.Packet['系统监控']['激光器电流监测']" />
+             <TitleCard title="FPGA测试">
+                <DeviceBate :datas="info.Packet['Femto_input_reg']['Femto_input_reg_fpga_debug']" />
             </TitleCard>
 
-            <TitleCard title="电压监测">
-                <DeviceVoltage :datas="info.Packet['系统监控']['激光器电压监测']" />
+            <TitleCard title="时间统计">
+                <DeviceBate :datas="info.Packet['Femto_input_reg']['Femto_input_reg_time']" />
             </TitleCard>
-  <TitleCard title="温度监测">
+
+            <TitleCard title="告警">
+                <DeviceBate :datas="info.Packet['Femto_input_reg']['Femto_input_reg_alarm']" />
+            </TitleCard>
+            <!-- <TitleCard title="温度监测">
                 <DeviceVoltage :datas="info.Packet['系统监控']['激光器温度监测']" />
             </TitleCard>
               <TitleCard title="温控板">
@@ -38,7 +47,7 @@
             </TitleCard>
               <TitleCard title="FPGA寄存器">
               <DeviceFPGA :datas="info.Packet['系统监控']['激光器FPGA寄存器监测']" />
-            </TitleCard>
+            </TitleCard> --> 
           
             
         </div>
@@ -52,6 +61,8 @@ import { onUpdated, ref, computed } from 'vue';
 import DeviceData from './DeviceData.vue';
 import TimeVue from './Time.vue'
 import StatusVue from './DeviceStatus.vue';
+import DeviceDB25 from './DeviceDB25.vue';
+import DeviceBate from './DeviceBate.vue';
 import DeviceCurrentVue from './DeviceCurrent.vue';
 import Geer from '@/components/widget/svg/geer.vue'
 import TitleCard from './TitleCard.vue';
@@ -89,7 +100,7 @@ const setting= ()=>{
 
     header {
         display: grid;
-        grid-template-columns: 32px 80px auto 32px;
+        grid-template-columns: 32px 160px auto 32px;
         line-height: 32px;
         text-align: center;
         border-bottom: 1px solid @border-color;

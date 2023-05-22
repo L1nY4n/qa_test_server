@@ -31,7 +31,7 @@ defineProps<{ title: string }>()
     }
 
     .content {
-        padding: 6px;
+        padding: 10px;
         background: #111;
       
     }

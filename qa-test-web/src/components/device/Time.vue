@@ -19,7 +19,7 @@ const props = defineProps<{ time: PacketTIme }>()
 const t = computed(() => {
 
 
-    const { '年': year, '月': mon, '日': day, '时': hour, '分': min, '秒': sec } = props.time
+    const { 'Year': year, 'Mon': mon, 'Day': day, 'Hour': hour, 'Minute': min, 'Second': sec } = props.time
     return { year, mon, day, hour, min, sec }
 })
 

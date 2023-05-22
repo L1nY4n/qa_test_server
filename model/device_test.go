@@ -20,11 +20,11 @@ func TestDecode(t *testing.T) {
 		buffer[i] = byte(b)
 	}
 
-	var temp model.Nano_Dev_capture_packed
+	var temp model.Femto_msg_packed
 	binary.Read(bytes.NewReader(buffer[:]), binary.LittleEndian, &temp)
 	fmt.Printf("Dev_cap= %+v\n", temp)
 
-	device := model.Decode(temp)
+	device := model.Femto_Decode(temp)
 	fmt.Printf("dev %+v\n", device)
 }
 

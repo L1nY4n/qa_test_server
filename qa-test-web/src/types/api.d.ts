@@ -5,27 +5,102 @@ export interface Device {
 }
 
 export interface Packet {
-  系统监控: {
-    激光器时间监测: PacketTIme;
-    激光器状态监测: PacketStatus;
-    激光器电流监测: PacketCurrent;
-    激光器电压监测: PacketVoltage;
-    激光器温度监测: PacketTemp;
-    激光器温控板监测: PacketTempBoard[];
-    激光器种子模块监测: PacketSeedModule;
-    激光器告警监测: PacketAlarm;
-    激光器FPGA寄存器监测: PacketFPGA;
+  Femto_input_reg: {
+    laser_status: number;
+    board_online:number[];
+    Femto_input_reg_db25: Packet_input_DB25;
+     Femto_input_reg_bate: Packet_bate;
+     Femto_input_reg_monitor: Packet_mon_monitor;
+     Overdue:number;
+     Femto_input_reg_fpga_debug: Packet_mon_fpga;
+     Femto_input_reg_time: Packet_mon_time;
+     Femto_input_reg_alarm: Packet_mon_alarm;
   };
 }
 
-export interface PacketTIme {
-  年: number;
-  月: number;
-  日: number;
-  时: number;
-  分: number;
-  秒: number;
+
+
+export interface PacketDB25 {
+  Ext_data_in:number;
+	Ext_latch :number;
+	Ext_alarm_cooler:number;
+	Ext_test     :number;
+	Ext_reverse    :number;
+	Ext_gate       :number;
+	Ext_pwm        :number;
+	Ext_prr          :number;
+	Ext_trig         :number;
+	Ext_sync        :number;
+	Ext_anlog_data    :number;
+	Ext_water_flow_freq :number;
+	Ext_water_flow    :number;
 }
+export interface Packet_bate {
+  Hardware_bate:number;
+  Mcu_boot_bate:number;
+  Mcu_app_bate:number[];
+  Fpga_bate:number[];
+}
+
+
+
+export interface Packet_mon_pump {
+	Pump_sw  :number;
+	Actual_cur :number;
+	Fpga_cur  :number;
+}
+
+export interface Packet_mon_th {
+	Temp  :number;
+	Humi  :number;
+}
+export interface Packet_mon_digi_tcm {
+	Actual_temp  :number;
+	Alarm_reg    :number;
+}
+
+export interface Packet_mon_monitor {
+  Pd_freq :number[];
+  Seed_status :number[];
+  Temp :number[];
+  Femto_input_reg_monitor_pump  :Packet_mon_pump[];
+  Vol :number[];
+  motor_Actual_pos :number[];
+  Femto_input_reg_monitor_TH  :Packet_mon_th[];
+  Femto_input_reg_monitor_digi_tcm :Packet_mon_digi_tcm[];
+}
+
+
+export interface Packet_mon_fpga {
+	Addr_echo  :number;
+	Value_0   :number;
+	Value_1    :number;
+	Cnt       :number;
+}
+
+export interface Packet_mon_time {
+	Pump_work_time :number[];
+	Emission_time :number[];
+	Uptime       :number[];
+	Total_uptime :number[];
+	Sys_time      :PacketTIme;
+}
+export interface Packet_mon_alarm {
+	Now    :number[];
+	History:number[];
+}
+
+
+export interface PacketTIme {
+  Mon: number;
+  Year: number;
+  Hour: number;
+  Day:  number;
+  Second: number;
+  Minute: number;
+}
+
+
 
 export interface PacketStatus {
   工作模式: number;

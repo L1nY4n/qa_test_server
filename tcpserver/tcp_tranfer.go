@@ -3,6 +3,7 @@ package tcpserver
 import (
 	"fmt"
 	"net"
+	//"time"
 )
 
 // Start a proxy server listen on fromport
@@ -32,15 +33,22 @@ func proxyStart(fromport, toport int) {
 		//continue
 	}
 	defer targetlisterner.Close()
+	fmt.Println("wait for connect..")
 
 	for {
 		//建立连接
 		proxyconn, err1 := proxylistener.Accept()
+		fmt.Println("wait for connect..")
 		targetconn, err2 := targetlisterner.Accept()
-		fmt.Printf("accept...\r\n")
+		fmt.Println("wait for connect..")
+
 		if err1 != nil || err2 != nil {
+
 			fmt.Printf("Unable to accept a request, error: %s,%s", err1.Error(), err2.Error())
+			//time.Sleep(time.Millisecond * 500)
+
 			continue
+
 		}
 		fmt.Printf("init_succeful..\r\n")
 		go proxyRequest(proxyconn, targetconn)
