@@ -62,7 +62,7 @@ func proxyRequest(r net.Conn, w net.Conn) {
 	defer r.Close()
 	defer w.Close()
 	fmt.Printf("data....\r\n")
-	var buffer = make([]byte, 40960)
+	var buffer = make([]byte, 8192)
 	for {
 		n, err := r.Read(buffer)
 		if err != nil {

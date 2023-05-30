@@ -24,8 +24,8 @@ defineProps<{ title: string }>()
         text-align: center;
         padding: 2px 6px;
         font-size: 12px;
-        color: darkorange;
-        background: #111;
+        color: rgb(7, 176, 21);
+        background: hwb(0 0% 100% / 0);
         //border-radius: 5px 5px 0 0;
         border: none;
     }

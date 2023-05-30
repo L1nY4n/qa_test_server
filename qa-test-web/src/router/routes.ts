@@ -13,7 +13,7 @@ export const menus: RouteRecordRaw[] = [
       {
         name: 'device',
         path: 'device',
-        component: () => import('@/views/home/home.vue'),
+        component: () => import('@/views/home/device.vue'),
         meta: {
           title: 'device',
         }
@@ -25,6 +25,15 @@ export const menus: RouteRecordRaw[] = [
         meta: {
           title: 'dashboard',
         }
+      },
+
+      {
+        name: 'dashboard2',
+        path: 'dashboard2',
+        component: () => import('@/views/home/dashboard.vue'),
+        meta: {
+          title: 'dashboard2',
+        }
       }
 
     ],
@@ -34,6 +43,8 @@ export const menus: RouteRecordRaw[] = [
   }
 ]
 
+
+//静态路由
 const routes: RouteRecordRaw[] = [
   {
     name: 'login',

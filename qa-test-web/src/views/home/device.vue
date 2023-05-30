@@ -96,7 +96,7 @@ const resetInterval = (inteval: any) => {
 
    .list {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300, 2000px));
+      grid-template-columns: repeat(auto-fill, minmax(300, 800));
       grid-gap: 8px;
       height: calc(100% - 60px);
       overflow: auto;

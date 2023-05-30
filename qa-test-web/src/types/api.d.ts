@@ -15,10 +15,15 @@ export interface Packet {
      Femto_input_reg_fpga_debug: Packet_mon_fpga;
      Femto_input_reg_time: Packet_mon_time;
      Femto_input_reg_alarm: Packet_mon_alarm;
-  };
+  },
+
+  Femto_holding_reg:{
+    Laser_para : Packet_laser_para;
+    User_para  : Packet_user_para;
+
+  }
+
 }
-
-
 
 export interface PacketDB25 {
   Ext_data_in:number;
@@ -63,7 +68,7 @@ export interface Packet_mon_monitor {
   Pd_freq :number[];
   Seed_status :number[];
   Temp :number[];
-  Femto_input_reg_monitor_pump  :Packet_mon_pump[];
+  Femto_input_reg_monitor_pump  :Packet_mon_pump[15];
   Vol :number[];
   motor_Actual_pos :number[];
   Femto_input_reg_monitor_TH  :Packet_mon_th[];
@@ -83,7 +88,7 @@ export interface Packet_mon_time {
 	Emission_time :number[];
 	Uptime       :number[];
 	Total_uptime :number[];
-	Sys_time      :PacketTIme;
+	Sys_time      :Time_desc;
 }
 export interface Packet_mon_alarm {
 	Now    :number[];
@@ -91,7 +96,7 @@ export interface Packet_mon_alarm {
 }
 
 
-export interface PacketTIme {
+export interface Time_desc {
   Mon: number;
   Year: number;
   Hour: number;
@@ -102,70 +107,179 @@ export interface PacketTIme {
 
 
 
-export interface PacketStatus {
-  工作模式: number;
-  激光器状态: number;
-  种子开关: number;
-  单模1开关: number;
-  单模2开关: number;
-  预放开关: number;
-  主放1开关: number;
-  主放2开关: number;
-  主放3开关: number;
-  主放4开关: number;
-  声光开关: number;
+
+
+
+
+
+export interface Packet_laser_para{
+	Head                 : number;             
+	Laser_info           : Femto_laser_para_info       
+	Esp_module           : Femto_laser_para_esp       
+	Th_modelue           : Femto_laser_para_th [2]     
+	Air_pump_modelue     :  Femto_laser_para_air_pump[2]
+	Seed                 : Femto_laser_para_seed       
+	Pump_module          : Femto_laser_para_pump[15] 
+	Motor_module         : Femto_laser_para_motor[4]
+	Tcm_module           : Femto_laser_para_tcm[6]
+	Dac_vol              :  number[40];                    
+	Pd_modelue           :  Femto_laser_para_pd [4]  
+	Aom_modelue          :  Femto_laser_para_aom[4]
+	Water_cool           :  Femto_laser_para_water_cool 
+	Vol_para             :  Femto_laser_para_vol[20]
+	Temp_para            :  Femto_laser_para_temp[20] 
+	Time_para            :  Femto_laser_para_time       
+	Key_para             :  Femto_laser_para_key       
+	Alarm_en             : number[12];                
+	Pow_celi             : number[20];                       
+	Sys_update           : number;                           
+	Sys_reboot           : number;                         
+	Fpga_addr_cfg        : number;                            
+	Fpga_Value_0         : number;                          
+	Fpga_Value_1         : number;                             
+	Fpga_rw_cmd          : number;                             
+	Laser_pulse_width_max  : number;                            
+	Laser_pulse_width_min  : number;                             
+	Laser_freq_max         : number;                              
+	Laser_freq_min         : number;                           
+	Laser_save             : number;                           
+	Laser_para_crc         : number;                           
+	Laser_para_end         :number;                          
+
 }
 
-export interface PacketCurrent {
-  单模1电流: number;
-  单模2电流: number;
-  预放1电流: number;
-  预放2电流: number;
-  主放1电流: number;
-  主放2电流: number;
-  主放3电流: number;
-  主放4电流: number;
-  主放电流限制: number;
-  种子电流: number;
-  温控电流: number;
+
+export interface Femto_laser_para_info{
+	Model             : number[20];  
+	SN               : number[20];  
+	PN                : number[20];  
+	Laser_serial      :number;       
+	Laser_Power_level  :number;        
 }
 
-export interface PacketVoltage {}
-
-export interface PacketTemp {}
-
-export interface PacketTempBoard {
-  开关: number;
-  实际温度: number;
-  设置温度: number;
-  误差: number;
-  传感器类型: number;
-  "控制-P": number;
-  "控制-I": number;
-  "控制-D": number;
-  告警: number;
-  准备信号: number;
-}
-export interface PacketSeedModule {}
-
-export interface PacketFPGA {
-  预放电流设置: number;
-  主放电流设置: number;
-  aom设置: number;
-  预放频率: number;
-  预放占空比: number;
-  主放频率: number;
-  主放占空比: number;
-  声光频率: number;
-  声光占空比: number;
-  pwm设置: number;
-  声光延时: number;
-  外控io1: number;
-  外控io2: number;
+export interface  Femto_laser_para_esp  {
+	En        :number;    
+	Mode     :number;    
+	Ssid     : number[15];  
+	Wifi_ip   : number[4];  
+	Eth_en     :number;    
+	Eth_mode   :number;    
+	Eth_ip  : number[4];  
 }
 
-export interface PacketAlarm {
-  当前告警: number;
-  生效告警: number;
-  历史告警: number;
+
+export interface  Femto_laser_para_th  {
+	En         :number;    
+	Temp_max   :number;    
+	Temp_min   :number;    
+	Humi_max   :number;    
+	Humi_min   :number;    
+}
+
+export interface  Femto_laser_para_air_pump  {
+	En        :number;    
+	Open_th    :number;    
+	Close_th   :number;    
+}
+
+export interface Femto_laser_para_seed  {
+	En     :number;    
+	Type   :number;    
+	SW    :number;    
+	Para : number[5];  
+}
+
+export interface  Femto_laser_para_pump  {
+	En                :number;    
+	SW               :number;    
+	Priority           :number;    
+	Dest_cur           :number;    
+	Compensation_val   :number;    
+	Coefficient_val    :number;    
+	Cur_speed         :number;    
+	Cur_max_reg       :number;    
+
+	//for mon
+	Mon_cur_band_ch        :number;    
+	Mon_compensation_val   :number;    
+	Mon_coefficient_val    :number;    
+	Mon_cur_err_thr        :number;    
+	Mon_cur_filter_time    :number;    
+}
+
+
+export interface Femto_laser_para_motor  {
+	En              :number;    
+	Freq            :number;    
+	Dest_pos        :number;    
+	Power_up_reset   :number;    
+	Pos_table       : number[20];  
+}
+
+export interface  Femto_laser_para_tcm  {
+	En        :number;    
+	Sw         :number;    
+	Type       :number;    
+	Dest_temp   :number;    
+	Pid_p      :number;    
+	Pid_i      :number;    
+	Pid_d       :number;    
+	Temp_max   :number;    
+	Temp_min   :number;    
+}
+
+export interface  Femto_laser_para_pd  {
+	En         :number;    
+	Freq_max   :number;    
+	Freq_min   :number;    
+}
+
+export interface  Femto_laser_para_aom  {
+	En          :number;    
+	Aom_level   :number;    
+	Delay1      :number;    
+	Delay2     :number;    
+	Pll         :number;    
+}
+
+export interface  Femto_laser_para_water_cool  {
+	En                  :number;    
+	Flow_max           :number;    
+	Flow_min            :number;    
+	Flow_compensation   :number;    
+}
+
+export interface Femto_laser_para_vol  {
+	En                 :number;    
+	Adc_band_ch       :number;    
+	Vol_compensation   :number;    
+	Vol_coefficient   :number;    
+	Vol_max           :number;    
+	Vol_min           :number;    
+	Filter_time       :number;    
+}
+
+export interface  Femto_laser_para_temp  {
+	En           :number;    
+	Type         :number;    
+	Adc_band_ch   :number;    
+	Filter_time   :number;    
+	Para        : number[6];  
+	Temp_max     :number;    
+	Temp_min      :number;    
+}
+
+export interface  Femto_laser_para_time  {
+	Pump_time_reset      :number;    
+	Emission_time_reset   :number;    
+	Total_uptime_reset    :number;    
+	Acttime            : Time_desc
+	Factime             :Time_desc ;  
+	Sertime           :  Time_desc;  
+	Rtc_time           : Time_desc ;  
+}
+
+export interface  Femto_laser_para_key  {
+	Key_val  : number[10];  
+	Key_en   :number;    
 }

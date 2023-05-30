@@ -22,6 +22,12 @@ const toggle = () => {
 }
 </script>
 <style lang="less" scoped>
+
+// ul {
+//   display: flex;
+//   flex-direction: row;
+// } 
+
 .title{
     color: #e1ca72;
     margin-right: 4px

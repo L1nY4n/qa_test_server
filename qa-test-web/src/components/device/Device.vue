@@ -35,6 +35,41 @@
             <TitleCard title="告警">
                 <DeviceBate :datas="info.Packet['Femto_input_reg']['Femto_input_reg_alarm']" />
             </TitleCard>
+         
+ 
+            <TitleCard title="频率">
+                <Slider v-model:value="selectindex" :min="0" :max="3" size="small"></Slider>
+                <!-- <ul >{{ info.Packet['Femto_input_reg']['Femto_input_reg_monitor']['Pd_freq'][selectindex] }}</ul> -->
+            </TitleCard>
+
+            <TitleCard title=" 泵浦监测">
+                <Slider v-model:value="selectindex1" :min="0" :max="14" size="small"></Slider>
+                <ul > 温度:{{ info.Packet['Femto_input_reg']['Femto_input_reg_monitor']['Temp'][selectindex1]}}</ul>
+                <ul > 电压:{{ info.Packet['Femto_input_reg']['Femto_input_reg_monitor']['Vol'][selectindex1] }}</ul>
+                <ul > 电流:{{ info.Packet['Femto_input_reg']['Femto_input_reg_monitor']['Femto_input_reg_monitor_pump'][selectindex1]['Actual_cur'] }}</ul>
+            </TitleCard>
+
+            
+            <div style="background-color: #ececec; padding: 20px">
+                    <a-row :gutter="16">
+                    <a-col :span="8">
+                        <a-card title="Card title" :bordered="false">
+                        <p>card content</p>
+                        </a-card>
+                    </a-col>
+                    <a-col :span="8">
+                        <a-card title="Card title" :bordered="false">
+                        <p>card content</p>
+                        </a-card>
+                    </a-col>
+                    <a-col :span="8">
+                        <a-card title="Card title" :bordered="false">
+                        <p>card content</p>
+                        </a-card>
+                    </a-col>
+                    </a-row>
+                </div>
+    
             <!-- <TitleCard title="温度监测">
                 <DeviceVoltage :datas="info.Packet['系统监控']['激光器温度监测']" />
             </TitleCard>
@@ -44,10 +79,11 @@
               <TitleCard title="种子模块">
               <DeviceSeedModule  :datas="info.Packet['系统监控']['激光器种子模块监测']"/>
            
-            </TitleCard>
-              <TitleCard title="FPGA寄存器">
-              <DeviceFPGA :datas="info.Packet['系统监控']['激光器FPGA寄存器监测']" />
-            </TitleCard> --> 
+            </TitleCard>--> 
+       
+             <!-- <TitleCard title=" 激光器参数">
+              <Tree :data="info.Packet['Femto_holding_reg']" />
+            </TitleCard>  -->
           
             
         </div>
@@ -56,6 +92,7 @@
 
 </template>
 <script setup lang="ts">
+import { Slider, Tag } from 'ant-design-vue'
 import { Device } from '@/types/api';
 import { onUpdated, ref, computed } from 'vue';
 import DeviceData from './DeviceData.vue';
@@ -71,7 +108,12 @@ import DeviceFPGA from './DeviceFPGA.vue';
 import DeviceSeedModule from './DeviceSeedModule.vue';
 import DeviceTempBoard from './DeviceTempBoard.vue';
 import Alarm from './Alarm.vue';
+import Tree from  '@/components/treelist/TreeList.vue';
+import { dataTool } from 'echarts';
 
+
+const selectindex =ref(0)
+const selectindex1 =ref(0)
 const props = defineProps<{ info: Device }>()
 
 const update_ref = ref()
@@ -82,9 +124,13 @@ onUpdated(() => {
 
 })
 
+
+
 const setting= ()=>{
     alert("setting click")
 }
+
+
 
 </script>
 <style lang="less" scoped>
@@ -128,7 +174,7 @@ const setting= ()=>{
             line-height: 32px;
             margin: 0;
         }
-
+        
         .name {
 
             text-align: right;
@@ -151,6 +197,8 @@ const setting= ()=>{
         top: 0;
         right: 0;
     }
+
+    
 }
 
     &.hasAlarm{

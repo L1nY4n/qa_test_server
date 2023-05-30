@@ -5,7 +5,6 @@ import (
 	"encoding/binary"
 	"encoding/json"
 	"time"
-	"unsafe"
 
 	"fmt"
 	"net"
@@ -43,7 +42,6 @@ func Tcpserver() {
 
 func process(conn *net.TCPConn) {
 
-	var temp model.Femto_msg_packed
 	//conn.SetReadDeadline()
 
 	//conn.SetReadDeadline(time.Now() + time.Millisecond*100)
@@ -52,7 +50,7 @@ func process(conn *net.TCPConn) {
 	for {
 		time.Sleep(time.Millisecond * 20)
 		var buffer [4096]byte
-		var len int = 0
+		var len = 0
 		//接受数据
 	retry:
 		n, err := conn.Read(buffer[len:])
@@ -61,9 +59,8 @@ func process(conn *net.TCPConn) {
 			fmt.Printf("read from connect failed, err: %v\n", err)
 			break
 		}
-		//fmt.Printf("%d\n", len)
 		len += n
-		if len < int(unsafe.Sizeof(temp)) {
+		if len < (model.MOD_ADDR_HOLDINGD_END * 2) {
 
 			goto retry
 		}
@@ -75,16 +72,17 @@ func process(conn *net.TCPConn) {
 
 		//buf_w.Write(buffer[:8])
 		buf_w.Write(buffer[:len])
-
-		if len != int(unsafe.Sizeof(temp)) {
-			len = 0
+		
+		if(len!=model.MOD_ADDR_HOLDINGD_END * 2){
+			len=0			
 			continue
-		}
+}
 
+		var temp model.Femto_msg_packed
 		//fmt.Printf("packet_size check [%d,%d,%d]\r\n\n", unsafe.Sizeof(temp), unsafe.Sizeof(temp.Holding_reg), unsafe.Sizeof(temp.Input_reg))
 		binary.Read(buf_w, binary.LittleEndian, &temp)
 		//fmt.Printf("###packet=[len=%04d] %+v\r\n\n", len, temp)
-		//fmt.Printf("###packet=[len=%04d] \r\n\n", len)
+		fmt.Printf("###packet=[len=%04d] \r\n\n", len)
 
 		// //数据解析
 		dev := model.Femto_Decode(temp)

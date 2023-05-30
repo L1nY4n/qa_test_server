@@ -2,7 +2,7 @@
     <div class="time">{{ t.year }}-{{ t.mon }}-{{ t.day }} {{ t.hour }}:{{ t.min }}:{{ t.sec }}</div>
 </template>
 <script lang="ts"  setup>
-import { PacketTIme } from '@/types/api';
+import { Time_desc } from '@/types/api';
 import { computed } from 'vue'
 // defineProps<{time: {
 //     year: number,
@@ -14,7 +14,7 @@ import { computed } from 'vue'
 // }}>()
 
 
-const props = defineProps<{ time: PacketTIme }>()
+const props = defineProps<{ time: Time_desc }>()
 
 const t = computed(() => {
 
