@@ -5,8 +5,13 @@
          <Slider v-model:value="interval" :min="5" :max="60" size="small" @change="resetInterval" />
 
       </div>
+
       <div class="list">
-         <DeviceVue v-for="(dev, i) in state.list" :info="dev" :key="i" />
+         <a-tabs  v-model:activeKey="activekey">
+            <a-tab-pane v-for="(dev, index)   in state.list" :key="index" :tab=dev.Sn>
+               <DeviceVue :info="dev" :key="index" />
+            </a-tab-pane>
+            </a-tabs>
       </div>
    </div>
 </template>
@@ -20,6 +25,7 @@ import DeviceVue from '@/components/device/Device.vue';
 import CreateWebSocket from "@/utils/ws";
 import { onBeforeUnmount, onMounted, reactive, ref } from 'vue'
 
+const activekey=ref(0)
 let state = reactive<{ list: Device[] }>({ list: [] })
 let ws: WebSocket
 let interval = ref<number>(10)
@@ -95,11 +101,16 @@ const resetInterval = (inteval: any) => {
    }
 
    .list {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300, 800));
-      grid-gap: 8px;
-      height: calc(100% - 60px);
+     // display: grid;
+     // grid-template-columns: repeat(auto-fill, minmax(300, 800));
+    //  grid-gap: 8px;
+     // height: calc(100% - 60px);
       overflow: auto;
+      background-color: #f0f6f7;
+      padding: 20px;
+      
+
+  
    }
 }
 </style>

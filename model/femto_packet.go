@@ -255,6 +255,7 @@ type Femto_laser_para struct {
 	Fpga_Value_0          uint16                       `json:"Fpga_Value_0"`
 	Fpga_Value_1          uint16                       `json:"Fpga_Value_1"`
 	Fpga_rw_cmd           uint16                       `json:"Fpga_rw_cmd"`
+	Laser_mode            uint16                       `json:"Mode"`
 	Laser_pulse_width_max uint16                       `json:"pulse_width_max"`
 	Laser_pulse_width_min uint16                       `json:"pulse_width_min"`
 	Laser_freq_max        uint16                       `json:"Laser_freq_max"`
@@ -290,6 +291,7 @@ type Femto_user_para struct {
 	Laser_pow_sel        uint16 `json:"Laser_pow_sel"`
 	Laser_aom_sel        uint16 `json:"Laser_aom_sel"`
 	Laser_ready_progress uint16 `json:"Laser_ready_progress"`
+	Laser_test_out       uint16 `json:"Laser_test_out"`
 	Laser_user_crc       uint16 `json:"Laser_io_test"`
 	Laser_user_end       uint16 `json:"Laser_user_end"`
 }

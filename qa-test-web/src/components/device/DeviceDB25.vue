@@ -14,8 +14,8 @@
 <script setup lang="ts">
 
 
-import { PacketDB25 } from '@/types/api';
-defineProps<{ datas: PacketDB25 }>()
+import { Packet_input_DB25 } from '@/types/api';
+defineProps<{ datas: Packet_input_DB25 }>()
 </script>
 <style lang="less" scoped>
 .wrapper {

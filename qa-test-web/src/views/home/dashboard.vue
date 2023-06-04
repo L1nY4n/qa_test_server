@@ -43,11 +43,14 @@
   </a-card>
 </div>
 
+<Chart title="11"  > </Chart>
+
 </template>
 
 <script lang="ts">
 import { SettingOutlined, EditOutlined, EllipsisOutlined } from '@ant-design/icons-vue';
 import { defineComponent } from 'vue';
+import Chart from  '@/components/device/DeviceChart.vue';
 export default defineComponent({
   components: {
     SettingOutlined,

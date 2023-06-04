@@ -4,7 +4,6 @@ import (
 	"bytes"
 	"encoding/binary"
 	"encoding/json"
-	"time"
 	"unsafe"
 
 	"fmt"
@@ -39,6 +38,12 @@ func Tcpserver() {
 
 	}
 
+	//test
+
+}
+
+func FemtoDeviceTest() {
+	panic("unimplemented")
 }
 
 func process(conn *net.TCPConn) {
@@ -50,7 +55,7 @@ func process(conn *net.TCPConn) {
 	defer conn.Close()
 	//循环处理数据
 	for {
-		time.Sleep(time.Millisecond * 20)
+		//time.Sleep(time.Millisecond * 20)
 		var buffer [4096]byte
 		var len int = 0
 		//接受数据
@@ -75,7 +80,7 @@ func process(conn *net.TCPConn) {
 
 		//buf_w.Write(buffer[:8])
 		buf_w.Write(buffer[:len])
-
+		//fmt.Printf("###packet=[len=%04d],[size of temp=%d] \r\n", len, int(unsafe.Sizeof(temp.Holding_reg)))
 		if len != int(unsafe.Sizeof(temp)) {
 			len = 0
 			continue
@@ -84,8 +89,12 @@ func process(conn *net.TCPConn) {
 		//fmt.Printf("packet_size check [%d,%d,%d]\r\n\n", unsafe.Sizeof(temp), unsafe.Sizeof(temp.Holding_reg), unsafe.Sizeof(temp.Input_reg))
 		binary.Read(buf_w, binary.LittleEndian, &temp)
 		//fmt.Printf("###packet=[len=%04d] %+v\r\n\n", len, temp)
-		//fmt.Printf("###packet=[len=%04d] \r\n\n", len)
+		//fmt.Printf("###packet1=[len=%04d] \r\n\n", len)
 
+		if temp.Holding_reg.Laser_para.Head != 0x55aa {
+			len = 0
+			continue
+		}
 		// //数据解析
 		dev := model.Femto_Decode(temp)
 		manager.ManagerGlabal.Update(dev)

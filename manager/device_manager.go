@@ -6,6 +6,7 @@ package manager
 
 import (
 	"qa_test_server/model"
+
 	"sync"
 )
 
@@ -15,8 +16,7 @@ type Manager struct {
 	devices sync.Map
 }
 
-func (m *Manager)Update(device model.Device) {
-
+func (m *Manager) Update(device model.Device) {
 
 	m.Set(device.Sn, &device)
 }

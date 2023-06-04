@@ -25,8 +25,8 @@ export interface Packet {
 
 }
 
-export interface PacketDB25 {
-  Ext_data_in:number;
+export interface Packet_input_DB25 {
+  	Ext_data_in:number;
 	Ext_latch :number;
 	Ext_alarm_cooler:number;
 	Ext_test     :number;

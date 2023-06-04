@@ -20,7 +20,7 @@ defineProps<{ title: string }>()
         position: relative;
         display: inline-block;
         width: auto;
-        box-shadow: inset 1px 1px 1px #444 ;
+        box-shadow: inset 1px 1px 1px #ffffff ;
         text-align: center;
         padding: 2px 6px;
         font-size: 12px;
@@ -32,8 +32,8 @@ defineProps<{ title: string }>()
 
     .content {
         padding: 10px;
-        background: #111;
-      
+        background: #ffffff;
+        color:#000000;
     }
 }
 </style>

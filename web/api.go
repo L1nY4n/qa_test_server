@@ -43,17 +43,17 @@ func sysInfo(c *gin.Context) {
 // 设备列表
 func deviceList(c *gin.Context) {
 
-		manager := &manager.ManagerGlabal
-		list := manager.List()
-		// sn 排序
-		sort.Slice(list, func(i, j int) bool {
-			return strings.Compare(list[i].Sn, list[j].Sn) < 0
-		})
-		c.JSON(200, gin.H{
-			"data":    list,
-			"success": true,
-		})
-	
+	manager := &manager.ManagerGlabal
+	list := manager.List()
+	// sn 排序
+	sort.Slice(list, func(i, j int) bool {
+		return strings.Compare(list[i].Sn, list[j].Sn) < 0
+	})
+	c.JSON(200, gin.H{
+		"data":    list,
+		"success": true,
+	})
+
 }
 
 // 查询单个设备的信息
@@ -68,9 +68,9 @@ func deviceInfo(c *gin.Context) {
 
 func randomData(c *gin.Context) {
 	curr := c.Param("current")
-	fmt.Printf("curr %v",curr)
+	fmt.Printf("curr %v", curr)
 	num, _ := strconv.Atoi(curr)
-	i := rand.Intn(1000) -500
+	i := rand.Intn(1000) - 500
 	time_str := time.Now().Format("2006/01/02 15:04:05")
 
 	c.JSON(200, gin.H{
