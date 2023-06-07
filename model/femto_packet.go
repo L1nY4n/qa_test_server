@@ -137,7 +137,7 @@ type Femto_laser_para_seed struct {
 
 type Femto_laser_para_pump struct {
 	En               uint16 `json:"En"`
-	SW               uint16 `json:"Type"`
+	SW               uint16 `json:"SW"`
 	Priority         uint16 `json:"Priority"`
 	Dest_cur         uint16 `json:"Dest_cur"`
 	Compensation_val uint16 `json:"Compensation_val"`
@@ -234,7 +234,7 @@ type Femto_laser_para struct {
 	Laser_info            Femto_laser_para_info        `json:"Laser_info"`
 	Esp_module            Femto_laser_para_esp         `json:"Esp_module"`
 	Th_modelue            [2]Femto_laser_para_th       `json:"Th_modelue"`
-	Air_pump_modelue      [2]Femto_laser_para_air_pump `json:"Femto_laser_para_air_pump"`
+	Air_pump_modelue      [2]Femto_laser_para_air_pump `json:"Air_pump_modelue"`
 	Seed                  Femto_laser_para_seed        `json:"Seed"`
 	Pump_module           [15]Femto_laser_para_pump    `json:"Pump_module"`
 	Motor_module          [4]Femto_laser_para_motor    `json:"Motor_module"`
@@ -243,10 +243,10 @@ type Femto_laser_para struct {
 	Pd_modelue            [4]Femto_laser_para_pd       `json:"Pd_modelue"`
 	Aom_modelue           [4]Femto_laser_para_aom      `json:"Aom_modelue"`
 	Water_cool            Femto_laser_para_water_cool  `json:"Water_cool"`
-	Vol_para              [20]Femto_laser_para_vol     `json:"Femto_laser_para_vol"`
-	Temp_para             [20]Femto_laser_para_temp    `json:"Femto_laser_para_temp"`
-	Time_para             Femto_laser_para_time        `json:"Femto_laser_para_time"`
-	Key_para              Femto_laser_para_key         `json:"Femto_laser_para_key"`
+	Vol_para              [20]Femto_laser_para_vol     `json:"Vol_para"`
+	Temp_para             [20]Femto_laser_para_temp    `json:"Temp_para"`
+	Time_para             Femto_laser_para_time        `json:"Time_para"`
+	Key_para              Femto_laser_para_key         `json:"Key_para"`
 	Alarm_en              [12]int16                    `json:"Alarm_en"`
 	Pow_celi              [20]int16                    `json:"Pow_celi"`
 	Sys_update            int16                        `json:"Sys_update"`
@@ -255,9 +255,9 @@ type Femto_laser_para struct {
 	Fpga_Value_0          uint16                       `json:"Fpga_Value_0"`
 	Fpga_Value_1          uint16                       `json:"Fpga_Value_1"`
 	Fpga_rw_cmd           uint16                       `json:"Fpga_rw_cmd"`
-	Laser_mode            uint16                       `json:"Mode"`
-	Laser_pulse_width_max uint16                       `json:"pulse_width_max"`
-	Laser_pulse_width_min uint16                       `json:"pulse_width_min"`
+	Laser_mode            uint16                       `json:"Laser_mode"`
+	Laser_pulse_width_max uint16                       `json:"Laser_pulse_width_max"`
+	Laser_pulse_width_min uint16                       `json:"Laser_pulse_width_min"`
 	Laser_freq_max        uint16                       `json:"Laser_freq_max"`
 	Laser_freq_min        uint16                       `json:"Laser_freq_min"`
 	Laser_save            uint16                       `json:"Laser_save"`
@@ -292,7 +292,7 @@ type Femto_user_para struct {
 	Laser_aom_sel        uint16 `json:"Laser_aom_sel"`
 	Laser_ready_progress uint16 `json:"Laser_ready_progress"`
 	Laser_test_out       uint16 `json:"Laser_test_out"`
-	Laser_user_crc       uint16 `json:"Laser_io_test"`
+	Laser_user_crc       uint16 `json:"Laser_user_crc"`
 	Laser_user_end       uint16 `json:"Laser_user_end"`
 }
 
@@ -304,6 +304,6 @@ type Femto_holding_reg struct {
 //################var Femto_holding_reg#############//
 
 type Femto_msg_packed struct {
-	Input_reg   Femto_input_reg   `json:"Femto_input_reg" gorm:"embedded"`
-	Holding_reg Femto_holding_reg `json:"Femto_holding_reg" gorm:"embedded"`
+	Femto_input_reg   Femto_input_reg   `json:"Femto_input_reg" gorm:"embedded"`
+	Femto_holding_reg Femto_holding_reg `json:"Femto_holding_reg" gorm:"embedded"`
 }

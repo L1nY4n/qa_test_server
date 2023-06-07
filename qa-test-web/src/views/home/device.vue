@@ -1,10 +1,10 @@
 <template>
    <div class="wrapper">
-      <div class="option">
+      <!-- <div class="option">
          <span>轮询间隔：<Tag>{{ interval }}</Tag></span>
          <Slider v-model:value="interval" :min="5" :max="60" size="small" @change="resetInterval" />
 
-      </div>
+      </div> -->
 
       <div class="list">
          <a-tabs  v-model:activeKey="activekey">
@@ -76,7 +76,7 @@ webSocketConnect()
 
 onMounted(() => {
    get_list()
-  // timer = setInterval(get_list, interval.value * 1000);
+   timer = setInterval(get_list, interval.value * 1000);
 })
 
 onBeforeUnmount(() => {
@@ -105,7 +105,7 @@ const resetInterval = (inteval: any) => {
      // grid-template-columns: repeat(auto-fill, minmax(300, 800));
     //  grid-gap: 8px;
      // height: calc(100% - 60px);
-      overflow: auto;
+      overflow: scroll;
       background-color: #f0f6f7;
       padding: 20px;
       

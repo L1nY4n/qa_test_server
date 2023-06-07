@@ -18,8 +18,8 @@ type Device struct {
 // 从 原始数据中解析出设备的信息内容
 func Femto_Decode(packet Femto_msg_packed) Device {
 
-	name := strings.Trim(string(packet.Holding_reg.Laser_para.Laser_info.Model[:]), "\x00")
-	sn := strings.Trim(string(packet.Holding_reg.Laser_para.Laser_info.SN[:]), "\x00")
+	name := strings.Trim(string(packet.Femto_holding_reg.Laser_para.Laser_info.Model[:]), "\x00")
+	sn := strings.Trim(string(packet.Femto_holding_reg.Laser_para.Laser_info.SN[:]), "\x00")
 	fmt.Printf("##sn==%s\r\n\n", sn)
 	return Device{
 		Sn:           sn,

@@ -1,6 +1,8 @@
 {
   "dependencies": {
     "@antv/data-set": "^0.11.8",
-    "@antv/g2": "^4.2.10"
+    "@antv/g2": "^4.2.10",
+    "echarts": "^5.4.2",
+    "vue-echarts": "^6.5.5"
   }
 }

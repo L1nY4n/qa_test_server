@@ -116,22 +116,22 @@ export interface Packet_laser_para{
 	Head                 : number;             
 	Laser_info           : Femto_laser_para_info       
 	Esp_module           : Femto_laser_para_esp       
-	Th_modelue           : Femto_laser_para_th [2]     
-	Air_pump_modelue     :  Femto_laser_para_air_pump[2]
+	Th_modelue           : Femto_laser_para_th []     
+	Air_pump_modelue     :  Femto_laser_para_air_pump[]
 	Seed                 : Femto_laser_para_seed       
-	Pump_module          : Femto_laser_para_pump[15] 
-	Motor_module         : Femto_laser_para_motor[4]
-	Tcm_module           : Femto_laser_para_tcm[6]
-	Dac_vol              :  number[40];                    
-	Pd_modelue           :  Femto_laser_para_pd [4]  
-	Aom_modelue          :  Femto_laser_para_aom[4]
+	Pump_module          : Femto_laser_para_pump[]
+	Motor_module         : Femto_laser_para_motor[]
+	Tcm_module           : Femto_laser_para_tcm[]
+	Dac_vol              :  number[];                    
+	Pd_modelue           :  Femto_laser_para_pd []  
+	Aom_modelue          :  Femto_laser_para_aom[]
 	Water_cool           :  Femto_laser_para_water_cool 
-	Vol_para             :  Femto_laser_para_vol[20]
-	Temp_para            :  Femto_laser_para_temp[20] 
+	Vol_para             :  Femto_laser_para_vol[]
+	Temp_para            :  Femto_laser_para_temp[] 
 	Time_para            :  Femto_laser_para_time       
 	Key_para             :  Femto_laser_para_key       
-	Alarm_en             : number[12];                
-	Pow_celi             : number[20];                       
+	Alarm_en             : number[];                
+	Pow_celi             : number[];                       
 	Sys_update           : number;                           
 	Sys_reboot           : number;                         
 	Fpga_addr_cfg        : number;                            
@@ -150,9 +150,9 @@ export interface Packet_laser_para{
 
 
 export interface Femto_laser_para_info{
-	Model             : number[20];  
-	SN               : number[20];  
-	PN                : number[20];  
+	Model             : number[];  
+	SN               : number[];  
+	PN                : number[];  
 	Laser_serial      :number;       
 	Laser_Power_level  :number;        
 }
@@ -160,11 +160,11 @@ export interface Femto_laser_para_info{
 export interface  Femto_laser_para_esp  {
 	En        :number;    
 	Mode     :number;    
-	Ssid     : number[15];  
-	Wifi_ip   : number[4];  
+	Ssid     : number[];  
+	Wifi_ip   : number[];  
 	Eth_en     :number;    
 	Eth_mode   :number;    
-	Eth_ip  : number[4];  
+	Eth_ip  : number[];  
 }
 
 
@@ -186,7 +186,7 @@ export interface Femto_laser_para_seed  {
 	En     :number;    
 	Type   :number;    
 	SW    :number;    
-	Para : number[5];  
+	Para : number[];  
 }
 
 export interface  Femto_laser_para_pump  {
@@ -213,7 +213,7 @@ export interface Femto_laser_para_motor  {
 	Freq            :number;    
 	Dest_pos        :number;    
 	Power_up_reset   :number;    
-	Pos_table       : number[20];  
+	Pos_table       : number[];  
 }
 
 export interface  Femto_laser_para_tcm  {
@@ -264,7 +264,7 @@ export interface  Femto_laser_para_temp  {
 	Type         :number;    
 	Adc_band_ch   :number;    
 	Filter_time   :number;    
-	Para        : number[6];  
+	Para        : number[];  
 	Temp_max     :number;    
 	Temp_min      :number;    
 }
@@ -280,6 +280,6 @@ export interface  Femto_laser_para_time  {
 }
 
 export interface  Femto_laser_para_key  {
-	Key_val  : number[10];  
+	Key_val  : number[];  
 	Key_en   :number;    
 }

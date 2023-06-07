@@ -1,61 +1,70 @@
-
-
-<template>
-  <div style="background-color: #ececec; padding: 20px">
-    <a-row :gutter="16">
-      <a-col :span="8">
-        <a-card title="Card title" :bordered="false">
-          <p>card content</p>
-        </a-card>
-      </a-col>
-      <a-col :span="8">
-        <a-card title="Card title" :bordered="false">
-          <p>card content</p>
-        </a-card>
-      </a-col>
-      <a-col :span="8">
-        <a-card title="Card title" :bordered="false">
-          <p>card content</p>
-        </a-card>
-      </a-col>
-    </a-row>
-  </div>
-
-
-<div>
-  <a-card hoverable style="width: 300px">
-    <template #cover>
-      <img
-        alt="example"
-        src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
-      />
-    </template>
-    <template #actions>
-      <!-- <setting-outlined key="setting" />
-      <edit-outlined key="edit" />
-      <ellipsis-outlined key="ellipsis" /> -->
-    </template>
-    <a-card-meta title="Card title" description="This is the description">
-      <template #avatar>
-        <a-avatar src="https://joeschmoe.io/api/v1/random" />
-      </template>
-    </a-card-meta>
-  </a-card>
-</div>
-
-<Chart title="11"  > </Chart>
-
+<!-- <template>
+  <v-chart class="chart" :option="option" autoresize />
 </template>
 
-<script lang="ts">
-import { SettingOutlined, EditOutlined, EllipsisOutlined } from '@ant-design/icons-vue';
-import { defineComponent } from 'vue';
-import Chart from  '@/components/device/DeviceChart.vue';
-export default defineComponent({
-  components: {
-    SettingOutlined,
-    EditOutlined,
-    EllipsisOutlined,
+<script lang="ts" setup>
+import { use } from 'echarts/core';
+import { CanvasRenderer } from 'echarts/renderers';
+import { PieChart } from 'echarts/charts';
+import {
+  TitleComponent,
+  TooltipComponent,
+  LegendComponent,
+} from 'echarts/components';
+import VChart, { THEME_KEY } from 'vue-echarts';
+import { ref, provide } from 'vue';
+
+use([
+  CanvasRenderer,
+  PieChart,
+  TitleComponent,
+  TooltipComponent,
+  LegendComponent,
+]);
+
+provide(THEME_KEY, 'dark');
+
+const option = ref({
+  title: {
+    text: 'Traffic Sources',
+    left: 'center',
   },
+  tooltip: {
+    trigger: 'item',
+    formatter: '{a} <br/>{b} : {c} ({d}%)',
+  },
+  legend: {
+    orient: 'vertical',
+    left: 'left',
+    data: ['Direct', 'Email', 'Ad Networks', 'Video Ads', 'Search Engines'],
+  },
+  series: [
+    {
+      name: 'Traffic Sources',
+      type: 'pie',
+      radius: '55%',
+      center: ['50%', '60%'],
+      data: [
+        { value: 335, name: 'Direct' },
+        { value: 310, name: 'Email' },
+        { value: 234, name: 'Ad Networks' },
+        { value: 135, name: 'Video Ads' },
+        { value: 1548, name: 'Search Engines' },
+      ],
+      emphasis: {
+        itemStyle: {
+          shadowBlur: 10,
+          shadowOffsetX: 0,
+          shadowColor: 'rgba(0, 0, 0, 0.5)',
+        },
+      },
+    },
+  ],
 });
 </script>
+
+<style scoped>
+.chart {
+  height: 100vh;
+}
+</style> -->
