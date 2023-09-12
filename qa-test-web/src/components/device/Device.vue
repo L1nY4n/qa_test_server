@@ -9,12 +9,12 @@
 
        </div>
     </a-col>
-    <a-col flex="100px">
+    <a-col flex="400px">
       <h1 class="sn"> {{ info.Sn }}</h1>
 
     </a-col>  
     <a-col flex="auto"></a-col>
-    <a-col flex="200px">
+    <a-col flex="400px">
 
 
        <h1 class="name">{{ info.Name }}</h1>
@@ -45,25 +45,31 @@
             </div>
 </a-col>
   </a-row>
-
-
-
-
         </header>
+
+
         <div class="body">
 
             <div style="background-color: #f0f6f7; padding: 20px">
                     <a-row :gutter="[16,16]" style="display: flex; align-items: center;">
    
                         <a-col :span="16" style="flex: 1;" >
+                          <a-card hoverable title="图表测试" :bordered="true">
+                              <DeviceData > </DeviceData>
+                            </a-card>
+                       </a-col>
+
+                       <a-col :span="8"  style="flex:1;"  >
+                       
+                       
                             <a-card title="外部IO" hoverable :bordered="true">
                             <a-divider orientation="centor">IO电平</a-divider> 
-                            <a-card-grid style="width:  25%; text-align: left">Latch:{{info.Packet['Femto_input_reg']['Femto_input_reg_db25'].Ext_latch}}</a-card-grid>
-                            <a-card-grid style="width: 25%; text-align: center">PWM:{{info.Packet['Femto_input_reg']['Femto_input_reg_db25'].Ext_pwm}}</a-card-grid>
-                            <a-card-grid style="width: 25%; text-align: center">GATE:{{info.Packet['Femto_input_reg']['Femto_input_reg_db25'].Ext_gate}}</a-card-grid>
-                            <a-card-grid style="width: 25%; text-align: center">TRIG:{{info.Packet['Femto_input_reg']['Femto_input_reg_db25'].Ext_trig}}</a-card-grid>
-                            <a-card-grid style="width: 25%; text-align: center">PRR:{{info.Packet['Femto_input_reg']['Femto_input_reg_db25'].Ext_prr}}</a-card-grid>
-                            <a-card-grid style="width: 25%; text-align: center">WATERFLOW:{{info.Packet['Femto_input_reg']['Femto_input_reg_db25'].Ext_alarm_cooler}}</a-card-grid>
+                            <a-card-grid style="width:  50%; text-align: left">Latch:{{info.Packet['Femto_input_reg']['Femto_input_reg_db25'].Ext_latch}}</a-card-grid>
+                            <a-card-grid style="width: 50%; text-align: center">PWM:{{info.Packet['Femto_input_reg']['Femto_input_reg_db25'].Ext_pwm}}</a-card-grid>
+                            <a-card-grid style="width: 50%; text-align: center">GATE:{{info.Packet['Femto_input_reg']['Femto_input_reg_db25'].Ext_gate}}</a-card-grid>
+                            <a-card-grid style="width: 50%; text-align: center">TRIG:{{info.Packet['Femto_input_reg']['Femto_input_reg_db25'].Ext_trig}}</a-card-grid>
+                            <a-card-grid style="width: 50%; text-align: center">PRR:{{info.Packet['Femto_input_reg']['Femto_input_reg_db25'].Ext_prr}}</a-card-grid>
+                            <a-card-grid style="width: 50%; text-align: center">WATERFLOW:{{info.Packet['Femto_input_reg']['Femto_input_reg_db25'].Ext_alarm_cooler}}</a-card-grid>
                             <a-divider orientation="centor">信号值</a-divider> 
                             <a-row :gutter="16">
                               <a-col :span="16" >
@@ -76,16 +82,6 @@
                             </a-col>
                             </a-row>
                             </a-card>
-                       </a-col>
-
-                       <a-col :span="16"  style="flex: 1;"  >
-                       
-                            <!-- <a-card hoverable title="设备信息" :bordered="true">
-                            <ul >硬件版本:  {{info.Packet['Femto_input_reg']['Femto_input_reg_bate'].Hardware_bate}}</ul>
-                            <ul >MCU版本:  {{info.Packet['Femto_input_reg']['Femto_input_reg_bate'].Mcu_app_bate}}</ul>
-                            <ul >FPGA版本:  {{info.Packet['Femto_input_reg']['Femto_input_reg_bate'].Fpga_bate}}</ul>
-                            </a-card> -->
-                      
                         
                           
                              <a-card  hoverable title=" 频率检测 " :bordered="true">
@@ -186,7 +182,7 @@
               </a-col>
             </a-row> 
             <a-divider orientation="centor">监控值</a-divider>   
-            <ul >通道{{indexTemp}}: {{  info.Packet.Femto_input_reg.Femto_input_reg_monitor.Temp[indexVol] }}</ul>
+            <ul >通道{{indexTemp}}: {{  info.Packet.Femto_input_reg.Femto_input_reg_monitor.Temp[indexTemp] }}</ul>
             <a-divider orientation="centor">参数</a-divider>  
             <ul > 使能:{{ info.Packet.Femto_holding_reg.Laser_para.Temp_para[indexTemp].En }}</ul>
             <ul > 通道绑定:{{  info.Packet.Femto_holding_reg.Laser_para.Temp_para[indexTemp].Adc_band_ch}}</ul>
@@ -199,9 +195,10 @@
             <ul > 上限:{{  info.Packet.Femto_holding_reg.Laser_para.Temp_para[indexTemp].Temp_max }}</ul>
             <ul > 下限:{{ info.Packet.Femto_holding_reg.Laser_para.Temp_para[indexTemp].Temp_min  }}</ul>
             <ul > 滤波次数:{{ info.Packet.Femto_holding_reg.Laser_para.Temp_para[indexTemp].Filter_time  }}</ul>
-
             </a-card>
             </a-col>
+             <Dynaline> </Dynaline>
+        
           </a-row>
     </div>
 
@@ -237,7 +234,9 @@ import moment from 'moment'
 import { Slider, Tag } from 'ant-design-vue';
 import { Device ,Packet_mon_pump } from '@/types/api';
 import { onUpdated, ref, computed } from 'vue';
+
 import DeviceData from './DeviceData.vue';
+import Dynaline from './DynamicData.vue'
 import TimeVue from './Time.vue'
 import StatusVue from './DeviceStatus.vue';
 
@@ -412,7 +411,7 @@ const setting= ()=>{
 }
 
 .ant-card {
-  border-radius: 10px;
+  border-radius: 20px;
 }
 
 </style>

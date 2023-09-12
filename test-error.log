@@ -1606,3 +1606,1490 @@ User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
 2023/06/08 02:15:57 Unregister websocket client a443bc5d-a356-4f70-b59d-3597b448a1ec from group device_upload success
 2023/06/08 02:16:06 Websocket client 522a51ba-1098-44dc-9acc-0c75cfa69ae8 connect 
 2023/06/08 02:16:06 Register client 522a51ba-1098-44dc-9acc-0c75cfa69ae8 to device_upload group success 
+2023/06/08 02:45:51 Websocket manage start
+2023/06/08 02:45:54 Websocket client 2b067f8c-d8a0-43b7-a0e0-ea2d33823d98 connect 
+2023/06/08 02:45:54 Register client 2b067f8c-d8a0-43b7-a0e0-ea2d33823d98 to device_upload group success 
+2023/06/08 02:46:01 Unregister websocket client 2b067f8c-d8a0-43b7-a0e0-ea2d33823d98 
+2023/06/08 02:46:01 Unregister websocket client 2b067f8c-d8a0-43b7-a0e0-ea2d33823d98 from group device_upload success
+2023/06/08 02:46:01 Clear no client group device_upload 
+2023/06/08 02:46:11 Websocket client bfba9730-e0b4-4ec2-8abe-2f2e3a237816 connect 
+2023/06/08 02:46:11 Register client bfba9730-e0b4-4ec2-8abe-2f2e3a237816 to device_upload group success 
+2023/06/08 02:46:43 Websocket client 9af1964f-b71f-4ffb-8982-71567f6fa7db connect 
+2023/06/08 02:46:43 Register client 9af1964f-b71f-4ffb-8982-71567f6fa7db to device_upload group success 
+2023/06/08 02:50:46 Unregister websocket client bfba9730-e0b4-4ec2-8abe-2f2e3a237816 
+2023/06/08 02:50:46 Unregister websocket client bfba9730-e0b4-4ec2-8abe-2f2e3a237816 from group device_upload success
+2023/06/08 02:55:28 Websocket client e01f1aa2-a41d-4317-afbc-ea40990e3f82 connect 
+2023/06/08 02:55:28 Register client e01f1aa2-a41d-4317-afbc-ea40990e3f82 to device_upload group success 
+2023/06/08 02:55:29 Unregister websocket client e01f1aa2-a41d-4317-afbc-ea40990e3f82 
+2023/06/08 02:55:29 Unregister websocket client e01f1aa2-a41d-4317-afbc-ea40990e3f82 from group device_upload success
+2023/06/08 02:55:39 Websocket client 74c513db-6030-406b-ad54-c39fd88ee73c connect 
+2023/06/08 02:55:39 Register client 74c513db-6030-406b-ad54-c39fd88ee73c to device_upload group success 
+2023/06/08 02:58:42 Unregister websocket client 74c513db-6030-406b-ad54-c39fd88ee73c 
+2023/06/08 02:58:42 Unregister websocket client 74c513db-6030-406b-ad54-c39fd88ee73c from group device_upload success
+2023/06/08 02:59:08 Websocket client c3b71177-e8c5-4a82-8984-cadfc506f92b connect 
+2023/06/08 02:59:08 Register client c3b71177-e8c5-4a82-8984-cadfc506f92b to device_upload group success 
+2023/06/08 02:59:09 Unregister websocket client c3b71177-e8c5-4a82-8984-cadfc506f92b 
+2023/06/08 02:59:09 Unregister websocket client c3b71177-e8c5-4a82-8984-cadfc506f92b from group device_upload success
+2023/06/08 02:59:19 Websocket client f3ed1a23-4b86-46ab-9add-050bd2d43bb0 connect 
+2023/06/08 02:59:19 Register client f3ed1a23-4b86-46ab-9add-050bd2d43bb0 to device_upload group success 
+2023/06/08 03:01:39 Unregister websocket client f3ed1a23-4b86-46ab-9add-050bd2d43bb0 
+2023/06/08 03:01:39 Unregister websocket client f3ed1a23-4b86-46ab-9add-050bd2d43bb0 from group device_upload success
+2023/06/08 03:02:28 Websocket client 8d10633f-21f0-43c6-afbb-3d3a9917cce4 connect 
+2023/06/08 03:02:28 Register client 8d10633f-21f0-43c6-afbb-3d3a9917cce4 to device_upload group success 
+2023/06/08 03:02:34 Unregister websocket client 8d10633f-21f0-43c6-afbb-3d3a9917cce4 
+2023/06/08 03:02:34 Unregister websocket client 8d10633f-21f0-43c6-afbb-3d3a9917cce4 from group device_upload success
+2023/06/08 03:02:35 Websocket client 1f4235ee-cb79-4aa3-a466-c75a485d4cb2 connect 
+2023/06/08 03:02:35 Register client 1f4235ee-cb79-4aa3-a466-c75a485d4cb2 to device_upload group success 
+2023/06/08 03:02:39 Websocket client f1654ec6-6e72-40ee-aaec-61aba2e22ccb connect 
+2023/06/08 03:02:39 Register client f1654ec6-6e72-40ee-aaec-61aba2e22ccb to device_upload group success 
+2023/06/08 03:02:44 Websocket client 35bb3dde-8063-47df-b7eb-f817f4e82903 connect 
+2023/06/08 03:02:44 Register client 35bb3dde-8063-47df-b7eb-f817f4e82903 to device_upload group success 
+2023/06/08 03:04:51 Websocket client 4aa22533-3423-4d29-a5dd-14ba6c90b320 connect 
+2023/06/08 03:04:51 Register client 4aa22533-3423-4d29-a5dd-14ba6c90b320 to device_upload group success 
+2023/06/08 03:04:51 Unregister websocket client f1654ec6-6e72-40ee-aaec-61aba2e22ccb 
+2023/06/08 03:04:51 Unregister websocket client f1654ec6-6e72-40ee-aaec-61aba2e22ccb from group device_upload success
+2023/06/08 03:04:51 Unregister websocket client 35bb3dde-8063-47df-b7eb-f817f4e82903 
+2023/06/08 03:04:51 Unregister websocket client 35bb3dde-8063-47df-b7eb-f817f4e82903 from group device_upload success
+2023/06/08 03:04:51 Unregister websocket client 1f4235ee-cb79-4aa3-a466-c75a485d4cb2 
+2023/06/08 03:04:51 Unregister websocket client 1f4235ee-cb79-4aa3-a466-c75a485d4cb2 from group device_upload success
+2023/06/08 03:04:53 Unregister websocket client 4aa22533-3423-4d29-a5dd-14ba6c90b320 
+2023/06/08 03:04:53 Unregister websocket client 4aa22533-3423-4d29-a5dd-14ba6c90b320 from group device_upload success
+2023/06/08 03:04:53 Websocket client 6485caa8-cf81-45a3-9717-8629882f2f8b connect 
+2023/06/08 03:04:53 Register client 6485caa8-cf81-45a3-9717-8629882f2f8b to device_upload group success 
+2023/06/08 03:04:59 Unregister websocket client 6485caa8-cf81-45a3-9717-8629882f2f8b 
+2023/06/08 03:04:59 Unregister websocket client 6485caa8-cf81-45a3-9717-8629882f2f8b from group device_upload success
+2023/06/08 03:04:59 Websocket client d317ba6d-82e1-4427-a855-b284b4dd49b4 connect 
+2023/06/08 03:04:59 Register client d317ba6d-82e1-4427-a855-b284b4dd49b4 to device_upload group success 
+2023/06/08 03:05:01 Unregister websocket client d317ba6d-82e1-4427-a855-b284b4dd49b4 
+2023/06/08 03:05:01 Unregister websocket client d317ba6d-82e1-4427-a855-b284b4dd49b4 from group device_upload success
+2023/06/08 03:05:02 Websocket client 53c22c97-59c3-483e-b8fe-dfa21e0f112e connect 
+2023/06/08 03:05:02 Register client 53c22c97-59c3-483e-b8fe-dfa21e0f112e to device_upload group success 
+2023/06/08 03:05:04 Unregister websocket client 53c22c97-59c3-483e-b8fe-dfa21e0f112e 
+2023/06/08 03:05:04 Unregister websocket client 53c22c97-59c3-483e-b8fe-dfa21e0f112e from group device_upload success
+2023/06/08 03:05:05 Websocket client c28c5c0b-71fb-4aa3-8d14-df7e93f33163 connect 
+2023/06/08 03:05:05 Register client c28c5c0b-71fb-4aa3-8d14-df7e93f33163 to device_upload group success 
+2023/06/08 03:05:06 Unregister websocket client c28c5c0b-71fb-4aa3-8d14-df7e93f33163 
+2023/06/08 03:05:06 Unregister websocket client c28c5c0b-71fb-4aa3-8d14-df7e93f33163 from group device_upload success
+2023/06/08 03:05:09 Websocket client 0486d1da-13d8-4aeb-8b9b-6254ad0d5ab6 connect 
+2023/06/08 03:05:09 Register client 0486d1da-13d8-4aeb-8b9b-6254ad0d5ab6 to device_upload group success 
+2023/06/08 03:05:11 Unregister websocket client 0486d1da-13d8-4aeb-8b9b-6254ad0d5ab6 
+2023/06/08 03:05:11 Unregister websocket client 0486d1da-13d8-4aeb-8b9b-6254ad0d5ab6 from group device_upload success
+2023/06/08 03:06:23 Websocket client 6c20ce1d-11f5-40fc-891d-61b674c38c0c connect 
+2023/06/08 03:06:23 Register client 6c20ce1d-11f5-40fc-891d-61b674c38c0c to device_upload group success 
+2023/06/08 03:06:39 Websocket client 0f8bbe50-5332-4cae-80ef-0b75ae740919 connect 
+2023/06/08 03:06:39 Register client 0f8bbe50-5332-4cae-80ef-0b75ae740919 to device_upload group success 
+2023/06/08 03:06:40 Unregister websocket client 6c20ce1d-11f5-40fc-891d-61b674c38c0c 
+2023/06/08 03:06:40 Unregister websocket client 6c20ce1d-11f5-40fc-891d-61b674c38c0c from group device_upload success
+2023/06/08 03:10:40 Unregister websocket client 0f8bbe50-5332-4cae-80ef-0b75ae740919 
+2023/06/08 03:10:40 Unregister websocket client 0f8bbe50-5332-4cae-80ef-0b75ae740919 from group device_upload success
+2023/06/08 03:10:55 Websocket client fd8d8af1-f5ea-4b48-99ff-de5f52ebd827 connect 
+2023/06/08 03:10:55 Register client fd8d8af1-f5ea-4b48-99ff-de5f52ebd827 to device_upload group success 
+2023/06/08 03:17:00 Unregister websocket client fd8d8af1-f5ea-4b48-99ff-de5f52ebd827 
+2023/06/08 03:17:00 Unregister websocket client fd8d8af1-f5ea-4b48-99ff-de5f52ebd827 from group device_upload success
+2023/06/08 03:17:52 Websocket client ed778ac1-61be-4478-abf1-fab53972da06 connect 
+2023/06/08 03:17:52 Register client ed778ac1-61be-4478-abf1-fab53972da06 to device_upload group success 
+2023/06/08 03:21:48 Unregister websocket client ed778ac1-61be-4478-abf1-fab53972da06 
+2023/06/08 03:21:48 Unregister websocket client ed778ac1-61be-4478-abf1-fab53972da06 from group device_upload success
+2023/06/08 03:22:21 Websocket client b233bbf2-0623-40ab-bbf6-0aef7137d2fb connect 
+2023/06/08 03:22:21 Register client b233bbf2-0623-40ab-bbf6-0aef7137d2fb to device_upload group success 
+2023/06/08 03:24:25 Unregister websocket client b233bbf2-0623-40ab-bbf6-0aef7137d2fb 
+2023/06/08 03:24:25 Unregister websocket client b233bbf2-0623-40ab-bbf6-0aef7137d2fb from group device_upload success
+2023/06/08 03:24:53 Websocket client a8af15f2-1833-4135-a123-5226d1eaa747 connect 
+2023/06/08 03:24:53 Register client a8af15f2-1833-4135-a123-5226d1eaa747 to device_upload group success 
+2023/06/08 03:27:23 Unregister websocket client a8af15f2-1833-4135-a123-5226d1eaa747 
+2023/06/08 03:27:23 Unregister websocket client a8af15f2-1833-4135-a123-5226d1eaa747 from group device_upload success
+2023/06/08 03:27:57 Websocket client 2b71dacc-033f-4617-9491-985f9d70bc50 connect 
+2023/06/08 03:27:57 Register client 2b71dacc-033f-4617-9491-985f9d70bc50 to device_upload group success 
+2023/06/08 03:29:25 Unregister websocket client 2b71dacc-033f-4617-9491-985f9d70bc50 
+2023/06/08 03:29:25 Unregister websocket client 2b71dacc-033f-4617-9491-985f9d70bc50 from group device_upload success
+2023/06/08 03:30:20 Websocket client 4f61df42-1007-4391-aa90-2d04ff8cdc46 connect 
+2023/06/08 03:30:20 Register client 4f61df42-1007-4391-aa90-2d04ff8cdc46 to device_upload group success 
+2023/06/08 03:31:00 Websocket client 256f656d-b17c-4f9e-9552-bf31c59ea555 connect 
+2023/06/08 03:31:00 Register client 256f656d-b17c-4f9e-9552-bf31c59ea555 to device_upload group success 
+2023/06/08 03:31:01 Unregister websocket client 4f61df42-1007-4391-aa90-2d04ff8cdc46 
+2023/06/08 03:31:01 Unregister websocket client 4f61df42-1007-4391-aa90-2d04ff8cdc46 from group device_upload success
+2023/06/08 03:31:40 Unregister websocket client 256f656d-b17c-4f9e-9552-bf31c59ea555 
+2023/06/08 03:31:40 Unregister websocket client 256f656d-b17c-4f9e-9552-bf31c59ea555 from group device_upload success
+2023/06/08 03:32:03 Websocket client e5b9eb32-d18e-4303-883f-359781a9ba92 connect 
+2023/06/08 03:32:03 Register client e5b9eb32-d18e-4303-883f-359781a9ba92 to device_upload group success 
+2023/06/08 03:34:02 Unregister websocket client e5b9eb32-d18e-4303-883f-359781a9ba92 
+2023/06/08 03:34:02 Unregister websocket client e5b9eb32-d18e-4303-883f-359781a9ba92 from group device_upload success
+2023/06/08 03:35:11 Websocket client 2db171c3-7e88-42a9-a9c8-64a0196e6516 connect 
+2023/06/08 03:35:11 Register client 2db171c3-7e88-42a9-a9c8-64a0196e6516 to device_upload group success 
+2023/06/08 03:38:38 Unregister websocket client 2db171c3-7e88-42a9-a9c8-64a0196e6516 
+2023/06/08 03:38:38 Unregister websocket client 2db171c3-7e88-42a9-a9c8-64a0196e6516 from group device_upload success
+2023/06/08 03:38:41 Websocket client 733e24ae-e826-4425-91db-bfa4a38bea84 connect 
+2023/06/08 03:38:41 Register client 733e24ae-e826-4425-91db-bfa4a38bea84 to device_upload group success 
+2023/06/08 03:39:44 Unregister websocket client 733e24ae-e826-4425-91db-bfa4a38bea84 
+2023/06/08 03:39:44 Unregister websocket client 733e24ae-e826-4425-91db-bfa4a38bea84 from group device_upload success
+2023/06/08 03:39:44 Websocket client 1a17d7fa-be5a-45af-a3a6-2c6f0d91cce9 connect 
+2023/06/08 03:39:44 Register client 1a17d7fa-be5a-45af-a3a6-2c6f0d91cce9 to device_upload group success 
+2023/06/08 03:41:19 Unregister websocket client 1a17d7fa-be5a-45af-a3a6-2c6f0d91cce9 
+2023/06/08 03:41:19 Unregister websocket client 1a17d7fa-be5a-45af-a3a6-2c6f0d91cce9 from group device_upload success
+2023/06/08 03:41:20 Websocket client 5fb30eda-71a4-46f3-8fa2-603e41a2ee80 connect 
+2023/06/08 03:41:20 Register client 5fb30eda-71a4-46f3-8fa2-603e41a2ee80 to device_upload group success 
+2023/06/08 03:41:25 Unregister websocket client 5fb30eda-71a4-46f3-8fa2-603e41a2ee80 
+2023/06/08 03:41:25 Unregister websocket client 5fb30eda-71a4-46f3-8fa2-603e41a2ee80 from group device_upload success
+2023/06/08 03:41:52 Websocket client 11d1e0b9-12ef-47e2-b01b-13e882659384 connect 
+2023/06/08 03:41:52 Register client 11d1e0b9-12ef-47e2-b01b-13e882659384 to device_upload group success 
+2023/06/08 03:42:03 Unregister websocket client 11d1e0b9-12ef-47e2-b01b-13e882659384 
+2023/06/08 03:42:03 Unregister websocket client 11d1e0b9-12ef-47e2-b01b-13e882659384 from group device_upload success
+2023/06/08 03:42:27 Websocket client d4a274dd-2c80-4837-9643-b08ffcab6e3c connect 
+2023/06/08 03:42:27 Register client d4a274dd-2c80-4837-9643-b08ffcab6e3c to device_upload group success 
+2023/06/08 03:51:42 Unregister websocket client d4a274dd-2c80-4837-9643-b08ffcab6e3c 
+2023/06/08 03:51:42 Unregister websocket client d4a274dd-2c80-4837-9643-b08ffcab6e3c from group device_upload success
+2023/06/08 03:51:43 Websocket client 17a00ec5-66c8-4555-a1a1-b23cf57ccfca connect 
+2023/06/08 03:51:43 Register client 17a00ec5-66c8-4555-a1a1-b23cf57ccfca to device_upload group success 
+2023/06/08 03:51:45 Websocket client c5afd3e7-6d69-4966-93b3-a4d3c31bfed3 connect 
+2023/06/08 03:51:45 Register client c5afd3e7-6d69-4966-93b3-a4d3c31bfed3 to device_upload group success 
+2023/06/08 03:51:45 Unregister websocket client 17a00ec5-66c8-4555-a1a1-b23cf57ccfca 
+2023/06/08 03:51:45 Unregister websocket client 17a00ec5-66c8-4555-a1a1-b23cf57ccfca from group device_upload success
+2023/06/08 03:51:49 Unregister websocket client c5afd3e7-6d69-4966-93b3-a4d3c31bfed3 
+2023/06/08 03:51:49 Unregister websocket client c5afd3e7-6d69-4966-93b3-a4d3c31bfed3 from group device_upload success
+2023/06/08 03:52:43 Websocket client 534c4e47-b5d7-4554-9e69-652172c60ec5 connect 
+2023/06/08 03:52:43 Register client 534c4e47-b5d7-4554-9e69-652172c60ec5 to device_upload group success 
+2023/06/08 03:57:00 Unregister websocket client 534c4e47-b5d7-4554-9e69-652172c60ec5 
+2023/06/08 03:57:00 Unregister websocket client 534c4e47-b5d7-4554-9e69-652172c60ec5 from group device_upload success
+2023/06/08 03:57:24 Websocket client d661eddf-cc33-4a8b-84d8-f3dfb7947a5e connect 
+2023/06/08 03:57:24 Register client d661eddf-cc33-4a8b-84d8-f3dfb7947a5e to device_upload group success 
+2023/06/08 03:58:02 Unregister websocket client d661eddf-cc33-4a8b-84d8-f3dfb7947a5e 
+2023/06/08 03:58:02 Unregister websocket client d661eddf-cc33-4a8b-84d8-f3dfb7947a5e from group device_upload success
+2023/06/08 09:43:54 Unregister websocket client 9af1964f-b71f-4ffb-8982-71567f6fa7db 
+2023/06/08 09:43:54 Unregister websocket client 9af1964f-b71f-4ffb-8982-71567f6fa7db from group device_upload success
+2023/06/08 09:43:54 Clear no client group device_upload 
+2023/06/08 09:44:05 Websocket client acc4617f-57da-4b03-a592-2422ef8973cb connect 
+2023/06/08 09:44:05 Register client acc4617f-57da-4b03-a592-2422ef8973cb to device_upload group success 
+2023/06/08 09:44:18 Websocket client 1a6db119-89f7-42cd-a61b-701175238a44 connect 
+2023/06/08 09:44:18 Register client 1a6db119-89f7-42cd-a61b-701175238a44 to device_upload group success 
+2023/06/08 09:44:18 Websocket client 1c03864e-1e98-4399-a328-66e9e5004c86 connect 
+2023/06/08 09:44:18 Register client 1c03864e-1e98-4399-a328-66e9e5004c86 to device_upload group success 
+2023/06/08 09:44:29 Unregister websocket client 1c03864e-1e98-4399-a328-66e9e5004c86 
+2023/06/08 09:44:29 Unregister websocket client 1c03864e-1e98-4399-a328-66e9e5004c86 from group device_upload success
+2023/06/08 09:44:31 Websocket client abf86ccf-a976-4a9e-9791-e69f854499f2 connect 
+2023/06/08 09:44:31 Register client abf86ccf-a976-4a9e-9791-e69f854499f2 to device_upload group success 
+2023/06/08 09:44:33 Unregister websocket client abf86ccf-a976-4a9e-9791-e69f854499f2 
+2023/06/08 09:44:33 Unregister websocket client abf86ccf-a976-4a9e-9791-e69f854499f2 from group device_upload success
+2023/06/08 09:44:33 Unregister websocket client 1a6db119-89f7-42cd-a61b-701175238a44 
+2023/06/08 09:44:33 Unregister websocket client 1a6db119-89f7-42cd-a61b-701175238a44 from group device_upload success
+2023/06/08 09:44:36 Unregister websocket client acc4617f-57da-4b03-a592-2422ef8973cb 
+2023/06/08 09:44:36 Unregister websocket client acc4617f-57da-4b03-a592-2422ef8973cb from group device_upload success
+2023/06/08 09:44:36 Clear no client group device_upload 
+2023/06/08 09:44:36 Websocket client 654f5bb5-9508-459a-bdd7-7fb89be5ecf9 connect 
+2023/06/08 09:44:36 Register client 654f5bb5-9508-459a-bdd7-7fb89be5ecf9 to device_upload group success 
+2023/06/08 09:44:57 Websocket client 3dae44d1-29e0-4a9e-a499-9e4fdc306219 connect 
+2023/06/08 09:44:57 Register client 3dae44d1-29e0-4a9e-a499-9e4fdc306219 to device_upload group success 
+2023/06/08 09:45:53 Unregister websocket client 654f5bb5-9508-459a-bdd7-7fb89be5ecf9 
+2023/06/08 09:45:53 Unregister websocket client 654f5bb5-9508-459a-bdd7-7fb89be5ecf9 from group device_upload success
+2023/06/08 09:46:02 Websocket client 9948c38c-68c9-4d39-8543-cd8aa85a66cb connect 
+2023/06/08 09:46:02 Register client 9948c38c-68c9-4d39-8543-cd8aa85a66cb to device_upload group success 
+2023/06/08 09:47:17 Unregister websocket client 9948c38c-68c9-4d39-8543-cd8aa85a66cb 
+2023/06/08 09:47:17 Unregister websocket client 9948c38c-68c9-4d39-8543-cd8aa85a66cb from group device_upload success
+2023/06/08 09:47:26 Websocket client 55de2ce8-84bf-48ee-8b72-bba2f090d1e0 connect 
+2023/06/08 09:47:26 Register client 55de2ce8-84bf-48ee-8b72-bba2f090d1e0 to device_upload group success 
+2023/06/08 09:56:46 Unregister websocket client 3dae44d1-29e0-4a9e-a499-9e4fdc306219 
+2023/06/08 09:56:46 Unregister websocket client 3dae44d1-29e0-4a9e-a499-9e4fdc306219 from group device_upload success
+2023/06/08 09:56:46 Websocket client 340de16a-c04d-4605-8aff-32d59e4d53c0 connect 
+2023/06/08 09:56:46 Register client 340de16a-c04d-4605-8aff-32d59e4d53c0 to device_upload group success 
+2023/06/08 09:57:40 Websocket client 9be3acce-ad95-4209-ab42-c7b267d9f3e2 connect 
+2023/06/08 09:57:40 Register client 9be3acce-ad95-4209-ab42-c7b267d9f3e2 to device_upload group success 
+2023/06/08 09:57:40 Unregister websocket client 340de16a-c04d-4605-8aff-32d59e4d53c0 
+2023/06/08 09:57:40 Unregister websocket client 340de16a-c04d-4605-8aff-32d59e4d53c0 from group device_upload success
+2023/06/08 10:02:38 Unregister websocket client 9be3acce-ad95-4209-ab42-c7b267d9f3e2 
+2023/06/08 10:02:38 Unregister websocket client 9be3acce-ad95-4209-ab42-c7b267d9f3e2 from group device_upload success
+2023/06/08 10:06:20 Websocket client cef76d32-1bb9-46d0-b6d9-54bf8b0d5fd5 connect 
+2023/06/08 10:06:20 Register client cef76d32-1bb9-46d0-b6d9-54bf8b0d5fd5 to device_upload group success 
+2023/06/08 11:13:29 Unregister websocket client 55de2ce8-84bf-48ee-8b72-bba2f090d1e0 
+2023/06/08 11:13:29 Unregister websocket client 55de2ce8-84bf-48ee-8b72-bba2f090d1e0 from group device_upload success
+2023/06/08 11:13:29 Websocket client b7f78335-64ec-4433-bd80-7d41d25f626d connect 
+2023/06/08 11:13:29 Register client b7f78335-64ec-4433-bd80-7d41d25f626d to device_upload group success 
+2023/06/08 11:13:29 Unregister websocket client cef76d32-1bb9-46d0-b6d9-54bf8b0d5fd5 
+2023/06/08 11:13:29 Unregister websocket client cef76d32-1bb9-46d0-b6d9-54bf8b0d5fd5 from group device_upload success
+2023/06/08 11:13:29 Websocket client 0164a832-1338-4271-8117-a80e74eab374 connect 
+2023/06/08 11:13:29 Register client 0164a832-1338-4271-8117-a80e74eab374 to device_upload group success 
+2023/06/08 11:13:29 Unregister websocket client b7f78335-64ec-4433-bd80-7d41d25f626d 
+2023/06/08 11:13:29 Unregister websocket client b7f78335-64ec-4433-bd80-7d41d25f626d from group device_upload success
+2023/06/08 11:13:29 Unregister websocket client 0164a832-1338-4271-8117-a80e74eab374 
+2023/06/08 11:13:29 Unregister websocket client 0164a832-1338-4271-8117-a80e74eab374 from group device_upload success
+2023/06/08 11:13:29 Clear no client group device_upload 
+2023/06/08 11:13:29 Websocket client 658e7cd8-3f94-48ff-b3b9-f493fa821766 connect 
+2023/06/08 11:13:29 Register client 658e7cd8-3f94-48ff-b3b9-f493fa821766 to device_upload group success 
+2023/06/08 12:08:24 Websocket client b63fb44f-e9a1-4789-8e06-eff3ba34d473 connect 
+2023/06/08 12:08:24 Register client b63fb44f-e9a1-4789-8e06-eff3ba34d473 to device_upload group success 
+2023/06/08 12:08:40 Unregister websocket client b63fb44f-e9a1-4789-8e06-eff3ba34d473 
+2023/06/08 12:08:40 Unregister websocket client b63fb44f-e9a1-4789-8e06-eff3ba34d473 from group device_upload success
+2023/06/08 12:08:44 Websocket client 9488878d-ace0-4148-86b5-b560bf70ca2f connect 
+2023/06/08 12:08:44 Register client 9488878d-ace0-4148-86b5-b560bf70ca2f to device_upload group success 
+2023/06/08 12:09:00 Websocket client 7af9b715-3637-4f7c-8e55-4227ea36b7c0 connect 
+2023/06/08 12:09:00 Register client 7af9b715-3637-4f7c-8e55-4227ea36b7c0 to device_upload group success 
+2023/06/08 12:09:04 Unregister websocket client 9488878d-ace0-4148-86b5-b560bf70ca2f 
+2023/06/08 12:09:04 Unregister websocket client 9488878d-ace0-4148-86b5-b560bf70ca2f from group device_upload success
+2023/06/08 12:09:11 Websocket client 4d893326-bf43-4233-8111-24b79cccc318 connect 
+2023/06/08 12:09:11 Register client 4d893326-bf43-4233-8111-24b79cccc318 to device_upload group success 
+2023/06/08 12:09:23 Websocket client 11b45a83-483a-4d20-a08c-1d942d01daf1 connect 
+2023/06/08 12:09:23 Register client 11b45a83-483a-4d20-a08c-1d942d01daf1 to device_upload group success 
+2023/06/08 12:10:30 Websocket client 836a0c18-0587-4d8f-99ac-7905ba9c7ef4 connect 
+2023/06/08 12:10:30 Register client 836a0c18-0587-4d8f-99ac-7905ba9c7ef4 to device_upload group success 
+2023/06/08 12:10:48 Unregister websocket client 836a0c18-0587-4d8f-99ac-7905ba9c7ef4 
+2023/06/08 12:10:48 Unregister websocket client 836a0c18-0587-4d8f-99ac-7905ba9c7ef4 from group device_upload success
+2023/06/08 12:12:50 Unregister websocket client 4d893326-bf43-4233-8111-24b79cccc318 
+2023/06/08 12:12:50 Unregister websocket client 4d893326-bf43-4233-8111-24b79cccc318 from group device_upload success
+2023/06/08 12:13:10 Websocket client fcac47b6-7b6d-476d-8b76-93ef3e81a11e connect 
+2023/06/08 12:13:10 Register client fcac47b6-7b6d-476d-8b76-93ef3e81a11e to device_upload group success 
+2023/06/08 12:15:02 Websocket client cf83b263-878e-4f35-8ab7-8eed03bb99df connect 
+2023/06/08 12:15:02 Register client cf83b263-878e-4f35-8ab7-8eed03bb99df to device_upload group success 
+2023/06/08 12:55:49 Unregister websocket client 11b45a83-483a-4d20-a08c-1d942d01daf1 
+2023/06/08 12:55:49 Unregister websocket client 11b45a83-483a-4d20-a08c-1d942d01daf1 from group device_upload success
+2023/06/08 12:55:49 Unregister websocket client fcac47b6-7b6d-476d-8b76-93ef3e81a11e 
+2023/06/08 12:55:49 Unregister websocket client fcac47b6-7b6d-476d-8b76-93ef3e81a11e from group device_upload success
+2023/06/08 12:55:49 Unregister websocket client cf83b263-878e-4f35-8ab7-8eed03bb99df 
+2023/06/08 12:55:49 Unregister websocket client cf83b263-878e-4f35-8ab7-8eed03bb99df from group device_upload success
+2023/06/08 12:55:49 Unregister websocket client 7af9b715-3637-4f7c-8e55-4227ea36b7c0 
+2023/06/08 12:55:49 Unregister websocket client 7af9b715-3637-4f7c-8e55-4227ea36b7c0 from group device_upload success
+2023/06/08 14:58:32 Websocket client d216da1c-e0e3-45bb-9590-ae59d091b3b3 connect 
+2023/06/08 14:58:32 Register client d216da1c-e0e3-45bb-9590-ae59d091b3b3 to device_upload group success 
+
+
+[31m2023/06/08 14:58:46 write tcp 192.168.0.34:8080->183.17.59.122:48950: write: broken pipe
+GET /device/list HTTP/1.1
+Host: 139.159.203.84:8080
+Accept: application/json, text/plain, */*
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+Connection: keep-alive
+Referer: http://139.159.203.84:8080/
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.37
+
+[0m
+2023/06/08 14:58:47 Unregister websocket client d216da1c-e0e3-45bb-9590-ae59d091b3b3 
+2023/06/08 14:58:47 Unregister websocket client d216da1c-e0e3-45bb-9590-ae59d091b3b3 from group device_upload success
+2023/06/08 17:23:55 Websocket client da658bfa-2955-41fe-8f92-95d4b228bf93 connect 
+2023/06/08 17:23:55 Register client da658bfa-2955-41fe-8f92-95d4b228bf93 to device_upload group success 
+2023/06/08 17:47:44 Unregister websocket client da658bfa-2955-41fe-8f92-95d4b228bf93 
+2023/06/08 17:47:44 Unregister websocket client da658bfa-2955-41fe-8f92-95d4b228bf93 from group device_upload success
+2023/06/08 17:48:13 Websocket client a17e23f7-0d8a-40b7-942f-9be1fc64cd63 connect 
+2023/06/08 17:48:13 Register client a17e23f7-0d8a-40b7-942f-9be1fc64cd63 to device_upload group success 
+2023/06/08 18:09:58 Unregister websocket client 658e7cd8-3f94-48ff-b3b9-f493fa821766 
+2023/06/08 18:09:58 Unregister websocket client 658e7cd8-3f94-48ff-b3b9-f493fa821766 from group device_upload success
+2023/06/08 18:10:02 Unregister websocket client a17e23f7-0d8a-40b7-942f-9be1fc64cd63 
+2023/06/08 18:10:02 Unregister websocket client a17e23f7-0d8a-40b7-942f-9be1fc64cd63 from group device_upload success
+2023/06/08 18:10:02 Clear no client group device_upload 
+2023/06/08 18:10:04 Websocket client d532f9a7-30c2-432f-b64d-281380be9255 connect 
+2023/06/08 18:10:04 Register client d532f9a7-30c2-432f-b64d-281380be9255 to device_upload group success 
+2023/06/08 18:10:14 Websocket client 4de03104-c4d0-4090-a456-3754364f7a7a connect 
+2023/06/08 18:10:14 Register client 4de03104-c4d0-4090-a456-3754364f7a7a to device_upload group success 
+2023/06/08 18:10:51 Unregister websocket client 4de03104-c4d0-4090-a456-3754364f7a7a 
+2023/06/08 18:10:51 Unregister websocket client 4de03104-c4d0-4090-a456-3754364f7a7a from group device_upload success
+2023/06/08 18:10:51 Unregister websocket client d532f9a7-30c2-432f-b64d-281380be9255 
+2023/06/08 18:10:51 Unregister websocket client d532f9a7-30c2-432f-b64d-281380be9255 from group device_upload success
+2023/06/08 18:10:51 Clear no client group device_upload 
+2023/06/08 20:09:47 Websocket client 25169e7f-2abe-4298-807b-e8311f4d47cf connect 
+2023/06/08 20:09:47 Register client 25169e7f-2abe-4298-807b-e8311f4d47cf to device_upload group success 
+2023/06/08 20:09:49 Unregister websocket client 25169e7f-2abe-4298-807b-e8311f4d47cf 
+2023/06/08 20:09:49 Unregister websocket client 25169e7f-2abe-4298-807b-e8311f4d47cf from group device_upload success
+2023/06/08 20:09:49 Clear no client group device_upload 
+2023/06/08 20:09:51 Websocket client a86a11b6-6c39-4c00-8c1e-43ec9eff44a1 connect 
+2023/06/08 20:09:51 Register client a86a11b6-6c39-4c00-8c1e-43ec9eff44a1 to device_upload group success 
+2023/06/08 20:09:59 Websocket client cac06dba-9f07-4151-af01-73f0b1679605 connect 
+2023/06/08 20:09:59 Register client cac06dba-9f07-4151-af01-73f0b1679605 to device_upload group success 
+2023/06/08 20:11:23 Unregister websocket client a86a11b6-6c39-4c00-8c1e-43ec9eff44a1 
+2023/06/08 20:11:23 Unregister websocket client a86a11b6-6c39-4c00-8c1e-43ec9eff44a1 from group device_upload success
+2023/06/08 20:11:25 Websocket client 99c2d171-7a09-45d7-8bf2-98476c7fcf51 connect 
+2023/06/08 20:11:25 Register client 99c2d171-7a09-45d7-8bf2-98476c7fcf51 to device_upload group success 
+2023/06/08 20:11:33 Websocket client cf1e8dcb-15f9-4941-9d84-8f511b97771d connect 
+2023/06/08 20:11:33 Register client cf1e8dcb-15f9-4941-9d84-8f511b97771d to device_upload group success 
+2023/06/08 20:19:21 Unregister websocket client 99c2d171-7a09-45d7-8bf2-98476c7fcf51 
+2023/06/08 20:19:21 Unregister websocket client 99c2d171-7a09-45d7-8bf2-98476c7fcf51 from group device_upload success
+2023/06/08 20:19:21 Unregister websocket client cf1e8dcb-15f9-4941-9d84-8f511b97771d 
+2023/06/08 20:19:21 Unregister websocket client cf1e8dcb-15f9-4941-9d84-8f511b97771d from group device_upload success
+2023/06/08 20:19:21 Unregister websocket client cac06dba-9f07-4151-af01-73f0b1679605 
+2023/06/08 20:19:21 Unregister websocket client cac06dba-9f07-4151-af01-73f0b1679605 from group device_upload success
+2023/06/08 20:19:21 Clear no client group device_upload 
+2023/06/08 20:49:36 Websocket client 2927d78b-c903-4f5a-9eb9-6ab8989c1c2c connect 
+2023/06/08 20:49:36 Register client 2927d78b-c903-4f5a-9eb9-6ab8989c1c2c to device_upload group success 
+2023/06/08 21:10:13 Unregister websocket client 2927d78b-c903-4f5a-9eb9-6ab8989c1c2c 
+2023/06/08 21:10:13 Unregister websocket client 2927d78b-c903-4f5a-9eb9-6ab8989c1c2c from group device_upload success
+2023/06/08 21:10:13 Clear no client group device_upload 
+2023/06/08 21:10:13 Websocket client 43e20403-e55b-4f29-81ae-36347c00f8af connect 
+2023/06/08 21:10:13 Register client 43e20403-e55b-4f29-81ae-36347c00f8af to device_upload group success 
+2023/06/08 22:08:27 Unregister websocket client 43e20403-e55b-4f29-81ae-36347c00f8af 
+2023/06/08 22:08:27 Unregister websocket client 43e20403-e55b-4f29-81ae-36347c00f8af from group device_upload success
+2023/06/08 22:08:27 Clear no client group device_upload 
+2023/06/08 23:23:56 Websocket client 505482d9-087f-400b-a768-845acb8ef201 connect 
+2023/06/08 23:23:56 Register client 505482d9-087f-400b-a768-845acb8ef201 to device_upload group success 
+2023/06/08 23:45:02 http: URL query contains semicolon, which is no longer a supported separator; parts of the query may be stripped when parsed; see golang.org/issue/25192
+2023/06/09 00:16:34 Unregister websocket client 505482d9-087f-400b-a768-845acb8ef201 
+2023/06/09 00:16:34 Unregister websocket client 505482d9-087f-400b-a768-845acb8ef201 from group device_upload success
+2023/06/09 00:16:34 Clear no client group device_upload 
+2023/06/09 00:16:39 Websocket client 93a58e81-19dd-43e7-aff5-bb1757caea40 connect 
+2023/06/09 00:16:39 Register client 93a58e81-19dd-43e7-aff5-bb1757caea40 to device_upload group success 
+2023/06/09 00:16:42 Unregister websocket client 93a58e81-19dd-43e7-aff5-bb1757caea40 
+2023/06/09 00:16:42 Unregister websocket client 93a58e81-19dd-43e7-aff5-bb1757caea40 from group device_upload success
+2023/06/09 00:16:42 Clear no client group device_upload 
+2023/06/09 00:16:42 Websocket client f414be31-aceb-4606-b683-c32c832f640e connect 
+2023/06/09 00:16:42 Register client f414be31-aceb-4606-b683-c32c832f640e to device_upload group success 
+2023/06/09 00:16:43 Unregister websocket client f414be31-aceb-4606-b683-c32c832f640e 
+2023/06/09 00:16:43 Unregister websocket client f414be31-aceb-4606-b683-c32c832f640e from group device_upload success
+2023/06/09 00:16:43 Clear no client group device_upload 
+2023/06/09 00:16:43 Websocket client db3a9576-eea8-4c4d-85ca-b60c535c2cd7 connect 
+2023/06/09 00:16:43 Register client db3a9576-eea8-4c4d-85ca-b60c535c2cd7 to device_upload group success 
+2023/06/09 00:16:44 Unregister websocket client db3a9576-eea8-4c4d-85ca-b60c535c2cd7 
+2023/06/09 00:16:44 Unregister websocket client db3a9576-eea8-4c4d-85ca-b60c535c2cd7 from group device_upload success
+2023/06/09 00:16:44 Clear no client group device_upload 
+2023/06/09 00:16:44 Websocket client 38da418b-e59e-4145-9e54-1de994f26700 connect 
+2023/06/09 00:16:44 Register client 38da418b-e59e-4145-9e54-1de994f26700 to device_upload group success 
+
+
+[31m2023/06/09 00:30:05 write tcp 192.168.0.34:8080->219.133.249.166:13403: write: broken pipe
+GET /device/list HTTP/1.1
+Host: 139.159.203.84:8080
+Accept: application/json, text/plain, */*
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-CN,zh;q=0.9
+Connection: keep-alive
+Referer: http://139.159.203.84:8080/
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36
+
+[0m
+
+
+[31m2023/06/09 00:30:05 write tcp 192.168.0.34:8080->219.133.249.166:13180: write: broken pipe
+GET /device/list HTTP/1.1
+Host: 139.159.203.84:8080
+Accept: application/json, text/plain, */*
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-CN,zh;q=0.9
+Connection: keep-alive
+Referer: http://139.159.203.84:8080/
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36
+
+[0m
+
+
+[31m2023/06/09 00:30:05 write tcp 192.168.0.34:8080->219.133.249.166:13142: write: broken pipe
+GET /device/list HTTP/1.1
+Host: 139.159.203.84:8080
+Accept: application/json, text/plain, */*
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-CN,zh;q=0.9
+Connection: keep-alive
+Referer: http://139.159.203.84:8080/
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36
+
+[0m
+
+
+[31m2023/06/09 00:30:05 write tcp 192.168.0.34:8080->219.133.249.166:14760: write: broken pipe
+GET /device/list HTTP/1.1
+Host: 139.159.203.84:8080
+Accept: application/json, text/plain, */*
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-CN,zh;q=0.9
+Connection: keep-alive
+Referer: http://139.159.203.84:8080/
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36
+
+[0m
+2023/06/09 00:44:40 Unregister websocket client 38da418b-e59e-4145-9e54-1de994f26700 
+2023/06/09 00:44:40 Unregister websocket client 38da418b-e59e-4145-9e54-1de994f26700 from group device_upload success
+2023/06/09 00:44:40 Clear no client group device_upload 
+2023/06/09 00:44:42 Websocket client 1f3d14f6-9ee9-4142-bd31-c6008fc19c2b connect 
+2023/06/09 00:44:42 Register client 1f3d14f6-9ee9-4142-bd31-c6008fc19c2b to device_upload group success 
+2023/06/09 00:45:45 Unregister websocket client 1f3d14f6-9ee9-4142-bd31-c6008fc19c2b 
+2023/06/09 00:45:45 Unregister websocket client 1f3d14f6-9ee9-4142-bd31-c6008fc19c2b from group device_upload success
+2023/06/09 00:45:45 Clear no client group device_upload 
+2023/06/09 00:46:03 Websocket client 6b8c82a5-d050-4925-bba8-bc8c0014b3ea connect 
+2023/06/09 00:46:03 Register client 6b8c82a5-d050-4925-bba8-bc8c0014b3ea to device_upload group success 
+2023/06/09 00:46:06 Unregister websocket client 6b8c82a5-d050-4925-bba8-bc8c0014b3ea 
+2023/06/09 00:46:06 Unregister websocket client 6b8c82a5-d050-4925-bba8-bc8c0014b3ea from group device_upload success
+2023/06/09 00:46:06 Clear no client group device_upload 
+2023/06/09 00:46:07 Websocket client 6589a31e-dbc3-47c2-abbb-429d2146ef96 connect 
+2023/06/09 00:46:07 Register client 6589a31e-dbc3-47c2-abbb-429d2146ef96 to device_upload group success 
+2023/06/09 01:49:19 Unregister websocket client 6589a31e-dbc3-47c2-abbb-429d2146ef96 
+2023/06/09 01:49:19 Unregister websocket client 6589a31e-dbc3-47c2-abbb-429d2146ef96 from group device_upload success
+2023/06/09 01:49:19 Clear no client group device_upload 
+2023/06/09 01:49:19 Websocket client 5161118e-1915-45f9-8b11-7cece1c82940 connect 
+2023/06/09 01:49:19 Register client 5161118e-1915-45f9-8b11-7cece1c82940 to device_upload group success 
+2023/06/09 01:49:23 Unregister websocket client 5161118e-1915-45f9-8b11-7cece1c82940 
+2023/06/09 01:49:23 Unregister websocket client 5161118e-1915-45f9-8b11-7cece1c82940 from group device_upload success
+2023/06/09 01:49:23 Clear no client group device_upload 
+2023/06/09 01:49:24 Websocket client c048b225-a7ef-42dd-a293-27220d6a83f5 connect 
+2023/06/09 01:49:24 Register client c048b225-a7ef-42dd-a293-27220d6a83f5 to device_upload group success 
+2023/06/09 01:49:28 Unregister websocket client c048b225-a7ef-42dd-a293-27220d6a83f5 
+2023/06/09 01:49:28 Unregister websocket client c048b225-a7ef-42dd-a293-27220d6a83f5 from group device_upload success
+2023/06/09 01:49:28 Clear no client group device_upload 
+2023/06/09 01:49:29 Websocket client 51ef2ed2-3a10-4f08-a71e-775bd03a9835 connect 
+2023/06/09 01:49:29 Register client 51ef2ed2-3a10-4f08-a71e-775bd03a9835 to device_upload group success 
+2023/06/09 01:49:34 Unregister websocket client 51ef2ed2-3a10-4f08-a71e-775bd03a9835 
+2023/06/09 01:49:34 Unregister websocket client 51ef2ed2-3a10-4f08-a71e-775bd03a9835 from group device_upload success
+2023/06/09 01:49:34 Clear no client group device_upload 
+2023/06/09 01:49:35 Websocket client 8f084758-3cce-4605-bef9-b7b37ad15e99 connect 
+2023/06/09 01:49:35 Register client 8f084758-3cce-4605-bef9-b7b37ad15e99 to device_upload group success 
+2023/06/09 01:49:37 Unregister websocket client 8f084758-3cce-4605-bef9-b7b37ad15e99 
+2023/06/09 01:49:37 Unregister websocket client 8f084758-3cce-4605-bef9-b7b37ad15e99 from group device_upload success
+2023/06/09 01:49:37 Clear no client group device_upload 
+2023/06/09 01:49:37 Websocket client 313d8954-6411-4fbd-9042-f57eba938641 connect 
+2023/06/09 01:49:37 Register client 313d8954-6411-4fbd-9042-f57eba938641 to device_upload group success 
+2023/06/09 01:53:47 Unregister websocket client 313d8954-6411-4fbd-9042-f57eba938641 
+2023/06/09 01:53:47 Unregister websocket client 313d8954-6411-4fbd-9042-f57eba938641 from group device_upload success
+2023/06/09 01:53:47 Clear no client group device_upload 
+2023/06/09 01:53:59 Websocket client 7789e846-a452-42dc-a2dd-c938dc55f177 connect 
+2023/06/09 01:53:59 Register client 7789e846-a452-42dc-a2dd-c938dc55f177 to device_upload group success 
+2023/06/09 01:56:41 Unregister websocket client 7789e846-a452-42dc-a2dd-c938dc55f177 
+2023/06/09 01:56:41 Unregister websocket client 7789e846-a452-42dc-a2dd-c938dc55f177 from group device_upload success
+2023/06/09 01:56:41 Clear no client group device_upload 
+2023/06/09 01:57:01 Websocket client 5cf48337-b30c-43c5-b6a8-c8a0f42a709d connect 
+2023/06/09 01:57:01 Register client 5cf48337-b30c-43c5-b6a8-c8a0f42a709d to device_upload group success 
+2023/06/09 02:38:28 Unregister websocket client 5cf48337-b30c-43c5-b6a8-c8a0f42a709d 
+2023/06/09 02:38:28 Unregister websocket client 5cf48337-b30c-43c5-b6a8-c8a0f42a709d from group device_upload success
+2023/06/09 02:38:28 Clear no client group device_upload 
+2023/06/09 02:38:45 Websocket client a8f2e811-f655-4ee2-af50-d6c94b739491 connect 
+2023/06/09 02:38:45 Register client a8f2e811-f655-4ee2-af50-d6c94b739491 to device_upload group success 
+
+
+[31m2023/06/09 03:16:32 write tcp 192.168.0.34:8080->183.17.59.206:45903: write: broken pipe
+GET /device/list HTTP/1.1
+Host: 139.159.203.84:8080
+Accept: application/json, text/plain, */*
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-CN,zh;q=0.9
+Connection: keep-alive
+Referer: http://139.159.203.84:8080/
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36
+
+[0m
+
+
+[31m2023/06/09 03:16:37 write tcp 192.168.0.34:8080->183.17.59.206:45897: write: broken pipe
+GET /device/list HTTP/1.1
+Host: 139.159.203.84:8080
+Accept: application/json, text/plain, */*
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-CN,zh;q=0.9
+Connection: keep-alive
+Referer: http://139.159.203.84:8080/
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36
+
+[0m
+
+
+[31m2023/06/09 03:16:38 write tcp 192.168.0.34:8080->183.17.59.206:45912: write: broken pipe
+GET /device/list HTTP/1.1
+Host: 139.159.203.84:8080
+Accept: application/json, text/plain, */*
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-CN,zh;q=0.9
+Connection: keep-alive
+Referer: http://139.159.203.84:8080/
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36
+
+[0m
+
+
+[31m2023/06/09 03:16:38 write tcp 192.168.0.34:8080->183.17.59.206:47615: write: broken pipe
+GET /device/list HTTP/1.1
+Host: 139.159.203.84:8080
+Accept: application/json, text/plain, */*
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-CN,zh;q=0.9
+Connection: keep-alive
+Referer: http://139.159.203.84:8080/
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36
+
+[0m
+
+
+[31m2023/06/09 03:16:42 write tcp 192.168.0.34:8080->183.17.59.206:45904: write: broken pipe
+GET /device/list HTTP/1.1
+Host: 139.159.203.84:8080
+Accept: application/json, text/plain, */*
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-CN,zh;q=0.9
+Connection: keep-alive
+Referer: http://139.159.203.84:8080/
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36
+
+[0m
+
+
+[31m2023/06/09 03:16:43 write tcp 192.168.0.34:8080->183.17.59.206:46616: write: broken pipe
+GET /device/list HTTP/1.1
+Host: 139.159.203.84:8080
+Accept: application/json, text/plain, */*
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-CN,zh;q=0.9
+Connection: keep-alive
+Referer: http://139.159.203.84:8080/
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36
+
+[0m
+
+
+[31m2023/06/09 03:16:43 write tcp 192.168.0.34:8080->183.17.59.206:46619: write: broken pipe
+GET /device/list HTTP/1.1
+Host: 139.159.203.84:8080
+Accept: application/json, text/plain, */*
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-CN,zh;q=0.9
+Connection: keep-alive
+Referer: http://139.159.203.84:8080/
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36
+
+[0m
+
+
+[31m2023/06/09 03:16:43 write tcp 192.168.0.34:8080->183.17.59.206:47201: write: broken pipe
+GET /device/list HTTP/1.1
+Host: 139.159.203.84:8080
+Accept: application/json, text/plain, */*
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-CN,zh;q=0.9
+Connection: keep-alive
+Referer: http://139.159.203.84:8080/
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36
+
+[0m
+
+
+[31m2023/06/09 03:16:43 write tcp 192.168.0.34:8080->183.17.59.206:47194: write: broken pipe
+GET /device/list HTTP/1.1
+Host: 139.159.203.84:8080
+Accept: application/json, text/plain, */*
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-CN,zh;q=0.9
+Connection: keep-alive
+Referer: http://139.159.203.84:8080/
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36
+
+[0m
+
+
+[31m2023/06/09 03:16:43 write tcp 192.168.0.34:8080->183.17.59.206:47184: write: broken pipe
+GET /device/list HTTP/1.1
+Host: 139.159.203.84:8080
+Accept: application/json, text/plain, */*
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-CN,zh;q=0.9
+Connection: keep-alive
+Referer: http://139.159.203.84:8080/
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36
+
+[0m
+
+
+[31m2023/06/09 03:16:43 write tcp 192.168.0.34:8080->183.17.59.206:45936: write: broken pipe
+GET /device/list HTTP/1.1
+Host: 139.159.203.84:8080
+Accept: application/json, text/plain, */*
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-CN,zh;q=0.9
+Connection: keep-alive
+Referer: http://139.159.203.84:8080/
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36
+
+[0m
+
+
+[31m2023/06/09 03:16:43 write tcp 192.168.0.34:8080->183.17.59.206:45944: write: broken pipe
+GET /device/list HTTP/1.1
+Host: 139.159.203.84:8080
+Accept: application/json, text/plain, */*
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-CN,zh;q=0.9
+Connection: keep-alive
+Referer: http://139.159.203.84:8080/
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36
+
+[0m
+
+
+[31m2023/06/09 03:16:43 write tcp 192.168.0.34:8080->183.17.59.206:47173: write: broken pipe
+GET /device/list HTTP/1.1
+Host: 139.159.203.84:8080
+Accept: application/json, text/plain, */*
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-CN,zh;q=0.9
+Connection: keep-alive
+Referer: http://139.159.203.84:8080/
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36
+
+[0m
+
+
+[31m2023/06/09 03:16:43 write tcp 192.168.0.34:8080->183.17.59.206:47169: write: broken pipe
+GET /device/list HTTP/1.1
+Host: 139.159.203.84:8080
+Accept: application/json, text/plain, */*
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-CN,zh;q=0.9
+Connection: keep-alive
+Referer: http://139.159.203.84:8080/
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36
+
+[0m
+2023/06/09 03:17:08 Websocket client 53c68377-e444-4937-b5cc-36b00d237273 connect 
+2023/06/09 03:17:09 Register client 53c68377-e444-4937-b5cc-36b00d237273 to device_upload group success 
+2023/06/09 03:17:10 Unregister websocket client a8f2e811-f655-4ee2-af50-d6c94b739491 
+2023/06/09 03:17:11 Unregister websocket client a8f2e811-f655-4ee2-af50-d6c94b739491 from group device_upload success
+2023/06/09 03:17:11 Unregister websocket client 53c68377-e444-4937-b5cc-36b00d237273 
+2023/06/09 03:17:11 Unregister websocket client 53c68377-e444-4937-b5cc-36b00d237273 from group device_upload success
+2023/06/09 03:17:12 Clear no client group device_upload 
+2023/06/09 03:17:12 Websocket client 3dbc7115-20a3-4d2c-96ee-fbe57862772f connect 
+2023/06/09 03:17:12 Register client 3dbc7115-20a3-4d2c-96ee-fbe57862772f to device_upload group success 
+2023/06/09 03:17:12 Websocket client fab0f7b5-0521-487f-b473-1c7c6f1ec209 connect 
+2023/06/09 03:17:13 Register client fab0f7b5-0521-487f-b473-1c7c6f1ec209 to device_upload group success 
+2023/06/09 03:17:14 Unregister websocket client 3dbc7115-20a3-4d2c-96ee-fbe57862772f 
+2023/06/09 03:17:14 Unregister websocket client 3dbc7115-20a3-4d2c-96ee-fbe57862772f from group device_upload success
+2023/06/09 03:17:16 Websocket client fdac9a58-a7c1-41b6-842c-b92010ec3c60 connect 
+2023/06/09 03:17:16 Register client fdac9a58-a7c1-41b6-842c-b92010ec3c60 to device_upload group success 
+2023/06/09 03:17:18 Unregister websocket client fab0f7b5-0521-487f-b473-1c7c6f1ec209 
+2023/06/09 03:17:20 Unregister websocket client fab0f7b5-0521-487f-b473-1c7c6f1ec209 from group device_upload success
+2023/06/09 03:17:20 Unregister websocket client fdac9a58-a7c1-41b6-842c-b92010ec3c60 
+2023/06/09 03:17:21 Unregister websocket client fdac9a58-a7c1-41b6-842c-b92010ec3c60 from group device_upload success
+2023/06/09 03:17:21 Clear no client group device_upload 
+2023/06/09 03:17:21 Websocket client 0d7b58bb-bd65-4678-a70a-7e6be07edc55 connect 
+2023/06/09 03:17:21 Register client 0d7b58bb-bd65-4678-a70a-7e6be07edc55 to device_upload group success 
+2023/06/09 11:06:53 Websocket manage start
+2023/06/09 11:07:00 Websocket client b5dad709-22cc-4199-8d7c-740484bad266 connect 
+2023/06/09 11:07:00 Register client b5dad709-22cc-4199-8d7c-740484bad266 to device_upload group success 
+2023/06/09 11:07:30 Websocket client 0747f799-96a3-4c20-a13e-9d8ace7c1275 connect 
+2023/06/09 11:07:30 Register client 0747f799-96a3-4c20-a13e-9d8ace7c1275 to device_upload group success 
+2023/06/09 11:08:52 Unregister websocket client 0747f799-96a3-4c20-a13e-9d8ace7c1275 
+2023/06/09 11:08:52 Unregister websocket client 0747f799-96a3-4c20-a13e-9d8ace7c1275 from group device_upload success
+2023/06/09 11:08:52 Websocket client 93d1a06b-65de-4973-8dbf-6f4f73799813 connect 
+2023/06/09 11:08:52 Register client 93d1a06b-65de-4973-8dbf-6f4f73799813 to device_upload group success 
+2023/06/09 11:11:03 Unregister websocket client 93d1a06b-65de-4973-8dbf-6f4f73799813 
+2023/06/09 11:11:03 Unregister websocket client 93d1a06b-65de-4973-8dbf-6f4f73799813 from group device_upload success
+2023/06/09 11:12:22 Websocket client fc79b1df-fdfb-43cd-8ac8-b833398d04cc connect 
+2023/06/09 11:12:22 Register client fc79b1df-fdfb-43cd-8ac8-b833398d04cc to device_upload group success 
+2023/06/09 11:12:34 Unregister websocket client fc79b1df-fdfb-43cd-8ac8-b833398d04cc 
+2023/06/09 11:12:34 Unregister websocket client fc79b1df-fdfb-43cd-8ac8-b833398d04cc from group device_upload success
+2023/06/09 11:12:45 Websocket client fd047e64-d95b-487e-a9a2-e328e71c16a4 connect 
+2023/06/09 11:12:45 Register client fd047e64-d95b-487e-a9a2-e328e71c16a4 to device_upload group success 
+2023/06/09 13:09:58 Unregister websocket client fd047e64-d95b-487e-a9a2-e328e71c16a4 
+2023/06/09 13:09:58 Unregister websocket client fd047e64-d95b-487e-a9a2-e328e71c16a4 from group device_upload success
+2023/06/09 13:10:00 Websocket client 2a306d46-ed70-4489-8ffb-651a47404f70 connect 
+2023/06/09 13:10:00 Register client 2a306d46-ed70-4489-8ffb-651a47404f70 to device_upload group success 
+2023/06/09 13:10:13 Websocket client 702c2cf9-2379-4218-8c53-446c32a74d7b connect 
+2023/06/09 13:10:13 Register client 702c2cf9-2379-4218-8c53-446c32a74d7b to device_upload group success 
+2023/06/09 13:39:26 Unregister websocket client 702c2cf9-2379-4218-8c53-446c32a74d7b 
+2023/06/09 13:39:26 Unregister websocket client 702c2cf9-2379-4218-8c53-446c32a74d7b from group device_upload success
+2023/06/09 13:39:26 Unregister websocket client 2a306d46-ed70-4489-8ffb-651a47404f70 
+2023/06/09 13:39:26 Unregister websocket client 2a306d46-ed70-4489-8ffb-651a47404f70 from group device_upload success
+2023/06/09 20:55:18 Websocket client 3752f1ea-fac0-4392-bcb7-6e3663e2efc1 connect 
+2023/06/09 20:55:18 Register client 3752f1ea-fac0-4392-bcb7-6e3663e2efc1 to device_upload group success 
+2023/06/09 20:55:18 Websocket client 5fe017d5-7ee0-43d8-8baf-8aec189f61d8 connect 
+2023/06/09 20:55:18 Register client 5fe017d5-7ee0-43d8-8baf-8aec189f61d8 to device_upload group success 
+2023/06/09 22:10:59 http: URL query contains semicolon, which is no longer a supported separator; parts of the query may be stripped when parsed; see golang.org/issue/25192
+2023/06/09 23:47:52 Unregister websocket client 5fe017d5-7ee0-43d8-8baf-8aec189f61d8 
+2023/06/09 23:47:52 Unregister websocket client 5fe017d5-7ee0-43d8-8baf-8aec189f61d8 from group device_upload success
+2023/06/09 23:47:52 Unregister websocket client 3752f1ea-fac0-4392-bcb7-6e3663e2efc1 
+2023/06/09 23:47:52 Unregister websocket client 3752f1ea-fac0-4392-bcb7-6e3663e2efc1 from group device_upload success
+2023/06/10 02:12:03 Unregister websocket client b5dad709-22cc-4199-8d7c-740484bad266 
+2023/06/10 02:12:03 Unregister websocket client b5dad709-22cc-4199-8d7c-740484bad266 from group device_upload success
+2023/06/10 02:12:03 Clear no client group device_upload 
+2023/06/10 16:09:55 Websocket client e55601a1-71c9-44d3-aabc-4fbe3384e644 connect 
+2023/06/10 16:09:55 Register client e55601a1-71c9-44d3-aabc-4fbe3384e644 to device_upload group success 
+2023/06/10 16:11:35 Unregister websocket client e55601a1-71c9-44d3-aabc-4fbe3384e644 
+2023/06/10 16:11:35 Unregister websocket client e55601a1-71c9-44d3-aabc-4fbe3384e644 from group device_upload success
+2023/06/10 16:11:35 Clear no client group device_upload 
+2023/06/10 16:11:35 Websocket client f41adcb5-13e4-47e0-abf3-0e681729d1ea connect 
+2023/06/10 16:11:35 Register client f41adcb5-13e4-47e0-abf3-0e681729d1ea to device_upload group success 
+2023/06/10 20:16:51 Unregister websocket client f41adcb5-13e4-47e0-abf3-0e681729d1ea 
+2023/06/10 20:16:51 Unregister websocket client f41adcb5-13e4-47e0-abf3-0e681729d1ea from group device_upload success
+2023/06/10 20:16:51 Clear no client group device_upload 
+2023/06/10 20:16:51 Websocket client 576cd3cf-4b32-43b2-9424-8e931430bac9 connect 
+2023/06/10 20:16:51 Register client 576cd3cf-4b32-43b2-9424-8e931430bac9 to device_upload group success 
+2023/06/10 20:59:28 Unregister websocket client 576cd3cf-4b32-43b2-9424-8e931430bac9 
+2023/06/10 20:59:28 Unregister websocket client 576cd3cf-4b32-43b2-9424-8e931430bac9 from group device_upload success
+2023/06/10 20:59:28 Clear no client group device_upload 
+2023/06/10 22:49:10 Websocket client 95e328a7-5589-48a5-b7e0-39858e5e9536 connect 
+2023/06/10 22:49:10 Register client 95e328a7-5589-48a5-b7e0-39858e5e9536 to device_upload group success 
+2023/06/10 22:49:14 Unregister websocket client 95e328a7-5589-48a5-b7e0-39858e5e9536 
+2023/06/10 22:49:14 Unregister websocket client 95e328a7-5589-48a5-b7e0-39858e5e9536 from group device_upload success
+2023/06/10 22:49:14 Clear no client group device_upload 
+2023/06/10 22:49:14 Websocket client 45572a73-7bf4-4f3b-a7bd-7a2874af4262 connect 
+2023/06/10 22:49:14 Register client 45572a73-7bf4-4f3b-a7bd-7a2874af4262 to device_upload group success 
+2023/06/11 03:04:05 Unregister websocket client 45572a73-7bf4-4f3b-a7bd-7a2874af4262 
+2023/06/11 03:04:05 Unregister websocket client 45572a73-7bf4-4f3b-a7bd-7a2874af4262 from group device_upload success
+2023/06/11 03:04:05 Clear no client group device_upload 
+2023/06/11 03:09:45 Websocket client f482ae23-b3e8-497c-a4f5-29a6899ec0c9 connect 
+2023/06/11 03:09:45 Register client f482ae23-b3e8-497c-a4f5-29a6899ec0c9 to device_upload group success 
+2023/06/11 10:33:16 Websocket client 8625266c-3ead-4919-958d-248a26e52732 connect 
+2023/06/11 10:33:16 Register client 8625266c-3ead-4919-958d-248a26e52732 to device_upload group success 
+2023/06/11 10:34:01 Unregister websocket client 8625266c-3ead-4919-958d-248a26e52732 
+2023/06/11 10:34:01 Unregister websocket client 8625266c-3ead-4919-958d-248a26e52732 from group device_upload success
+2023/06/11 10:34:12 Websocket client 4de77fa0-3fdb-49e6-8039-0a935a680a93 connect 
+2023/06/11 10:34:12 Register client 4de77fa0-3fdb-49e6-8039-0a935a680a93 to device_upload group success 
+2023/06/11 10:41:12 Unregister websocket client 4de77fa0-3fdb-49e6-8039-0a935a680a93 
+2023/06/11 10:41:12 Unregister websocket client 4de77fa0-3fdb-49e6-8039-0a935a680a93 from group device_upload success
+2023/06/11 10:41:36 Websocket client fd5d8aad-b1f7-43ab-a9cd-810cb7676507 connect 
+2023/06/11 10:41:36 Register client fd5d8aad-b1f7-43ab-a9cd-810cb7676507 to device_upload group success 
+2023/06/11 10:44:40 Unregister websocket client fd5d8aad-b1f7-43ab-a9cd-810cb7676507 
+2023/06/11 10:44:40 Unregister websocket client fd5d8aad-b1f7-43ab-a9cd-810cb7676507 from group device_upload success
+2023/06/11 10:49:32 Websocket client b2ad7026-83c7-44eb-90e2-c4fbd921069a connect 
+2023/06/11 10:49:32 Register client b2ad7026-83c7-44eb-90e2-c4fbd921069a to device_upload group success 
+2023/06/11 10:55:28 Unregister websocket client b2ad7026-83c7-44eb-90e2-c4fbd921069a 
+2023/06/11 10:55:28 Unregister websocket client b2ad7026-83c7-44eb-90e2-c4fbd921069a from group device_upload success
+2023/06/11 10:55:38 Websocket client ddbd1c3b-7a87-4bc6-8f08-d28f7756f794 connect 
+2023/06/11 10:55:38 Register client ddbd1c3b-7a87-4bc6-8f08-d28f7756f794 to device_upload group success 
+2023/06/11 11:19:55 Websocket client d0e05b87-21d1-414c-9360-b5191929eee7 connect 
+2023/06/11 11:19:55 Register client d0e05b87-21d1-414c-9360-b5191929eee7 to device_upload group success 
+2023/06/11 11:22:50 Unregister websocket client d0e05b87-21d1-414c-9360-b5191929eee7 
+2023/06/11 11:22:50 Unregister websocket client d0e05b87-21d1-414c-9360-b5191929eee7 from group device_upload success
+2023/06/11 11:23:00 Websocket client 0b7b8db0-dd3e-4863-ba0d-5599e12559c6 connect 
+2023/06/11 11:23:00 Register client 0b7b8db0-dd3e-4863-ba0d-5599e12559c6 to device_upload group success 
+2023/06/11 12:11:52 Unregister websocket client ddbd1c3b-7a87-4bc6-8f08-d28f7756f794 
+2023/06/11 12:11:52 Unregister websocket client ddbd1c3b-7a87-4bc6-8f08-d28f7756f794 from group device_upload success
+2023/06/11 12:11:52 Unregister websocket client 0b7b8db0-dd3e-4863-ba0d-5599e12559c6 
+2023/06/11 12:11:52 Unregister websocket client 0b7b8db0-dd3e-4863-ba0d-5599e12559c6 from group device_upload success
+2023/06/11 12:24:31 Websocket client 3256ddff-260b-4fa8-9fe7-40b127cc9ec3 connect 
+2023/06/11 12:24:31 Register client 3256ddff-260b-4fa8-9fe7-40b127cc9ec3 to device_upload group success 
+2023/06/11 12:24:31 Websocket client c647bda0-c316-4385-a155-f36d8e0c1cc0 connect 
+2023/06/11 12:24:31 Register client c647bda0-c316-4385-a155-f36d8e0c1cc0 to device_upload group success 
+2023/06/11 12:36:14 Unregister websocket client c647bda0-c316-4385-a155-f36d8e0c1cc0 
+2023/06/11 12:36:14 Unregister websocket client c647bda0-c316-4385-a155-f36d8e0c1cc0 from group device_upload success
+2023/06/11 12:36:14 Unregister websocket client 3256ddff-260b-4fa8-9fe7-40b127cc9ec3 
+2023/06/11 12:36:14 Unregister websocket client 3256ddff-260b-4fa8-9fe7-40b127cc9ec3 from group device_upload success
+2023/06/11 12:44:36 Websocket client ca4b692b-79f2-41ac-86d6-1ca59d9b7c16 connect 
+2023/06/11 12:44:36 Register client ca4b692b-79f2-41ac-86d6-1ca59d9b7c16 to device_upload group success 
+2023/06/11 12:44:36 Websocket client 459b4799-02fc-4312-a7ad-b8bd89b156ac connect 
+2023/06/11 12:44:36 Register client 459b4799-02fc-4312-a7ad-b8bd89b156ac to device_upload group success 
+2023/06/11 12:44:38 Unregister websocket client ca4b692b-79f2-41ac-86d6-1ca59d9b7c16 
+2023/06/11 12:44:38 Unregister websocket client ca4b692b-79f2-41ac-86d6-1ca59d9b7c16 from group device_upload success
+2023/06/11 12:44:38 Unregister websocket client 459b4799-02fc-4312-a7ad-b8bd89b156ac 
+2023/06/11 12:44:38 Unregister websocket client 459b4799-02fc-4312-a7ad-b8bd89b156ac from group device_upload success
+2023/06/11 13:00:45 Websocket client b8d89895-5338-495e-ac71-9b2289130307 connect 
+2023/06/11 13:00:45 Register client b8d89895-5338-495e-ac71-9b2289130307 to device_upload group success 
+2023/06/11 13:00:45 Websocket client 2451f1b3-1e25-47f0-949c-d4757c5b1001 connect 
+2023/06/11 13:00:45 Register client 2451f1b3-1e25-47f0-949c-d4757c5b1001 to device_upload group success 
+2023/06/11 13:02:23 Unregister websocket client f482ae23-b3e8-497c-a4f5-29a6899ec0c9 
+2023/06/11 13:02:23 Unregister websocket client f482ae23-b3e8-497c-a4f5-29a6899ec0c9 from group device_upload success
+2023/06/11 13:02:23 Websocket client f68e2095-529e-49ab-8319-b5442cbd9689 connect 
+2023/06/11 13:02:23 Register client f68e2095-529e-49ab-8319-b5442cbd9689 to device_upload group success 
+2023/06/11 13:02:49 Unregister websocket client f68e2095-529e-49ab-8319-b5442cbd9689 
+2023/06/11 13:02:49 Unregister websocket client f68e2095-529e-49ab-8319-b5442cbd9689 from group device_upload success
+2023/06/11 13:02:49 Websocket client 68d45163-22fa-451f-a520-5a3b1f832b01 connect 
+2023/06/11 13:02:49 Register client 68d45163-22fa-451f-a520-5a3b1f832b01 to device_upload group success 
+2023/06/11 13:02:50 Unregister websocket client 68d45163-22fa-451f-a520-5a3b1f832b01 
+2023/06/11 13:02:50 Unregister websocket client 68d45163-22fa-451f-a520-5a3b1f832b01 from group device_upload success
+2023/06/11 13:02:50 Websocket client 82acefab-aacd-4629-851f-2a5f219185a7 connect 
+2023/06/11 13:02:50 Register client 82acefab-aacd-4629-851f-2a5f219185a7 to device_upload group success 
+2023/06/11 13:03:16 Unregister websocket client b8d89895-5338-495e-ac71-9b2289130307 
+2023/06/11 13:03:16 Unregister websocket client b8d89895-5338-495e-ac71-9b2289130307 from group device_upload success
+2023/06/11 13:03:16 Unregister websocket client 2451f1b3-1e25-47f0-949c-d4757c5b1001 
+2023/06/11 13:03:16 Unregister websocket client 2451f1b3-1e25-47f0-949c-d4757c5b1001 from group device_upload success
+2023/06/11 13:04:18 Unregister websocket client 82acefab-aacd-4629-851f-2a5f219185a7 
+2023/06/11 13:04:18 Unregister websocket client 82acefab-aacd-4629-851f-2a5f219185a7 from group device_upload success
+2023/06/11 13:04:18 Clear no client group device_upload 
+2023/06/11 13:04:18 Websocket client b9307846-d2c6-46c9-964a-91c3bc50c3c2 connect 
+2023/06/11 13:04:18 Register client b9307846-d2c6-46c9-964a-91c3bc50c3c2 to device_upload group success 
+2023/06/11 13:28:59 Websocket client 6a887972-425d-44ac-a73b-f00833e38a3b connect 
+2023/06/11 13:28:59 Register client 6a887972-425d-44ac-a73b-f00833e38a3b to device_upload group success 
+2023/06/11 13:28:59 Websocket client d9467c56-b308-4ac3-b4c7-0ac28e3675fd connect 
+2023/06/11 13:28:59 Register client d9467c56-b308-4ac3-b4c7-0ac28e3675fd to device_upload group success 
+2023/06/11 13:31:30 Unregister websocket client 6a887972-425d-44ac-a73b-f00833e38a3b 
+2023/06/11 13:31:30 Unregister websocket client 6a887972-425d-44ac-a73b-f00833e38a3b from group device_upload success
+2023/06/11 13:31:30 Unregister websocket client d9467c56-b308-4ac3-b4c7-0ac28e3675fd 
+2023/06/11 13:31:30 Unregister websocket client d9467c56-b308-4ac3-b4c7-0ac28e3675fd from group device_upload success
+2023/06/11 13:42:19 Unregister websocket client b9307846-d2c6-46c9-964a-91c3bc50c3c2 
+2023/06/11 13:42:19 Unregister websocket client b9307846-d2c6-46c9-964a-91c3bc50c3c2 from group device_upload success
+2023/06/11 13:42:19 Clear no client group device_upload 
+2023/06/11 13:49:56 Websocket client 5a8e3ecc-059d-44e4-9e00-8bb28b91eef2 connect 
+2023/06/11 13:49:56 Register client 5a8e3ecc-059d-44e4-9e00-8bb28b91eef2 to device_upload group success 
+2023/06/11 13:49:56 Websocket client 30a6b4a4-abe4-464b-800a-5fad335c6351 connect 
+2023/06/11 13:49:56 Register client 30a6b4a4-abe4-464b-800a-5fad335c6351 to device_upload group success 
+2023/06/11 13:52:27 Unregister websocket client 5a8e3ecc-059d-44e4-9e00-8bb28b91eef2 
+2023/06/11 13:52:27 Unregister websocket client 5a8e3ecc-059d-44e4-9e00-8bb28b91eef2 from group device_upload success
+2023/06/11 13:52:27 Unregister websocket client 30a6b4a4-abe4-464b-800a-5fad335c6351 
+2023/06/11 13:52:27 Unregister websocket client 30a6b4a4-abe4-464b-800a-5fad335c6351 from group device_upload success
+2023/06/11 13:52:27 Clear no client group device_upload 
+2023/06/11 14:13:13 Websocket client 821e8ea9-bbf2-45cb-9b04-fa6b79cb6689 connect 
+2023/06/11 14:13:13 Register client 821e8ea9-bbf2-45cb-9b04-fa6b79cb6689 to device_upload group success 
+2023/06/11 14:13:13 Websocket client ef48c152-8a3f-41d3-a8a4-faec1259a2d8 connect 
+2023/06/11 14:13:13 Register client ef48c152-8a3f-41d3-a8a4-faec1259a2d8 to device_upload group success 
+2023/06/11 14:23:55 Unregister websocket client 821e8ea9-bbf2-45cb-9b04-fa6b79cb6689 
+2023/06/11 14:23:55 Unregister websocket client 821e8ea9-bbf2-45cb-9b04-fa6b79cb6689 from group device_upload success
+2023/06/11 14:23:55 Unregister websocket client ef48c152-8a3f-41d3-a8a4-faec1259a2d8 
+2023/06/11 14:23:55 Unregister websocket client ef48c152-8a3f-41d3-a8a4-faec1259a2d8 from group device_upload success
+2023/06/11 14:23:55 Clear no client group device_upload 
+2023/06/11 14:24:05 Websocket client b0351d1b-78dd-498c-bfd3-41b02117dbaa connect 
+2023/06/11 14:24:05 Register client b0351d1b-78dd-498c-bfd3-41b02117dbaa to device_upload group success 
+2023/06/11 14:24:05 Websocket client f99d60e8-0f80-41e3-b1ea-a883465a03ee connect 
+2023/06/11 14:24:05 Register client f99d60e8-0f80-41e3-b1ea-a883465a03ee to device_upload group success 
+2023/06/11 14:29:11 Unregister websocket client b0351d1b-78dd-498c-bfd3-41b02117dbaa 
+2023/06/11 14:29:11 Unregister websocket client b0351d1b-78dd-498c-bfd3-41b02117dbaa from group device_upload success
+2023/06/11 14:29:11 Unregister websocket client f99d60e8-0f80-41e3-b1ea-a883465a03ee 
+2023/06/11 14:29:11 Unregister websocket client f99d60e8-0f80-41e3-b1ea-a883465a03ee from group device_upload success
+2023/06/11 14:29:11 Clear no client group device_upload 
+2023/06/11 14:33:32 Websocket client 6db70d08-5384-44e5-8e99-49bbe2a55e98 connect 
+2023/06/11 14:33:32 Register client 6db70d08-5384-44e5-8e99-49bbe2a55e98 to device_upload group success 
+2023/06/11 14:33:32 Websocket client d50cffc3-611e-4b8f-892f-70ddbd24f248 connect 
+2023/06/11 14:33:32 Register client d50cffc3-611e-4b8f-892f-70ddbd24f248 to device_upload group success 
+2023/06/11 14:35:27 Websocket client 87282f66-b73d-4bdc-bfd9-db27f68e782b connect 
+2023/06/11 14:35:27 Register client 87282f66-b73d-4bdc-bfd9-db27f68e782b to device_upload group success 
+2023/06/11 14:36:03 Unregister websocket client 6db70d08-5384-44e5-8e99-49bbe2a55e98 
+2023/06/11 14:36:03 Unregister websocket client 6db70d08-5384-44e5-8e99-49bbe2a55e98 from group device_upload success
+2023/06/11 14:36:03 Unregister websocket client d50cffc3-611e-4b8f-892f-70ddbd24f248 
+2023/06/11 14:36:03 Unregister websocket client d50cffc3-611e-4b8f-892f-70ddbd24f248 from group device_upload success
+2023/06/11 14:43:27 Websocket client d15889ea-94c2-44d8-b9fb-47419a1a13e7 connect 
+2023/06/11 14:43:27 Register client d15889ea-94c2-44d8-b9fb-47419a1a13e7 to device_upload group success 
+2023/06/11 14:43:27 Websocket client b5e80504-8a2e-4797-a5fb-1c2964c080d7 connect 
+2023/06/11 14:43:27 Register client b5e80504-8a2e-4797-a5fb-1c2964c080d7 to device_upload group success 
+2023/06/11 14:47:02 Unregister websocket client d15889ea-94c2-44d8-b9fb-47419a1a13e7 
+2023/06/11 14:47:02 Unregister websocket client d15889ea-94c2-44d8-b9fb-47419a1a13e7 from group device_upload success
+2023/06/11 14:47:02 Unregister websocket client b5e80504-8a2e-4797-a5fb-1c2964c080d7 
+2023/06/11 14:47:02 Unregister websocket client b5e80504-8a2e-4797-a5fb-1c2964c080d7 from group device_upload success
+2023/06/11 14:50:31 Websocket client 42a29cdb-fe33-40a1-a111-86231c822cff connect 
+2023/06/11 14:50:31 Register client 42a29cdb-fe33-40a1-a111-86231c822cff to device_upload group success 
+2023/06/11 14:50:31 Websocket client bce65e74-0fb7-4509-8fbd-2576a98c6679 connect 
+2023/06/11 14:50:31 Register client bce65e74-0fb7-4509-8fbd-2576a98c6679 to device_upload group success 
+2023/06/11 15:11:36 Unregister websocket client 87282f66-b73d-4bdc-bfd9-db27f68e782b 
+2023/06/11 15:11:36 Unregister websocket client 87282f66-b73d-4bdc-bfd9-db27f68e782b from group device_upload success
+2023/06/11 15:30:04 Unregister websocket client 42a29cdb-fe33-40a1-a111-86231c822cff 
+2023/06/11 15:30:04 Unregister websocket client 42a29cdb-fe33-40a1-a111-86231c822cff from group device_upload success
+2023/06/11 15:30:04 Unregister websocket client bce65e74-0fb7-4509-8fbd-2576a98c6679 
+2023/06/11 15:30:04 Unregister websocket client bce65e74-0fb7-4509-8fbd-2576a98c6679 from group device_upload success
+2023/06/11 15:30:04 Clear no client group device_upload 
+2023/06/11 15:30:15 Websocket client af0657a9-8f8e-441e-bb78-881d9afe3868 connect 
+2023/06/11 15:30:15 Register client af0657a9-8f8e-441e-bb78-881d9afe3868 to device_upload group success 
+2023/06/11 15:30:15 Websocket client c856e58b-966b-42da-8d82-4d0c354129ee connect 
+2023/06/11 15:30:15 Register client c856e58b-966b-42da-8d82-4d0c354129ee to device_upload group success 
+2023/06/11 15:37:40 Unregister websocket client af0657a9-8f8e-441e-bb78-881d9afe3868 
+2023/06/11 15:37:40 Unregister websocket client af0657a9-8f8e-441e-bb78-881d9afe3868 from group device_upload success
+2023/06/11 15:37:40 Unregister websocket client c856e58b-966b-42da-8d82-4d0c354129ee 
+2023/06/11 15:37:40 Unregister websocket client c856e58b-966b-42da-8d82-4d0c354129ee from group device_upload success
+2023/06/11 15:37:40 Clear no client group device_upload 
+2023/06/11 15:45:30 Websocket client 65d9d450-cda1-4ac4-b401-9f37cfab2838 connect 
+2023/06/11 15:45:30 Register client 65d9d450-cda1-4ac4-b401-9f37cfab2838 to device_upload group success 
+2023/06/11 15:45:30 Websocket client c973a079-9269-4793-af91-7388e8d27bce connect 
+2023/06/11 15:45:30 Register client c973a079-9269-4793-af91-7388e8d27bce to device_upload group success 
+2023/06/11 15:47:43 Unregister websocket client 65d9d450-cda1-4ac4-b401-9f37cfab2838 
+2023/06/11 15:47:43 Unregister websocket client 65d9d450-cda1-4ac4-b401-9f37cfab2838 from group device_upload success
+2023/06/11 15:47:43 Unregister websocket client c973a079-9269-4793-af91-7388e8d27bce 
+2023/06/11 15:47:43 Unregister websocket client c973a079-9269-4793-af91-7388e8d27bce from group device_upload success
+2023/06/11 15:47:43 Clear no client group device_upload 
+2023/06/11 15:50:53 Websocket client 3e72def8-3631-4fbb-b583-e257188aa95c connect 
+2023/06/11 15:50:53 Register client 3e72def8-3631-4fbb-b583-e257188aa95c to device_upload group success 
+2023/06/11 15:50:53 Websocket client b007246c-2d10-49dd-a8e5-3eac0263ad78 connect 
+2023/06/11 15:50:53 Register client b007246c-2d10-49dd-a8e5-3eac0263ad78 to device_upload group success 
+2023/06/11 16:00:34 Unregister websocket client b007246c-2d10-49dd-a8e5-3eac0263ad78 
+2023/06/11 16:00:34 Unregister websocket client b007246c-2d10-49dd-a8e5-3eac0263ad78 from group device_upload success
+2023/06/11 16:00:34 Unregister websocket client 3e72def8-3631-4fbb-b583-e257188aa95c 
+2023/06/11 16:00:34 Unregister websocket client 3e72def8-3631-4fbb-b583-e257188aa95c from group device_upload success
+2023/06/11 16:00:34 Clear no client group device_upload 
+2023/06/11 16:05:08 Websocket client d979bd81-e308-442f-83ca-7850d6f05d66 connect 
+2023/06/11 16:05:08 Register client d979bd81-e308-442f-83ca-7850d6f05d66 to device_upload group success 
+2023/06/11 16:05:08 Websocket client 8d784c5d-c972-4bee-b71a-88370ecd02bc connect 
+2023/06/11 16:05:08 Register client 8d784c5d-c972-4bee-b71a-88370ecd02bc to device_upload group success 
+2023/06/11 16:30:24 Unregister websocket client d979bd81-e308-442f-83ca-7850d6f05d66 
+2023/06/11 16:30:24 Unregister websocket client d979bd81-e308-442f-83ca-7850d6f05d66 from group device_upload success
+2023/06/11 16:30:24 Unregister websocket client 8d784c5d-c972-4bee-b71a-88370ecd02bc 
+2023/06/11 16:30:24 Unregister websocket client 8d784c5d-c972-4bee-b71a-88370ecd02bc from group device_upload success
+2023/06/11 16:30:24 Clear no client group device_upload 
+2023/06/11 16:33:31 Websocket client 4cc05c34-b84e-4340-992e-2301b15676be connect 
+2023/06/11 16:33:31 Register client 4cc05c34-b84e-4340-992e-2301b15676be to device_upload group success 
+2023/06/11 16:33:31 Websocket client 8525a269-68c8-41a0-aa1e-f8cac1846cf6 connect 
+2023/06/11 16:33:31 Register client 8525a269-68c8-41a0-aa1e-f8cac1846cf6 to device_upload group success 
+2023/06/11 16:43:39 Unregister websocket client 8525a269-68c8-41a0-aa1e-f8cac1846cf6 
+2023/06/11 16:43:39 Unregister websocket client 8525a269-68c8-41a0-aa1e-f8cac1846cf6 from group device_upload success
+2023/06/11 16:43:39 Unregister websocket client 4cc05c34-b84e-4340-992e-2301b15676be 
+2023/06/11 16:43:39 Unregister websocket client 4cc05c34-b84e-4340-992e-2301b15676be from group device_upload success
+2023/06/11 16:43:39 Clear no client group device_upload 
+2023/06/11 16:46:03 Websocket client 779391ca-b08e-4ab7-867f-108af20305ec connect 
+2023/06/11 16:46:03 Register client 779391ca-b08e-4ab7-867f-108af20305ec to device_upload group success 
+2023/06/11 16:46:03 Websocket client af0fe44b-c400-4f92-9006-11c1598bc340 connect 
+2023/06/11 16:46:03 Register client af0fe44b-c400-4f92-9006-11c1598bc340 to device_upload group success 
+2023/06/11 16:50:09 Unregister websocket client 779391ca-b08e-4ab7-867f-108af20305ec 
+2023/06/11 16:50:09 Unregister websocket client 779391ca-b08e-4ab7-867f-108af20305ec from group device_upload success
+2023/06/11 16:50:09 Unregister websocket client af0fe44b-c400-4f92-9006-11c1598bc340 
+2023/06/11 16:50:09 Unregister websocket client af0fe44b-c400-4f92-9006-11c1598bc340 from group device_upload success
+2023/06/11 16:50:09 Clear no client group device_upload 
+2023/06/11 16:52:12 Websocket client 921b5106-9da0-4b08-9d01-2eeeeb5367ac connect 
+2023/06/11 16:52:12 Register client 921b5106-9da0-4b08-9d01-2eeeeb5367ac to device_upload group success 
+2023/06/11 16:52:12 Websocket client f5c41856-6d2e-4f8a-8a8d-c4e17bb991cd connect 
+2023/06/11 16:52:12 Register client f5c41856-6d2e-4f8a-8a8d-c4e17bb991cd to device_upload group success 
+2023/06/11 17:23:23 Unregister websocket client 921b5106-9da0-4b08-9d01-2eeeeb5367ac 
+2023/06/11 17:23:23 Unregister websocket client 921b5106-9da0-4b08-9d01-2eeeeb5367ac from group device_upload success
+2023/06/11 17:23:23 Unregister websocket client f5c41856-6d2e-4f8a-8a8d-c4e17bb991cd 
+2023/06/11 17:23:23 Unregister websocket client f5c41856-6d2e-4f8a-8a8d-c4e17bb991cd from group device_upload success
+2023/06/11 17:23:23 Clear no client group device_upload 
+2023/06/11 17:23:46 Websocket client ab2d792e-bcdb-49c5-8d99-006492b6f082 connect 
+2023/06/11 17:23:46 Register client ab2d792e-bcdb-49c5-8d99-006492b6f082 to device_upload group success 
+2023/06/11 17:23:46 Websocket client 25f5f380-deb2-430c-bf9b-dfe6bee0e740 connect 
+2023/06/11 17:23:46 Register client 25f5f380-deb2-430c-bf9b-dfe6bee0e740 to device_upload group success 
+2023/06/11 17:45:24 Unregister websocket client ab2d792e-bcdb-49c5-8d99-006492b6f082 
+2023/06/11 17:45:24 Unregister websocket client ab2d792e-bcdb-49c5-8d99-006492b6f082 from group device_upload success
+2023/06/11 17:45:24 Unregister websocket client 25f5f380-deb2-430c-bf9b-dfe6bee0e740 
+2023/06/11 17:45:24 Unregister websocket client 25f5f380-deb2-430c-bf9b-dfe6bee0e740 from group device_upload success
+2023/06/11 17:45:24 Clear no client group device_upload 
+2023/06/11 17:49:47 Websocket client f96e74cc-a24f-42a8-8a19-5e8fdfc2b37b connect 
+2023/06/11 17:49:47 Register client f96e74cc-a24f-42a8-8a19-5e8fdfc2b37b to device_upload group success 
+2023/06/11 17:49:48 Websocket client b58b020e-4310-48aa-9d79-a9f3bca22751 connect 
+2023/06/11 17:49:48 Register client b58b020e-4310-48aa-9d79-a9f3bca22751 to device_upload group success 
+2023/06/11 18:00:56 Unregister websocket client b58b020e-4310-48aa-9d79-a9f3bca22751 
+2023/06/11 18:00:56 Unregister websocket client b58b020e-4310-48aa-9d79-a9f3bca22751 from group device_upload success
+2023/06/11 18:00:56 Unregister websocket client f96e74cc-a24f-42a8-8a19-5e8fdfc2b37b 
+2023/06/11 18:00:56 Unregister websocket client f96e74cc-a24f-42a8-8a19-5e8fdfc2b37b from group device_upload success
+2023/06/11 18:00:56 Clear no client group device_upload 
+2023/06/11 18:16:51 Websocket client 4ca1241c-0e7e-463a-aa11-1582580aede5 connect 
+2023/06/11 18:16:51 Register client 4ca1241c-0e7e-463a-aa11-1582580aede5 to device_upload group success 
+2023/06/11 18:16:51 Websocket client dc3ab0c2-07d5-44d3-986a-1cda0d8ab6c0 connect 
+2023/06/11 18:16:51 Register client dc3ab0c2-07d5-44d3-986a-1cda0d8ab6c0 to device_upload group success 
+2023/06/11 18:19:22 Unregister websocket client dc3ab0c2-07d5-44d3-986a-1cda0d8ab6c0 
+2023/06/11 18:19:22 Unregister websocket client dc3ab0c2-07d5-44d3-986a-1cda0d8ab6c0 from group device_upload success
+2023/06/11 18:19:22 Unregister websocket client 4ca1241c-0e7e-463a-aa11-1582580aede5 
+2023/06/11 18:19:22 Unregister websocket client 4ca1241c-0e7e-463a-aa11-1582580aede5 from group device_upload success
+2023/06/11 18:19:22 Clear no client group device_upload 
+2023/06/11 19:19:13 Websocket client 0da2fdd9-f429-4223-87ce-dca12dc014b9 connect 
+2023/06/11 19:19:13 Register client 0da2fdd9-f429-4223-87ce-dca12dc014b9 to device_upload group success 
+2023/06/11 19:19:13 Websocket client e8f27aa8-18ea-4b4a-ba90-b515d49a7ebd connect 
+2023/06/11 19:19:13 Register client e8f27aa8-18ea-4b4a-ba90-b515d49a7ebd to device_upload group success 
+2023/06/11 19:21:59 Unregister websocket client 0da2fdd9-f429-4223-87ce-dca12dc014b9 
+2023/06/11 19:21:59 Unregister websocket client 0da2fdd9-f429-4223-87ce-dca12dc014b9 from group device_upload success
+2023/06/11 19:21:59 Unregister websocket client e8f27aa8-18ea-4b4a-ba90-b515d49a7ebd 
+2023/06/11 19:21:59 Unregister websocket client e8f27aa8-18ea-4b4a-ba90-b515d49a7ebd from group device_upload success
+2023/06/11 19:21:59 Clear no client group device_upload 
+2023/06/11 19:48:17 Websocket client 6d7b0f44-9f77-4f4f-8fed-573031102720 connect 
+2023/06/11 19:48:17 Register client 6d7b0f44-9f77-4f4f-8fed-573031102720 to device_upload group success 
+2023/06/11 19:48:17 Websocket client 414bb233-6a47-49e3-97ac-8408e5fa0fe0 connect 
+2023/06/11 19:48:17 Register client 414bb233-6a47-49e3-97ac-8408e5fa0fe0 to device_upload group success 
+2023/06/11 19:58:19 Unregister websocket client 414bb233-6a47-49e3-97ac-8408e5fa0fe0 
+2023/06/11 19:58:19 Unregister websocket client 414bb233-6a47-49e3-97ac-8408e5fa0fe0 from group device_upload success
+2023/06/11 19:58:19 Unregister websocket client 6d7b0f44-9f77-4f4f-8fed-573031102720 
+2023/06/11 19:58:19 Unregister websocket client 6d7b0f44-9f77-4f4f-8fed-573031102720 from group device_upload success
+2023/06/11 19:58:19 Clear no client group device_upload 
+2023/06/11 19:58:58 Websocket client 252a0e16-06bb-40aa-af50-ade75752e2a4 connect 
+2023/06/11 19:58:58 Register client 252a0e16-06bb-40aa-af50-ade75752e2a4 to device_upload group success 
+2023/06/11 19:58:58 Websocket client 9b359a52-ffd5-4ba2-993a-c3a358ca99df connect 
+2023/06/11 19:58:58 Register client 9b359a52-ffd5-4ba2-993a-c3a358ca99df to device_upload group success 
+2023/06/11 20:27:53 Websocket client 4c7339b1-9545-405f-a2b5-4a2708141c37 connect 
+2023/06/11 20:27:53 Register client 4c7339b1-9545-405f-a2b5-4a2708141c37 to device_upload group success 
+2023/06/11 20:27:53 Websocket client 15f6b069-ae77-4f73-b4e1-3d4d2ff83e7c connect 
+2023/06/11 20:27:53 Register client 15f6b069-ae77-4f73-b4e1-3d4d2ff83e7c to device_upload group success 
+2023/06/11 20:28:13 Unregister websocket client 252a0e16-06bb-40aa-af50-ade75752e2a4 
+2023/06/11 20:28:13 Unregister websocket client 252a0e16-06bb-40aa-af50-ade75752e2a4 from group device_upload success
+2023/06/11 20:28:13 Unregister websocket client 9b359a52-ffd5-4ba2-993a-c3a358ca99df 
+2023/06/11 20:28:13 Unregister websocket client 9b359a52-ffd5-4ba2-993a-c3a358ca99df from group device_upload success
+2023/06/11 22:42:58 Unregister websocket client 4c7339b1-9545-405f-a2b5-4a2708141c37 
+2023/06/11 22:42:58 Unregister websocket client 4c7339b1-9545-405f-a2b5-4a2708141c37 from group device_upload success
+2023/06/11 22:42:58 Unregister websocket client 15f6b069-ae77-4f73-b4e1-3d4d2ff83e7c 
+2023/06/11 22:42:58 Unregister websocket client 15f6b069-ae77-4f73-b4e1-3d4d2ff83e7c from group device_upload success
+2023/06/11 22:42:58 Clear no client group device_upload 
+2023/06/11 22:43:08 Websocket client c9f3d2f1-8e3c-4214-b646-58707267f6f2 connect 
+2023/06/11 22:43:08 Register client c9f3d2f1-8e3c-4214-b646-58707267f6f2 to device_upload group success 
+2023/06/11 22:43:08 Websocket client 689eed6c-ebfc-47cf-b393-c39103fa036e connect 
+2023/06/11 22:43:08 Register client 689eed6c-ebfc-47cf-b393-c39103fa036e to device_upload group success 
+2023/06/11 22:45:39 Unregister websocket client 689eed6c-ebfc-47cf-b393-c39103fa036e 
+2023/06/11 22:45:39 Unregister websocket client 689eed6c-ebfc-47cf-b393-c39103fa036e from group device_upload success
+2023/06/11 22:45:39 Unregister websocket client c9f3d2f1-8e3c-4214-b646-58707267f6f2 
+2023/06/11 22:45:39 Unregister websocket client c9f3d2f1-8e3c-4214-b646-58707267f6f2 from group device_upload success
+2023/06/11 22:45:39 Clear no client group device_upload 
+2023/06/11 23:14:47 Websocket client 235a5ced-abcb-4744-b982-a7bce5a6dfa8 connect 
+2023/06/11 23:14:47 Register client 235a5ced-abcb-4744-b982-a7bce5a6dfa8 to device_upload group success 
+2023/06/11 23:14:47 Websocket client 5fc663ce-05ef-4e42-a11f-dc855031231d connect 
+2023/06/11 23:14:47 Register client 5fc663ce-05ef-4e42-a11f-dc855031231d to device_upload group success 
+2023/06/11 23:46:46 Unregister websocket client 235a5ced-abcb-4744-b982-a7bce5a6dfa8 
+2023/06/11 23:46:46 Unregister websocket client 235a5ced-abcb-4744-b982-a7bce5a6dfa8 from group device_upload success
+2023/06/11 23:46:46 Unregister websocket client 5fc663ce-05ef-4e42-a11f-dc855031231d 
+2023/06/11 23:46:46 Unregister websocket client 5fc663ce-05ef-4e42-a11f-dc855031231d from group device_upload success
+2023/06/11 23:46:46 Clear no client group device_upload 
+2023/06/11 23:46:56 Websocket client 0c21d664-9f3d-4655-a098-ec30bd151cc4 connect 
+2023/06/11 23:46:56 Register client 0c21d664-9f3d-4655-a098-ec30bd151cc4 to device_upload group success 
+2023/06/11 23:46:56 Websocket client 4ce5dd58-53c8-4edc-88c4-a2d3a7842038 connect 
+2023/06/11 23:46:56 Register client 4ce5dd58-53c8-4edc-88c4-a2d3a7842038 to device_upload group success 
+2023/06/11 23:49:27 Unregister websocket client 0c21d664-9f3d-4655-a098-ec30bd151cc4 
+2023/06/11 23:49:27 Unregister websocket client 0c21d664-9f3d-4655-a098-ec30bd151cc4 from group device_upload success
+2023/06/11 23:49:27 Unregister websocket client 4ce5dd58-53c8-4edc-88c4-a2d3a7842038 
+2023/06/11 23:49:27 Unregister websocket client 4ce5dd58-53c8-4edc-88c4-a2d3a7842038 from group device_upload success
+2023/06/11 23:49:27 Clear no client group device_upload 
+2023/06/12 00:06:39 http: URL query contains semicolon, which is no longer a supported separator; parts of the query may be stripped when parsed; see golang.org/issue/25192
+2023/06/12 00:18:33 Websocket client f7bbeedf-c47d-40b6-942e-9130c7663cb3 connect 
+2023/06/12 00:18:33 Register client f7bbeedf-c47d-40b6-942e-9130c7663cb3 to device_upload group success 
+2023/06/12 00:18:33 Websocket client b38221f5-7490-4baa-ad7d-fdaacd225c3d connect 
+2023/06/12 00:18:33 Register client b38221f5-7490-4baa-ad7d-fdaacd225c3d to device_upload group success 
+2023/06/12 00:21:04 Unregister websocket client b38221f5-7490-4baa-ad7d-fdaacd225c3d 
+2023/06/12 00:21:04 Unregister websocket client b38221f5-7490-4baa-ad7d-fdaacd225c3d from group device_upload success
+2023/06/12 00:21:04 Unregister websocket client f7bbeedf-c47d-40b6-942e-9130c7663cb3 
+2023/06/12 00:21:04 Unregister websocket client f7bbeedf-c47d-40b6-942e-9130c7663cb3 from group device_upload success
+2023/06/12 00:21:04 Clear no client group device_upload 
+2023/06/12 00:55:13 Websocket client 05d63e02-64dd-4423-b1b1-f40529317890 connect 
+2023/06/12 00:55:13 Register client 05d63e02-64dd-4423-b1b1-f40529317890 to device_upload group success 
+2023/06/12 00:55:13 Websocket client 07ff3bb3-ddcb-492a-8c2e-5d644358a8d1 connect 
+2023/06/12 00:55:13 Register client 07ff3bb3-ddcb-492a-8c2e-5d644358a8d1 to device_upload group success 
+2023/06/12 00:57:44 Unregister websocket client 07ff3bb3-ddcb-492a-8c2e-5d644358a8d1 
+2023/06/12 00:57:44 Unregister websocket client 07ff3bb3-ddcb-492a-8c2e-5d644358a8d1 from group device_upload success
+2023/06/12 00:57:44 Unregister websocket client 05d63e02-64dd-4423-b1b1-f40529317890 
+2023/06/12 00:57:44 Unregister websocket client 05d63e02-64dd-4423-b1b1-f40529317890 from group device_upload success
+2023/06/12 00:57:44 Clear no client group device_upload 
+2023/06/12 02:22:19 Websocket client e9030df7-630a-4a79-a77e-a756d515c5f7 connect 
+2023/06/12 02:22:19 Register client e9030df7-630a-4a79-a77e-a756d515c5f7 to device_upload group success 
+2023/06/12 02:22:22 Unregister websocket client e9030df7-630a-4a79-a77e-a756d515c5f7 
+2023/06/12 02:22:22 Unregister websocket client e9030df7-630a-4a79-a77e-a756d515c5f7 from group device_upload success
+2023/06/12 02:22:22 Clear no client group device_upload 
+2023/06/12 08:43:03 Websocket client 45ee21dc-dfd8-42aa-9c2a-b4a57521d891 connect 
+2023/06/12 08:43:03 Register client 45ee21dc-dfd8-42aa-9c2a-b4a57521d891 to device_upload group success 
+2023/06/12 08:43:03 Websocket client 7c81f5c4-579f-409c-a875-16423f45a016 connect 
+2023/06/12 08:43:03 Register client 7c81f5c4-579f-409c-a875-16423f45a016 to device_upload group success 
+2023/06/12 08:46:00 Unregister websocket client 45ee21dc-dfd8-42aa-9c2a-b4a57521d891 
+2023/06/12 08:46:00 Unregister websocket client 45ee21dc-dfd8-42aa-9c2a-b4a57521d891 from group device_upload success
+2023/06/12 08:46:00 Unregister websocket client 7c81f5c4-579f-409c-a875-16423f45a016 
+2023/06/12 08:46:00 Unregister websocket client 7c81f5c4-579f-409c-a875-16423f45a016 from group device_upload success
+2023/06/12 08:46:00 Clear no client group device_upload 
+2023/06/12 08:54:51 Websocket client 625da4f9-cdea-400b-a6df-e3ec257d5764 connect 
+2023/06/12 08:54:51 Register client 625da4f9-cdea-400b-a6df-e3ec257d5764 to device_upload group success 
+2023/06/12 08:54:51 Websocket client af781ab3-4612-475b-8edd-42ff6f8023aa connect 
+2023/06/12 08:54:51 Register client af781ab3-4612-475b-8edd-42ff6f8023aa to device_upload group success 
+2023/06/12 08:54:52 Unregister websocket client 625da4f9-cdea-400b-a6df-e3ec257d5764 
+2023/06/12 08:54:52 Unregister websocket client 625da4f9-cdea-400b-a6df-e3ec257d5764 from group device_upload success
+2023/06/12 08:54:52 Unregister websocket client af781ab3-4612-475b-8edd-42ff6f8023aa 
+2023/06/12 08:54:52 Unregister websocket client af781ab3-4612-475b-8edd-42ff6f8023aa from group device_upload success
+2023/06/12 08:54:52 Clear no client group device_upload 
+2023/06/12 09:37:50 Websocket client 06aac3bc-a024-46ef-95a8-df953d9fcd89 connect 
+2023/06/12 09:37:51 Register client 06aac3bc-a024-46ef-95a8-df953d9fcd89 to device_upload group success 
+2023/06/12 09:37:51 Websocket client 5d0fcded-f212-46b9-964b-f9c85a3c1b0b connect 
+2023/06/12 09:37:51 Register client 5d0fcded-f212-46b9-964b-f9c85a3c1b0b to device_upload group success 
+2023/06/12 09:39:30 Unregister websocket client 06aac3bc-a024-46ef-95a8-df953d9fcd89 
+2023/06/12 09:39:30 Unregister websocket client 06aac3bc-a024-46ef-95a8-df953d9fcd89 from group device_upload success
+2023/06/12 09:39:30 Unregister websocket client 5d0fcded-f212-46b9-964b-f9c85a3c1b0b 
+2023/06/12 09:39:30 Unregister websocket client 5d0fcded-f212-46b9-964b-f9c85a3c1b0b from group device_upload success
+2023/06/12 09:39:30 Clear no client group device_upload 
+2023/06/12 09:39:41 Websocket client 56ccfd12-e449-4ff6-b75d-beb63803e2a6 connect 
+2023/06/12 09:39:41 Register client 56ccfd12-e449-4ff6-b75d-beb63803e2a6 to device_upload group success 
+2023/06/12 09:39:41 Websocket client eb6a9d7e-4315-4ae5-8fcb-bac2d7533d68 connect 
+2023/06/12 09:39:41 Register client eb6a9d7e-4315-4ae5-8fcb-bac2d7533d68 to device_upload group success 
+2023/06/12 09:49:20 Unregister websocket client 56ccfd12-e449-4ff6-b75d-beb63803e2a6 
+2023/06/12 09:49:20 Unregister websocket client 56ccfd12-e449-4ff6-b75d-beb63803e2a6 from group device_upload success
+2023/06/12 09:49:20 Unregister websocket client eb6a9d7e-4315-4ae5-8fcb-bac2d7533d68 
+2023/06/12 09:49:20 Unregister websocket client eb6a9d7e-4315-4ae5-8fcb-bac2d7533d68 from group device_upload success
+2023/06/12 09:49:20 Clear no client group device_upload 
+2023/06/12 09:53:41 Websocket client c1d36f2a-afe6-46e9-81b5-9d12759cc2db connect 
+2023/06/12 09:53:41 Register client c1d36f2a-afe6-46e9-81b5-9d12759cc2db to device_upload group success 
+2023/06/12 09:53:41 Websocket client d2b6a1f0-73bb-4d58-a420-d7af093ccb94 connect 
+2023/06/12 09:53:41 Register client d2b6a1f0-73bb-4d58-a420-d7af093ccb94 to device_upload group success 
+2023/06/12 09:56:03 Unregister websocket client d2b6a1f0-73bb-4d58-a420-d7af093ccb94 
+2023/06/12 09:56:03 Unregister websocket client d2b6a1f0-73bb-4d58-a420-d7af093ccb94 from group device_upload success
+2023/06/12 09:56:03 Unregister websocket client c1d36f2a-afe6-46e9-81b5-9d12759cc2db 
+2023/06/12 09:56:03 Unregister websocket client c1d36f2a-afe6-46e9-81b5-9d12759cc2db from group device_upload success
+2023/06/12 09:56:03 Clear no client group device_upload 
+2023/06/12 10:25:15 Websocket client 45b8e320-70e2-4d85-bc17-96196c406dde connect 
+2023/06/12 10:25:15 Register client 45b8e320-70e2-4d85-bc17-96196c406dde to device_upload group success 
+
+
+[31m2023/06/12 10:27:53 write tcp 192.168.0.34:8080->219.133.249.85:17287: write: broken pipe
+GET /device/list HTTP/1.1
+Host: 139.159.203.84:8080
+Accept: application/json, text/plain, */*
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+Connection: keep-alive
+Cookie: auth=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJsb2NhbGUiOiJlbiIsInZpZXdNb2RlIjoibW9zYWljIGdhbGxlcnkiLCJzaW5nbGVDbGljayI6ZmFsc2UsInBlcm0iOnsiYWRtaW4iOnRydWUsImV4ZWN1dGUiOnRydWUsImNyZWF0ZSI6dHJ1ZSwicmVuYW1lIjp0cnVlLCJtb2RpZnkiOnRydWUsImRlbGV0ZSI6dHJ1ZSwic2hhcmUiOnRydWUsImRvd25sb2FkIjp0cnVlfSwiY29tbWFuZHMiOltdLCJsb2NrUGFzc3dvcmQiOmZhbHNlLCJoaWRlRG90ZmlsZXMiOmZhbHNlLCJkYXRlRm9ybWF0IjpmYWxzZX0sImlzcyI6IkZpbGUgQnJvd3NlciIsImV4cCI6MTY4NjQwMDc4NSwiaWF0IjoxNjg2MzkzNTg1fQ.Np_vAmc3MBSydwqJ-r2qZ_ZTYrfkeg_GKO0vVvDRBB8
+Referer: http://139.159.203.84:8080/
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.41
+
+[0m
+2023/06/12 10:33:49 Unregister websocket client 45b8e320-70e2-4d85-bc17-96196c406dde 
+2023/06/12 10:33:49 Unregister websocket client 45b8e320-70e2-4d85-bc17-96196c406dde from group device_upload success
+2023/06/12 10:33:49 Clear no client group device_upload 
+2023/06/12 13:06:16 Websocket client 5489ef0d-a833-420e-9d22-d15ef921e844 connect 
+2023/06/12 13:06:16 Register client 5489ef0d-a833-420e-9d22-d15ef921e844 to device_upload group success 
+2023/06/12 13:14:21 Unregister websocket client 5489ef0d-a833-420e-9d22-d15ef921e844 
+2023/06/12 13:14:21 Unregister websocket client 5489ef0d-a833-420e-9d22-d15ef921e844 from group device_upload success
+2023/06/12 13:14:21 Clear no client group device_upload 
+2023/06/12 15:35:57 Websocket client 70253dae-c9aa-4402-8342-d87fdf02aadf connect 
+2023/06/12 15:35:57 Register client 70253dae-c9aa-4402-8342-d87fdf02aadf to device_upload group success 
+2023/06/12 15:40:33 Unregister websocket client 70253dae-c9aa-4402-8342-d87fdf02aadf 
+2023/06/12 15:40:33 Unregister websocket client 70253dae-c9aa-4402-8342-d87fdf02aadf from group device_upload success
+2023/06/12 15:40:33 Clear no client group device_upload 
+2023/06/13 16:42:32 Websocket client 1986a9c3-e393-4db8-934b-1935b1551e55 connect 
+2023/06/13 16:42:32 Register client 1986a9c3-e393-4db8-934b-1935b1551e55 to device_upload group success 
+2023/06/13 16:43:20 Unregister websocket client 1986a9c3-e393-4db8-934b-1935b1551e55 
+2023/06/13 16:43:20 Unregister websocket client 1986a9c3-e393-4db8-934b-1935b1551e55 from group device_upload success
+2023/06/13 16:43:20 Clear no client group device_upload 
+2023/06/13 17:49:24 Websocket client 0d5d9609-1a23-4391-847d-b1b0aa929160 connect 
+2023/06/13 17:49:24 Register client 0d5d9609-1a23-4391-847d-b1b0aa929160 to device_upload group success 
+2023/06/13 17:59:44 Websocket client a9aa0dd8-680f-477f-a6c7-4a89ca26df98 connect 
+2023/06/13 17:59:44 Register client a9aa0dd8-680f-477f-a6c7-4a89ca26df98 to device_upload group success 
+2023/06/13 18:16:05 Unregister websocket client 0d5d9609-1a23-4391-847d-b1b0aa929160 
+2023/06/13 18:16:05 Unregister websocket client 0d5d9609-1a23-4391-847d-b1b0aa929160 from group device_upload success
+2023/06/13 18:20:53 Unregister websocket client a9aa0dd8-680f-477f-a6c7-4a89ca26df98 
+2023/06/13 18:20:53 Unregister websocket client a9aa0dd8-680f-477f-a6c7-4a89ca26df98 from group device_upload success
+2023/06/13 18:20:53 Clear no client group device_upload 
+2023/06/13 23:26:47 http: URL query contains semicolon, which is no longer a supported separator; parts of the query may be stripped when parsed; see golang.org/issue/25192
+2023/06/14 10:23:26 Websocket client 4a5a3c89-6bb8-406a-9475-30478fc52a2f connect 
+2023/06/14 10:23:26 Register client 4a5a3c89-6bb8-406a-9475-30478fc52a2f to device_upload group success 
+2023/06/14 10:26:38 Unregister websocket client 4a5a3c89-6bb8-406a-9475-30478fc52a2f 
+2023/06/14 10:26:38 Unregister websocket client 4a5a3c89-6bb8-406a-9475-30478fc52a2f from group device_upload success
+2023/06/14 10:26:38 Clear no client group device_upload 
+2023/06/14 10:43:50 Websocket client eaa4db49-8fb1-40dd-a0a1-70e17f798125 connect 
+2023/06/14 10:43:50 Register client eaa4db49-8fb1-40dd-a0a1-70e17f798125 to device_upload group success 
+2023/06/14 11:52:32 Unregister websocket client eaa4db49-8fb1-40dd-a0a1-70e17f798125 
+2023/06/14 11:52:32 Unregister websocket client eaa4db49-8fb1-40dd-a0a1-70e17f798125 from group device_upload success
+2023/06/14 11:52:32 Clear no client group device_upload 
+2023/06/14 16:18:21 Websocket client 94f89b4b-a52b-47ec-97bb-cb5b05ff76e8 connect 
+2023/06/14 16:18:21 Register client 94f89b4b-a52b-47ec-97bb-cb5b05ff76e8 to device_upload group success 
+2023/06/14 16:30:21 Unregister websocket client 94f89b4b-a52b-47ec-97bb-cb5b05ff76e8 
+2023/06/14 16:30:21 Unregister websocket client 94f89b4b-a52b-47ec-97bb-cb5b05ff76e8 from group device_upload success
+2023/06/14 16:30:21 Clear no client group device_upload 
+2023/06/14 17:07:22 Websocket client 0460c363-c20d-4210-bdd7-b1a5aacf4b1c connect 
+2023/06/14 17:07:22 Register client 0460c363-c20d-4210-bdd7-b1a5aacf4b1c to device_upload group success 
+2023/06/14 18:14:44 Unregister websocket client 0460c363-c20d-4210-bdd7-b1a5aacf4b1c 
+2023/06/14 18:14:44 Unregister websocket client 0460c363-c20d-4210-bdd7-b1a5aacf4b1c from group device_upload success
+2023/06/14 18:14:44 Clear no client group device_upload 
+2023/06/15 10:16:16 Websocket client 3c9c69d4-aa97-45fe-9c88-16404250fa89 connect 
+2023/06/15 10:16:16 Register client 3c9c69d4-aa97-45fe-9c88-16404250fa89 to device_upload group success 
+2023/06/15 10:30:17 Unregister websocket client 3c9c69d4-aa97-45fe-9c88-16404250fa89 
+2023/06/15 10:30:17 Unregister websocket client 3c9c69d4-aa97-45fe-9c88-16404250fa89 from group device_upload success
+2023/06/15 10:30:17 Clear no client group device_upload 
+2023/06/15 10:30:18 Websocket client 9a1d851c-d6fb-4940-82dd-e502144fb159 connect 
+2023/06/15 10:30:18 Register client 9a1d851c-d6fb-4940-82dd-e502144fb159 to device_upload group success 
+2023/06/15 14:44:10 Unregister websocket client 9a1d851c-d6fb-4940-82dd-e502144fb159 
+2023/06/15 14:44:10 Unregister websocket client 9a1d851c-d6fb-4940-82dd-e502144fb159 from group device_upload success
+2023/06/15 14:44:10 Clear no client group device_upload 
+2023/06/15 15:06:58 Websocket client 2338a6ef-b85c-4656-a171-5a029d23fae3 connect 
+2023/06/15 15:06:58 Register client 2338a6ef-b85c-4656-a171-5a029d23fae3 to device_upload group success 
+2023/06/15 15:18:00 Unregister websocket client 2338a6ef-b85c-4656-a171-5a029d23fae3 
+2023/06/15 15:18:00 Unregister websocket client 2338a6ef-b85c-4656-a171-5a029d23fae3 from group device_upload success
+2023/06/15 15:18:00 Clear no client group device_upload 
+2023/06/15 15:18:24 Websocket client 73e7e6cc-8eeb-42cf-a02a-01c1d8e236e8 connect 
+2023/06/15 15:18:24 Register client 73e7e6cc-8eeb-42cf-a02a-01c1d8e236e8 to device_upload group success 
+2023/06/15 15:27:19 Unregister websocket client 73e7e6cc-8eeb-42cf-a02a-01c1d8e236e8 
+2023/06/15 15:27:19 Unregister websocket client 73e7e6cc-8eeb-42cf-a02a-01c1d8e236e8 from group device_upload success
+2023/06/15 15:27:19 Clear no client group device_upload 
+2023/06/15 15:28:55 Websocket client 80b90a3e-73c1-4a26-9e82-34554d3a52ae connect 
+2023/06/15 15:28:55 Register client 80b90a3e-73c1-4a26-9e82-34554d3a52ae to device_upload group success 
+2023/06/15 15:45:10 Unregister websocket client 80b90a3e-73c1-4a26-9e82-34554d3a52ae 
+2023/06/15 15:45:10 Unregister websocket client 80b90a3e-73c1-4a26-9e82-34554d3a52ae from group device_upload success
+2023/06/15 15:45:10 Clear no client group device_upload 
+2023/06/15 15:50:40 Websocket client 61a31085-9f95-490b-a575-4587062583ff connect 
+2023/06/15 15:50:40 Register client 61a31085-9f95-490b-a575-4587062583ff to device_upload group success 
+2023/06/15 17:52:13 Unregister websocket client 61a31085-9f95-490b-a575-4587062583ff 
+2023/06/15 17:52:13 Unregister websocket client 61a31085-9f95-490b-a575-4587062583ff from group device_upload success
+2023/06/15 17:52:13 Clear no client group device_upload 
+2023/06/15 19:10:45 Websocket client ffd200b7-0e3d-4c42-977d-777806241de2 connect 
+2023/06/15 19:10:45 Register client ffd200b7-0e3d-4c42-977d-777806241de2 to device_upload group success 
+2023/06/15 21:47:40 Websocket client cbbd210d-10e4-4f52-bcfa-c566035c0609 connect 
+2023/06/15 21:47:40 Register client cbbd210d-10e4-4f52-bcfa-c566035c0609 to device_upload group success 
+2023/06/15 21:47:40 Unregister websocket client ffd200b7-0e3d-4c42-977d-777806241de2 
+2023/06/15 21:47:40 Unregister websocket client ffd200b7-0e3d-4c42-977d-777806241de2 from group device_upload success
+2023/06/15 22:40:47 Unregister websocket client cbbd210d-10e4-4f52-bcfa-c566035c0609 
+2023/06/15 22:40:47 Unregister websocket client cbbd210d-10e4-4f52-bcfa-c566035c0609 from group device_upload success
+2023/06/15 22:40:47 Clear no client group device_upload 
+2023/06/16 09:47:48 Websocket client 5feac91c-8fcb-4843-9890-f45a5538fad2 connect 
+2023/06/16 09:47:48 Register client 5feac91c-8fcb-4843-9890-f45a5538fad2 to device_upload group success 
+2023/06/16 10:39:11 Unregister websocket client 5feac91c-8fcb-4843-9890-f45a5538fad2 
+2023/06/16 10:39:11 Unregister websocket client 5feac91c-8fcb-4843-9890-f45a5538fad2 from group device_upload success
+2023/06/16 10:39:11 Clear no client group device_upload 
+2023/06/16 10:42:25 Websocket client d02679f8-4419-4f07-98b6-00c2003f3cf6 connect 
+2023/06/16 10:42:25 Register client d02679f8-4419-4f07-98b6-00c2003f3cf6 to device_upload group success 
+2023/06/16 10:45:41 Unregister websocket client d02679f8-4419-4f07-98b6-00c2003f3cf6 
+2023/06/16 10:45:41 Unregister websocket client d02679f8-4419-4f07-98b6-00c2003f3cf6 from group device_upload success
+2023/06/16 10:45:41 Clear no client group device_upload 
+2023/06/16 16:35:50 Websocket client 636762fe-f9cc-4858-af2d-534fe2366ae2 connect 
+2023/06/16 16:35:50 Register client 636762fe-f9cc-4858-af2d-534fe2366ae2 to device_upload group success 
+2023/06/16 16:35:53 Unregister websocket client 636762fe-f9cc-4858-af2d-534fe2366ae2 
+2023/06/16 16:35:53 Unregister websocket client 636762fe-f9cc-4858-af2d-534fe2366ae2 from group device_upload success
+2023/06/16 16:35:53 Clear no client group device_upload 
+2023/06/16 16:35:54 Websocket client 843b4153-0191-44fa-9fe1-a879208778e5 connect 
+2023/06/16 16:35:54 Register client 843b4153-0191-44fa-9fe1-a879208778e5 to device_upload group success 
+2023/06/16 16:36:04 Websocket client 7aaece0c-1491-42c7-8f52-fa241cabe1d3 connect 
+2023/06/16 16:36:04 Register client 7aaece0c-1491-42c7-8f52-fa241cabe1d3 to device_upload group success 
+2023/06/16 19:15:20 Unregister websocket client 7aaece0c-1491-42c7-8f52-fa241cabe1d3 
+2023/06/16 19:15:20 Unregister websocket client 7aaece0c-1491-42c7-8f52-fa241cabe1d3 from group device_upload success
+2023/06/16 19:15:20 Unregister websocket client 843b4153-0191-44fa-9fe1-a879208778e5 
+2023/06/16 19:15:20 Unregister websocket client 843b4153-0191-44fa-9fe1-a879208778e5 from group device_upload success
+2023/06/16 19:15:20 Clear no client group device_upload 
+2023/06/16 19:17:02 Websocket client 723e2400-8089-4a23-9370-f7d82987a50d connect 
+2023/06/16 19:17:02 Register client 723e2400-8089-4a23-9370-f7d82987a50d to device_upload group success 
+2023/06/16 19:17:03 Websocket client 9df4ee30-1390-4db0-9887-12a8c697191e connect 
+2023/06/16 19:17:03 Register client 9df4ee30-1390-4db0-9887-12a8c697191e to device_upload group success 
+2023/06/17 15:52:24 Websocket client a7e30ee0-3260-43bb-b9ab-28811e6dcfa0 connect 
+2023/06/17 15:52:24 Register client a7e30ee0-3260-43bb-b9ab-28811e6dcfa0 to device_upload group success 
+2023/06/17 15:52:24 Websocket client d1be3b09-72e2-4f87-87b7-935af3c9c766 connect 
+2023/06/17 15:52:24 Register client d1be3b09-72e2-4f87-87b7-935af3c9c766 to device_upload group success 
+2023/06/17 15:52:24 Unregister websocket client a7e30ee0-3260-43bb-b9ab-28811e6dcfa0 
+2023/06/17 15:52:24 Unregister websocket client a7e30ee0-3260-43bb-b9ab-28811e6dcfa0 from group device_upload success
+2023/06/17 15:52:24 Websocket client 471e6824-7833-4d67-8de8-bed0b1e67cb9 connect 
+2023/06/17 15:52:24 Register client 471e6824-7833-4d67-8de8-bed0b1e67cb9 to device_upload group success 
+2023/06/18 00:13:36 Unregister websocket client 9df4ee30-1390-4db0-9887-12a8c697191e 
+2023/06/18 00:13:36 Unregister websocket client 9df4ee30-1390-4db0-9887-12a8c697191e from group device_upload success
+2023/06/18 00:13:36 Websocket client f2940076-2f30-442d-bfaa-5e50d7049ebd connect 
+2023/06/18 00:13:36 Register client f2940076-2f30-442d-bfaa-5e50d7049ebd to device_upload group success 
+2023/06/18 00:13:36 Websocket client 409b2a93-2090-4b84-9149-8d73d2ded54a connect 
+2023/06/18 00:13:36 Register client 409b2a93-2090-4b84-9149-8d73d2ded54a to device_upload group success 
+2023/06/18 00:13:36 Unregister websocket client 723e2400-8089-4a23-9370-f7d82987a50d 
+2023/06/18 00:13:36 Unregister websocket client 723e2400-8089-4a23-9370-f7d82987a50d from group device_upload success
+2023/06/18 00:13:36 Unregister websocket client d1be3b09-72e2-4f87-87b7-935af3c9c766 
+2023/06/18 00:13:36 Unregister websocket client d1be3b09-72e2-4f87-87b7-935af3c9c766 from group device_upload success
+2023/06/18 00:13:36 Unregister websocket client f2940076-2f30-442d-bfaa-5e50d7049ebd 
+2023/06/18 00:13:36 Unregister websocket client f2940076-2f30-442d-bfaa-5e50d7049ebd from group device_upload success
+2023/06/18 00:13:36 Unregister websocket client 409b2a93-2090-4b84-9149-8d73d2ded54a 
+2023/06/18 00:13:36 Unregister websocket client 409b2a93-2090-4b84-9149-8d73d2ded54a from group device_upload success
+2023/06/18 01:26:49 Unregister websocket client 471e6824-7833-4d67-8de8-bed0b1e67cb9 
+2023/06/18 01:26:49 Unregister websocket client 471e6824-7833-4d67-8de8-bed0b1e67cb9 from group device_upload success
+2023/06/18 01:26:49 Clear no client group device_upload 
+2023/06/18 09:57:55 Websocket client a986b7dd-87cb-48bd-9a93-4cd5c836fd64 connect 
+2023/06/18 09:57:55 Register client a986b7dd-87cb-48bd-9a93-4cd5c836fd64 to device_upload group success 
+2023/06/18 09:57:57 Unregister websocket client a986b7dd-87cb-48bd-9a93-4cd5c836fd64 
+2023/06/18 09:57:57 Unregister websocket client a986b7dd-87cb-48bd-9a93-4cd5c836fd64 from group device_upload success
+2023/06/18 09:57:57 Clear no client group device_upload 
+2023/06/18 09:58:02 Websocket client 63f60049-ea8c-4e64-b5d1-997ed8c47be1 connect 
+2023/06/18 09:58:02 Register client 63f60049-ea8c-4e64-b5d1-997ed8c47be1 to device_upload group success 
+2023/06/18 09:58:03 Unregister websocket client 63f60049-ea8c-4e64-b5d1-997ed8c47be1 
+2023/06/18 09:58:03 Unregister websocket client 63f60049-ea8c-4e64-b5d1-997ed8c47be1 from group device_upload success
+2023/06/18 09:58:03 Clear no client group device_upload 
+2023/06/18 09:59:02 Websocket client 1c39fee0-21b2-4067-84ce-1b4c9a39cc47 connect 
+2023/06/18 09:59:02 Register client 1c39fee0-21b2-4067-84ce-1b4c9a39cc47 to device_upload group success 
+2023/06/18 10:51:13 Websocket client 12bdb763-f2d2-4574-a8c1-73dae1b26f83 connect 
+2023/06/18 10:51:13 Register client 12bdb763-f2d2-4574-a8c1-73dae1b26f83 to device_upload group success 
+2023/06/18 10:51:59 Unregister websocket client 12bdb763-f2d2-4574-a8c1-73dae1b26f83 
+2023/06/18 10:51:59 Unregister websocket client 12bdb763-f2d2-4574-a8c1-73dae1b26f83 from group device_upload success
+2023/06/18 10:51:59 Websocket client a453b313-04a4-4ae3-a280-97b773fee2f5 connect 
+2023/06/18 10:51:59 Register client a453b313-04a4-4ae3-a280-97b773fee2f5 to device_upload group success 
+2023/06/18 10:52:04 Unregister websocket client a453b313-04a4-4ae3-a280-97b773fee2f5 
+2023/06/18 10:52:04 Unregister websocket client a453b313-04a4-4ae3-a280-97b773fee2f5 from group device_upload success
+2023/06/18 10:52:04 Websocket client c7b61ed4-e9a3-4918-8fb1-745a979d847c connect 
+2023/06/18 10:52:04 Register client c7b61ed4-e9a3-4918-8fb1-745a979d847c to device_upload group success 
+2023/06/18 10:58:27 Unregister websocket client c7b61ed4-e9a3-4918-8fb1-745a979d847c 
+2023/06/18 10:58:27 Unregister websocket client c7b61ed4-e9a3-4918-8fb1-745a979d847c from group device_upload success
+2023/06/18 10:58:27 Websocket client 1e429c20-2ba5-4def-902b-caf1c29d6bce connect 
+2023/06/18 10:58:27 Register client 1e429c20-2ba5-4def-902b-caf1c29d6bce to device_upload group success 
+2023/06/18 10:58:43 Unregister websocket client 1e429c20-2ba5-4def-902b-caf1c29d6bce 
+2023/06/18 10:58:43 Unregister websocket client 1e429c20-2ba5-4def-902b-caf1c29d6bce from group device_upload success
+2023/06/18 10:58:43 Websocket client 35c88821-a269-4b08-a05a-69f11ab4a5a5 connect 
+2023/06/18 10:58:43 Register client 35c88821-a269-4b08-a05a-69f11ab4a5a5 to device_upload group success 
+2023/06/18 14:43:59 Websocket client 737257ca-3fd5-43c9-b416-9a3ec7ced01f connect 
+2023/06/18 14:43:59 Register client 737257ca-3fd5-43c9-b416-9a3ec7ced01f to device_upload group success 
+2023/06/18 15:09:42 Unregister websocket client 737257ca-3fd5-43c9-b416-9a3ec7ced01f 
+2023/06/18 15:09:42 Unregister websocket client 737257ca-3fd5-43c9-b416-9a3ec7ced01f from group device_upload success
+2023/06/18 15:09:44 Unregister websocket client 35c88821-a269-4b08-a05a-69f11ab4a5a5 
+2023/06/18 15:09:44 Unregister websocket client 35c88821-a269-4b08-a05a-69f11ab4a5a5 from group device_upload success
+2023/06/20 03:30:07 Unregister websocket client 1c39fee0-21b2-4067-84ce-1b4c9a39cc47 
+2023/06/20 03:30:07 Unregister websocket client 1c39fee0-21b2-4067-84ce-1b4c9a39cc47 from group device_upload success
+2023/06/20 03:30:07 Clear no client group device_upload 
+2023/06/20 03:35:46 Websocket client 946d58a0-2510-44cf-aab9-ab1b6b28e239 connect 
+2023/06/20 03:35:46 Register client 946d58a0-2510-44cf-aab9-ab1b6b28e239 to device_upload group success 
+2023/06/22 03:31:01 Unregister websocket client 946d58a0-2510-44cf-aab9-ab1b6b28e239 
+2023/06/22 03:31:01 Unregister websocket client 946d58a0-2510-44cf-aab9-ab1b6b28e239 from group device_upload success
+2023/06/22 03:31:01 Clear no client group device_upload 
+2023/06/22 03:36:25 Websocket client 9f1c6a7e-8640-49f6-88fd-24673c2e3d62 connect 
+2023/06/22 03:36:25 Register client 9f1c6a7e-8640-49f6-88fd-24673c2e3d62 to device_upload group success 
+2023/06/24 03:31:33 Unregister websocket client 9f1c6a7e-8640-49f6-88fd-24673c2e3d62 
+2023/06/24 03:31:33 Unregister websocket client 9f1c6a7e-8640-49f6-88fd-24673c2e3d62 from group device_upload success
+2023/06/24 03:31:33 Clear no client group device_upload 
+2023/06/24 03:37:27 Websocket client ab69c070-d40a-41a0-8573-6fee6391a7db connect 
+2023/06/24 03:37:27 Register client ab69c070-d40a-41a0-8573-6fee6391a7db to device_upload group success 
+2023/06/24 18:33:00 Unregister websocket client ab69c070-d40a-41a0-8573-6fee6391a7db 
+2023/06/24 18:33:00 Unregister websocket client ab69c070-d40a-41a0-8573-6fee6391a7db from group device_upload success
+2023/06/24 18:33:00 Clear no client group device_upload 
+2023/06/25 00:37:48 http: URL query contains semicolon, which is no longer a supported separator; parts of the query may be stripped when parsed; see golang.org/issue/25192
+2023/06/27 00:14:22 Websocket client 20ade5d0-6dab-4f51-80c4-9decdd83545a connect 
+2023/06/27 00:14:22 Register client 20ade5d0-6dab-4f51-80c4-9decdd83545a to device_upload group success 
+2023/06/27 01:12:39 Unregister websocket client 20ade5d0-6dab-4f51-80c4-9decdd83545a 
+2023/06/27 01:12:39 Unregister websocket client 20ade5d0-6dab-4f51-80c4-9decdd83545a from group device_upload success
+2023/06/27 01:12:39 Clear no client group device_upload 
+2023/06/27 01:17:00 Websocket client 97f8e60a-1737-4e91-8f3e-c8b50619f78b connect 
+2023/06/27 01:17:00 Register client 97f8e60a-1737-4e91-8f3e-c8b50619f78b to device_upload group success 
+2023/06/27 01:17:02 Unregister websocket client 97f8e60a-1737-4e91-8f3e-c8b50619f78b 
+2023/06/27 01:17:02 Unregister websocket client 97f8e60a-1737-4e91-8f3e-c8b50619f78b from group device_upload success
+2023/06/27 01:17:02 Clear no client group device_upload 
+2023/06/27 01:53:20 Websocket client cf23186d-3890-4e4c-911c-ca311dc61529 connect 
+2023/06/27 01:53:20 Register client cf23186d-3890-4e4c-911c-ca311dc61529 to device_upload group success 
+2023/06/28 03:33:02 Unregister websocket client cf23186d-3890-4e4c-911c-ca311dc61529 
+2023/06/28 03:33:02 Unregister websocket client cf23186d-3890-4e4c-911c-ca311dc61529 from group device_upload success
+2023/06/28 03:33:02 Clear no client group device_upload 
+2023/06/28 03:38:57 Websocket client 54132139-607b-4b02-b538-d3c56bccc45e connect 
+2023/06/28 03:38:57 Register client 54132139-607b-4b02-b538-d3c56bccc45e to device_upload group success 
+2023/06/28 13:45:19 Unregister websocket client 54132139-607b-4b02-b538-d3c56bccc45e 
+2023/06/28 13:45:19 Unregister websocket client 54132139-607b-4b02-b538-d3c56bccc45e from group device_upload success
+2023/06/28 13:45:19 Clear no client group device_upload 
+2023/06/28 13:50:37 Websocket client cfc2fe49-bf05-4521-9a04-8700d604f0f6 connect 
+2023/06/28 13:50:37 Register client cfc2fe49-bf05-4521-9a04-8700d604f0f6 to device_upload group success 
+2023/06/29 00:18:49 Unregister websocket client cfc2fe49-bf05-4521-9a04-8700d604f0f6 
+2023/06/29 00:18:49 Unregister websocket client cfc2fe49-bf05-4521-9a04-8700d604f0f6 from group device_upload success
+2023/06/29 00:18:49 Clear no client group device_upload 
+2023/06/29 00:18:59 Websocket client 608da7b7-0afe-45f0-bcb4-462fa39c1082 connect 
+2023/06/29 00:18:59 Register client 608da7b7-0afe-45f0-bcb4-462fa39c1082 to device_upload group success 
+2023/06/30 00:18:55 Unregister websocket client 608da7b7-0afe-45f0-bcb4-462fa39c1082 
+2023/06/30 00:18:55 Unregister websocket client 608da7b7-0afe-45f0-bcb4-462fa39c1082 from group device_upload success
+2023/06/30 00:18:55 Clear no client group device_upload 
+2023/06/30 00:19:06 Websocket client b447d8ed-4584-4b39-a96e-caeece8df296 connect 
+2023/06/30 00:19:06 Register client b447d8ed-4584-4b39-a96e-caeece8df296 to device_upload group success 
+2023/06/30 03:33:33 Unregister websocket client b447d8ed-4584-4b39-a96e-caeece8df296 
+2023/06/30 03:33:33 Unregister websocket client b447d8ed-4584-4b39-a96e-caeece8df296 from group device_upload success
+2023/06/30 03:33:33 Clear no client group device_upload 
+2023/06/30 03:33:57 Websocket client 417e98dc-393d-4b28-b4d5-3e8ef1dbc2a8 connect 
+2023/06/30 03:33:57 Register client 417e98dc-393d-4b28-b4d5-3e8ef1dbc2a8 to device_upload group success 
+2023/07/01 03:33:52 Unregister websocket client 417e98dc-393d-4b28-b4d5-3e8ef1dbc2a8 
+2023/07/01 03:33:52 Unregister websocket client 417e98dc-393d-4b28-b4d5-3e8ef1dbc2a8 from group device_upload success
+2023/07/01 03:33:52 Clear no client group device_upload 
+2023/07/01 03:34:03 Websocket client f49ae831-88f0-41e7-82c0-c07e2acd1dc3 connect 
+2023/07/01 03:34:03 Register client f49ae831-88f0-41e7-82c0-c07e2acd1dc3 to device_upload group success 
+2023/07/02 03:34:10 Websocket client c3bafff2-4d43-44d1-ad5e-0ae6cb5adc89 connect 
+2023/07/02 03:34:10 Register client c3bafff2-4d43-44d1-ad5e-0ae6cb5adc89 to device_upload group success 
+2023/07/02 03:34:19 Unregister websocket client f49ae831-88f0-41e7-82c0-c07e2acd1dc3 
+2023/07/02 03:34:19 Unregister websocket client f49ae831-88f0-41e7-82c0-c07e2acd1dc3 from group device_upload success
+2023/07/02 10:11:33 http: URL query contains semicolon, which is no longer a supported separator; parts of the query may be stripped when parsed; see golang.org/issue/25192
+2023/07/03 03:34:05 Unregister websocket client c3bafff2-4d43-44d1-ad5e-0ae6cb5adc89 
+2023/07/03 03:34:05 Unregister websocket client c3bafff2-4d43-44d1-ad5e-0ae6cb5adc89 from group device_upload success
+2023/07/03 03:34:05 Clear no client group device_upload 
+2023/07/03 03:34:16 Websocket client aeee997b-65ae-43b7-b25f-7998b130070f connect 
+2023/07/03 03:34:16 Register client aeee997b-65ae-43b7-b25f-7998b130070f to device_upload group success 
+2023/07/04 03:34:22 Websocket client e7ceb4a5-ce50-4d9e-aa93-05463d1a46f1 connect 
+2023/07/04 03:34:22 Register client e7ceb4a5-ce50-4d9e-aa93-05463d1a46f1 to device_upload group success 
+2023/07/04 03:34:57 Unregister websocket client aeee997b-65ae-43b7-b25f-7998b130070f 
+2023/07/04 03:34:57 Unregister websocket client aeee997b-65ae-43b7-b25f-7998b130070f from group device_upload success
+2023/07/05 00:48:46 Unregister websocket client e7ceb4a5-ce50-4d9e-aa93-05463d1a46f1 
+2023/07/05 00:48:46 Unregister websocket client e7ceb4a5-ce50-4d9e-aa93-05463d1a46f1 from group device_upload success
+2023/07/05 00:48:46 Clear no client group device_upload 
+2023/07/05 03:15:46 http: URL query contains semicolon, which is no longer a supported separator; parts of the query may be stripped when parsed; see golang.org/issue/25192
+2023/07/09 01:00:50 http: URL query contains semicolon, which is no longer a supported separator; parts of the query may be stripped when parsed; see golang.org/issue/25192
+2023/07/17 09:30:45 Websocket client d6a6a002-1295-4912-ac4c-182c5b3ba2f7 connect 
+2023/07/17 09:30:45 Register client d6a6a002-1295-4912-ac4c-182c5b3ba2f7 to device_upload group success 
+2023/07/17 09:31:11 Unregister websocket client d6a6a002-1295-4912-ac4c-182c5b3ba2f7 
+2023/07/17 09:31:11 Unregister websocket client d6a6a002-1295-4912-ac4c-182c5b3ba2f7 from group device_upload success
+2023/07/17 09:31:11 Clear no client group device_upload 
+2023/07/17 09:31:14 Websocket client 4233ce3c-afed-4eb7-aa82-7208270afaaa connect 
+2023/07/17 09:31:14 Register client 4233ce3c-afed-4eb7-aa82-7208270afaaa to device_upload group success 
+2023/07/17 09:31:21 Websocket client a0a929d7-fadd-4778-bfa7-654428e85b6d connect 
+2023/07/17 09:31:21 Register client a0a929d7-fadd-4778-bfa7-654428e85b6d to device_upload group success 
+2023/07/17 09:37:21 Unregister websocket client 4233ce3c-afed-4eb7-aa82-7208270afaaa 
+2023/07/17 09:37:21 Unregister websocket client 4233ce3c-afed-4eb7-aa82-7208270afaaa from group device_upload success
+2023/07/17 09:37:21 Unregister websocket client a0a929d7-fadd-4778-bfa7-654428e85b6d 
+2023/07/17 09:37:21 Unregister websocket client a0a929d7-fadd-4778-bfa7-654428e85b6d from group device_upload success
+2023/07/17 09:37:21 Clear no client group device_upload 
+2023/07/23 16:17:13 Websocket client f77ab247-225f-463d-9cbe-f9a2318a14f5 connect 
+2023/07/23 16:17:13 Register client f77ab247-225f-463d-9cbe-f9a2318a14f5 to device_upload group success 
+2023/07/23 16:27:34 Unregister websocket client f77ab247-225f-463d-9cbe-f9a2318a14f5 
+2023/07/23 16:27:34 Unregister websocket client f77ab247-225f-463d-9cbe-f9a2318a14f5 from group device_upload success
+2023/07/23 16:27:34 Clear no client group device_upload 
+2023/07/23 16:27:34 Websocket client b4469bf3-4628-4207-a283-378641b637f2 connect 
+2023/07/23 16:27:34 Register client b4469bf3-4628-4207-a283-378641b637f2 to device_upload group success 
+2023/07/23 16:27:36 Unregister websocket client b4469bf3-4628-4207-a283-378641b637f2 
+2023/07/23 16:27:36 Unregister websocket client b4469bf3-4628-4207-a283-378641b637f2 from group device_upload success
+2023/07/23 16:27:36 Clear no client group device_upload 
+2023/07/23 16:27:36 Websocket client 19d06c64-f117-4918-a532-00800a4b6640 connect 
+2023/07/23 16:27:36 Register client 19d06c64-f117-4918-a532-00800a4b6640 to device_upload group success 
+2023/07/23 16:27:37 Unregister websocket client 19d06c64-f117-4918-a532-00800a4b6640 
+2023/07/23 16:27:37 Unregister websocket client 19d06c64-f117-4918-a532-00800a4b6640 from group device_upload success
+2023/07/23 16:27:37 Clear no client group device_upload 
+2023/07/23 16:27:37 Websocket client 77173e62-554c-4ece-947e-2c0bd91a02bc connect 
+2023/07/23 16:27:37 Register client 77173e62-554c-4ece-947e-2c0bd91a02bc to device_upload group success 
+2023/07/23 16:27:38 Unregister websocket client 77173e62-554c-4ece-947e-2c0bd91a02bc 
+2023/07/23 16:27:38 Unregister websocket client 77173e62-554c-4ece-947e-2c0bd91a02bc from group device_upload success
+2023/07/23 16:27:38 Clear no client group device_upload 
+2023/07/23 16:27:38 Websocket client 97a4c22c-5fa4-4d95-8de3-1a7eac8d731d connect 
+2023/07/23 16:27:38 Register client 97a4c22c-5fa4-4d95-8de3-1a7eac8d731d to device_upload group success 
+2023/07/23 16:27:39 Unregister websocket client 97a4c22c-5fa4-4d95-8de3-1a7eac8d731d 
+2023/07/23 16:27:39 Unregister websocket client 97a4c22c-5fa4-4d95-8de3-1a7eac8d731d from group device_upload success
+2023/07/23 16:27:39 Clear no client group device_upload 
+2023/07/23 16:27:39 Websocket client 5abae60a-1fa2-4058-a544-f286a49c9d53 connect 
+2023/07/23 16:27:39 Register client 5abae60a-1fa2-4058-a544-f286a49c9d53 to device_upload group success 
+2023/07/23 16:31:34 Unregister websocket client 5abae60a-1fa2-4058-a544-f286a49c9d53 
+2023/07/23 16:31:34 Unregister websocket client 5abae60a-1fa2-4058-a544-f286a49c9d53 from group device_upload success
+2023/07/23 16:31:34 Clear no client group device_upload 
+2023/07/30 04:04:28 http: URL query contains semicolon, which is no longer a supported separator; parts of the query may be stripped when parsed; see golang.org/issue/25192
+2023/08/02 20:19:14 http: URL query contains semicolon, which is no longer a supported separator; parts of the query may be stripped when parsed; see golang.org/issue/25192
+2023/08/03 04:28:18 http: URL query contains semicolon, which is no longer a supported separator; parts of the query may be stripped when parsed; see golang.org/issue/25192
+2023/08/03 13:05:02 http: URL query contains semicolon, which is no longer a supported separator; parts of the query may be stripped when parsed; see golang.org/issue/25192
+2023/08/07 05:48:41 http: URL query contains semicolon, which is no longer a supported separator; parts of the query may be stripped when parsed; see golang.org/issue/25192
+2023/08/07 21:01:22 Websocket client 4e0e2aec-3f46-4ad7-b978-a03ba1cbfe43 connect 
+2023/08/07 21:01:22 Register client 4e0e2aec-3f46-4ad7-b978-a03ba1cbfe43 to device_upload group success 
+2023/08/07 21:05:54 Unregister websocket client 4e0e2aec-3f46-4ad7-b978-a03ba1cbfe43 
+2023/08/07 21:05:54 Unregister websocket client 4e0e2aec-3f46-4ad7-b978-a03ba1cbfe43 from group device_upload success
+2023/08/07 21:05:54 Clear no client group device_upload 
+2023/08/09 00:22:55 http: URL query contains semicolon, which is no longer a supported separator; parts of the query may be stripped when parsed; see golang.org/issue/25192
+2023/08/09 16:25:35 Websocket client 9c183c47-b67a-41b7-ab30-ddeb90f3eba0 connect 
+2023/08/09 16:25:35 Register client 9c183c47-b67a-41b7-ab30-ddeb90f3eba0 to device_upload group success 
+2023/08/09 16:25:35 Unregister websocket client 9c183c47-b67a-41b7-ab30-ddeb90f3eba0 
+2023/08/09 16:25:35 Unregister websocket client 9c183c47-b67a-41b7-ab30-ddeb90f3eba0 from group device_upload success
+2023/08/09 16:25:35 Clear no client group device_upload 
+2023/08/09 16:25:35 Websocket client 8fe29a50-e182-4dbc-b89c-1c997353d9b6 connect 
+2023/08/09 16:25:35 Register client 8fe29a50-e182-4dbc-b89c-1c997353d9b6 to device_upload group success 
+2023/08/09 16:25:45 Websocket client 33face65-b140-4024-a61d-f3e7b573c14b connect 
+2023/08/09 16:25:45 Register client 33face65-b140-4024-a61d-f3e7b573c14b to device_upload group success 
+2023/08/09 16:26:49 Unregister websocket client 8fe29a50-e182-4dbc-b89c-1c997353d9b6 
+2023/08/09 16:26:49 Unregister websocket client 8fe29a50-e182-4dbc-b89c-1c997353d9b6 from group device_upload success
+2023/08/09 16:26:49 Unregister websocket client 33face65-b140-4024-a61d-f3e7b573c14b 
+2023/08/09 16:26:49 Unregister websocket client 33face65-b140-4024-a61d-f3e7b573c14b from group device_upload success
+2023/08/09 16:26:49 Clear no client group device_upload 
+2023/08/10 20:39:34 Websocket client 7ea97e60-81af-4b88-84fc-2fa94e538aef connect 
+2023/08/10 20:39:34 Register client 7ea97e60-81af-4b88-84fc-2fa94e538aef to device_upload group success 
+2023/08/10 20:40:23 Unregister websocket client 7ea97e60-81af-4b88-84fc-2fa94e538aef 
+2023/08/10 20:40:23 Unregister websocket client 7ea97e60-81af-4b88-84fc-2fa94e538aef from group device_upload success
+2023/08/10 20:40:23 Clear no client group device_upload 
+2023/08/10 20:40:24 Websocket client 22b3ef79-b643-4cd7-bb38-894455aa7bce connect 
+2023/08/10 20:40:24 Register client 22b3ef79-b643-4cd7-bb38-894455aa7bce to device_upload group success 
+2023/08/10 20:40:33 Websocket client 44aee1fb-cabe-439c-a063-ca89f6365dbb connect 
+2023/08/10 20:40:33 Register client 44aee1fb-cabe-439c-a063-ca89f6365dbb to device_upload group success 
+2023/08/10 20:46:27 Websocket client e82fe9ef-4239-4fa1-b1f1-9dbbbdefd5c6 connect 
+2023/08/10 20:46:27 Register client e82fe9ef-4239-4fa1-b1f1-9dbbbdefd5c6 to device_upload group success 
+2023/08/10 20:46:37 Unregister websocket client e82fe9ef-4239-4fa1-b1f1-9dbbbdefd5c6 
+2023/08/10 20:46:37 Unregister websocket client e82fe9ef-4239-4fa1-b1f1-9dbbbdefd5c6 from group device_upload success
+2023/08/10 20:46:47 Websocket client d0c1b117-845b-4d9e-935f-4c2f48b7ddbc connect 
+2023/08/10 20:46:47 Register client d0c1b117-845b-4d9e-935f-4c2f48b7ddbc to device_upload group success 
+2023/08/10 20:46:55 Websocket client 3c622196-0e12-4ff7-afa9-4f5031dbb489 connect 
+2023/08/10 20:46:55 Register client 3c622196-0e12-4ff7-afa9-4f5031dbb489 to device_upload group success 
+2023/08/10 20:47:07 Unregister websocket client 44aee1fb-cabe-439c-a063-ca89f6365dbb 
+2023/08/10 20:47:07 Unregister websocket client 44aee1fb-cabe-439c-a063-ca89f6365dbb from group device_upload success
+2023/08/10 20:47:07 Unregister websocket client 22b3ef79-b643-4cd7-bb38-894455aa7bce 
+2023/08/10 20:47:07 Unregister websocket client 22b3ef79-b643-4cd7-bb38-894455aa7bce from group device_upload success
+2023/08/10 20:47:17 Unregister websocket client 3c622196-0e12-4ff7-afa9-4f5031dbb489 
+2023/08/10 20:47:17 Unregister websocket client 3c622196-0e12-4ff7-afa9-4f5031dbb489 from group device_upload success
+2023/08/10 20:47:17 Unregister websocket client d0c1b117-845b-4d9e-935f-4c2f48b7ddbc 
+2023/08/10 20:47:17 Unregister websocket client d0c1b117-845b-4d9e-935f-4c2f48b7ddbc from group device_upload success
+2023/08/10 20:47:17 Clear no client group device_upload 
+2023/08/11 15:34:35 Websocket client 93d6e1c8-d7bf-4bb8-90d3-d6ebe29f0547 connect 
+2023/08/11 15:34:35 Register client 93d6e1c8-d7bf-4bb8-90d3-d6ebe29f0547 to device_upload group success 
+2023/08/11 15:35:31 Unregister websocket client 93d6e1c8-d7bf-4bb8-90d3-d6ebe29f0547 
+2023/08/11 15:35:31 Unregister websocket client 93d6e1c8-d7bf-4bb8-90d3-d6ebe29f0547 from group device_upload success
+2023/08/11 15:35:31 Clear no client group device_upload 
+2023/08/28 10:37:55 Websocket client 0b6e8477-f0f6-40fe-a066-f1b422b385b9 connect 
+2023/08/28 10:37:55 Register client 0b6e8477-f0f6-40fe-a066-f1b422b385b9 to device_upload group success 
+2023/08/28 10:37:56 Unregister websocket client 0b6e8477-f0f6-40fe-a066-f1b422b385b9 
+2023/08/28 10:37:56 Unregister websocket client 0b6e8477-f0f6-40fe-a066-f1b422b385b9 from group device_upload success
+2023/08/28 10:37:56 Clear no client group device_upload 
+2023/08/28 10:37:57 Websocket client b839c2f3-943a-43c7-a54c-483e0d115207 connect 
+2023/08/28 10:37:57 Register client b839c2f3-943a-43c7-a54c-483e0d115207 to device_upload group success 
+2023/08/28 10:38:07 Websocket client 6b67068e-bf32-4cbc-969d-62225d46d574 connect 
+2023/08/28 10:38:07 Register client 6b67068e-bf32-4cbc-969d-62225d46d574 to device_upload group success 
+2023/08/28 10:39:42 Unregister websocket client b839c2f3-943a-43c7-a54c-483e0d115207 
+2023/08/28 10:39:42 Unregister websocket client b839c2f3-943a-43c7-a54c-483e0d115207 from group device_upload success
+2023/08/28 10:39:52 Websocket client 941b31d0-a242-49bb-beee-636650ac0ceb connect 
+2023/08/28 10:39:52 Register client 941b31d0-a242-49bb-beee-636650ac0ceb to device_upload group success 
+2023/08/28 10:40:22 Unregister websocket client 6b67068e-bf32-4cbc-969d-62225d46d574 
+2023/08/28 10:40:22 Unregister websocket client 6b67068e-bf32-4cbc-969d-62225d46d574 from group device_upload success
+2023/08/28 10:40:22 Unregister websocket client 941b31d0-a242-49bb-beee-636650ac0ceb 
+2023/08/28 10:40:22 Unregister websocket client 941b31d0-a242-49bb-beee-636650ac0ceb from group device_upload success
+2023/08/28 10:40:22 Clear no client group device_upload 
+2023/08/29 09:23:29 Websocket client 15fd9743-12a6-4474-a71e-d7de616afb57 connect 
+2023/08/29 09:23:29 Register client 15fd9743-12a6-4474-a71e-d7de616afb57 to device_upload group success 
+2023/08/29 09:23:41 Unregister websocket client 15fd9743-12a6-4474-a71e-d7de616afb57 
+2023/08/29 09:23:41 Unregister websocket client 15fd9743-12a6-4474-a71e-d7de616afb57 from group device_upload success
+2023/08/29 09:23:41 Clear no client group device_upload 
+2023/09/08 09:20:49 Websocket client 535eb4f3-f28b-49da-ae96-f8ea229617c2 connect 
+2023/09/08 09:20:49 Register client 535eb4f3-f28b-49da-ae96-f8ea229617c2 to device_upload group success 
+2023/09/08 09:21:49 Unregister websocket client 535eb4f3-f28b-49da-ae96-f8ea229617c2 
+2023/09/08 09:21:49 Unregister websocket client 535eb4f3-f28b-49da-ae96-f8ea229617c2 from group device_upload success
+2023/09/08 09:21:49 Clear no client group device_upload 
+2023/09/08 09:21:52 Websocket client 33666313-9168-4b2f-87aa-1b26895a6937 connect 
+2023/09/08 09:21:52 Register client 33666313-9168-4b2f-87aa-1b26895a6937 to device_upload group success 
+2023/09/08 09:21:59 Websocket client 36f0b58e-8731-45ec-8892-245a8f9e044a connect 
+2023/09/08 09:21:59 Register client 36f0b58e-8731-45ec-8892-245a8f9e044a to device_upload group success 
+2023/09/08 09:29:16 Websocket client 5dc56638-51d4-44b9-bd66-abfaec3b7eac connect 
+2023/09/08 09:29:16 Register client 5dc56638-51d4-44b9-bd66-abfaec3b7eac to device_upload group success 
+2023/09/08 10:04:48 Unregister websocket client 5dc56638-51d4-44b9-bd66-abfaec3b7eac 
+2023/09/08 10:04:48 Unregister websocket client 5dc56638-51d4-44b9-bd66-abfaec3b7eac from group device_upload success
+2023/09/08 10:04:53 Websocket client 0c0389d5-c910-4784-ba30-ca9d34819648 connect 
+2023/09/08 10:04:53 Register client 0c0389d5-c910-4784-ba30-ca9d34819648 to device_upload group success 
+2023/09/08 10:06:54 Unregister websocket client 0c0389d5-c910-4784-ba30-ca9d34819648 
+2023/09/08 10:06:54 Unregister websocket client 0c0389d5-c910-4784-ba30-ca9d34819648 from group device_upload success
+2023/09/08 10:13:19 Websocket client 3e35d029-594e-4ce0-8488-ff3e74f1296b connect 
+2023/09/08 10:13:19 Register client 3e35d029-594e-4ce0-8488-ff3e74f1296b to device_upload group success 
+2023/09/08 10:13:21 Unregister websocket client 3e35d029-594e-4ce0-8488-ff3e74f1296b 
+2023/09/08 10:13:21 Unregister websocket client 3e35d029-594e-4ce0-8488-ff3e74f1296b from group device_upload success
+2023/09/08 10:41:00 Unregister websocket client 33666313-9168-4b2f-87aa-1b26895a6937 
+2023/09/08 10:41:00 Unregister websocket client 33666313-9168-4b2f-87aa-1b26895a6937 from group device_upload success
+2023/09/08 10:41:00 Unregister websocket client 36f0b58e-8731-45ec-8892-245a8f9e044a 
+2023/09/08 10:41:00 Unregister websocket client 36f0b58e-8731-45ec-8892-245a8f9e044a from group device_upload success
+2023/09/08 10:41:00 Clear no client group device_upload 
+2023/09/11 14:55:32 http: URL query contains semicolon, which is no longer a supported separator; parts of the query may be stripped when parsed; see golang.org/issue/25192
