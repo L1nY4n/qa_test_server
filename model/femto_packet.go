@@ -2,20 +2,27 @@ package model
 
 //################var Femto_input_reg #############//
 type Femto_input_reg_db25 struct {
-	Ext_data_in      uint16    `json:"Ext_data_in"`
-	Ext_latch        uint16    `json:"Ext_latch"`
-	Ext_alarm_cooler uint16    `json:"Ext_alarm_cooler"`
-	Ext_test         uint16    `json:"Ext_test"`
-	Ext_reverse      [2]uint16 `json:"Ext_reverse"`
-	Ext_gate         uint16    `json:"Ext_gate"`
+	Ext_data_in         uint16    `json:"Ext_data_in"`
+	Ext_latch           uint16    `json:"Ext_latch"`
+	Ext_alarm_cooler    uint16    `json:"Ext_alarm_cooler"`
+	Ext_test            uint16    `json:"Ext_test"`
+	Ext_reverse         [2]uint16 `json:"Ext_reverse"`
+	Ext_gate            uint16    `json:"Ext_gate"`
+	Ext_pwm             uint16    `json:"Ext_pwm"`
+	Ext_prr             uint16    `json:"Ext_prr"`
+	Ext_trig            uint16    `json:"Ext_trig"`
+	Ext_sync            uint16    `json:"Ext_sync"`
+	Ext_anlog_data      uint16    `json:"Ext_anlog_data"`
+	Ext_water_flow_freq uint16    `json:"Ext_water_flow_freq"`
+	Ext_water_flow      uint16    `json:"Ext_water_flow"`
+}
 
-	Ext_pwm             uint16 `json:"Ext_pwm"`
-	Ext_prr             uint16 `json:"Ext_prr"`
-	Ext_trig            uint16 `json:"Ext_trig"`
-	Ext_sync            uint16 `json:"Ext_sync"`
-	Ext_anlog_data      uint16 `json:"Ext_anlog_data"`
-	Ext_water_flow_freq uint16 `json:"Ext_water_flow_freq"`
-	Ext_water_flow      uint16 `json:"Ext_water_flow"`
+type Femto_input_reg_bate struct {
+	Hardware_bate uint16    `json:"Hardware_bate"`
+	Mcu_boot_bate uint16    `json:"Mcu_boot_bate"`
+	Mcu_app_bate  [6]uint16 `json:"Mcu_app_bate"`
+	Fpga_bate     [6]uint16 `json:"Fpga_bate"`
+	Gui_bate      uint16    `json:"Gui_bate"`
 }
 
 type Femto_input_reg_monitor_pump struct {
@@ -30,6 +37,7 @@ type Femto_input_reg_monitor_TH struct {
 }
 
 type Femto_input_reg_monitor_digi_tcm struct {
+	On          uint16 `json:"On"`
 	Actual_temp uint16 `json:"Actual_temp"`
 	Alarm_reg   uint16 `json:"Alarm_reg"`
 }
@@ -38,7 +46,7 @@ type Femto_input_reg_monitor struct {
 	Pd_freq          [4]uint16                           `json:"Pd_freq"`
 	Seed_status      [6]uint16                           `json:"Seed_status"`
 	Temp             [20]uint16                          `json:"Temp"`
-	Pump_mon         [15]Femto_input_reg_monitor_pump    `json:"Femto_input_reg_monitor_pump"`
+	Pump_mon         [15]Femto_input_reg_monitor_pump    `json:"Pump_mon"`
 	Vol              [20]uint16                          `json:"Vol"`
 	Motor_Actual_pos [4]uint16                           `json:"motor_Actual_pos"`
 	Th               [2]Femto_input_reg_monitor_TH       `json:"Femto_input_reg_monitor_TH"`
@@ -62,35 +70,55 @@ type Time_desc struct {
 }
 
 type Femto_input_reg_time struct {
-	Pump_work_time [2]uint16 `json:"Pump_work_time"`
-	Emission_time  [2]uint16 `json:"Emission_time"`
-	Uptime         [2]uint16 `json:"Uptime"`
-	Total_uptime   [2]uint16 `json:"Total_uptime"`
-	Sys_time       Time_desc `json:"Sys_time"`
-}
-type Femto_input_reg_bate struct {
-	Hardware_bate uint16    `json:"Hardware_bate"`
-	Mcu_boot_bate uint16    `json:"Mcu_boot_bate"`
-	Mcu_app_bate  [6]uint16 `json:"Mcu_app_bate"`
-	Fpga_bate     [6]uint16 `json:"Fpga_bate"`
+	Laser_sw_countdown uint16    `json:"Laser_sw_countdown"`
+	Pump_sig_work_time [2]uint16 `json:"Pump_sig_work_time"`
+	Pump_work_time     [2]uint16 `json:"Pump_work_time"`
+	Emission_time      [2]uint16 `json:"Emission_time"`
+	Uptime             [2]uint16 `json:"Uptime"`
+	Total_uptime       [2]uint16 `json:"Total_uptime"`
+	Sys_time           Time_desc `json:"Sys_time"`
 }
 
 type Femto_input_reg_alarm struct {
 	Now     [12]uint16 `json:"Now"`
 	History [12]uint16 `json:"History"`
 }
+type Femto_input_reg_esp_status struct {
+	Status       uint16    `json:"Status"`
+	Wifi_ip      [4]uint16 `json:"Wifi_ip"`
+	Wifi_gateway [4]uint16 `json:"Wifi_gateway"`
+	Wifi_netmask [4]uint16 `json:"Wifi_netmask"`
+	Eth_ip       [4]uint16 `json:"Eth_ip"`
+	Eth_gateway  [4]uint16 `json:"Eth_gateway"`
+	Eth_netmask  [4]uint16 `json:"Eth_netmask"`
+	Socket_ip    [4]uint16 `json:"Socket_ip"`
+	Socket_port  uint16    `json:"Socket_port"`
+}
+
+type Femto_input_reg_tpsr struct {
+	On     uint16    `json:"On"`
+	Status uint16    `json:"Status"`
+	Temp   [4]uint16 `json:"Temp"`
+}
 
 type Femto_input_reg struct {
-	Laser_status uint16                  `json:"laser_status"`
-	Borad_online [2]uint16               `json:"board_online"`
-	DB25         Femto_input_reg_db25    `json:"Femto_input_reg_db25"`
-	Bate         Femto_input_reg_bate    `json:"Femto_input_reg_bate"`
-	Mon          Femto_input_reg_monitor `json:"Femto_input_reg_monitor"`
+	Status uint16                  `json:"Status"`
+	Online [2]uint16               `json:"Online"`
+	DB25   Femto_input_reg_db25    `json:"DB25"`
+	Bate   Femto_input_reg_bate    `json:"Bate"`
+	Mon    Femto_input_reg_monitor `json:"Mon"`
 
-	Overdue    uint16                     `json:"overdue"`
-	Fpga_debug Femto_input_reg_fpga_debug `json:"Femto_input_reg_fpga_debug"`
-	Time       Femto_input_reg_time       `json:"Femto_input_reg_time"`
-	Alarm      Femto_input_reg_alarm      `json:"Femto_input_reg_alarm"`
+	Fpga_debug Femto_input_reg_fpga_debug `json:"Fpga_debug"`
+	Time       Femto_input_reg_time       `json:"Time"`
+	Alarm      Femto_input_reg_alarm      `json:"Alarm"`
+	Overdue    uint16                     `json:"Overdue"`
+
+	Esp32            Femto_input_reg_esp_status `json:"Esp32"`
+	Pow_limit_factor uint16                     `json:"Pow_limit_factor"`
+	Tpsr             Femto_input_reg_tpsr       `json:"Tpsr"`
+	Res1             [3]uint16                  `json:"Res1"`
+	Pow_range        uint16                     `json:"Pow_range"`
+	Res2             [9]uint16                  `json:"Res2"`
 }
 
 //################var Femto_input_reg #############

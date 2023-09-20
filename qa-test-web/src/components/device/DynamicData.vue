@@ -1,6 +1,6 @@
 <template>
     <!-- <v-chart ref="myChart" class="chart" :option="option" :update-options="update" autoresize /> -->
-    <v-chart ref="myChart" class="chart" :option="option" ref= "mychart" autoresize />
+    <v-chart ref="myChart" class="chart" :option="option"  autoresize />
 </template>
   
 <script lang="ts" setup>

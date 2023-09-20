@@ -73,6 +73,9 @@ const (
 	//[Description("FPGA 版本5")]
 	MOD_ADDR_FPGA_BATE_5
 
+	//[Description("上位机版本匹配")]
+	MOD_ADDR_GUI_CHECK
+
 	//[Description("PD0检测值")]
 	MOD_ADDR_PD0
 	//[Description("PD1检测值")]
@@ -304,33 +307,42 @@ const (
 	//  [Description("温湿度模块1湿度")]
 	MOD_ADDR_TH1_MDDULE_HUMI
 
+	//[Description("数字温控0当前开关")]
+	MOD_ADDR_DIGI_TCM0_ON
 	//[Description("数字温控0当前温度")]
 	MOD_ADDR_DIGI_TCM0_ACTUAL_TEMP
 	//[Description("数字温控0告警寄存器")]
 	MOD_ADDR_DIGI_TCM0_ALARM_REG
+	//[Description("数字温控1当前开关")]
+	MOD_ADDR_DIGI_TCM1_ON
 	//[Description("数字温控1当前温度")]
 	MOD_ADDR_DIGI_TCM1_ACTUAL_TEMP
 	//[Description("数字温控1告警寄存器")]
 	MOD_ADDR_DIGI_TCM1_ALARM_REG
+	//[Description("数字温控2当前开关")]
+	MOD_ADDR_DIGI_TCM2_ON
 	//[Description("数字温控2当前温度")]
 	MOD_ADDR_DIGI_TCM2_ACTUAL_TEMP
 	//[Description("数字温控2告警寄存器")]
 	MOD_ADDR_DIGI_TCM2_ALARM_REG
+	//[Description("数字温控0当前开关")]
+	MOD_ADDR_DIGI_TCM3_ON
 	//[Description("数字温控3当前温度")]
 	MOD_ADDR_DIGI_TCM3_ACTUAL_TEMP
 	//[Description("数字温控3告警寄存器")]
 	MOD_ADDR_DIGI_TCM3_ALARM_REG
+	//[Description("数字温控4当前开关")]
+	MOD_ADDR_DIGI_TCM4_ON
 	//[Description("数字温控4当前温度")]
 	MOD_ADDR_DIGI_TCM4_ACTUAL_TEMP
 	//[Description("数字温控4告警寄存器")]
 	MOD_ADDR_DIGI_TCM4_ALARM_REG
+	//[Description("数字温控5当前开关")]
+	MOD_ADDR_DIGI_TCM5_ON
 	//[Description("数字温控5当前温度")]
 	MOD_ADDR_DIGI_TCM5_ACTUAL_TEMP
 	//[Description("数字温控5告警寄存器")]
 	MOD_ADDR_DIGI_TCM5_ALARM_REG
-
-	//[Description("系统过期")]
-	MOD_ADDR_LASER_OVERDUE
 
 	/*FPGA调试回读*/
 	//[Description("FPGA调试值地址回读")]
@@ -343,8 +355,14 @@ const (
 	MOD_ADDR_FPGA_DEBUG_CNT
 
 	/*#############时间定义#############*/
+	//[Description("热机时间倒计时")]
+	MOD_ADDR_LASER_SW_COUNTDOWN
 
-	/*激光器泵浦工作时间(秒)*/
+	//[Description("泵浦单次工作时长0")]
+	MOD_ADDR_LASER_PUMP_SIGLE_WORK_TIME_0
+	//[Description("泵浦单次工作时长1")]
+	MOD_ADDR_LASER_PUMP_SIGLE_WORK_TIME_1
+
 	//[Description("泵浦工作时长0")]
 	MOD_ADDR_LASER_PUMP_WORK_TIME_0
 	//[Description("泵浦工作时长1")]
@@ -428,7 +446,105 @@ const (
 	//[Description("激光器历史告警11")]
 	MOD_ADDR_LASER_ALARM_HISTORY_11
 
+	//[Description("系统过期")]
+	MOD_ADDR_LASER_OVERDUE
+
 	/*输入寄存器结尾*/
+	//ESP模块参数回读
+	//[Description("激光器ESP32状态监控")]
+	MOD_ADDR_ESP32_STATUS
+	//[Description("激光器ESP32WIFI_IP0")]
+	MOD_ADDR_ESP32_WIFI_IP0
+	//[Description("激光器ESP32WIFI_IP1")]
+	MOD_ADDR_ESP32_WIFI_IP1
+	//[Description("激光器ESP32WIFI_IP2")]
+	MOD_ADDR_ESP32_WIFI_IP2
+	//[Description("激光器ESP32WIFI_IP3")]
+	MOD_ADDR_ESP32_WIFI_IP3
+	//[Description("激光器ESP32WIFI_网关0")]
+	MOD_ADDR_ESP32_WIFI_GATEWAY0
+	//[Description("激光器ESP32WIFI_网关1")]
+	MOD_ADDR_ESP32_WIFI_GATEWAY1
+	//[Description("激光器ESP32WIFI_网关2")]
+	MOD_ADDR_ESP32_WIFI_GATEWAY2
+	//[Description("激光器ESP32WIFI_网关3")]
+	MOD_ADDR_ESP32_WIFI_GATEWAY3
+	//[Description("激光器ESP32WIFI_子网掩码0")]
+	MOD_ADDR_ESP32_WIFI_NETMASK0
+	//[Description("激光器ESP32WIFI_子网掩码1")]
+	MOD_ADDR_ESP32_WIFI_NETMASK1
+	//[Description("激光器ESP32WIFI_子网掩码2")]
+	MOD_ADDR_ESP32_WIFI_NETMASK2
+	//[Description("激光器ESP32WIFI_子网掩码3")]
+	MOD_ADDR_ESP32_WIFI_NETMASK3
+	//[Description("激光器ESP32ETH_IP0")]
+	MOD_ADDR_ESP32_ETH_IP0
+	//[Description("激光器ESP32ETH_IP1")]
+	MOD_ADDR_ESP32ETH_IP1
+	//[Description("激光器ESP32ETH_IP2")]
+	MOD_ADDR_ESP32_ETH_IP2
+	//[Description("激光器ESP32ETH_IP3")]
+	MOD_ADDR_ESP32_ETH_IP3
+	//[Description("激光器ESP32ETH_网关0")]
+	MOD_ADDR_ESP32_ETH_GATEWAY0
+	//[Description("激光器ESP32ETH_网关1")]
+	MOD_ADDR_ESP32_ETH_GATEWAY1
+	//[Description("激光器ESP32ETH_网关2")]
+	MOD_ADDR_ESP32_ETH_GATEWAY2
+	//[Description("激光器ESP32ETH_网关3")]
+	MOD_ADDR_ESP32_ETH_GATEWAY3
+	//[Description("激光器ESP32ETH_子网掩码0")]
+	MOD_ADDR_ESP32_ETH_NETMASK0
+	//[Description("激光器ESP32ETH_子网掩码1")]
+	MOD_ADDR_ESP32_ETH_NETMASK1
+	//[Description("激光器ESP32ETH_子网掩码2")]
+	MOD_ADDR_ESP32_ETH_NETMASK2
+	//[Description("激光器ESP32ETH_子网掩码3")]
+	MOD_ADDR_ESP32_ETH_NETMASK3
+	//[Description("激光器ESP32 SOCKET_IP0")]
+	MOD_ADDR_ESP32_SOCKET_IP0
+	//[Description("激光器ESP32 SOCKET_IP1")]
+	MOD_ADDR_ESP32_SOCKET_IP1
+	//[Description("激光器ESP32 SOCKET_IP2")]
+	MOD_ADDR_ESP32_SOCKET_IP2
+	//[Description("激光器ESP32 SOCKET_IP3")]
+	MOD_ADDR_ESP32_SOCKET_IP3
+	//[Description("激光器ESP32 SOCKET_PORT")]
+	MOD_ADDR_ESP32_SOCKET_PORT
+
+	//[Description("当前功率限定值")] /*2位小数精度*/
+	MOD_ADDR_POWER_LIMIT_FACTOR
+
+	//[Description("TPSR模块开关监控")]
+	MOD_ADDR_TPSR_ON
+	//[Description("TPSR模块状态监控")] /* 0正常1指令错误，2存储错误*/
+	MOD_ADDR_TPSR_STA
+	//[Description("TPSR模块D2温度回读")] /*2位小数精度*/
+	MOD_ADDR_TPSR_D2_TEMP_MON
+	//[Description("TPSR模块D2温度回读")] /*2位小数精度*/
+	MOD_ADDR_TPSR_D3_TEMP_MON
+	//[Description("TPSR模块D2温度回读")] /*2位小数精度*/
+	MOD_ADDR_TPSR_D4_TEMP_MON
+	//[Description("TPSR模块WL_OFFECT温度回读")] /*2位小数精度*/
+	MOD_ADDR_TPSR_WL_OFFSET_TEMP_MON
+
+	//寄存器参数预留
+
+	MOD_ADDR_INPUT_RES37
+	MOD_ADDR_INPUT_RES38
+	MOD_ADDR_INPUT_RES39
+
+	//[Description("当前功率量程")] /*1位小数精度*/
+	MOD_ADDR_CUR_LASER_POW_RANGE
+	MOD_ADDR_INPUT_RES41
+	MOD_ADDR_INPUT_RES42
+	MOD_ADDR_INPUT_RES43
+	MOD_ADDR_INPUT_RES44
+	MOD_ADDR_INPUT_RES45
+	MOD_ADDR_INPUT_RES46
+	MOD_ADDR_INPUT_RES47
+	MOD_ADDR_INPUT_RES48
+	MOD_ADDR_INPUT_RES49
 
 	MOD_ADDR_INPUT_END
 )
@@ -536,25 +652,27 @@ const (
 	MOD_ADDR_ESP_SSID_8
 	//[Description("ESP32_WIFI_SSID9")]
 	MOD_ADDR_ESP_SSID_9
-	//[Description("ESP32_WIFI_SSID10")]
-	MOD_ADDR_ESP_SSID_10
-	//[Description("ESP32_WIFI_SSID11")]
-	MOD_ADDR_ESP_SSID_11
-	//[Description("ESP32_WIFI_SSID12")]
-	MOD_ADDR_ESP_SSID_12
-	//[Description("ESP32_WIFI_SSID13")]
-	MOD_ADDR_ESP_SSID_13
-	//[Description("ESP32_WIFI_SSID14")]
-	MOD_ADDR_ESP_SSID_14
 
-	//[Description("ESP32_IP地址0")]
-	MOD_ADDR_ESP_WIFI_IP_0
-	//[Description("ESP32_IP地址1")]
-	MOD_ADDR_ESP_WIFI_IP_1
-	//[Description("ESP32_IP地址2")]
-	MOD_ADDR_ESP_WIFI_IP_2
-	//[Description("ESP32_IP地址3")]
-	MOD_ADDR_ESP_WIFI_IP_3
+	//[Description("ESP32_WIFI_PASSWD_0")]
+	MOD_ADDR_ESP_WIFI_PASSWD_0
+	//[Description("ESP32_WIFI_PASSWD_1")]
+	MOD_ADDR_ESP_WIFI_PASSWD_1
+	//[Description("ESP32_WIFI_PASSWD_2")]
+	MOD_ADDR_ESP_WIFI_PASSWD_2
+	//[Description("ESP32_WIFI_PASSWD_3")]
+	MOD_ADDR_ESP_WIFI_PASSWD_3
+	//[Description("ESP32_WIFI_PASSWD_4")]
+	MOD_ADDR_ESP_WIFI_PASSWD_4
+	//[Description("ESP32_WIFI_PASSWD_5")]
+	MOD_ADDR_ESP_WIFI_PASSWD_5
+	//[Description("ESP32_WIFI_PASSWD_6")]
+	MOD_ADDR_ESP_WIFI_PASSWD_6
+	//[Description("ESP32_WIFI_PASSWD_7")]
+	MOD_ADDR_ESP_WIFI_PASSWD_7
+	//[Description("ESP32_WIFI_PASSWD_8")]
+	MOD_ADDR_ESP_WIFI_PASSWD_8
+	//[Description("ESP32_WIFI_PASSWD_9")]
+	MOD_ADDR_ESP_WIFI_PASSWD_9
 
 	//[Description("ESP32_网口使能")]
 	MOD_ADDR_ETH_EN
@@ -568,6 +686,105 @@ const (
 	MOD_ADDR_ETH_IP_2
 	//[Description("ESP32_网口IP3")]
 	MOD_ADDR_ETH_IP_3
+
+	//[Description("ESP32_网关0")]
+	MOD_ADDR_ESP_ETH_GATEWAY_0
+	//[Description("ESP32_网关1")]
+	MOD_ADDR_ESP_ETH_GATEWAY_1
+	//[Description("ESP32_网关2")]
+	MOD_ADDR_ESP_ETH_GATEWAY_2
+	//[Description("ESP32_网关3")]
+	MOD_ADDR_ESP_ETH_GATEWAY_3
+	//[Description("ESP32_子网掩码0")]
+	MOD_ADDR_ESP_ETH_NETMASK_0
+	//[Description("ESP32_子网掩码1")]
+	MOD_ADDR_ESP_ETH_NETMASK_1
+	//[Description("ESP32_子网掩码2")]
+	MOD_ADDR_ESP_ETH_NETMASK_2
+	//[Description("ESP32_子网掩码3")]
+	MOD_ADDR_ESP_ETH_NETMASK_3
+	//[Description("ESP32_SOCKET_模式")]
+	MOD_ADDR_ESP_SOCKET_MODE
+	//[Description("ESP32_SOCKET_客户端IP0")]
+	MOD_ADDR_ESP_SOCKET_CLIENT_IP0
+	//[Description("ESP32_SOCKET_客户端IP1")]
+	MOD_ADDR_ESP_SOCKET_CLIENT_IP1
+	//[Description("ESP32_SOCKET_客户端IP2")]
+	MOD_ADDR_ESP_SOCKET_CLIENT_IP2
+	//[Description("ESP32_SOCKET_客户端IP3")]
+	MOD_ADDR_ESP_SOCKET_CLIENT_IP3
+	//[Description("ESP32_SOCKET_客户端端口号")]
+	MOD_ADDR_ESP_SOCKET_CLIENT_PORT
+	//[Description("ESP32_SOCKET_服务端端口号")]
+	MOD_ADDR_ESP_SOCKET_SERVER_PORT
+	//[Description("ESP32_参数重新配置")]
+	MOD_ADDR_ESP_RECFG
+
+	//光纤展宽模块
+	//[Description("TPSR模块使能")]
+	MOD_ADDR_TPSR_EN
+	//[Description("TPSR模块开关")]
+	MOD_ADDR_TPSR_SW
+	//[Description("TPSR模块D2温度设定值")] /*2位小数精度*/
+	MOD_ADDR_TPSR_D2_TEMP
+	//[Description("TPSR模块D3温度设定值")] /*2位小数精度*/
+	MOD_ADDR_TPSR_D3_TEMP
+	//[Description("TPSR模块D4温度设定值")] /*2位小数精度*/
+	MOD_ADDR_TPSR_D4_TEMP
+	//[Description("TPSR模块WL_OFFECT温度设定值")] /*2位小数精度*/
+	MOD_ADDR_TPSR_WL_OFFSET_TEMP
+
+	//[Description("TPSR模块复位")]
+	MOD_ADDR_TPSR_RESET
+	//[Description("TPSR模块更新设置值")]  //操作位设置1执行
+	MOD_ADDR_TPSR_UPDATE_SETPOINT
+	//[Description("TPSR模块设置为启动值")]  //操作位设置1执行
+	MOD_ADDR_TPSR_SET_CURRENT_AS_STARTUP
+
+	//[Description("光纤电流拟合频率参考点0")]
+	MOD_ADDR_FIBER_CUR_FREQ_RES0
+	//[Description("光纤电流拟合频率参考点1")]
+	MOD_ADDR_FIBER_CUR_FREQ_RES1
+	//[Description("光纤电流拟合频率参考点2")]
+	MOD_ADDR_FIBER_CUR_FREQ_RES2
+	//[Description("光纤电流拟合频率参考点3")]
+	MOD_ADDR_FIBER_CUR_FREQ_RES3
+
+	//[Description("光纤ap电流拟合0")]
+	MOD_ADDR_FIBER_CUR_AP0
+	//[Description("光纤ap电流拟合1")]
+	MOD_ADDR_FIBER_CUR_AP1
+	//[Description("光纤ap电流拟合2")]
+	MOD_ADDR_FIBER_CUR_AP2
+	//[Description("光纤ap电流拟合3")]
+	MOD_ADDR_FIBER_CUR_AP3
+
+	//[Description("光纤apm电流拟合0")]
+	MOD_ADDR_FIBER_CUR_APM0
+	//[Description("光纤ap电流拟合1")]
+	MOD_ADDR_FIBER_CUR_APM1
+	//[Description("光纤ap电流拟合2")]
+	MOD_ADDR_FIBER_CUR_APM2
+	//[Description("光纤ap电流拟合3")]
+	MOD_ADDR_FIBER_CUR_APM3
+
+	//参数预留
+
+	MOD_ADDR_PARA_RES37
+	MOD_ADDR_PARA_RES38
+	MOD_ADDR_PARA_RES39
+	MOD_ADDR_PARA_RES40
+	MOD_ADDR_PARA_RES41
+	MOD_ADDR_PARA_RES42
+	MOD_ADDR_PARA_RES43
+	MOD_ADDR_PARA_RES44
+	MOD_ADDR_PARA_RES45
+	MOD_ADDR_PARA_RES46
+	MOD_ADDR_PARA_RES47
+	MOD_ADDR_PARA_RES48
+
+	//[Description("热机时间设定")]
+	MOD_ADDR_LASER_WARMUP_TIME
 
 	/*###########温湿度模块###########*/
 	//[Description("温湿度模块0使能")]
@@ -640,8 +857,10 @@ const (
 	MOD_ADDR_PUMP0_SET_COMPENSATION_VALUE /*电流设置补偿值*/
 	//[Description("泵浦0电流设置比例系数")]
 	MOD_ADDR_PUMP0_SET_COEFFICIENT_VALUE /*电流比例系数值*/
-	//[Description("泵浦0电流速率调节ma/s")]
-	MOD_ADDR_PUMP0_SET_CUR_SPEED_VALUE /*电流速率调节ma/s*/
+	//[Description("泵浦0电流上升速率调节ma/s")]
+	MOD_ADDR_PUMP0_SET_CUR_SPEED_UP_VALUE /*电流速率调节ma/s*/
+	//[Description("泵浦0电流下降速率调节ma/s")]
+	MOD_ADDR_PUMP0_SET_CUR_SPEED_DOWN_VALUE /*电流速率调节ma/s*/
 	//[Description("泵浦0电流上限")]
 	MOD_ADDR_PUMP0_SET_CUR_MAX /*电流设置上限*/
 
@@ -669,8 +888,10 @@ const (
 	MOD_ADDR_PUMP1_SET_COMPENSATION_VALUE /*电流设置补偿值*/
 	//[Description("泵浦1电流设置比例系数")]
 	MOD_ADDR_PUMP1_SET_COEFFICIENT_VALUE /*电流比例系数值*/
-	//[Description("泵浦1电流速率调节ma/s")]
-	MOD_ADDR_PUMP1_SET_CUR_SPEED_VALUE /*电流速率调节ma/s*/
+	//[Description("泵浦1电流上升速率调节ma/s")]
+	MOD_ADDR_PUMP1_SET_CUR_SPEED_UP_VALUE /*电流速率调节ma/s*/
+	//[Description("泵浦1电流下降速率调节ma/s")]
+	MOD_ADDR_PUMP1_SET_CUR_SPEED_DOWN_VALUE /*电流速率调节ma/s*/
 	//[Description("泵浦1电流上限")]
 	MOD_ADDR_PUMP1_SET_CUR_MAX /*电流设置上限*/
 
@@ -698,8 +919,10 @@ const (
 	MOD_ADDR_PUMP2_SET_COMPENSATION_VALUE /*电流设置补偿值*/
 	//[Description("泵浦2电流设置比例系数")]
 	MOD_ADDR_PUMP2_SET_COEFFICIENT_VALUE /*电流比例系数值*/
-	//[Description("泵浦2电流速率调节ma/s")]
-	MOD_ADDR_PUMP2_SET_CUR_SPEED_VALUE /*电流速率调节ma/s*/
+	//[Description("泵浦2电流上升速率调节ma/s")]
+	MOD_ADDR_PUMP2_SET_CUR_SPEED_UP_VALUE /*电流速率调节ma/s*/
+	//[Description("泵浦2电流下降速率调节ma/s")]
+	MOD_ADDR_PUMP2_SET_CUR_SPEED_DOWN_VALUE /*电流速率调节ma/s*/
 	//[Description("泵浦2电流上限")]
 	MOD_ADDR_PUMP2_SET_CUR_MAX /*电流设置上限*/
 
@@ -727,8 +950,10 @@ const (
 	MOD_ADDR_PUMP3_SET_COMPENSATION_VALUE /*电流设置补偿值*/
 	//[Description("泵浦3电流设置比例系数")]
 	MOD_ADDR_PUMP3_SET_COEFFICIENT_VALUE /*电流比例系数值*/
-	//[Description("泵浦3电流速率调节ma/s")]
-	MOD_ADDR_PUMP3_SET_CUR_SPEED_VALUE /*电流速率调节ma/s*/
+	//[Description("泵浦3电流上升速率调节ma/s")]
+	MOD_ADDR_PUMP3_SET_CUR_SPEED_UP_VALUE /*电流速率调节ma/s*/
+	//[Description("泵浦3电流下降速率调节ma/s")]
+	MOD_ADDR_PUMP3_SET_CUR_SPEED_DOWN_VALUE /*电流速率调节ma/s*/
 	//[Description("泵浦3电流上限")]
 	MOD_ADDR_PUMP3_SET_CUR_MAX /*电流设置上限*/
 
@@ -756,8 +981,10 @@ const (
 	MOD_ADDR_PUMP4_SET_COMPENSATION_VALUE /*电流设置补偿值*/
 	//[Description("泵浦4电流设置比例系数")]
 	MOD_ADDR_PUMP4_SET_COEFFICIENT_VALUE /*电流比例系数值*/
-	//[Description("泵浦4电流速率调节ma/s")]
-	MOD_ADDR_PUMP4_SET_CUR_SPEED_VALUE /*电流速率调节ma/s*/
+	//[Description("泵浦4电流上升速率调节ma/s")]
+	MOD_ADDR_PUMP4_SET_CUR_SPEED_UP_VALUE /*电流速率调节ma/s*/
+	//[Description("泵浦4电流下降速率调节ma/s")]
+	MOD_ADDR_PUMP4_SET_CUR_SPEED_DOWN_VALUE /*电流速率调节ma/s*/
 	//[Description("泵浦4电流上限")]
 	MOD_ADDR_PUMP4_SET_CUR_MAX /*电流设置上限*/
 
@@ -785,8 +1012,10 @@ const (
 	MOD_ADDR_PUMP5_SET_COMPENSATION_VALUE /*电流设置补偿值*/
 	//[Description("泵浦5电流设置比例系数")]
 	MOD_ADDR_PUMP5_SET_COEFFICIENT_VALUE /*电流比例系数值*/
-	//[Description("泵浦5电流速率调节ma/s")]
-	MOD_ADDR_PUMP5_SET_CUR_SPEED_VALUE /*电流速率调节ma/s*/
+	//[Description("泵浦5电流上升速率调节ma/s")]
+	MOD_ADDR_PUMP5_SET_CUR_SPEED_UP_VALUE /*电流速率调节ma/s*/
+	//[Description("泵浦5电流下降速率调节ma/s")]
+	MOD_ADDR_PUMP5_SET_CUR_SPEED_DOWN_VALUE /*电流速率调节ma/s*/
 	//[Description("泵浦5电流上限")]
 	MOD_ADDR_PUMP5_SET_CUR_MAX /*电流设置上限*/
 
@@ -814,8 +1043,10 @@ const (
 	MOD_ADDR_PUMP6_SET_COMPENSATION_VALUE /*电流设置补偿值*/
 	//[Description("泵浦6电流设置比例系数")]
 	MOD_ADDR_PUMP6_SET_COEFFICIENT_VALUE /*电流比例系数值*/
-	//[Description("泵浦6电流速率调节ma/s")]
-	MOD_ADDR_PUMP6_SET_CUR_SPEED_VALUE /*电流速率调节ma/s*/
+	//[Description("泵浦6电流上升速率调节ma/s")]
+	MOD_ADDR_PUMP6_SET_CUR_SPEED_UP_VALUE /*电流速率调节ma/s*/
+	//[Description("泵浦6电流下降速率调节ma/s")]
+	MOD_ADDR_PUMP6_SET_CUR_SPEED_DOWN_VALUE /*电流速率调节ma/s*/
 	//[Description("泵浦6电流上限")]
 	MOD_ADDR_PUMP6_SET_CUR_MAX /*电流设置上限*/
 
@@ -843,8 +1074,10 @@ const (
 	MOD_ADDR_PUMP7_SET_COMPENSATION_VALUE /*电流设置补偿值*/
 	//[Description("泵浦7电流设置比例系数")]
 	MOD_ADDR_PUMP7_SET_COEFFICIENT_VALUE /*电流比例系数值*/
-	//[Description("泵浦7电流速率调节ma/s")]
-	MOD_ADDR_PUMP7_SET_CUR_SPEED_VALUE /*电流速率调节ma/s*/
+	//[Description("泵浦7电流上升速率调节ma/s")]
+	MOD_ADDR_PUMP7_SET_CUR_SPEED_UP_VALUE /*电流速率调节ma/s*/
+	//[Description("泵浦7电流下降速率调节ma/s")]
+	MOD_ADDR_PUMP7_SET_CUR_SPEED_DOWN_VALUE /*电流速率调节ma/s*/
 	//[Description("泵浦7电流上限")]
 	MOD_ADDR_PUMP7_SET_CUR_MAX /*电流设置上限*/
 
@@ -872,8 +1105,10 @@ const (
 	MOD_ADDR_PUMP8_SET_COMPENSATION_VALUE /*电流设置补偿值*/
 	//[Description("泵浦8电流设置比例系数")]
 	MOD_ADDR_PUMP8_SET_COEFFICIENT_VALUE /*电流比例系数值*/
-	//[Description("泵浦8电流速率调节ma/s")]
-	MOD_ADDR_PUMP8_SET_CUR_SPEED_VALUE /*电流速率调节ma/s*/
+	//[Description("泵浦8电流上升速率调节ma/s")]
+	MOD_ADDR_PUMP8_SET_CUR_SPEED_UP_VALUE /*电流速率调节ma/s*/
+	//[Description("泵浦8电流下降速率调节ma/s")]
+	MOD_ADDR_PUMP8_SET_CUR_SPEED_DOWN_VALUE /*电流速率调节ma/s*/
 	//[Description("泵浦8电流上限")]
 	MOD_ADDR_PUMP8_SET_CUR_MAX /*电流设置上限*/
 
@@ -901,8 +1136,10 @@ const (
 	MOD_ADDR_PUMP9_SET_COMPENSATION_VALUE /*电流设置补偿值*/
 	//[Description("泵浦9电流设置比例系数")]
 	MOD_ADDR_PUMP9_SET_COEFFICIENT_VALUE /*电流比例系数值*/
-	//[Description("泵浦9电流速率调节ma/s")]
-	MOD_ADDR_PUMP9_SET_CUR_SPEED_VALUE /*电流速率调节ma/s*/
+	//[Description("泵浦9电流上升速率调节ma/s")]
+	MOD_ADDR_PUMP9_SET_CUR_SPEED_UP_VALUE /*电流速率调节ma/s*/
+	//[Description("泵浦9电流下降速率调节ma/s")]
+	MOD_ADDR_PUMP9_SET_CUR_SPEED_DOWN_VALUE /*电流速率调节ma/s*/
 	//[Description("泵浦9电流上限")]
 	MOD_ADDR_PUMP9_SET_CUR_MAX /*电流设置上限*/
 
@@ -930,8 +1167,10 @@ const (
 	MOD_ADDR_PUMP10_SET_COMPENSATION_VALUE /*电流设置补偿值*/
 	//[Description("泵浦10电流设置比例系数")]
 	MOD_ADDR_PUMP10_SET_COEFFICIENT_VALUE /*电流比例系数值*/
-	//[Description("泵浦10电流速率调节ma/s")]
-	MOD_ADDR_PUMP10_SET_CUR_SPEED_VALUE /*电流速率调节ma/s*/
+	//[Description("泵浦10电流上升速率调节ma/s")]
+	MOD_ADDR_PUMP10_SET_CUR_SPEED_UP_VALUE /*电流速率调节ma/s*/
+	//[Description("泵浦10电流下降速率调节ma/s")]
+	MOD_ADDR_PUMP10_SET_CUR_SPEED_DOWN_VALUE /*电流速率调节ma/s*/
 	//[Description("泵浦10电流上限")]
 	MOD_ADDR_PUMP10_SET_CUR_MAX /*电流设置上限*/
 
@@ -959,8 +1198,12 @@ const (
 	MOD_ADDR_PUMP11_SET_COMPENSATION_VALUE /*电流设置补偿值*/
 	//[Description("泵浦11电流设置比例系数")]
 	MOD_ADDR_PUMP11_SET_COEFFICIENT_VALUE /*电流比例系数值*/
-	//[Description("泵浦11电流速率调节ma/s")]
-	MOD_ADDR_PUMP11_SET_CUR_SPEED_VALUE /*电流速率调节ma/s*/
+	//[Description("泵浦11电流上升速率调节ma/s")]
+	MOD_ADDR_PUMP11_SET_CUR_SPEED_UP_VALUE /*电流速率调节ma/s*/
+	//[Description("泵浦11电流下降速率调节ma/s")]
+	MOD_ADDR_PUMP11_SET_CUR_SPEED_DOWN_VALUE /*电流速率调节ma/s*/
+	//[Description("泵浦11电流上限")]
+	MOD_ADDR_PUMP11_SET_CUR_MAX /*电流设置上限*/
 
 	/*监控参数配置*/
 	//[Description("泵浦11电流回读adc通道绑定")]
@@ -986,8 +1229,10 @@ const (
 	MOD_ADDR_PUMP12_SET_COMPENSATION_VALUE /*电流设置补偿值*/
 	//[Description("泵浦12电流设置比例系数")]
 	MOD_ADDR_PUMP12_SET_COEFFICIENT_VALUE /*电流比例系数值*/
-	//[Description("泵浦12电流速率调节ma/s")]
-	MOD_ADDR_PUMP12_SET_CUR_SPEED_VALUE /*电流速率调节ma/s*/
+	//[Description("泵浦12电流上升速率调节ma/s")]
+	MOD_ADDR_PUMP12_SET_CUR_SPEED_UP_VALUE /*电流速率调节ma/s*/
+	//[Description("泵浦12电流下降速率调节ma/s")]
+	MOD_ADDR_PUMP12_SET_CUR_SPEED_DOWN_VALUE /*电流速率调节ma/s*/
 	//[Description("泵浦12电流上限")]
 	MOD_ADDR_PUMP12_SET_CUR_MAX /*电流设置上限*/
 
@@ -1015,8 +1260,10 @@ const (
 	MOD_ADDR_PUMP13_SET_COMPENSATION_VALUE /*电流设置补偿值*/
 	//[Description("泵浦13电流设置比例系数")]
 	MOD_ADDR_PUMP13_SET_COEFFICIENT_VALUE /*电流比例系数值*/
-	//[Description("泵浦13电流速率调节ma/s")]
-	MOD_ADDR_PUMP13_SET_CUR_SPEED_VALUE /*电流速率调节ma/s*/
+	//[Description("泵浦13电流上升速率调节ma/s")]
+	MOD_ADDR_PUMP13_SET_CUR_SPEED_UP_VALUE /*电流速率调节ma/s*/
+	//[Description("泵浦13电流下降速率调节ma/s")]
+	MOD_ADDR_PUMP13_SET_CUR_SPEED_DOWN_VALUE /*电流速率调节ma/s*/
 	//[Description("泵浦13电流上限")]
 	MOD_ADDR_PUMP13_SET_CUR_MAX /*电流设置上限*/
 
@@ -1044,8 +1291,10 @@ const (
 	MOD_ADDR_PUMP14_SET_COMPENSATION_VALUE /*电流设置补偿值*/
 	//[Description("泵浦14电流设置比例系数")]
 	MOD_ADDR_PUMP14_SET_COEFFICIENT_VALUE /*电流比例系数值*/
-	//[Description("泵浦14电流速率调节ma/s")]
-	MOD_ADDR_PUMP14_SET_CUR_SPEED_VALUE /*电流速率调节ma/s*/
+	//[Description("泵浦14电流上升速率调节ma/s")]
+	MOD_ADDR_PUMP14_SET_CUR_SPEED_UP_VALUE /*电流速率调节ma/s*/
+	//[Description("泵浦14电流下降速率调节ma/s")]
+	MOD_ADDR_PUMP14_SET_CUR_SPEED_DOWN_VALUE /*电流速率调节ma/s*/
 	//[Description("泵浦14电流上限")]
 	MOD_ADDR_PUMP14_SET_CUR_MAX /*电流设置上限*/
 
@@ -1060,8 +1309,6 @@ const (
 	MOD_ADDR_PUMP14_MON_CUR_ERR_THR /*回读电流错误阈值*/
 	//[Description("泵浦14电流采样滤波次数")]
 	MOD_ADDR_PUMP14_MON_CUR_FILTER_TIME /*电流采样滤波次数*/
-
-	/*############电机驱动定义##############*/
 
 	//[Description("电机0使能")]
 	MOD_ADDR_MOTOR0_EN
@@ -1459,12 +1706,18 @@ const (
 
 	/*PD上下限制控制*/
 
+	/*PD上下限制控制*/
+
 	//[Description("PD0使能")]
 	MOD_ADDR_PD0_EN
 	//[Description("PD0频率上限")]
 	MOD_ADDR_PD0_MAX_LIMIT
 	//[Description("PD0频率下限")]
 	MOD_ADDR_PD0_MIN_LIMIT
+	//[Description("PD0展宽")]
+	MOD_ADDR_PD0_EXT_WIDTH
+	//[Description("PD0预留1")]
+	MOD_ADDR_PD0_RES1
 
 	//[Description("PD1使能")]
 	MOD_ADDR_PD1_EN
@@ -1472,6 +1725,10 @@ const (
 	MOD_ADDR_PD1_MAX_LIMIT
 	//[Description("PD1频率下限")]
 	MOD_ADDR_PD1_MIN_LIMIT
+	//[Description("PD1展宽")]
+	MOD_ADDR_PD1_EXT_WIDTH
+	//[Description("PD1预留1")]
+	MOD_ADDR_PD1_RES1
 
 	//[Description("PD2使能")]
 	MOD_ADDR_PD2_EN
@@ -1479,6 +1736,10 @@ const (
 	MOD_ADDR_PD2_MAX_LIMIT
 	//[Description("PD2频率下限")]
 	MOD_ADDR_PD2_MIN_LIMIT
+	//[Description("PD2展宽")]
+	MOD_ADDR_PD2_EXT_WIDTH
+	//[Description("PD2预留1")]
+	MOD_ADDR_PD2_RES1
 
 	//[Description("PD3使能")]
 	MOD_ADDR_PD3_EN
@@ -1486,6 +1747,10 @@ const (
 	MOD_ADDR_PD3_MAX_LIMIT
 	//[Description("PD3频率下限")]
 	MOD_ADDR_PD3_MIN_LIMIT
+	//[Description("PD3展宽")]
+	MOD_ADDR_PD3_EXT_WIDTH
+	//[Description("PD3预留1")]
+	MOD_ADDR_PD3_RES1
 
 	/*########声光设置###########*/
 	//[Description("声光0使能")]
@@ -2385,30 +2650,6 @@ const (
 	//[Description("激光器系统时间配置执行")]
 	MOD_ADDR_LASER_SYS_TIME_UPDATE
 
-	/*解锁码输入地址激活*/
-	//[Description("激光器激活密匙0")]
-	MOD_ADDR_LASER_KEY_0
-	//[Description("激光器激活密匙1")]
-	MOD_ADDR_LASER_KEY_1
-	//[Description("激光器激活密匙2")]
-	MOD_ADDR_LASER_KEY_2
-	//[Description("激光器激活密匙3")]
-	MOD_ADDR_LASER_KEY_3
-	//[Description("激光器激活密匙4")]
-	MOD_ADDR_LASER_KEY_4
-	//[Description("激光器激活密匙5")]
-	MOD_ADDR_LASER_KEY_5
-	//[Description("激光器激活密匙6")]
-	MOD_ADDR_LASER_KEY_6
-	//[Description("激光器激活密匙7")]
-	MOD_ADDR_LASER_KEY_7
-	//[Description("激光器激活密匙8")]
-	MOD_ADDR_LASER_KEY_8
-	//[Description("激光器激活密匙9")]
-	MOD_ADDR_LASER_KEY_9
-	//[Description("激光器激活执行")]
-	MOD_ADDR_LASER_KEY_EN
-
 	/*告警使能表*/
 	//[Description("激光器告警使能0")]
 	MOD_ADDR_LASER_ALARM_EN_0
@@ -2503,6 +2744,391 @@ const (
 
 	//[Description("激光器参数保存")]
 	MOD_ADDR_PARA_SAVE
+	//[Description("脉宽基准点0")]
+	MOD_ADDR_PULSE_WIDTH_REF0
+	//[Description("脉宽基准点1")]
+	MOD_ADDR_PULSE_WIDTH_REF1
+	//[Description("脉宽基准点2")]
+	MOD_ADDR_PULSE_WIDTH_REF2
+	//[Description("脉宽基准点3")]
+	MOD_ADDR_PULSE_WIDTH_REF3
+	//[Description("脉宽基准点4")]
+	MOD_ADDR_PULSE_WIDTH_REF4
+	//[Description("脉宽基准点5")]
+	MOD_ADDR_PULSE_WIDTH_REF5
+	//[Description("脉宽基准点6")]
+	MOD_ADDR_PULSE_WIDTH_REF6
+	//[Description("脉宽基准点7")]
+	MOD_ADDR_PULSE_WIDTH_REF7
+	//[Description("脉宽基准点8")]
+	MOD_ADDR_PULSE_WIDTH_REF8
+	//[Description("脉宽基准点9")]
+	MOD_ADDR_PULSE_WIDTH_REF9
+	//[Description("脉宽基准点10")]
+	MOD_ADDR_PULSE_WIDTH_REF10
+	//[Description("脉宽基准点11")]
+	MOD_ADDR_PULSE_WIDTH_REF11
+	//[Description("脉宽基准点12")]
+	MOD_ADDR_PULSE_WIDTH_REF12
+	//[Description("脉宽基准点13")]
+	MOD_ADDR_PULSE_WIDTH_REF13
+	//[Description("脉宽基准点14")]
+	MOD_ADDR_PULSE_WIDTH_REF14
+	//[Description("脉宽基准点15")]
+	MOD_ADDR_PULSE_WIDTH_REF15
+	//[Description("脉宽基准点16")]
+	MOD_ADDR_PULSE_WIDTH_REF16
+	//[Description("脉宽基准点17")]
+	MOD_ADDR_PULSE_WIDTH_REF17
+	//[Description("脉宽基准点18")]
+	MOD_ADDR_PULSE_WIDTH_REF18
+	//[Description("脉宽基准点19")]
+	MOD_ADDR_PULSE_WIDTH_REF19
+
+	//###########选单频率限定相关
+	//（频率分段点)
+	//[Description("选单分频基准点0")]
+	MOD_ADDR_SELECT_FREQ_REF0
+	//[Description("选单分频基准点1")]
+	MOD_ADDR_SELECT_FREQ_REF1
+	//[Description("选单分频基准点2")]
+	MOD_ADDR_SELECT_FREQ_REF2
+	//[Description("选单分频基准点3")]
+	MOD_ADDR_SELECT_FREQ_REF3
+	//[Description("选单分频基准点4")]
+	MOD_ADDR_SELECT_FREQ_REF4
+	//[Description("选单分频基准点5")]
+	MOD_ADDR_SELECT_FREQ_REF5
+	//[Description("选单分频基准点6")]
+	MOD_ADDR_SELECT_FREQ_REF6
+	//[Description("选单分频基准点7")]
+	MOD_ADDR_SELECT_FREQ_REF7
+	//[Description("选单分频基准点8")]
+	MOD_ADDR_SELECT_FREQ_REF8
+	//[Description("选单分频基准点9")]
+	MOD_ADDR_SELECT_FREQ_REF9
+	//[Description("选单分频基准点10")]
+	MOD_ADDR_SELECT_FREQ_REF10
+	//[Description("选单分频基准点11")]
+	MOD_ADDR_SELECT_FREQ_REF11
+	//[Description("选单分频基准点12")]
+	MOD_ADDR_SELECT_FREQ_REF12
+	//[Description("选单分频基准点13")]
+	MOD_ADDR_SELECT_FREQ_REF13
+	//[Description("选单分频基准点14")]
+	MOD_ADDR_SELECT_FREQ_REF14
+
+	//声光最大值标定
+	//[Description("功率限定系数0")]
+	MOD_ADDR_POW_LIMIT_FACTOR_0
+	//[Description("功率限定系数1")]
+	MOD_ADDR_POW_LIMIT_FACTOR_1
+	//[Description("功率限定系数2")]
+	MOD_ADDR_POW_LIMIT_FACTOR_2
+	//[Description("功率限定系数3")]
+	MOD_ADDR_POW_LIMIT_FACTOR_3
+	//[Description("功率限定系数4")]
+	MOD_ADDR_POW_LIMIT_FACTOR_4
+	//[Description("功率限定系数5")]
+	MOD_ADDR_POW_LIMIT_FACTOR_5
+	//[Description("功率限定系数6")]
+	MOD_ADDR_POW_LIMIT_FACTOR_6
+	//[Description("功率限定系数7")]
+	MOD_ADDR_POW_LIMIT_FACTOR_7
+	//[Description("功率限定系数8")]
+	MOD_ADDR_POW_LIMIT_FACTOR_8
+	//[Description("功率限定系数9")]
+	MOD_ADDR_POW_LIMIT_FACTOR_9
+	//[Description("功率限定系数10")]
+	MOD_ADDR_POW_LIMIT_FACTOR_10
+	//[Description("功率限定系数11")]
+	MOD_ADDR_POW_LIMIT_FACTOR_11
+	//[Description("功率限定系数12")]
+	MOD_ADDR_POW_LIMIT_FACTOR_12
+	//[Description("功率限定系数13")]
+	MOD_ADDR_POW_LIMIT_FACTOR_13
+	//[Description("功率限定系数14")]
+	MOD_ADDR_POW_LIMIT_FACTOR_14
+
+	//[Description("FreeTrigger_电平点0")]
+	MOD_ADDR_FREE_TRIGGER_PRE_LEVEL0
+	//[Description("FreeTrigger_电平点1")]
+	MOD_ADDR_FREE_TRIGGER_PRE_LEVEL1
+	//[Description("FreeTrigger_电平点2")]
+	MOD_ADDR_FREE_TRIGGER_PRE_LEVEL2
+	//[Description("FreeTrigger_电平点3")]
+	MOD_ADDR_FREE_TRIGGER_PRE_LEVEL3
+	//[Description("FreeTrigger_电平点4")]
+	MOD_ADDR_FREE_TRIGGER_PRE_LEVEL4
+	//[Description("FreeTrigger_电平点5")]
+	MOD_ADDR_FREE_TRIGGER_PRE_LEVEL5
+	//[Description("FreeTrigger_电平点6")]
+	MOD_ADDR_FREE_TRIGGER_PRE_LEVEL6
+	//[Description("FreeTrigger_电平点7")]
+	MOD_ADDR_FREE_TRIGGER_PRE_LEVEL7
+	//[Description("FreeTrigger_电平点8")]
+	MOD_ADDR_FREE_TRIGGER_PRE_LEVEL8
+	//[Description("FreeTrigger_电平点9")]
+	MOD_ADDR_FREE_TRIGGER_PRE_LEVEL9
+	//[Description("FreeTrigger_电平点10")]
+	MOD_ADDR_FREE_TRIGGER_PRE_LEVEL10
+	//[Description("FreeTrigger_电平点11")]
+	MOD_ADDR_FREE_TRIGGER_PRE_LEVEL11
+	//[Description("FreeTrigger_电平点12")]
+	MOD_ADDR_FREE_TRIGGER_PRE_LEVEL12
+	//[Description("FreeTrigger_电平点13")]
+	MOD_ADDR_FREE_TRIGGER_PRE_LEVEL13
+	//[Description("FreeTrigger_电平点14")]
+	MOD_ADDR_FREE_TRIGGER_PRE_LEVEL14
+	//[Description("FreeTrigger_电平点15")]
+	MOD_ADDR_FREE_TRIGGER_PRE_LEVEL15
+	//[Description("FreeTrigger_电平点16")]
+	MOD_ADDR_FREE_TRIGGER_PRE_LEVEL16
+	//[Description("FreeTrigger_电平点17")]
+	MOD_ADDR_FREE_TRIGGER_PRE_LEVEL17
+	//[Description("FreeTrigger_电平点18")]
+	MOD_ADDR_FREE_TRIGGER_PRE_LEVEL18
+	//[Description("FreeTrigger_电平点19")]
+	MOD_ADDR_FREE_TRIGGER_PRE_LEVEL19
+	//[Description("FreeTrigger_电平点20")]
+	MOD_ADDR_FREE_TRIGGER_PRE_LEVEL20
+	//[Description("FreeTrigger_电平点21")]
+	MOD_ADDR_FREE_TRIGGER_PRE_LEVEL21
+	//[Description("FreeTrigger_电平点22")]
+	MOD_ADDR_FREE_TRIGGER_PRE_LEVEL22
+	//[Description("FreeTrigger_电平点23")]
+	MOD_ADDR_FREE_TRIGGER_PRE_LEVEL23
+	//[Description("FreeTrigger_电平点24")]
+	MOD_ADDR_FREE_TRIGGER_PRE_LEVEL24
+	//[Description("FreeTrigger_电平点25")]
+	MOD_ADDR_FREE_TRIGGER_PRE_LEVEL25
+	//[Description("FreeTrigger_电平点26")]
+	MOD_ADDR_FREE_TRIGGER_PRE_LEVEL26
+	//[Description("FreeTrigger_电平点27")]
+	MOD_ADDR_FREE_TRIGGER_PRE_LEVEL27
+	//[Description("FreeTrigger_电平点28")]
+	MOD_ADDR_FREE_TRIGGER_PRE_LEVEL28
+	//[Description("FreeTrigger_电平点29")]
+	MOD_ADDR_FREE_TRIGGER_PRE_LEVEL29
+	//[Description("FreeTrigger_电平点30")]
+	MOD_ADDR_FREE_TRIGGER_PRE_LEVEL30
+	//[Description("FreeTrigger_电平点31")]
+	MOD_ADDR_FREE_TRIGGER_PRE_LEVEL31
+	//[Description("FreeTrigger_电平点32")]
+	MOD_ADDR_FREE_TRIGGER_PRE_LEVEL32
+	//[Description("FreeTrigger_电平点33")]
+	MOD_ADDR_FREE_TRIGGER_PRE_LEVEL33
+	//[Description("FreeTrigger_电平点34")]
+	MOD_ADDR_FREE_TRIGGER_PRE_LEVEL34
+	//[Description("FreeTrigger_电平点35")]
+	MOD_ADDR_FREE_TRIGGER_PRE_LEVEL35
+	//[Description("FreeTrigger_电平点36")]
+	MOD_ADDR_FREE_TRIGGER_PRE_LEVEL36
+	//[Description("FreeTrigger_电平点37")]
+	MOD_ADDR_FREE_TRIGGER_PRE_LEVEL37
+	//[Description("FreeTrigger_电平点38")]
+	MOD_ADDR_FREE_TRIGGER_PRE_LEVEL38
+	//[Description("FreeTrigger_电平点39")]
+	MOD_ADDR_FREE_TRIGGER_PRE_LEVEL39
+	//[Description("FreeTrigger_电平点40")]
+	MOD_ADDR_FREE_TRIGGER_PRE_LEVEL40
+	//[Description("FreeTrigger_电平点41")]
+	MOD_ADDR_FREE_TRIGGER_PRE_LEVEL41
+	//[Description("FreeTrigger_电平点42")]
+	MOD_ADDR_FREE_TRIGGER_PRE_LEVEL42
+	//[Description("FreeTrigger_电平点43")]
+	MOD_ADDR_FREE_TRIGGER_PRE_LEVEL43
+	//[Description("FreeTrigger_电平点44")]
+	MOD_ADDR_FREE_TRIGGER_PRE_LEVEL44
+
+	//[Description("FreeTrigger_保护分频点0")]
+	MOD_ADDR_FREE_TRIGGER_PRE_DIV0
+	//[Description("FreeTrigger_保护分频点1")]
+	MOD_ADDR_FREE_TRIGGER_PRE_DIV1
+	//[Description("FreeTrigger_保护分频点2")]
+	MOD_ADDR_FREE_TRIGGER_PRE_DIV2
+	//[Description("FreeTrigger_保护分频点3")]
+	MOD_ADDR_FREE_TRIGGER_PRE_DIV3
+	//[Description("FreeTrigger_保护分频点4")]
+	MOD_ADDR_FREE_TRIGGER_PRE_DIV4
+	//[Description("FreeTrigger_保护分频点5")]
+	MOD_ADDR_FREE_TRIGGER_PRE_DIV5
+	//[Description("FreeTrigger_保护分频点6")]
+	MOD_ADDR_FREE_TRIGGER_PRE_DIV6
+	//[Description("FreeTrigger_保护分频点7")]
+	MOD_ADDR_FREE_TRIGGER_PRE_DIV7
+	//[Description("FreeTrigger_保护分频点8")]
+	MOD_ADDR_FREE_TRIGGER_PRE_DIV8
+	//[Description("FreeTrigger_保护分频点9")]
+	MOD_ADDR_FREE_TRIGGER_PRE_DIV9
+	//[Description("FreeTrigger_保护分频点10")]
+	MOD_ADDR_FREE_TRIGGER_PRE_DIV10
+	//[Description("FreeTrigger_保护分频点11")]
+	MOD_ADDR_FREE_TRIGGER_PRE_DIV11
+	//[Description("FreeTrigger_保护分频点12")]
+	MOD_ADDR_FREE_TRIGGER_PRE_DIV12
+	//[Description("FreeTrigger_保护分频点13")]
+	MOD_ADDR_FREE_TRIGGER_PRE_DIV13
+	//[Description("FreeTrigger_保护分频点14")]
+	MOD_ADDR_FREE_TRIGGER_PRE_DIV14
+
+	//[Description("FreeTrigger_延时时间")]
+	MOD_ADDR_FREE_TRIGGER_AOM_DELAY
+	//[Description("一键使能功能开关")]
+	MOD_ADDR_LASER_READY_EN
+	//[Description("电机0最大步数")]
+	MOD_ADDR_MOTOR0_STEP_MAX
+	//[Description("电机1最大步数")]
+	MOD_ADDR_MOTOR1_STEP_MAX
+	//[Description("电机2最大步数")]
+	MOD_ADDR_MOTOR2_STEP_MAX
+	//[Description("电机3最大步数")]
+	MOD_ADDR_MOTOR3_STEP_MAX
+	//[Description("AOM1_TTL到DAC延时")]
+	MOD_ADDR_AOM1_TTL_TO_DAC_DELAY
+	//[Description("FreeTrigger_电平点最小值")]
+	MOD_ADDR_FREE_TRIGGER_LEVEL_MIN
+	MOD_ADDR_PARA_RES146
+	MOD_ADDR_PARA_RES147
+	MOD_ADDR_PARA_RES148
+	MOD_ADDR_PARA_RES149
+
+	//[Description("光纤主放功率校准0")]
+	MOD_ADDR_FIBER_POWER_CELI_0
+	//[Description("光纤主放功率校准1")]
+	MOD_ADDR_FIBER_POWER_CELI_1
+	//[Description("光纤主放功率校准2")]
+	MOD_ADDR_FIBER_POWER_CELI_2
+	//[Description("光纤主放功率校准3")]
+	MOD_ADDR_FIBER_POWER_CELI_3
+	//[Description("光纤主放功率校准4")]
+	MOD_ADDR_FIBER_POWER_CELI_4
+	//[Description("光纤主放功率校准5")]
+	MOD_ADDR_FIBER_POWER_CELI_5
+	//[Description("光纤主放功率校准6")]
+	MOD_ADDR_FIBER_POWER_CELI_6
+	//[Description("光纤主放功率校准7")]
+	MOD_ADDR_FIBER_POWER_CELI_7
+	//[Description("光纤主放功率校准8")]
+	MOD_ADDR_FIBER_POWER_CELI_8
+	//[Description("光纤主放功率校准9")]
+	MOD_ADDR_FIBER_POWER_CELI_9
+	//[Description("光纤主放功率校准10")]
+	MOD_ADDR_FIBER_POWER_CELI_10
+	//[Description("光纤主放功率校准11")]
+	MOD_ADDR_FIBER_POWER_CELI_11
+	//[Description("光纤主放功率校准12")]
+	MOD_ADDR_FIBER_POWER_CELI_12
+	//[Description("光纤主放功率校准13")]
+	MOD_ADDR_FIBER_POWER_CELI_13
+	//[Description("光纤主放功率校准14")]
+	MOD_ADDR_FIBER_POWER_CELI_14
+	//[Description("光纤主放功率校准15")]
+	MOD_ADDR_FIBER_POWER_CELI_15
+	//[Description("光纤主放功率校准16")]
+	MOD_ADDR_FIBER_POWER_CELI_16
+	//[Description("光纤主放功率校准17")]
+	MOD_ADDR_FIBER_POWER_CELI_17
+	//[Description("光纤主放功率校准18")]
+	MOD_ADDR_FIBER_POWER_CELI_18
+	//[Description("光纤主放功率校准19")]
+	MOD_ADDR_FIBER_POWER_CELI_19
+	//[Description("光纤主放功率校准20")]
+	MOD_ADDR_FIBER_POWER_CELI_20
+	//[Description("光纤主放功率校准21")]
+	MOD_ADDR_FIBER_POWER_CELI_21
+	//[Description("光纤主放功率校准22")]
+	MOD_ADDR_FIBER_POWER_CELI_22
+	//[Description("光纤主放功率校准23")]
+	MOD_ADDR_FIBER_POWER_CELI_23
+	//[Description("光纤主放功率校准24")]
+	MOD_ADDR_FIBER_POWER_CELI_24
+	//[Description("光纤主放功率校准25")]
+	MOD_ADDR_FIBER_POWER_CELI_25
+	//[Description("光纤主放功率校准26")]
+	MOD_ADDR_FIBER_POWER_CELI_26
+	//[Description("光纤主放功率校准27")]
+	MOD_ADDR_FIBER_POWER_CELI_27
+	//[Description("光纤主放功率校准28")]
+	MOD_ADDR_FIBER_POWER_CELI_28
+	//[Description("光纤主放功率校准29")]
+	MOD_ADDR_FIBER_POWER_CELI_29
+	//[Description("光纤主放功率校准30")]
+	MOD_ADDR_FIBER_POWER_CELI_30
+	//[Description("光纤主放功率校准31")]
+	MOD_ADDR_FIBER_POWER_CELI_31
+	//[Description("光纤主放功率校准32")]
+	MOD_ADDR_FIBER_POWER_CELI_32
+	//[Description("光纤主放功率校准33")]
+	MOD_ADDR_FIBER_POWER_CELI_33
+	//[Description("光纤主放功率校准34")]
+	MOD_ADDR_FIBER_POWER_CELI_34
+	//[Description("光纤主放功率校准35")]
+	MOD_ADDR_FIBER_POWER_CELI_35
+	//[Description("光纤主放功率校准36")]
+	MOD_ADDR_FIBER_POWER_CELI_36
+	//[Description("光纤主放功率校准37")]
+	MOD_ADDR_FIBER_POWER_CELI_37
+	//[Description("光纤主放功率校准38")]
+	MOD_ADDR_FIBER_POWER_CELI_38
+	//[Description("光纤主放功率校准39")]
+	MOD_ADDR_FIBER_POWER_CELI_39
+	//[Description("光纤主放功率校准40")]
+	MOD_ADDR_FIBER_POWER_CELI_40
+	//[Description("光纤主放功率校准41")]
+	MOD_ADDR_FIBER_POWER_CELI_41
+	//[Description("光纤主放功率校准42")]
+	MOD_ADDR_FIBER_POWER_CELI_42
+	//[Description("光纤主放功率校准43")]
+	MOD_ADDR_FIBER_POWER_CELI_43
+	//[Description("光纤主放功率校准44")]
+	MOD_ADDR_FIBER_POWER_CELI_44
+	//[Description("光纤主放功率校准45")]
+	MOD_ADDR_FIBER_POWER_CELI_45
+	//[Description("光纤主放功率校准46")]
+	MOD_ADDR_FIBER_POWER_CELI_46
+	//[Description("光纤主放功率校准47")]
+	MOD_ADDR_FIBER_POWER_CELI_47
+	//[Description("光纤主放功率校准48")]
+	MOD_ADDR_FIBER_POWER_CELI_48
+	//[Description("光纤主放功率校准49")]
+	MOD_ADDR_FIBER_POWER_CELI_49
+	//[Description("光纤主放功率校准50")]
+	MOD_ADDR_FIBER_POWER_CELI_50
+	//[Description("光纤主放功率校准51")]
+	MOD_ADDR_FIBER_POWER_CELI_51
+
+	//[Description("FREETRIGGER后凹坑长度0")]
+	MOD_ADDR_FREETRIGGER_REAR_PIT0
+	//[Description("FREETRIGGER后凹坑长度1")]
+	MOD_ADDR_FREETRIGGER_REAR_PIT1
+	//[Description("FREETRIGGER后凹坑长度2")]
+	MOD_ADDR_FREETRIGGER_REAR_PIT2
+	//[Description("FREETRIGGER后凹坑长度3")]
+	MOD_ADDR_FREETRIGGER_REAR_PIT3
+	//[Description("FREETRIGGER后凹坑长度4")]
+	MOD_ADDR_FREETRIGGER_REAR_PIT4
+	//[Description("FREETRIGGER后凹坑长度5")]
+	MOD_ADDR_FREETRIGGER_REAR_PIT5
+	//[Description("FREETRIGGER后凹坑长度6")]
+	MOD_ADDR_FREETRIGGER_REAR_PIT6
+	//[Description("FREETRIGGER后凹坑长度7")]
+	MOD_ADDR_FREETRIGGER_REAR_PIT7
+	//[Description("FREETRIGGER后凹坑长度8")]
+	MOD_ADDR_FREETRIGGER_REAR_PIT8
+	//[Description("FREETRIGGER后凹坑长度9")]
+	MOD_ADDR_FREETRIGGER_REAR_PIT9
+	//[Description("FREETRIGGER后凹坑长度10")]
+	MOD_ADDR_FREETRIGGER_REAR_PIT10
+	//[Description("FREETRIGGER后凹坑长度11")]
+	MOD_ADDR_FREETRIGGER_REAR_PIT11
+	//[Description("FREETRIGGER后凹坑长度12")]
+	MOD_ADDR_FREETRIGGER_REAR_PIT12
+	//[Description("FREETRIGGER后凹坑长度13")]
+	MOD_ADDR_FREETRIGGER_REAR_PIT13
+	//[Description("FREETRIGGER后凹坑长度14")]
+	MOD_ADDR_FREETRIGGER_REAR_PIT14
+
 	//[Description("激光器参数校验")]
 	MOD_ADDR_PARA_CRC
 	//[Description("激光器参数末尾")]
@@ -2615,6 +3241,50 @@ const (
 	MOD_ADDR_LASER_READY_PROGRESS
 	//[Description("IO测试信号")]
 	MOD_ADDR_LASER_IO_TEST_OUT
+
+	/*解锁码输入地址激活*/
+	//[Description("激光器激活密匙0")]
+	MOD_ADDR_LASER_KEY_0
+	//[Description("激光器激活密匙1")]
+	MOD_ADDR_LASER_KEY_1
+	//[Description("激光器激活密匙2")]
+	MOD_ADDR_LASER_KEY_2
+	//[Description("激光器激活密匙3")]
+	MOD_ADDR_LASER_KEY_3
+	//[Description("激光器激活密匙4")]
+	MOD_ADDR_LASER_KEY_4
+	//[Description("激光器激活密匙5")]
+	MOD_ADDR_LASER_KEY_5
+	//[Description("激光器激活密匙6")]
+	MOD_ADDR_LASER_KEY_6
+	//[Description("激光器激活密匙7")]
+	MOD_ADDR_LASER_KEY_7
+	//[Description("激光器激活密匙8")]
+	MOD_ADDR_LASER_KEY_8
+	//[Description("激光器激活密匙9")]
+	MOD_ADDR_LASER_KEY_9
+	//[Description("激光器激活密匙10")]
+	MOD_ADDR_LASER_KEY_10
+	//[Description("激光器激活密匙11")]
+	MOD_ADDR_LASER_KEY_11
+	//[Description("激光器激活密匙12")]
+	MOD_ADDR_LASER_KEY_12
+	//[Description("激光器激活密匙13")]
+	MOD_ADDR_LASER_KEY_13
+	//[Description("激光器激活密匙14")]
+	MOD_ADDR_LASER_KEY_14
+	//[Description("激光器激活执行")]
+	MOD_ADDR_LASER_KEY_EN
+
+	//[Description("IO 测试输出2")]
+	MOD_ADDR_LASER_IO_TEST_OUT2
+
+	// //[Description("功率监测回读")]
+	// MOD_ADDR_POWER_PD_MONITOR
+	// //[Description("功率监测上限")]
+	// MOD_ADDR_POWER_PD_MAX
+	// //[Description("功率监测下限")]
+	// MOD_ADDR_POWER_PD_MIN
 
 	/*保持寄存器结尾  */
 	//[Description("激光器参数校验")]

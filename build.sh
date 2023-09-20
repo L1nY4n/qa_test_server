@@ -1,5 +1,7 @@
 #! /bin/bash
 
+go build
+
 cd qa-test-web
 pnpm build
 

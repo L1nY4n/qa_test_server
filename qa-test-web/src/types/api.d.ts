@@ -5,25 +5,33 @@ export interface Device {
 }
 
 export interface Packet {
-  Femto_input_reg: {
-    laser_status: number;
-    board_online:number[];
-    Femto_input_reg_db25: Packet_input_DB25;
-     Femto_input_reg_bate: Packet_bate;
-     Femto_input_reg_monitor: Packet_mon_monitor;
-     Overdue:number;
-     Femto_input_reg_fpga_debug: Packet_mon_fpga;
-     Femto_input_reg_time: Packet_mon_time;
-     Femto_input_reg_alarm: Packet_mon_alarm;
-  },
+  	Femto_input_reg: {
+	Status: number;
+    Online:number[];
+    DB25: Packet_input_DB25;
+    Bate: Packet_bate;
+    Mon: Packet_mon_monitor;
+    
+	Fpga_debug: Packet_mon_fpga;
+	Time: Packet_mon_time;
+	Alarm: Packet_mon_alarm;
+	Overdue:number;
+	 Esp32 :packet_esp32 ;
+	 Pow_limit_factor:number;
+	 Tpsr:packet_tpsr;
+	 Pow_range:number;
+
+	}
+
+  
 
   Femto_holding_reg:{
-    Laser_para : Packet_laser_para;
-    User_para  : Packet_user_para;
-
+	Laser_para : Packet_laser_para;
+	User_para  : Packet_user_para;
   }
-
 }
+
+
 
 export interface Packet_input_DB25 {
   	Ext_data_in:number;
@@ -45,6 +53,7 @@ export interface Packet_bate {
   Mcu_boot_bate:number;
   Mcu_app_bate:number[];
   Fpga_bate:number[];
+  Gui_bate:number;
 }
 
 
@@ -60,6 +69,7 @@ export interface Packet_mon_th {
 	Humi  :number;
 }
 export interface Packet_mon_digi_tcm {
+	On  		:number
 	Actual_temp  :number;
 	Alarm_reg    :number;
 }
@@ -68,7 +78,7 @@ export interface Packet_mon_monitor {
   Pd_freq :number[];
   Seed_status :number[];
   Temp :number[];
-  Femto_input_reg_monitor_pump  :Packet_mon_pump[15];
+  Femto_input_reg_monitor_pump  :Packet_mon_pump[];
   Vol :number[];
   motor_Actual_pos :number[];
   Femto_input_reg_monitor_TH  :Packet_mon_th[];
@@ -84,6 +94,8 @@ export interface Packet_mon_fpga {
 }
 
 export interface Packet_mon_time {
+	Laser_sw_countdown:number;
+	Pump_sig_work_time:number[];
 	Pump_work_time :number[];
 	Emission_time :number[];
 	Uptime       :number[];
@@ -95,14 +107,33 @@ export interface Packet_mon_alarm {
 	History:number[];
 }
 
+export interface packet_esp32 {
+	Status       :number;
+	Wifi_ip     :number[];
+	Wifi_gateway :number[];
+	Wifi_netmask :number[];
+	Eth_ip       :number[];
+	Eth_gateway :number[];
+	Eth_netmask  :number[];
+	Socket_ip    :number[];
+	Socket_port      :number;
+}
+
+export interface packet_tpsr {
+	On     :number;
+	Status :number;
+	Temp    :number[];
+}
+
 
 export interface Time_desc {
-  Mon: number;
   Year: number;
-  Hour: number;
+  Mon: number;
   Day:  number;
-  Second: number;
+  Hour: number;
   Minute: number;
+  Second: number;
+
 }
 
 

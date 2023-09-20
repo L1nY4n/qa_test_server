@@ -21,7 +21,7 @@
 
     </a-col>
     <a-col flex="50px">
-      <a-button type="primary" @click="showDrawer">版本信息</a-button>
+      <a-button type="primary" @click="showDrawer">信息</a-button>
     <a-drawer
     v-model:visible="visible"
     class="custom-class"
@@ -31,9 +31,16 @@
     @after-visible-change="afterVisibleChange"
   >
 
-   <ul >硬件版本:  {{info.Packet['Femto_input_reg']['Femto_input_reg_bate'].Hardware_bate}}</ul>
-  <ul >MCU版本:  {{info.Packet['Femto_input_reg']['Femto_input_reg_bate'].Mcu_app_bate}}</ul>
-  <ul >FPGA版本:  {{info.Packet['Femto_input_reg']['Femto_input_reg_bate'].Fpga_bate}}</ul>
+   <ul >硬件版本:  {{info.Packet['Femto_input_reg']['Bate'].Hardware_bate}}</ul>
+  <ul >MCU版本:  {{info.Packet['Femto_input_reg']['Bate'].Mcu_app_bate}}</ul>
+  <ul >FPGA版本:  {{info.Packet['Femto_input_reg']['Bate'].Fpga_bate}}</ul>
+  <ul >gui:  {{info.Packet['Femto_input_reg']['Bate'].Gui_bate}}</ul>
+  <ul >Pump_sig_work_time:  {{info.Packet['Femto_input_reg']['Time'].Pump_sig_work_time}}</ul>
+  <ul >pump_work_time:{{info.Packet['Femto_input_reg']['Time'].Pump_work_time}}</ul>
+  <ul >Emission_time:  {{info.Packet['Femto_input_reg']['Time'].Emission_time}}</ul>
+  <ul >Uptime:  {{info.Packet['Femto_input_reg']['Time'].Uptime}}</ul>
+  <ul >Total_uptime:  {{info.Packet['Femto_input_reg']['Time'].Total_uptime}}</ul>
+  <ul >Sys_time:  {{info.Packet['Femto_input_reg']['Time'].Sys_time}}</ul>
                   
   </a-drawer>
   
@@ -64,18 +71,18 @@
                        
                             <a-card title="外部IO" hoverable :bordered="true">
                             <a-divider orientation="centor">IO电平</a-divider> 
-                            <a-card-grid style="width:  50%; text-align: left">Latch:{{info.Packet['Femto_input_reg']['Femto_input_reg_db25'].Ext_latch}}</a-card-grid>
-                            <a-card-grid style="width: 50%; text-align: center">PWM:{{info.Packet['Femto_input_reg']['Femto_input_reg_db25'].Ext_pwm}}</a-card-grid>
-                            <a-card-grid style="width: 50%; text-align: center">GATE:{{info.Packet['Femto_input_reg']['Femto_input_reg_db25'].Ext_gate}}</a-card-grid>
-                            <a-card-grid style="width: 50%; text-align: center">TRIG:{{info.Packet['Femto_input_reg']['Femto_input_reg_db25'].Ext_trig}}</a-card-grid>
-                            <a-card-grid style="width: 50%; text-align: center">PRR:{{info.Packet['Femto_input_reg']['Femto_input_reg_db25'].Ext_prr}}</a-card-grid>
-                            <a-card-grid style="width: 50%; text-align: center">WATERFLOW:{{info.Packet['Femto_input_reg']['Femto_input_reg_db25'].Ext_alarm_cooler}}</a-card-grid>
+                            <a-card-grid style="width: 50%; text-align: left">Latch:{{info.Packet['Femto_input_reg']['DB25'].Ext_latch}}</a-card-grid>
+                            <a-card-grid style="width: 50%; text-align: center">PWM:{{info.Packet['Femto_input_reg']['DB25'].Ext_pwm}}</a-card-grid>
+                            <a-card-grid style="width: 50%; text-align: center">GATE:{{info.Packet['Femto_input_reg']['DB25'].Ext_gate}}</a-card-grid>
+                            <a-card-grid style="width: 50%; text-align: center">TRIG:{{info.Packet['Femto_input_reg']['DB25'].Ext_trig}}</a-card-grid>
+                            <a-card-grid style="width: 50%; text-align: center">PRR:{{info.Packet['Femto_input_reg']['DB25'].Ext_prr}}</a-card-grid>
+                            <a-card-grid style="width: 50%; text-align: center">WATERFLOW:{{info.Packet['Femto_input_reg']['DB25'].Ext_alarm_cooler}}</a-card-grid>
                             <a-divider orientation="centor">信号值</a-divider> 
                             <a-row :gutter="16">
                               <a-col :span="16" >
-                              <ul >数字8BIT {{info.Packet['Femto_input_reg']['Femto_input_reg_db25'].Ext_data_in}}</ul>
-                              <ul >模拟8BIT {{info.Packet['Femto_input_reg']['Femto_input_reg_db25'].Ext_anlog_data}}</ul>
-                              <ul >水流量 {{info.Packet['Femto_input_reg']['Femto_input_reg_db25'].Ext_anlog_data}}</ul>
+                              <ul >数字8BIT {{info.Packet['Femto_input_reg']['DB25'].Ext_data_in}}</ul>
+                              <ul >模拟8BIT {{info.Packet['Femto_input_reg']['DB25'].Ext_anlog_data}}</ul>
+                              <ul >水流量 {{info.Packet['Femto_input_reg']['DB25'].Ext_anlog_data}}</ul>
                             </a-col>
                             <a-col :span="8" >
                                 <a-progress type="circle" :stroke-color="{'0%': '#108ee9','100%': '#87d068',}"  :strokeWidth = "10" :width= "100" :percent="65" />
@@ -86,7 +93,7 @@
                           
                              <a-card  hoverable title=" 频率检测 " :bordered="true">
                                         <a-tabs  v-model:activeKey=selectindex>
-                                        <a-tab-pane v-for="(dev, index) in info.Packet['Femto_input_reg']['Femto_input_reg_monitor']['Pd_freq']" :key="index" :tab="'测频'+index">
+                                        <a-tab-pane v-for="(dev, index) in info.Packet['Femto_input_reg']['Mon']['Pd_freq']" :key="index" :tab="'测频'+index">
                                           <ul >通道 {{selectindex}}: {{ dev }}</ul>
                                         </a-tab-pane>
                                     
@@ -105,12 +112,12 @@
             
                     <a-card hoverable  title=" 泵浦监测 ">
                         <a-tabs  v-model:activeKey=selectindex1>
-                       <a-tab-pane v-for="(dev , index) in info.Packet.Femto_input_reg.Femto_input_reg_monitor.Femto_input_reg_monitor_pump" :key="index" :tab="'泵浦'+index">    
+                       <a-tab-pane v-for="(dev , index) in info.Packet.Femto_input_reg.Mon.Femto_input_reg_monitor_pump" :key="index" :tab="'泵浦'+index">    
                         <a-row :gutter="30">
                           <a-col :span="12" >
                         <a-card title="实时值" :bordered="true">
-                        <ul > 温度:{{ info.Packet.Femto_input_reg.Femto_input_reg_monitor.Temp[selectindex1]}}</ul>
-                        <ul > 电压:{{ info.Packet.Femto_input_reg.Femto_input_reg_monitor.Vol[selectindex1]}}</ul>
+                        <ul > 温度:{{ info.Packet.Femto_input_reg.Mon.Temp[selectindex1]}}</ul>
+                        <ul > 电压:{{ info.Packet.Femto_input_reg.Mon.Vol[selectindex1]}}</ul>
                         <ul > 开关状态:{{ dev.Pump_sw }}</ul>
                         <ul > 实际电流:{{ dev.Actual_cur }}</ul>
                         <ul > 设置电流:{{ dev.Fpga_cur }}</ul>
@@ -158,7 +165,7 @@
             </a-col>
           </a-row> 
           <a-divider orientation="centor">监控值</a-divider>   
-          <ul >通道{{indexVol}}: {{  info.Packet.Femto_input_reg.Femto_input_reg_monitor.Vol[indexVol] }}</ul>
+          <ul >通道{{indexVol}}: {{  info.Packet.Femto_input_reg.Mon.Vol[indexVol] }}</ul>
           <a-divider orientation="centor">参数</a-divider>  
           <ul > 使能:{{ info.Packet.Femto_holding_reg.Laser_para.Vol_para[indexVol].En }}</ul>
           <ul > 通道绑定:{{  info.Packet.Femto_holding_reg.Laser_para.Vol_para[indexVol].Adc_band_ch}}</ul>
@@ -182,7 +189,7 @@
               </a-col>
             </a-row> 
             <a-divider orientation="centor">监控值</a-divider>   
-            <ul >通道{{indexTemp}}: {{  info.Packet.Femto_input_reg.Femto_input_reg_monitor.Temp[indexTemp] }}</ul>
+            <ul >通道{{indexTemp}}: {{  info.Packet.Femto_input_reg.Mon.Temp[indexTemp] }}</ul>
             <a-divider orientation="centor">参数</a-divider>  
             <ul > 使能:{{ info.Packet.Femto_holding_reg.Laser_para.Temp_para[indexTemp].En }}</ul>
             <ul > 通道绑定:{{  info.Packet.Femto_holding_reg.Laser_para.Temp_para[indexTemp].Adc_band_ch}}</ul>
@@ -197,7 +204,7 @@
             <ul > 滤波次数:{{ info.Packet.Femto_holding_reg.Laser_para.Temp_para[indexTemp].Filter_time  }}</ul>
             </a-card>
             </a-col>
-             <Dynaline> </Dynaline>
+             <!-- <Dynaline> </Dynaline> -->
         
           </a-row>
     </div>
