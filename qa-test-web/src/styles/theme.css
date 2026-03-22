@@ -1,10 +1,17 @@
 :root {
-  --app-bg-top: #edf3f8;
-  --app-bg-bottom: #dbe6f2;
-  --panel-border: #dce7f3;
+  --app-bg-top: #e7eef7;
+  --app-bg-bottom: #ccddee;
+  --panel-border: #cedbec;
+  --panel-bg-a: #f7faff;
+  --panel-bg-b: #eef5ff;
   --text-main: #1d2f43;
   --text-sub: #5f748a;
   --accent-main: #1677ff;
+  --accent-strong: #0f5fd0;
+  --control-bg: #edf4ff;
+  --control-bg-hover: #e6f0ff;
+  --control-border: #bfd2ea;
+  --focus-shadow: rgba(22, 119, 255, 0.22);
 }
 
 html,
@@ -16,7 +23,11 @@ body,
 }
 
 body {
-  background: radial-gradient(circle at 10% 10%, var(--app-bg-top), var(--app-bg-bottom));
+  background:
+    radial-gradient(circle at 14% 12%, rgba(255, 255, 255, 0.55), transparent 46%),
+    radial-gradient(circle at 86% 14%, rgba(167, 215, 255, 0.25), transparent 36%),
+    radial-gradient(circle at 18% 82%, rgba(140, 181, 255, 0.16), transparent 44%),
+    linear-gradient(160deg, var(--app-bg-top), var(--app-bg-bottom));
   color: var(--text-main);
   font-family: "Source Han Sans SC", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
 }
@@ -27,4 +38,89 @@ body {
 
 .ant-card {
   border-color: var(--panel-border);
+  background: linear-gradient(165deg, var(--panel-bg-a), var(--panel-bg-b));
+  box-shadow: 0 6px 18px rgba(24, 49, 77, 0.06);
+}
+
+.ant-card-hoverable:hover {
+  box-shadow: 0 10px 24px rgba(24, 49, 77, 0.12);
+}
+
+.ant-input,
+.ant-input-affix-wrapper,
+.ant-input-number,
+.ant-input-number-group-addon,
+.ant-select:not(.ant-select-customize-input) .ant-select-selector,
+.ant-picker {
+  background: linear-gradient(155deg, var(--control-bg), #e8f1ff);
+  border-color: var(--control-border);
+  color: var(--text-main);
+}
+
+.ant-input:hover,
+.ant-input-affix-wrapper:hover,
+.ant-input-number:hover,
+.ant-select:not(.ant-select-customize-input):hover .ant-select-selector,
+.ant-picker:hover {
+  background: linear-gradient(155deg, var(--control-bg-hover), #e2edff);
+  border-color: #a9c3e2;
+}
+
+.ant-input:focus,
+.ant-input-focused,
+.ant-input-affix-wrapper-focused,
+.ant-input-number-focused,
+.ant-select-focused .ant-select-selector,
+.ant-picker-focused {
+  border-color: var(--accent-main) !important;
+  box-shadow: 0 0 0 2px var(--focus-shadow);
+}
+
+.ant-btn {
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+.ant-btn-default {
+  border-color: #aac4e3;
+  background: linear-gradient(150deg, #eef5ff, #e5effd);
+  color: #355171;
+}
+
+.ant-btn-default:hover,
+.ant-btn-default:focus {
+  border-color: #7ea7d8;
+  color: #21466f;
+}
+
+.ant-btn-primary {
+  border: none;
+  background: linear-gradient(135deg, #1d75f2, #2ca3ff);
+  box-shadow: 0 6px 14px rgba(29, 117, 242, 0.26);
+}
+
+.ant-btn-primary:hover,
+.ant-btn-primary:focus {
+  background: linear-gradient(135deg, var(--accent-strong), #2686f4);
+}
+
+.ant-tag {
+  border-radius: 999px;
+}
+
+.ant-switch {
+  background: #a9bed5;
+}
+
+.ant-switch-checked {
+  background: linear-gradient(135deg, #1c8ef1, #31b0ff);
+}
+
+.ant-table-thead > tr > th {
+  background: #e9f1fb;
+  color: #3b5572;
+}
+
+.ant-table-tbody > tr > td {
+  background: rgba(248, 251, 255, 0.9);
 }

@@ -1,8 +1,11 @@
 <template>
-  <a-card class="device-card" hoverable @click="openDetail">
+  <a-card class="device-card" :class="online ? 'online-card' : 'offline-card'" hoverable @click="openDetail">
     <div class="card-head">
       <div class="sn">{{ info.Sn || '-' }}</div>
-      <a-tag :color="online ? 'green' : 'default'">{{ online ? t.online : t.offline }}</a-tag>
+      <div class="status-pill" :class="online ? 'online' : 'offline'">
+        <span class="status-lamp" />
+        <span class="status-text">{{ online ? t.online : t.offline }}</span>
+      </div>
     </div>
 
     <div class="name-row">
@@ -199,8 +202,11 @@ const openDetail = () => {
 
 <style scoped>
 .device-card {
+  position: relative;
+  overflow: hidden;
   border-radius: 12px;
   border: 1px solid #e1e9f3;
+  background: linear-gradient(165deg, #f8fbff, #f3f8ff 55%, #eef6ff);
   transition: transform 0.18s ease, box-shadow 0.18s ease;
 }
 
@@ -209,11 +215,75 @@ const openDetail = () => {
   box-shadow: 0 10px 24px rgba(28, 56, 85, 0.12);
 }
 
+.online-card {
+  border-color: #84d8b6;
+}
+
+.online-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.35);
+  animation: card-pulse 2.4s ease-out infinite;
+  pointer-events: none;
+}
+
+.offline-card {
+  border-color: #d9e3ef;
+  background: linear-gradient(165deg, #f7f9fc, #f3f6fa 55%, #edf2f8);
+}
+
 .card-head {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 8px;
+}
+
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  border: 1px solid #d6e2ef;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.status-pill.online {
+  color: #0e7a48;
+  border-color: #93e3bf;
+  background: linear-gradient(145deg, #e8fff3, #def9ed);
+}
+
+.status-pill.offline {
+  color: #687f96;
+  border-color: #d8e1eb;
+  background: linear-gradient(145deg, #f7f9fc, #f1f4f8);
+}
+
+.status-lamp {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  flex: 0 0 9px;
+}
+
+.status-pill.online .status-lamp {
+  background: #34d399;
+  box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.65);
+  animation: lamp-breath 1.8s ease-in-out infinite;
+}
+
+.status-pill.offline .status-lamp {
+  background: #94a3b8;
+  box-shadow: 0 0 0 0 rgba(148, 163, 184, 0.2);
+}
+
+.status-text {
+  line-height: 1;
 }
 
 .sn {
@@ -296,5 +366,38 @@ const openDetail = () => {
   margin-top: 10px;
   color: #7f93a7;
   font-size: 12px;
+}
+
+@keyframes lamp-breath {
+  0% {
+    transform: scale(0.9);
+    box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.55);
+    opacity: 0.75;
+  }
+  50% {
+    transform: scale(1.12);
+    box-shadow: 0 0 0 8px rgba(52, 211, 153, 0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.9);
+    box-shadow: 0 0 0 0 rgba(52, 211, 153, 0);
+    opacity: 0.75;
+  }
+}
+
+@keyframes card-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.3);
+    opacity: 0.35;
+  }
+  70% {
+    box-shadow: 0 0 0 9px rgba(34, 197, 94, 0);
+    opacity: 0;
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
+    opacity: 0;
+  }
 }
 </style>

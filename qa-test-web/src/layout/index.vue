@@ -79,7 +79,7 @@
 
 <script lang="ts" setup>
 import { menus } from '@/router/routes'
-import { computed, ref, watch } from 'vue'
+import { computed, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import { useRouter, useRoute, type RouteRecordRaw } from 'vue-router'
 import {
   AppstoreOutlined,
@@ -104,10 +104,13 @@ import { message } from 'ant-design-vue'
 import { clearSession, getCurrentUser, hasAnyRole } from '@/utils/auth'
 
 const APP_TITLE = '\u6fc0\u5149\u5668\u7ba1\u7406\u7cfb\u7edf'
+const MOBILE_BREAKPOINT = 900
 
 const selectedKeys = ref<string[]>([])
 const openKeys = ref<string[]>([])
 const collapsed = ref<boolean>(false)
+const isMobile = ref<boolean>(false)
+const initializedViewport = ref<boolean>(false)
 const router = useRouter()
 const currentRoute = useRoute()
 
@@ -170,6 +173,21 @@ const resolveIcon = (key: string) => {
   return iconMap[key] || AppstoreOutlined
 }
 
+const applyViewportState = () => {
+  const mobile = window.innerWidth <= MOBILE_BREAKPOINT
+  isMobile.value = mobile
+  if (!initializedViewport.value) {
+    initializedViewport.value = true
+    if (mobile) {
+      collapsed.value = true
+    }
+    return
+  }
+  if (mobile) {
+    collapsed.value = true
+  }
+}
+
 const syncMenuState = () => {
   currentUser.value = getCurrentUser()
 
@@ -204,6 +222,9 @@ const onMenuClick = (item: { key: string }) => {
   }
 
   router.push({ name: key }).catch(() => undefined)
+  if (isMobile.value) {
+    collapsed.value = true
+  }
 }
 
 const logout = () => {
@@ -211,6 +232,15 @@ const logout = () => {
   message.success('已退出登录')
   router.replace({ name: 'login' }).catch(() => undefined)
 }
+
+onMounted(() => {
+  applyViewportState()
+  window.addEventListener('resize', applyViewportState)
+})
+
+onBeforeUnmount(() => {
+  window.removeEventListener('resize', applyViewportState)
+})
 </script>
 
 <style scoped>

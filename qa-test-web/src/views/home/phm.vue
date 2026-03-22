@@ -121,19 +121,20 @@
 
     <a-drawer
       v-model:visible="detailVisible"
-      width="960"
+      :width="drawerWidth"
       :title="detail?.summary?.deviceName || detail?.summary?.deviceSn || '设备 PHM 详情'"
       :destroyOnClose="false"
+      :body-style="{ padding: viewportWidth <= 900 ? '8px' : '12px' }"
     >
       <a-spin :spinning="detailLoading">
         <template v-if="detail">
           <a-row :gutter="[12, 12]">
-            <a-col :span="8">
+            <a-col :xl="8" :lg="8" :md="8" :sm="24" :xs="24">
               <a-card size="small">
                 <a-statistic title="健康评分" :value="detail.summary.healthScore" />
               </a-card>
             </a-col>
-            <a-col :span="8">
+            <a-col :xl="8" :lg="8" :md="8" :sm="24" :xs="24">
               <a-card size="small">
                 <a-statistic
                   title="在线率"
@@ -142,7 +143,7 @@
                 />
               </a-card>
             </a-col>
-            <a-col :span="8">
+            <a-col :xl="8" :lg="8" :md="8" :sm="24" :xs="24">
               <a-card size="small">
                 <a-statistic title="参数变更次数" :value="detail.summary.paramChangeCount" />
               </a-card>
@@ -150,7 +151,7 @@
           </a-row>
 
           <a-card size="small" class="section">
-            <a-descriptions :column="2" size="small" bordered>
+            <a-descriptions :column="detailDescColumns" size="small" bordered>
               <a-descriptions-item label="风险等级">
                 <a-tag :color="riskColor(detail.summary.riskLevel)">
                   {{ riskLabel(detail.summary.riskLevel) }}
@@ -216,11 +217,12 @@
 
 <script setup lang="ts">
 import * as API from '@/api'
-import { computed, onMounted, reactive, ref } from 'vue'
+import { computed, onBeforeUnmount, onMounted, reactive, ref } from 'vue'
 import { message, Modal } from 'ant-design-vue'
 import type { PHMDeviceDetail, PHMOverviewPayload, PHMRiskLevel } from '@/api/phm'
 
 const windowHours = ref(24)
+const viewportWidth = ref<number>(typeof window !== 'undefined' ? window.innerWidth : 1280)
 const detailVisible = ref(false)
 const detailLoading = ref(false)
 const detail = ref<PHMDeviceDetail | null>(null)
@@ -264,6 +266,14 @@ const rowSelection = computed(() => ({
     selectedRowKeys.value = keys.map((item) => String(item))
   },
 }))
+
+const drawerWidth = computed(() => {
+  return viewportWidth.value <= 900 ? '100vw' : 960
+})
+
+const detailDescColumns = computed(() => {
+  return viewportWidth.value <= 900 ? 1 : 2
+})
 
 const reasonDict: Record<string, string> = {
   'no samples in selected window': '所选窗口内无采样数据',
@@ -445,8 +455,18 @@ const confirmBatchDelete = () => {
   })
 }
 
+const syncViewport = () => {
+  viewportWidth.value = window.innerWidth
+}
+
 onMounted(() => {
+  syncViewport()
+  window.addEventListener('resize', syncViewport)
   void refresh()
+})
+
+onBeforeUnmount(() => {
+  window.removeEventListener('resize', syncViewport)
 })
 </script>
 

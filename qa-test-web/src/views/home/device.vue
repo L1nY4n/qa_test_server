@@ -400,8 +400,8 @@ onBeforeUnmount(() => {
     gap: 12px;
     flex-wrap: wrap;
     padding: 10px 14px;
-    background-color: rgba(255, 255, 255, 0.92);
-    border-bottom: 1px solid #e6edf5;
+    background: linear-gradient(145deg, rgba(236, 244, 253, 0.95), rgba(224, 236, 248, 0.9));
+    border-bottom: 1px solid #cfddec;
     backdrop-filter: blur(5px);
   }
 
@@ -440,6 +440,7 @@ onBeforeUnmount(() => {
     flex: 1;
     overflow: auto;
     padding: 14px;
+    background: linear-gradient(180deg, rgba(245, 250, 255, 0.68), rgba(236, 244, 253, 0.48));
   }
 
   .card-grid {
@@ -452,8 +453,20 @@ onBeforeUnmount(() => {
     padding: 8px 14px 12px;
     display: flex;
     justify-content: flex-end;
-    border-top: 1px solid #edf2f8;
-    background: #fff;
+    border-top: 1px solid #dbe6f2;
+    background: linear-gradient(180deg, rgba(240, 247, 255, 0.9), rgba(231, 240, 250, 0.85));
+  }
+
+  :deep(.ant-tag-blue) {
+    border-color: #76a8e0;
+    background: #e4f0ff;
+    color: #255991;
+  }
+
+  :deep(.ant-tag-green) {
+    border-color: #78d6a4;
+    background: #e5fbe9;
+    color: #1e7148;
   }
 
   @media (max-width: 900px) {

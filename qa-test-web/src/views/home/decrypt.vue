@@ -57,12 +57,12 @@
         <div class="mode-panel">
           <div class="panel-title">SN + 密钥 反解时间</div>
           <a-row :gutter="[12, 12]" class="config-row">
-            <a-col :xl="8" :lg="8" :md="8" :sm="24" :xs="24">
+            <a-col :xl="7" :lg="7" :md="8" :sm="24" :xs="24">
               <a-form-item label="设备 SN">
                 <a-input v-model:value="decryptForm.deviceSn" placeholder="请输入设备 SN" />
               </a-form-item>
             </a-col>
-            <a-col :xl="6" :lg="6" :md="6" :sm="24" :xs="24">
+            <a-col :xl="5" :lg="5" :md="6" :sm="24" :xs="24">
               <a-form-item label="输入模式">
                 <a-select v-model:value="decryptForm.inputMode">
                   <a-select-option value="plain">明文密钥（28字符）</a-select-option>
@@ -70,7 +70,7 @@
                 </a-select>
               </a-form-item>
             </a-col>
-            <a-col :xl="10" :lg="10" :md="10" :sm="24" :xs="24">
+            <a-col :xl="8" :lg="8" :md="10" :sm="24" :xs="24">
               <a-form-item :label="decryptForm.inputMode === 'hex' ? '密钥 HEX' : '密钥'">
                 <a-input
                   v-model:value="decryptForm.keyValue"
@@ -78,20 +78,28 @@
                 />
               </a-form-item>
             </a-col>
+            <a-col :xl="4" :lg="4" :md="24" :sm="24" :xs="24" class="action-col">
+              <a-space class="action-group" wrap>
+                <a-button type="primary" :loading="decryptLoading" @click="runDecrypt">执行反解</a-button>
+              </a-space>
+            </a-col>
           </a-row>
         </div>
 
         <div class="toolbar">
-          <a-space>
-            <a-button type="primary" :loading="decryptLoading" @click="runDecrypt">执行反解</a-button>
+          <div class="toolbar-left">
+            <a-space wrap>
             <a-select v-model:value="logFilter.operation" style="width: 160px">
               <a-select-option value="all">全部日志</a-select-option>
               <a-select-option value="generate">仅解算密钥</a-select-option>
               <a-select-option value="decode">仅反解时间</a-select-option>
             </a-select>
             <a-button :loading="decryptLogLoading" @click="loadDecryptLogs">刷新日志</a-button>
-          </a-space>
-          <a-tag color="default">日志总数: {{ decryptLogTotal }}</a-tag>
+            </a-space>
+          </div>
+          <div class="toolbar-right">
+            <a-tag color="default">日志总数: {{ decryptLogTotal }}</a-tag>
+          </div>
         </div>
 
         <a-alert
@@ -360,6 +368,18 @@ watch(
   flex-wrap: wrap;
 }
 
+.toolbar-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.toolbar-right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
 .tip {
   margin-bottom: 10px;
 }
@@ -382,6 +402,11 @@ watch(
   }
 
   .action-group {
+    justify-content: flex-start;
+  }
+
+  .toolbar-right {
+    width: 100%;
     justify-content: flex-start;
   }
 }
