@@ -1,0 +1,82 @@
+name: Auto Deploy
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-production
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Create Deploy Archive
+        run: |
+          set -euo pipefail
+          tar -czf qa_test_server_deploy.tar.gz \
+            --exclude=.git \
+            --exclude=.github \
+            --exclude=.tools \
+            --exclude=qa-test-web/node_modules \
+            --exclude=tmp \
+            --exclude=device/__debug_bin \
+            .
+
+      - name: Upload Archive
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.DEPLOY_HOST }}
+          username: ${{ secrets.DEPLOY_USER }}
+          password: ${{ secrets.DEPLOY_PASSWORD }}
+          port: 22
+          fingerprint: ${{ secrets.DEPLOY_FINGERPRINT }}
+          source: "qa_test_server_deploy.tar.gz,scripts/remote_deploy_and_heal.sh"
+          target: "/root"
+          overwrite: true
+
+      - name: Remote Deploy And Health Check
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: ${{ secrets.DEPLOY_HOST }}
+          username: ${{ secrets.DEPLOY_USER }}
+          password: ${{ secrets.DEPLOY_PASSWORD }}
+          port: 22
+          fingerprint: ${{ secrets.DEPLOY_FINGERPRINT }}
+          command_timeout: 30m
+          script: |
+            set -euo pipefail
+            chmod +x /root/scripts/remote_deploy_and_heal.sh
+            export APP_DIR="/root/qa_test_server"
+            export ARCHIVE_PATH="/root/qa_test_server_deploy.tar.gz"
+            export SERVICE_NAME="qa_test_server"
+            export HTTP_PORT="8080"
+            export TCP_PORT="4001"
+            export PROXY_FROM_PORT="4003"
+            export PROXY_TO_PORT="7777"
+            export DB_NAME="go_test"
+            export DB_USER="qa_user"
+            export DB_PASS="${{ secrets.APP_DB_PASSWORD }}"
+            export AUTH_SECRET="${{ secrets.APP_AUTH_SECRET }}"
+            export ADMIN_USER="${{ secrets.APP_ADMIN_USER }}"
+            export ADMIN_PASS="${{ secrets.APP_ADMIN_PASSWORD }}"
+            export ENABLE_NGINX_PROXY="0"
+            export HEAL_MODE="deploy"
+            bash /root/scripts/remote_deploy_and_heal.sh
+
+      - name: Verify Public Endpoint
+        run: |
+          set -euo pipefail
+          code=$(curl -s -o /dev/null -w '%{http_code}' --max-time 15 "http://${{ secrets.DEPLOY_HOST }}:8080/")
+          if [ "$code" != "200" ]; then
+            echo "Public health check failed, HTTP $code"
+            exit 1
+          fi
