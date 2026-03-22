@@ -13,16 +13,20 @@ import (
 	"unsafe"
 )
 
-func Tcpserver() {
-	go proxyStart(4003, 7777)
+func Tcpserver(listenAddr string, proxyFromPort, proxyToPort int) {
+	if proxyFromPort > 0 && proxyToPort > 0 {
+		go proxyStart(proxyFromPort, proxyToPort)
+	}
 
 	//
 	go packed_test("Virtual Test")
 
 	fmt.Println("tcp server test---lf 2022-4-28")
 
-	service := ":4001"
-	tcpAddr, _ := net.ResolveTCPAddr("tcp", service)
+	if listenAddr == "" {
+		listenAddr = ":4001"
+	}
+	tcpAddr, _ := net.ResolveTCPAddr("tcp", listenAddr)
 	listerer, err := net.ListenTCP("tcp", tcpAddr)
 
 	if err != nil {

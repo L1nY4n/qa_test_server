@@ -1,6 +1,9 @@
 package main
 
 import (
+	"log"
+
+	"qa_test_server/config"
 	"qa_test_server/db"
 	"qa_test_server/elog"
 	"qa_test_server/tcpserver"
@@ -8,10 +11,16 @@ import (
 )
 
 func main() {
-	elog.RedirectStderr()
-	db.Sql_op()
-	// 启动 tcp server
-	go tcpserver.Tcpserver()
-	// 启动web 服务
-	web.Start()
+	cfg := config.Load()
+
+	if err := elog.RedirectStderr(); err != nil {
+		log.Printf("redirect stderr failed: %v", err)
+	}
+
+	if err := db.Init(cfg.DBDSN, cfg.DBAutoMigrate); err != nil {
+		log.Printf("db init failed: %v", err)
+	}
+
+	go tcpserver.Tcpserver(cfg.TCPAddr, cfg.ProxyFromPort, cfg.ProxyToPort)
+	web.Start(cfg)
 }

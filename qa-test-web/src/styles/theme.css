@@ -1,0 +1,30 @@
+:root {
+  --app-bg-top: #edf3f8;
+  --app-bg-bottom: #dbe6f2;
+  --panel-border: #dce7f3;
+  --text-main: #1d2f43;
+  --text-sub: #5f748a;
+  --accent-main: #1677ff;
+}
+
+html,
+body,
+#app {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  background: radial-gradient(circle at 10% 10%, var(--app-bg-top), var(--app-bg-bottom));
+  color: var(--text-main);
+  font-family: "Source Han Sans SC", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+
+.ant-layout {
+  background: transparent;
+}
+
+.ant-card {
+  border-color: var(--panel-border);
+}

@@ -1,6 +1,8 @@
 export interface Device {
   Name: string;
   Sn: string;
+  Group?: string;
+  Last_rx_time: string;
   Packet: Packet;
 }
 

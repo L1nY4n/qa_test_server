@@ -14,7 +14,7 @@ func Router(r *gin.Engine) {
 	r.LoadHTMLGlob("templates/*.html")
 	// 静态文件映射
 	r.StaticFS("/assets", http.Dir("templates/assets"))
-	r.Static("favicon.ico", ".templates/favicon.ico")
+	r.StaticFile("favicon.ico", "templates/favicon.ico")
 
 	// 根路径加载 index 模板，web 页面的入口
 	r.GET("/", func(c *gin.Context) {
@@ -79,7 +79,7 @@ func Cors() gin.HandlerFunc {
 		c.Header("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT, DELETE, UPDATE")
 		c.Header("Access-Control-Allow-Headers", "*")
 		c.Header("Access-Control-Expose-Headers", "Content-Length, Access-Control-Allow-Origin, Access-Control-Allow-Headers, Cache-Control, Content-Language, Content-Type")
-		c.Header("Access-Control-Allow-Credentials", "true")
+		c.Header("Access-Control-Allow-Credentials", "false")
 
 		//放行所有OPTIONS方法
 		if method == "OPTIONS" {

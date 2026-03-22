@@ -1,14 +1,15 @@
 package web
 
 import (
+	"log"
+	"net/http"
+	"sync/atomic"
+
 	"github.com/gin-gonic/gin"
 	"github.com/gorilla/websocket"
 	uuid "github.com/satori/go.uuid"
-	"log"
-	"net/http"
 )
 
-// WsManager WebSocket 管理器
 var WsManager = clientManager{
 	clientGroup: make(map[string]map[string]*wsClient),
 	register:    make(chan *wsClient),
@@ -16,21 +17,21 @@ var WsManager = clientManager{
 	broadcast:   make(chan *boradcastData, 10),
 }
 
-// ClientManager websocket client Manager struct
 type clientManager struct {
 	clientGroup map[string]map[string]*wsClient
 	register    chan *wsClient
 	unRegister  chan *wsClient
 	broadcast   chan *boradcastData
+
+	groupCount  int64
+	clientCount int64
 }
 
-// boradcastData 广播数据
 type boradcastData struct {
 	GroupID string
 	Data    []byte
 }
 
-// wsClient Websocket 客户端
 type wsClient struct {
 	ID     string
 	Group  string
@@ -38,15 +39,19 @@ type wsClient struct {
 	Send   chan []byte
 }
 
+type WsStats struct {
+	Groups  int64 `json:"groups"`
+	Clients int64 `json:"clients"`
+}
+
 func (c *wsClient) Read() {
 	defer func() {
 		WsManager.unRegister <- c
-		c.Socket.Close()
+		_ = c.Socket.Close()
 	}()
 
 	for {
-		_, _, err := c.Socket.ReadMessage()
-		if err != nil {
+		if _, _, err := c.Socket.ReadMessage(); err != nil {
 			break
 		}
 	}
@@ -54,46 +59,46 @@ func (c *wsClient) Read() {
 
 func (c *wsClient) Write() {
 	defer func() {
-		c.Socket.Close()
+		_ = c.Socket.Close()
 	}()
 
 	for {
 		select {
 		case message, ok := <-c.Send:
 			if !ok {
-				c.Socket.WriteMessage(websocket.CloseMessage, []byte{})
+				_ = c.Socket.WriteMessage(websocket.CloseMessage, []byte{})
 				return
 			}
-
-			c.Socket.WriteMessage(websocket.BinaryMessage, message)
+			_ = c.Socket.WriteMessage(websocket.BinaryMessage, message)
 		}
 	}
 }
 
-// Start 启动 websocket 管理器
 func (manager *clientManager) Start() {
-	log.Println("Websocket manage start")
+	log.Println("Websocket manager started")
 	for {
 		select {
 		case client := <-manager.register:
-			log.Printf("Websocket client %s connect \n", client.ID)
+			log.Printf("Websocket client %s connect", client.ID)
 			if manager.clientGroup[client.Group] == nil {
 				manager.clientGroup[client.Group] = make(map[string]*wsClient)
+				atomic.AddInt64(&manager.groupCount, 1)
 			}
 			manager.clientGroup[client.Group][client.ID] = client
-			log.Printf("Register client %s to %s group success \n", client.ID, client.Group)
+			atomic.AddInt64(&manager.clientCount, 1)
+			log.Printf("Register client %s to group %s success", client.ID, client.Group)
 
 		case client := <-manager.unRegister:
-			log.Printf("Unregister websocket client %s \n", client.ID)
+			log.Printf("Unregister websocket client %s", client.ID)
 			if _, ok := manager.clientGroup[client.Group]; ok {
 				if _, ok := manager.clientGroup[client.Group][client.ID]; ok {
 					close(client.Send)
 					delete(manager.clientGroup[client.Group], client.ID)
-					log.Printf("Unregister websocket client %s from group %s success\n", client.ID, client.Group)
-
+					atomic.AddInt64(&manager.clientCount, -1)
+					log.Printf("Unregister websocket client %s from group %s success", client.ID, client.Group)
 					if len(manager.clientGroup[client.Group]) == 0 {
-						log.Printf("Clear no client group %s \n", client.Group)
 						delete(manager.clientGroup, client.Group)
+						atomic.AddInt64(&manager.groupCount, -1)
 					}
 				}
 			}
@@ -101,27 +106,28 @@ func (manager *clientManager) Start() {
 		case data := <-manager.broadcast:
 			if groupMap, ok := manager.clientGroup[data.GroupID]; ok {
 				for _, conn := range groupMap {
-					conn.Send <- data.Data
+					// Skip slow clients to keep broadcaster responsive.
+					select {
+					case conn.Send <- data.Data:
+					default:
+					}
 				}
 			}
 		}
 	}
 }
 
-// RegisterClient 向 manage 中注册 client
 func (manager *clientManager) RegisterClient(ctx *gin.Context) {
 	upgrader := websocket.Upgrader{
-		// cross origin domain
 		CheckOrigin: func(r *http.Request) bool {
 			return true
 		},
-		// 处理 Sec-WebSocket-Protocol Header
 		Subprotocols: []string{ctx.GetHeader("Sec-WebSocket-Protocol")},
 	}
 
 	conn, err := upgrader.Upgrade(ctx.Writer, ctx.Request, nil)
 	if err != nil {
-		log.Printf("websocket client connect %v error\n", ctx.Param("channel"))
+		log.Printf("websocket client connect %v error", ctx.Param("channel"))
 		return
 	}
 
@@ -136,23 +142,39 @@ func (manager *clientManager) RegisterClient(ctx *gin.Context) {
 	go client.Write()
 }
 
-// Groupbroadcast 向指定的 Group 广播
 func (manager *clientManager) Groupbroadcast(group string, message []byte) {
-	data := &boradcastData{
+	manager.broadcast <- &boradcastData{
 		GroupID: group,
 		Data:    message,
 	}
-	manager.broadcast <- data
 }
 
-func WsRoute(r *gin.Engine) {
-	stream_route := r.Group("/realtime")
-	{
-		stream_route.GET("/register/:channel", Register)
+func (manager *clientManager) TryGroupbroadcast(group string, message []byte) bool {
+	select {
+	case manager.broadcast <- &boradcastData{
+		GroupID: group,
+		Data:    message,
+	}:
+		return true
+	default:
+		return false
 	}
 }
 
-//  websocket 注册
+func (manager *clientManager) Stats() WsStats {
+	return WsStats{
+		Groups:  atomic.LoadInt64(&manager.groupCount),
+		Clients: atomic.LoadInt64(&manager.clientCount),
+	}
+}
+
+func WsRoute(r *gin.Engine) {
+	streamRoute := r.Group("/realtime")
+	{
+		streamRoute.GET("/register/:channel", Register)
+	}
+}
+
 func Register(c *gin.Context) {
 	WsManager.RegisterClient(c)
 }

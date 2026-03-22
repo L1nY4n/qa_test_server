@@ -1,7 +1,10 @@
 package db
 
 import (
+	"context"
 	"fmt"
+	"time"
+
 	"qa_test_server/model"
 
 	"gorm.io/driver/mysql"
@@ -10,23 +13,49 @@ import (
 
 var DB *gorm.DB
 
-func Sql_op() {
-	// 参考 https://github.com/go-sql-driver/mysql#dsn-data-source-name 获取详情
-	dsn := "root:L1nFen9.com@tcp(localhost:3306)/go_test?charset=utf8mb4&parseTime=True&loc=Local"
+func Init(dsn string, autoMigrate bool) error {
 	var err error
 	DB, err = gorm.Open(mysql.Open(dsn), &gorm.Config{
-
 		DisableForeignKeyConstraintWhenMigrating: true,
 	})
 	if err != nil {
-		fmt.Println("连接服务器失败")
+		return fmt.Errorf("connect db failed: %w", err)
 	}
 
-	fmt.Println("连接服务器成功")
-	DB.Debug().AutoMigrate(model.Nano_Dev_capture_packed{})
-	// SetMaxIdleConns 设置空闲连接池中连接的最大数量
+	sqlDB, err := DB.DB()
+	if err != nil {
+		return fmt.Errorf("open db pool failed: %w", err)
+	}
+	sqlDB.SetMaxIdleConns(5)
+	sqlDB.SetMaxOpenConns(20)
+	sqlDB.SetConnMaxLifetime(30 * time.Minute)
 
-	// SetMaxOpenConns 设置打开数据库连接的最大数量。
-	fmt.Println("#################迁移成功#############")
+	if err := sqlDB.Ping(); err != nil {
+		return fmt.Errorf("ping db failed: %w", err)
+	}
 
+	if autoMigrate {
+		if err := DB.AutoMigrate(model.Nano_Dev_capture_packed{}); err != nil {
+			return fmt.Errorf("auto migrate failed: %w", err)
+		}
+	}
+	return nil
+}
+
+func Health(timeout time.Duration) (bool, string) {
+	if DB == nil {
+		return false, "db is not initialized"
+	}
+
+	sqlDB, err := DB.DB()
+	if err != nil {
+		return false, err.Error()
+	}
+
+	ctx, cancel := context.WithTimeout(context.Background(), timeout)
+	defer cancel()
+	if err := sqlDB.PingContext(ctx); err != nil {
+		return false, err.Error()
+	}
+	return true, "ok"
 }

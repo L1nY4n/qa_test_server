@@ -1,74 +1,164 @@
-/* eslint-disable @typescript-eslint/promise-function-async */
+﻿/* eslint-disable @typescript-eslint/promise-function-async */
 import { RouteRecordRaw, RouterView } from 'vue-router'
 
-
 export const menus: RouteRecordRaw[] = [
-
   {
-    name: 'home',
-    path: 'home',
+    name: 'monitor',
+    path: 'monitor',
     component: RouterView,
-    redirect: 'home',
+    redirect: { name: 'overview' },
     children: [
+      {
+        name: 'overview',
+        path: 'overview',
+        component: () => import('@/views/home/overview.vue'),
+        meta: {
+          title: '运行总览',
+          icon: 'DashboardOutlined',
+          roles: ['viewer'],
+        },
+      },
       {
         name: 'device',
         path: 'device',
         component: () => import('@/views/home/device.vue'),
         meta: {
-          title: 'device',
-        }
+          title: '设备监控',
+          icon: 'AppstoreOutlined',
+          roles: ['viewer'],
+        },
       },
-      {
-        name: 'dashboard',
-        path: 'dashboard',
-        component: () => import('@/views/home/dashboard.vue'),
-        meta: {
-          title: 'dashboard',
-        }
-      },
-
-      {
-        name: 'dashboard2',
-        path: 'dashboard2',
-        component: () => import('@/views/home/dashboard.vue'),
-        meta: {
-          title: 'dashboard2',
-        }
-      }
-
     ],
     meta: {
-      title: 'Home'
-    }
-  }
+      title: '监控中心',
+      icon: 'MonitorOutlined',
+      roles: ['viewer'],
+    },
+  },
+  {
+    name: 'analysis',
+    path: 'analysis',
+    component: RouterView,
+    redirect: { name: 'phm' },
+    children: [
+      {
+        name: 'phm',
+        path: 'phm',
+        component: () => import('@/views/home/phm.vue'),
+        meta: {
+          title: 'PHM 健康管理',
+          icon: 'RadarChartOutlined',
+          roles: ['operator'],
+        },
+      },
+      {
+        name: 'alerts',
+        path: 'alerts',
+        component: () => import('@/views/home/alerts.vue'),
+        meta: {
+          title: '告警中心',
+          icon: 'AlertOutlined',
+          roles: ['operator'],
+        },
+      },
+      {
+        name: 'trends',
+        path: 'trends',
+        component: () => import('@/views/home/trends.vue'),
+        meta: {
+          title: '趋势分析',
+          icon: 'AreaChartOutlined',
+          roles: ['operator'],
+        },
+      },
+    ],
+    meta: {
+      title: '运维分析',
+      icon: 'LineChartOutlined',
+      roles: ['operator'],
+    },
+  },
+  {
+    name: 'governance',
+    path: 'governance',
+    component: RouterView,
+    redirect: { name: 'rules' },
+    children: [
+      {
+        name: 'rules',
+        path: 'rules',
+        component: () => import('@/views/home/rules.vue'),
+        meta: {
+          title: '规则策略',
+          icon: 'ControlOutlined',
+          roles: ['operator'],
+        },
+      },
+      {
+        name: 'system',
+        path: 'system',
+        component: () => import('@/views/home/system.vue'),
+        meta: {
+          title: '系统状态',
+          icon: 'ToolOutlined',
+          roles: ['operator'],
+        },
+      },
+      {
+        name: 'decrypt',
+        path: 'decrypt',
+        component: () => import('@/views/home/decrypt.vue'),
+        meta: {
+          title: '时间密钥解密',
+          icon: 'KeyOutlined',
+          roles: ['operator'],
+        },
+      },
+      {
+        name: 'users',
+        path: 'users',
+        component: () => import('@/views/home/users.vue'),
+        meta: {
+          title: '用户管理',
+          icon: 'TeamOutlined',
+          roles: ['admin'],
+        },
+      },
+    ],
+    meta: {
+      title: '策略与系统',
+      icon: 'SettingOutlined',
+      roles: ['operator'],
+    },
+  },
 ]
 
-
-//静态路由
 const routes: RouteRecordRaw[] = [
   {
     name: 'login',
     path: '/login',
     component: () => import('@/views/login.vue'),
     meta: {
-      title: '系统登陆'
-    }
+      title: '系统登录',
+      public: true,
+    },
   },
   {
     name: 'layout',
     path: '/',
     component: () => import('@/layout/index.vue'),
-    children: menus
+    redirect: { name: 'overview' },
+    children: menus,
   },
-  // ## not found page
   {
     name: 'not-found',
-    path: '/:path*',
+    path: '/:pathMatch(.*)*',
     component: () => import('@/views/error.vue'),
     meta: {
-      title: 'Oh no!'
-    }
-  }
+      title: '页面不存在',
+      public: true,
+    },
+  },
 ]
 
 export default routes

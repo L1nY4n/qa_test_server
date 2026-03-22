@@ -9,6 +9,8 @@ import (
 type Device struct {
 	Sn   string
 	Name string
+	// Group is optional and used by debug/testing workflows (e.g. virtual-stress).
+	Group string `json:"Group,omitempty"`
 
 	Packet       Femto_msg_packed
 	Last_rx_time time.Time

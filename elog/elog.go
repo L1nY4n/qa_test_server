@@ -2,7 +2,6 @@ package elog
 
 import (
    "os"
-   "syscall"
 )
 
 // RedirectStderr to the file passed in
@@ -11,9 +10,7 @@ func RedirectStderr() (err error) {
    if err != nil {
       return
    }
-   err = syscall.Dup2(int(logFile.Fd()), int(os.Stderr.Fd()))
-   if err != nil {
-      return
-   }
+   // Keep it cross-platform; on Windows syscall.Dup2 is unavailable.
+   os.Stderr = logFile
    return
 }

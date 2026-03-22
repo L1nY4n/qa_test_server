@@ -66,7 +66,7 @@ type Time_desc struct {
 	Hour   uint8 `json:"Hour"`
 	Day    uint8 `json:"Day"`
 	Second uint8 `json:"Second"`
-	Minute uint8 `json:"Minutes"`
+	Minute uint8 `json:"Minute"`
 }
 
 type Femto_input_reg_time struct {
@@ -133,9 +133,9 @@ type Femto_laser_para_info struct {
 }
 
 type Femto_laser_para_esp struct {
-	En       uint16     `json:"Model"`
-	Mode     uint16     `json:"SN"`
-	Ssid     [15]uint16 `json:"PN"`
+	En       uint16     `json:"En"`
+	Mode     uint16     `json:"Mode"`
+	Ssid     [15]uint16 `json:"Ssid"`
 	Wifi_ip  [4]uint16  `json:"Wifi_ip"`
 	Eth_en   uint16     `json:"Eth_en"`
 	Eth_mode uint16     `json:"Eth_mode"`
