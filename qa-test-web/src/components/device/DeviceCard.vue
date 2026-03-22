@@ -368,6 +368,123 @@ const openDetail = () => {
   font-size: 12px;
 }
 
+@media (min-width: 1600px) {
+  .device-card {
+    border-radius: 14px;
+  }
+
+  .device-card :deep(.ant-card-body) {
+    padding: 16px;
+  }
+
+  .sn {
+    font-size: 17px;
+  }
+
+  .name {
+    font-size: 14px;
+  }
+
+  .meta-label,
+  .meta-value {
+    font-size: 13px;
+  }
+
+  .status-pill {
+    padding: 4px 11px;
+    font-size: 13px;
+  }
+
+  .metric {
+    padding: 10px;
+  }
+
+  .label {
+    font-size: 13px;
+  }
+
+  .value {
+    font-size: 14px;
+  }
+
+  .footer {
+    font-size: 13px;
+  }
+}
+
+@media (min-width: 2200px) {
+  .device-card :deep(.ant-card-body) {
+    padding: 18px;
+  }
+
+  .sn {
+    font-size: 18px;
+  }
+
+  .name {
+    font-size: 15px;
+  }
+
+  .metric {
+    padding: 11px;
+  }
+
+  .value {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 680px) {
+  .device-card :deep(.ant-card-body) {
+    padding: 10px;
+  }
+
+  .card-head {
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .status-pill {
+    padding: 2px 8px;
+    font-size: 11px;
+  }
+
+  .sn {
+    font-size: 14px;
+  }
+
+  .name-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .name {
+    width: 100%;
+  }
+
+  .meta-row {
+    flex-wrap: wrap;
+  }
+
+  .status-row :deep(.ant-tag) {
+    margin-inline-end: 0;
+    font-size: 11px;
+  }
+
+  .metrics {
+    gap: 6px;
+  }
+
+  .metric {
+    padding: 6px;
+  }
+
+  .value {
+    font-size: 12px;
+  }
+}
+
 @keyframes lamp-breath {
   0% {
     transform: scale(0.9);

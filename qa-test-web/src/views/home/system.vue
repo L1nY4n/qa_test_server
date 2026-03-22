@@ -1,4 +1,4 @@
-﻿<template>
+<template>
   <div class="page">
     <a-card title="系统状态" size="small">
       <div class="toolbar">
@@ -6,7 +6,7 @@
           {{ health?.db?.ok ? '数据库正常' : '数据库异常' }}
         </a-tag>
         <a-space>
-          <a-button type="primary" size="small" :loading="loading" @click="refresh">刷新</a-button>
+          <a-button type="primary" size="small" :loading="loading" @click="refresh()">刷新</a-button>
           <a-button
             v-if="isAdmin"
             danger
@@ -37,6 +37,95 @@
           <ParamViewer :node="health?.websocket || {}" />
         </a-collapse-panel>
       </a-collapse>
+    </a-card>
+
+    <a-card title="服务器性能负载监测" size="small" class="card">
+      <div class="perf-toolbar">
+        <a-space wrap>
+          <a-tag color="blue">采样周期 {{ metrics?.sampleEverySeconds ?? 0 }} 秒</a-tag>
+          <a-tag color="default">数据点 {{ metrics?.points?.length ?? 0 }}</a-tag>
+          <a-tag color="geekblue">磁盘路径 {{ metrics?.diskPath || '--' }}</a-tag>
+        </a-space>
+        <a-button size="small" :loading="loading" @click="refresh()">刷新负载</a-button>
+      </div>
+
+      <a-alert class="perf-host" type="info" show-icon :message="hostSummary" />
+
+      <a-row :gutter="[12, 12]">
+        <a-col :xl="6" :lg="12" :md="12" :sm="24" :xs="24">
+          <a-statistic title="CPU 使用率" :value="toNumber(currentMetric?.cpuPercent)" :precision="2" suffix="%" />
+        </a-col>
+        <a-col :xl="6" :lg="12" :md="12" :sm="24" :xs="24">
+          <a-statistic
+            title="内存使用率"
+            :value="toNumber(currentMetric?.memoryUsedPercent)"
+            :precision="2"
+            suffix="%"
+          />
+        </a-col>
+        <a-col :xl="6" :lg="12" :md="12" :sm="24" :xs="24">
+          <a-statistic
+            title="磁盘使用率"
+            :value="toNumber(currentMetric?.diskUsedPercent)"
+            :precision="2"
+            suffix="%"
+          />
+        </a-col>
+        <a-col :xl="6" :lg="12" :md="12" :sm="24" :xs="24">
+          <a-statistic title="Goroutines" :value="toNumber(currentMetric?.goroutines)" />
+        </a-col>
+      </a-row>
+
+      <a-row :gutter="[12, 12]" class="mt-row">
+        <a-col :xl="6" :lg="12" :md="12" :sm="24" :xs="24">
+          <a-statistic
+            title="下行流量"
+            :value="toKBps(currentMetric?.netRecvBps)"
+            :precision="2"
+            suffix="KB/s"
+          />
+        </a-col>
+        <a-col :xl="6" :lg="12" :md="12" :sm="24" :xs="24">
+          <a-statistic
+            title="上行流量"
+            :value="toKBps(currentMetric?.netSentBps)"
+            :precision="2"
+            suffix="KB/s"
+          />
+        </a-col>
+        <a-col :xl="6" :lg="12" :md="12" :sm="24" :xs="24">
+          <a-statistic
+            title="进程 CPU"
+            :value="toNumber(currentMetric?.processCpuPercent)"
+            :precision="2"
+            suffix="%"
+          />
+        </a-col>
+        <a-col :xl="6" :lg="12" :md="12" :sm="24" :xs="24">
+          <a-statistic title="进程 RSS" :value="toMiB(currentMetric?.processRssBytes)" :precision="2" suffix="MiB" />
+        </a-col>
+      </a-row>
+
+      <div class="perf-load">
+        <a-tag color="purple">Load1: {{ formatLoad(currentMetric?.load1) }}</a-tag>
+        <a-tag color="purple">Load5: {{ formatLoad(currentMetric?.load5) }}</a-tag>
+        <a-tag color="purple">Load15: {{ formatLoad(currentMetric?.load15) }}</a-tag>
+      </div>
+
+      <div class="chart-row">
+        <HistoryTimelineChart
+          title="CPU / 内存 / 磁盘 / 进程CPU 趋势"
+          :series="usageSeries"
+          :y-axes="usageYAxes"
+        />
+      </div>
+      <div class="chart-row">
+        <HistoryTimelineChart
+          title="网络吞吐与进程内存趋势"
+          :series="networkSeries"
+          :y-axes="networkYAxes"
+        />
+      </div>
     </a-card>
 
     <a-card title="虚拟设备调试接口" size="small" class="card">
@@ -162,20 +251,22 @@
         :message="`云系统重置时间 ${formatTime(lastReset.resetAt)}：清空设备 ${lastReset.clearedDevices} 台，历史 ${lastReset.historyRowsDeleted} 条，参数变更 ${lastReset.paramRowsDeleted} 条`"
       />
     </a-card>
-
   </div>
 </template>
 
 <script setup lang="ts">
 import * as API from '@/api'
-import { computed, onMounted, reactive, ref } from 'vue'
+import { computed, onBeforeUnmount, onMounted, reactive, ref } from 'vue'
 import { message, Modal } from 'ant-design-vue'
 import ParamViewer from '@/components/device/ParamViewer.vue'
-import type { SystemHealth, SystemResetResult } from '@/api/system'
+import HistoryTimelineChart from '@/components/device/HistoryTimelineChart.vue'
 import type {
-  VirtualPulseResult,
-  VirtualDeviceStatus,
-} from '@/api/debug'
+  SystemHealth,
+  SystemMetricSample,
+  SystemMetricsPayload,
+  SystemResetResult,
+} from '@/api/system'
+import type { VirtualDeviceStatus, VirtualPulseResult } from '@/api/debug'
 import { getCurrentUser } from '@/utils/auth'
 
 const loading = ref(false)
@@ -185,12 +276,105 @@ const stressLoading = ref(false)
 const resetLoading = ref(false)
 
 const health = ref<SystemHealth | null>(null)
+const metrics = ref<SystemMetricsPayload | null>(null)
 const virtualStatus = ref<VirtualDeviceStatus | null>(null)
 const lastPulse = ref<VirtualPulseResult | null>(null)
 const lastStressPulse = ref<VirtualPulseResult | null>(null)
 const lastReset = ref<SystemResetResult | null>(null)
 
+const autoRefreshMs = 5000
+const metricPointLimit = 360
+let autoTimer: ReturnType<typeof setInterval> | null = null
+
 const isAdmin = computed(() => getCurrentUser()?.role === 'admin')
+const currentMetric = computed<SystemMetricSample | null>(() => {
+  if (metrics.value?.current) {
+    return metrics.value.current
+  }
+  if (health.value?.performance) {
+    return health.value.performance
+  }
+  return null
+})
+
+const hostSummary = computed(() => {
+  const host = metrics.value?.host
+  if (!host) {
+    return '主机信息加载中...'
+  }
+  const bootText = host.bootTime
+    ? new Date(host.bootTime * 1000).toLocaleString()
+    : '--'
+  const platform = `${host.platform || host.os || '--'} ${host.platformVersion || ''}`.trim()
+  return `主机 ${host.hostname || '--'} | 平台 ${platform} | 内核 ${host.kernelVersion || '--'} | 架构 ${host.architecture || '--'} | 启动时间 ${bootText}`
+})
+
+const usageSeries = computed(() => {
+  const points = metrics.value?.points || []
+  return [
+    {
+      name: 'CPU',
+      data: points.map((item) => [item.sampledAt, toNumber(item.cpuPercent)] as [string, number]),
+      color: '#1677ff',
+      unit: '%',
+    },
+    {
+      name: '内存',
+      data: points.map((item) => [item.sampledAt, toNumber(item.memoryUsedPercent)] as [string, number]),
+      color: '#fa8c16',
+      unit: '%',
+    },
+    {
+      name: '磁盘',
+      data: points.map((item) => [item.sampledAt, toNumber(item.diskUsedPercent)] as [string, number]),
+      color: '#52c41a',
+      unit: '%',
+    },
+    {
+      name: '进程CPU',
+      data: points.map((item) => [item.sampledAt, toNumber(item.processCpuPercent)] as [string, number]),
+      color: '#722ed1',
+      unit: '%',
+      dashed: true,
+    },
+  ]
+})
+
+const usageYAxes = computed(() => [
+  { name: '使用率(%)', position: 'left' as const, min: 0, max: 100 },
+])
+
+const networkSeries = computed(() => {
+  const points = metrics.value?.points || []
+  return [
+    {
+      name: '下行',
+      data: points.map((item) => [item.sampledAt, toKBps(item.netRecvBps)] as [string, number]),
+      color: '#13c2c2',
+      unit: 'KB/s',
+      yAxisIndex: 0,
+    },
+    {
+      name: '上行',
+      data: points.map((item) => [item.sampledAt, toKBps(item.netSentBps)] as [string, number]),
+      color: '#eb2f96',
+      unit: 'KB/s',
+      yAxisIndex: 0,
+    },
+    {
+      name: '进程RSS',
+      data: points.map((item) => [item.sampledAt, toMiB(item.processRssBytes)] as [string, number]),
+      color: '#2f54eb',
+      unit: 'MiB',
+      yAxisIndex: 1,
+    },
+  ]
+})
+
+const networkYAxes = computed(() => [
+  { name: '网络(KB/s)', position: 'left' as const, min: 0 },
+  { name: '进程内存(MiB)', position: 'right' as const, min: 0 },
+])
 
 const cfg = reactive({
   count: 200,
@@ -203,6 +387,30 @@ const cfg = reactive({
   wsBroadcast: true,
 })
 
+const toNumber = (value: unknown): number => {
+  const n = Number(value ?? 0)
+  if (!Number.isFinite(n)) {
+    return 0
+  }
+  return Number(n.toFixed(2))
+}
+
+const toKBps = (bps: unknown): number => {
+  return toNumber(Number(bps ?? 0) / 1024)
+}
+
+const toMiB = (bytes: unknown): number => {
+  return toNumber(Number(bytes ?? 0) / (1024 * 1024))
+}
+
+const formatLoad = (value: unknown): string => {
+  const n = Number(value)
+  if (!Number.isFinite(n)) {
+    return '--'
+  }
+  return n.toFixed(2)
+}
+
 const formatTime = (value?: string): string => {
   if (!value) {
     return '-'
@@ -214,17 +422,31 @@ const formatTime = (value?: string): string => {
   return new Date(t).toLocaleString()
 }
 
-const refresh = async () => {
-  loading.value = true
+const fetchAll = async () => {
+  const [healthRes, virtualRes, metricsRes] = await Promise.all([
+    API.system.health(),
+    API.debug.virtualStatus(),
+    API.system.metrics(metricPointLimit),
+  ])
+  health.value = healthRes
+  virtualStatus.value = virtualRes
+  metrics.value = metricsRes
+}
+
+const refresh = async (silent = false) => {
+  if (!silent) {
+    loading.value = true
+  }
   try {
-    const [healthRes, virtualRes] = await Promise.all([
-      API.system.health(),
-      API.debug.virtualStatus(),
-    ])
-    health.value = healthRes
-    virtualStatus.value = virtualRes
+    await fetchAll()
+  } catch (error: any) {
+    if (!silent) {
+      message.error(error?.message || '系统状态刷新失败')
+    }
   } finally {
-    loading.value = false
+    if (!silent) {
+      loading.value = false
+    }
   }
 }
 
@@ -311,6 +533,16 @@ const confirmCloudReset = () => {
 
 onMounted(() => {
   void refresh()
+  autoTimer = setInterval(() => {
+    void refresh(true)
+  }, autoRefreshMs)
+})
+
+onBeforeUnmount(() => {
+  if (autoTimer) {
+    clearInterval(autoTimer)
+    autoTimer = null
+  }
 })
 </script>
 
@@ -324,7 +556,8 @@ onMounted(() => {
 }
 
 .toolbar,
-.debug-toolbar {
+.debug-toolbar,
+.perf-toolbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -333,12 +566,51 @@ onMounted(() => {
   flex-wrap: wrap;
 }
 
+.perf-host {
+  margin-bottom: 12px;
+}
+
+.perf-load {
+  margin: 10px 0 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.chart-row {
+  margin-top: 10px;
+  border-radius: 10px;
+  border: 1px solid #e6eef7;
+  background: linear-gradient(180deg, #f9fcff, #f4f9ff);
+  padding: 8px;
+}
+
 .config-row {
   margin-bottom: 0;
 }
 
 .tip {
   margin-top: 10px;
+}
+
+.mt-row {
+  margin-top: 2px;
+}
+
+@media (min-width: 1600px) {
+  .page {
+    padding: 16px;
+  }
+
+  .card {
+    margin-top: 14px;
+  }
+
+  .chart-row {
+    margin-top: 12px;
+    padding: 10px;
+  }
 }
 
 @media (max-width: 900px) {

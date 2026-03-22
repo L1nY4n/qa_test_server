@@ -4,9 +4,10 @@
       v-model:collapsed="collapsed"
       :trigger="null"
       class="app-sider"
+      :class="{ 'is-mobile-sider': isMobile, 'is-high-res-sider': isHighRes }"
       collapsible
-      :width="228"
-      :collapsed-width="64"
+      :width="siderWidth"
+      :collapsed-width="isMobile ? 0 : 64"
     >
       <div class="logo">{{ APP_TITLE }}</div>
       <a-menu
@@ -31,8 +32,9 @@
         </a-sub-menu>
       </a-menu>
     </a-layout-sider>
+    <div v-if="isMobile && !collapsed" class="mobile-mask" @click="collapsed = true" />
 
-    <a-layout class="app-main-layout">
+    <a-layout class="app-main-layout" :class="{ 'mobile-main-layout': isMobile, 'high-res-layout': isHighRes }">
       <a-layout-header class="app-header">
         <menu-unfold-outlined
           v-if="collapsed"
@@ -110,6 +112,7 @@ const selectedKeys = ref<string[]>([])
 const openKeys = ref<string[]>([])
 const collapsed = ref<boolean>(false)
 const isMobile = ref<boolean>(false)
+const isHighRes = ref<boolean>(false)
 const initializedViewport = ref<boolean>(false)
 const router = useRouter()
 const currentRoute = useRoute()
@@ -169,13 +172,17 @@ const roleLabel = computed(() => {
   return '未登录'
 })
 
+const siderWidth = computed(() => (isHighRes.value ? 268 : 228))
+
 const resolveIcon = (key: string) => {
   return iconMap[key] || AppstoreOutlined
 }
 
 const applyViewportState = () => {
-  const mobile = window.innerWidth <= MOBILE_BREAKPOINT
+  const width = window.innerWidth
+  const mobile = width <= MOBILE_BREAKPOINT
   isMobile.value = mobile
+  isHighRes.value = width >= 1600
   if (!initializedViewport.value) {
     initializedViewport.value = true
     if (mobile) {
@@ -252,6 +259,13 @@ onBeforeUnmount(() => {
   box-shadow: 2px 0 14px rgba(15, 23, 42, 0.22);
 }
 
+.mobile-mask {
+  position: fixed;
+  inset: 0;
+  background: rgba(18, 29, 43, 0.32);
+  z-index: 999;
+}
+
 .logo {
   height: 44px;
   margin: 14px;
@@ -264,6 +278,9 @@ onBeforeUnmount(() => {
   font-size: 13px;
   font-weight: 700;
   letter-spacing: 0.8px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .app-main-layout {
@@ -323,7 +340,82 @@ onBeforeUnmount(() => {
   height: calc(100vh - 84px);
 }
 
+@media (min-width: 1600px) {
+  .app-sider.is-high-res-sider {
+    box-shadow: 4px 0 22px rgba(15, 23, 42, 0.22);
+  }
+
+  .logo {
+    height: 52px;
+    margin: 16px;
+    border-radius: 12px;
+    font-size: 15px;
+    letter-spacing: 0.6px;
+  }
+
+  .app-header {
+    min-height: 62px;
+    padding: 0 22px;
+    gap: 14px;
+  }
+
+  .header-title {
+    font-size: 17px;
+    letter-spacing: 0.4px;
+  }
+
+  .header-right {
+    gap: 12px;
+  }
+
+  .trigger {
+    font-size: 20px;
+  }
+
+  .main-content {
+    margin: 14px;
+    border-radius: 14px;
+    height: calc(100vh - 106px);
+  }
+}
+
+@media (min-width: 2200px) {
+  .logo {
+    height: 56px;
+    font-size: 16px;
+  }
+
+  .app-header {
+    min-height: 68px;
+    padding: 0 28px;
+  }
+
+  .header-title {
+    font-size: 19px;
+  }
+
+  .main-content {
+    margin: 18px;
+    border-radius: 16px;
+    height: calc(100vh - 122px);
+  }
+}
+
 @media (max-width: 900px) {
+  .app-sider.is-mobile-sider {
+    position: fixed !important;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    height: 100vh;
+    z-index: 1000;
+  }
+
+  .mobile-main-layout {
+    width: 100%;
+    margin-left: 0 !important;
+  }
+
   .main-content {
     margin: 8px;
     height: calc(100vh - 80px);
@@ -342,6 +434,38 @@ onBeforeUnmount(() => {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+  }
+}
+
+@media (max-width: 680px) {
+  .logo {
+    margin: 12px 10px;
+    padding: 0 10px;
+    justify-content: flex-start;
+    letter-spacing: 0.2px;
+    font-size: 12px;
+  }
+
+  .app-header {
+    padding: 0 10px;
+    gap: 8px;
+  }
+
+  .header-title {
+    max-width: 42vw;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .header-right :deep(.ant-tag) {
+    display: none;
+  }
+
+  .main-content {
+    margin: 6px;
+    border-radius: 10px;
+    height: calc(100vh - 76px);
   }
 }
 </style>

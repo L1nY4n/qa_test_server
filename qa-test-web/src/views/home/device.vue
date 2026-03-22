@@ -29,6 +29,8 @@
           <a-select-option :value="12">12 / {{ t.pageUnit }}</a-select-option>
           <a-select-option :value="16">16 / {{ t.pageUnit }}</a-select-option>
           <a-select-option :value="24">24 / {{ t.pageUnit }}</a-select-option>
+          <a-select-option :value="32">32 / {{ t.pageUnit }}</a-select-option>
+          <a-select-option :value="40">40 / {{ t.pageUnit }}</a-select-option>
         </a-select>
         <a-button type="primary" :loading="state.loading" @click="refresh">{{ t.refresh }}</a-button>
         <a-tag color="blue">{{ t.total }}: {{ state.stats?.total ?? 0 }}</a-tag>
@@ -66,8 +68,9 @@
       v-model:visible="detailVisible"
       :title="detailTitle"
       :footer="null"
-      width="92vw"
-      :bodyStyle="{ padding: '10px 12px', maxHeight: '78vh', overflow: 'auto' }"
+      :width="detailModalWidth"
+      :bodyStyle="detailModalBodyStyle"
+      :style="isPhone ? { top: '0', paddingBottom: '0' } : undefined"
       :destroyOnClose="true"
       :maskClosable="false"
       centered
@@ -116,6 +119,8 @@ const detailVisible = ref(false)
 const detailLoading = ref(false)
 const selectedSn = ref('')
 const selectedDevice = ref<Device | null>(null)
+const isPhone = ref(false)
+const isHighRes = ref(false)
 
 const state = reactive<{
   list: DeviceCardInfo[]
@@ -136,9 +141,39 @@ const detailTitle = computed(() => {
   return `${t.deviceDetail} - ${selectedSn.value}`
 })
 
+const detailModalWidth = computed(() => {
+  if (isPhone.value) {
+    return '100vw'
+  }
+  if (isHighRes.value) {
+    return '88vw'
+  }
+  return '92vw'
+})
+const detailModalBodyStyle = computed(() => {
+  if (isPhone.value) {
+    return {
+      padding: '8px',
+      maxHeight: '84vh',
+      overflow: 'auto',
+    }
+  }
+  return {
+    padding: isHighRes.value ? '14px 16px' : '10px 12px',
+    maxHeight: isHighRes.value ? '84vh' : '78vh',
+    overflow: 'auto',
+  }
+})
+
 let ws: WebSocket | null = null
 let pollTimer: ReturnType<typeof setInterval> | null = null
 let delayedRefreshTimer: ReturnType<typeof setTimeout> | null = null
+
+const syncViewport = () => {
+  const width = window.innerWidth
+  isPhone.value = width <= 680
+  isHighRes.value = width >= 1600
+}
 
 const queryParams = () => ({
   keyword: keyword.value.trim() || undefined,
@@ -366,6 +401,8 @@ watch(detailVisible, (open) => {
 })
 
 onMounted(() => {
+  syncViewport()
+  window.addEventListener('resize', syncViewport)
   webSocketConnect()
   void refresh()
   pollTimer = setInterval(() => {
@@ -374,6 +411,7 @@ onMounted(() => {
 })
 
 onBeforeUnmount(() => {
+  window.removeEventListener('resize', syncViewport)
   ws?.close()
   if (pollTimer) {
     clearInterval(pollTimer)
@@ -469,6 +507,74 @@ onBeforeUnmount(() => {
     color: #1e7148;
   }
 
+  @media (min-width: 1600px) {
+    .toolbar {
+      padding: 14px 18px;
+      gap: 14px;
+    }
+
+    .toolbar-left,
+    .toolbar-right {
+      gap: 12px;
+    }
+
+    .toolbar-label {
+      font-size: 13px;
+    }
+
+    .keyword-input {
+      width: clamp(320px, 28vw, 520px);
+    }
+
+    .group-filter {
+      width: 220px;
+    }
+
+    .page-size {
+      width: 120px;
+    }
+
+    .list {
+      padding: 18px;
+    }
+
+    .card-grid {
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 16px;
+    }
+
+    .pager {
+      padding: 10px 18px 14px;
+    }
+  }
+
+  @media (min-width: 2200px) {
+    .toolbar {
+      padding: 16px 22px;
+    }
+
+    .keyword-input {
+      width: clamp(380px, 24vw, 620px);
+    }
+
+    .group-filter {
+      width: 240px;
+    }
+
+    .page-size {
+      width: 132px;
+    }
+
+    .list {
+      padding: 22px;
+    }
+
+    .card-grid {
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      gap: 18px;
+    }
+  }
+
   @media (max-width: 900px) {
     .toolbar {
       padding: 8px 10px;
@@ -487,6 +593,42 @@ onBeforeUnmount(() => {
     .pager {
       justify-content: center;
       padding: 8px 10px;
+    }
+  }
+
+  @media (max-width: 680px) {
+    .toolbar-left,
+    .toolbar-right {
+      width: 100%;
+      gap: 8px;
+    }
+
+    .keyword-input,
+    .group-filter,
+    .page-size {
+      width: 100%;
+    }
+
+    .toolbar-item {
+      width: 100%;
+      justify-content: space-between;
+      padding: 6px 8px;
+      border: 1px solid #d4e1ef;
+      border-radius: 8px;
+      background: rgba(245, 250, 255, 0.9);
+    }
+
+    .toolbar-right :deep(.ant-btn) {
+      width: 100%;
+    }
+
+    .toolbar-right :deep(.ant-tag) {
+      margin-inline-end: 0;
+      text-align: center;
+    }
+
+    .list {
+      padding: 8px;
     }
   }
 }

@@ -21,6 +21,7 @@
       :pagination="false"
       row-key="id"
       size="middle"
+      :scroll="{ x: 980 }"
       class="table"
     >
       <template #bodyCell="{ column, record }">
@@ -456,6 +457,35 @@ onMounted(() => {
   justify-content: flex-end;
 }
 
+@media (min-width: 1600px) {
+  .users-page {
+    padding: 18px;
+  }
+
+  .toolbar {
+    margin-bottom: 14px;
+    gap: 14px;
+  }
+
+  .search {
+    max-width: 460px;
+  }
+
+  .pager {
+    margin-top: 16px;
+  }
+}
+
+@media (min-width: 2200px) {
+  .users-page {
+    padding: 22px;
+  }
+
+  .search {
+    max-width: 560px;
+  }
+}
+
 @media (max-width: 900px) {
   .users-page {
     padding: 10px;
@@ -472,6 +502,20 @@ onMounted(() => {
 
   .pager {
     justify-content: center;
+  }
+}
+
+@media (max-width: 680px) {
+  .toolbar :deep(.ant-space) {
+    width: 100%;
+  }
+
+  .toolbar :deep(.ant-space .ant-space-item) {
+    width: 50%;
+  }
+
+  .toolbar :deep(.ant-space .ant-btn) {
+    width: 100%;
   }
 }
 </style>

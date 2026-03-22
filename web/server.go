@@ -3,6 +3,7 @@ package web
 import (
 	"encoding/json"
 	"log"
+	"time"
 
 	"github.com/gin-gonic/gin"
 
@@ -37,6 +38,7 @@ func Start(cfg config.AppConfig) {
 	if err := manager.DecryptManagerGlobal.Init(); err != nil {
 		log.Printf("init decrypt manager failed: %v", err)
 	}
+	manager.SystemMonitorManagerGlobal.Init(5*time.Second, 720)
 	manager.VirtualDeviceManagerGlobal.SetBroadcastHook(func(device model.Device) bool {
 		data, err := json.Marshal(device)
 		if err != nil {

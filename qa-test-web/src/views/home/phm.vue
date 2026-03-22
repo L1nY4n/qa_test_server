@@ -544,9 +544,93 @@ onBeforeUnmount(() => {
   font-family: Consolas, 'Courier New', monospace;
 }
 
+@media (min-width: 1600px) {
+  .phm-page {
+    padding: 16px;
+  }
+
+  .toolbar {
+    gap: 14px;
+    margin-bottom: 14px;
+  }
+
+  .title-box h3 {
+    font-size: 18px;
+  }
+
+  .title-box p {
+    font-size: 13px;
+  }
+
+  .table-card {
+    margin-top: 14px;
+  }
+
+  .table-toolbar {
+    margin-bottom: 12px;
+    gap: 10px;
+  }
+
+  .cell-main {
+    font-size: 14px;
+  }
+
+  .cell-sub {
+    font-size: 13px;
+  }
+}
+
+@media (min-width: 2200px) {
+  .phm-page {
+    padding: 20px;
+  }
+
+  .title-box h3 {
+    font-size: 20px;
+  }
+}
+
 @media (max-width: 900px) {
   .phm-page {
     padding: 8px;
+  }
+}
+
+@media (max-width: 680px) {
+  .toolbar {
+    gap: 8px;
+  }
+
+  .title-box {
+    width: 100%;
+  }
+
+  .title-box h3 {
+    font-size: 14px;
+  }
+
+  .toolbar :deep(.ant-space) {
+    width: 100%;
+  }
+
+  .toolbar :deep(.ant-space .ant-space-item) {
+    width: 100%;
+  }
+
+  .toolbar :deep(.ant-space .ant-select),
+  .toolbar :deep(.ant-space .ant-btn) {
+    width: 100%;
+  }
+
+  .table-toolbar :deep(.ant-tag) {
+    width: 100%;
+    text-align: center;
+    margin-inline-end: 0;
+  }
+
+  .score-text {
+    display: inline-block;
+    min-width: 30px;
   }
 }
 </style>

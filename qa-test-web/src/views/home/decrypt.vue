@@ -388,6 +388,41 @@ watch(
   margin-bottom: 10px;
 }
 
+@media (min-width: 1600px) {
+  .page {
+    padding: 16px;
+  }
+
+  .content {
+    margin-top: 14px;
+  }
+
+  .mode-panel {
+    margin-top: 14px;
+    border-radius: 12px;
+    padding: 14px;
+  }
+
+  .panel-title {
+    font-size: 15px;
+  }
+
+  .toolbar {
+    margin-bottom: 14px;
+    gap: 12px;
+  }
+}
+
+@media (min-width: 2200px) {
+  .page {
+    padding: 20px;
+  }
+
+  .mode-panel {
+    padding: 16px;
+  }
+}
+
 @media (max-width: 900px) {
   .page {
     padding: 8px;
@@ -408,6 +443,39 @@ watch(
   .toolbar-right {
     width: 100%;
     justify-content: flex-start;
+  }
+}
+
+@media (max-width: 680px) {
+  .mode-panel {
+    margin-top: 10px;
+    padding: 8px;
+  }
+
+  .toolbar {
+    gap: 8px;
+  }
+
+  .toolbar-left,
+  .toolbar-right {
+    width: 100%;
+  }
+
+  .toolbar-left :deep(.ant-space) {
+    width: 100%;
+  }
+
+  .toolbar-left :deep(.ant-space .ant-space-item) {
+    width: 100%;
+  }
+
+  .toolbar-left :deep(.ant-select),
+  .toolbar-left :deep(.ant-btn) {
+    width: 100%;
+  }
+
+  .action-group :deep(.ant-btn) {
+    width: 100%;
   }
 }
 </style>

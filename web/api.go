@@ -37,6 +37,7 @@ func Api(r *gin.Engine) {
 		{
 			systemRoute.GET("/info", sysInfo)
 			systemRoute.GET("/health", health)
+			systemRoute.GET("/metrics", systemMetrics)
 			systemRoute.POST("/reset", requireRoles(model.RoleAdmin), systemReset)
 		}
 
@@ -119,6 +120,7 @@ func sysInfo(c *gin.Context) {
 func health(c *gin.Context) {
 	dbOK, dbMessage := db.Health(2 * time.Second)
 	wsStats := WsManager.Stats()
+	perf := manager.SystemMonitorManagerGlobal.Latest()
 
 	payload := gin.H{
 		"uptimeSeconds": int64(time.Since(appStartedAt).Seconds()),
@@ -131,6 +133,7 @@ func health(c *gin.Context) {
 			"httpAddr": appConfig.HTTPAddr,
 			"tcpAddr":  appConfig.TCPAddr,
 		},
+		"performance": perf,
 	}
 
 	if !dbOK {
@@ -142,6 +145,18 @@ func health(c *gin.Context) {
 		return
 	}
 	ok(c, payload)
+}
+
+func systemMetrics(c *gin.Context) {
+	points := queryInt(c, "points", 120)
+	if points < 30 {
+		points = 30
+	}
+	if points > 2000 {
+		points = 2000
+	}
+
+	ok(c, manager.SystemMonitorManagerGlobal.Snapshot(points))
 }
 
 func systemReset(c *gin.Context) {

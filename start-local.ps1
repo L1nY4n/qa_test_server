@@ -1,3 +1,8 @@
+param(
+    [switch]$Lan,
+    [string]$LanIP = ""
+)
+
 $ErrorActionPreference = "Stop"
 
 $projectRoot = Split-Path -Parent $MyInvocation.MyCommand.Path
@@ -27,6 +32,30 @@ function Test-IsAdmin {
     return $principal.IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
 }
 
+function Get-PreferredIPv4 {
+    $route = Get-NetRoute -AddressFamily IPv4 -DestinationPrefix "0.0.0.0/0" -ErrorAction SilentlyContinue |
+        Sort-Object -Property RouteMetric, InterfaceMetric |
+        Select-Object -First 1
+
+    if ($route) {
+        $addr = Get-NetIPAddress -AddressFamily IPv4 -InterfaceIndex $route.InterfaceIndex -ErrorAction SilentlyContinue |
+            Where-Object { $_.IPAddress -notlike "169.254*" -and $_.IPAddress -ne "127.0.0.1" } |
+            Select-Object -First 1
+        if ($addr) {
+            return $addr.IPAddress
+        }
+    }
+
+    $fallback = Get-NetIPAddress -AddressFamily IPv4 -ErrorAction SilentlyContinue |
+        Where-Object { $_.IPAddress -notlike "169.254*" -and $_.IPAddress -ne "127.0.0.1" } |
+        Select-Object -First 1
+    if ($fallback) {
+        return $fallback.IPAddress
+    }
+
+    return ""
+}
+
 function Ensure-FirewallProgramRule {
     param(
         [string]$RuleName,
@@ -44,6 +73,20 @@ function Ensure-FirewallProgramRule {
     } else {
         & netsh advfirewall firewall add rule name="$RuleName" dir=in action=allow program="$ProgramPath" protocol=TCP localport="$Ports" enable=yes profile=any | Out-Null
     }
+}
+
+function Ensure-FirewallPortRule {
+    param(
+        [string]$RuleName,
+        [string]$Ports
+    )
+
+    if ([string]::IsNullOrWhiteSpace($Ports)) {
+        return
+    }
+
+    & netsh advfirewall firewall delete rule name="$RuleName" | Out-Null
+    & netsh advfirewall firewall add rule name="$RuleName" dir=in action=allow protocol=TCP localport="$Ports" enable=yes profile=any | Out-Null
 }
 
 function Ensure-MyIniLocalBind {
@@ -64,6 +107,28 @@ function Ensure-MyIniLocalBind {
     if ($updated -ne $content) {
         Set-Content -Path $IniPath -Value $updated -Encoding ASCII
     }
+}
+
+$httpBindAddr = "127.0.0.1:8080"
+$tcpBindAddr = "127.0.0.1:4001"
+$viteHost = "127.0.0.1"
+$displayHost = "localhost"
+$frontendEnvFile = Join-Path $projectRoot "qa-test-web\.env.development.local"
+
+if ($Lan) {
+    if ([string]::IsNullOrWhiteSpace($LanIP)) {
+        $LanIP = Get-PreferredIPv4
+    }
+    if ([string]::IsNullOrWhiteSpace($LanIP)) {
+        throw "Unable to detect LAN IPv4. Please rerun with -LanIP <your-ip>."
+    }
+
+    $httpBindAddr = "0.0.0.0:8080"
+    $tcpBindAddr = "0.0.0.0:4001"
+    $viteHost = "0.0.0.0"
+    $displayHost = $LanIP
+
+    Set-Content -Path $frontendEnvFile -Value "VITE_APP_BASE_URL=${LanIP}:8080`r`n" -Encoding ASCII
 }
 
 New-Item -ItemType Directory -Path $tmpDir -Force | Out-Null
@@ -93,8 +158,8 @@ for ($i = 0; $i -lt 15; $i++) {
 
 & $mysqlExe --no-defaults --protocol=tcp --host=127.0.0.1 --port=3306 --user=root "--password=$dbPassword" -e "CREATE DATABASE IF NOT EXISTS go_test CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;"
 
-$env:QA_HTTP_ADDR = "127.0.0.1:8080"
-$env:QA_TCP_ADDR = "127.0.0.1:4001"
+$env:QA_HTTP_ADDR = $httpBindAddr
+$env:QA_TCP_ADDR = $tcpBindAddr
 $env:QA_PROXY_FROM_PORT = "0"
 $env:QA_PROXY_TO_PORT = "0"
 $env:QA_DB_DSN = "root:$dbPassword@tcp(127.0.0.1:3306)/go_test?charset=utf8mb4&parseTime=True&loc=Local"
@@ -106,8 +171,16 @@ $buildErr = Join-Path $tmpDir "backend-build.err.log"
 if (Test-IsAdmin) {
     Ensure-FirewallProgramRule -RuleName "QA Local Backend 8080" -ProgramPath $backendExe -Ports "8080"
     Ensure-FirewallProgramRule -RuleName "QA Local DB 3306" -ProgramPath $mariadbdExe -Ports "3306"
+    if ($Lan) {
+        Ensure-FirewallPortRule -RuleName "QA LAN Frontend 5173" -Ports "5173"
+        Ensure-FirewallPortRule -RuleName "QA LAN Backend 8080" -Ports "8080"
+    }
 } else {
-    Write-Host "Tip: run start-local.ps1 as Administrator once to pre-authorize firewall rules and avoid security prompts."
+    if ($Lan) {
+        Write-Host "Tip: run start-lan.ps1 as Administrator once to pre-authorize firewall rules and avoid security prompts."
+    } else {
+        Write-Host "Tip: run start-local.ps1 as Administrator once to pre-authorize firewall rules and avoid security prompts."
+    }
 }
 
 $backendListening = Get-NetTCPConnection -LocalPort 8080 -State Listen -ErrorAction SilentlyContinue
@@ -125,7 +198,7 @@ if (-not $frontendListening) {
     # Vite 2 works reliably with Node 20 in this project.
     $frontendProc = Start-Process `
         -FilePath $npxCmd `
-        -ArgumentList "-y", "node@20.20.1", "node_modules/vite/bin/vite.js", "--host", "127.0.0.1", "--port", "5173", "--strictPort" `
+        -ArgumentList "-y", "node@20.20.1", "node_modules/vite/bin/vite.js", "--host", $viteHost, "--port", "5173", "--strictPort" `
         -WorkingDirectory (Join-Path $projectRoot "qa-test-web") `
         -WindowStyle Hidden `
         -RedirectStandardOutput $frontendOut `
@@ -134,6 +207,13 @@ if (-not $frontendListening) {
     Set-Content -Path (Join-Path $tmpDir "frontend.pid") -Value $frontendProc.Id
 }
 
-Write-Host "Local stack is ready."
-Write-Host "Backend:  http://localhost:8080/system/info"
-Write-Host "Frontend: http://localhost:5173"
+if ($Lan) {
+    Write-Host "LAN stack is ready."
+    Write-Host "Frontend: http://$displayHost`:5173"
+    Write-Host "Backend:  http://$displayHost`:8080/system/info"
+    Write-Host "Local:    http://localhost:5173"
+} else {
+    Write-Host "Local stack is ready."
+    Write-Host "Backend:  http://localhost:8080/system/info"
+    Write-Host "Frontend: http://localhost:5173"
+}

@@ -105,7 +105,7 @@
           size="small"
           row-key="sampledAt"
           :pagination="false"
-          :scroll="{ y: 360 }"
+          :scroll="{ x: 920, y: 360 }"
         >
           <template #bodyCell="{ column, record }">
             <template v-if="column.dataIndex === 'sampledAt'">
@@ -156,7 +156,7 @@
           size="small"
           row-key="id"
           :pagination="false"
-          :scroll="{ y: 360 }"
+          :scroll="{ x: 1080, y: 360 }"
         >
           <template #bodyCell="{ column, record }">
             <template v-if="column.dataIndex === 'changedAt'">
@@ -697,6 +697,58 @@ watch(
   font-family: Consolas, 'Courier New', monospace;
 }
 
+@media (min-width: 1600px) {
+  .device-detail {
+    border-radius: 12px;
+    padding: 16px;
+  }
+
+  .detail-header {
+    border-radius: 10px;
+    padding: 12px 14px;
+    margin-bottom: 14px;
+  }
+
+  .sn {
+    font-size: 16px;
+  }
+
+  .name {
+    font-size: 14px;
+  }
+
+  .last-seen {
+    font-size: 13px;
+  }
+
+  .toolbar-wrap {
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+
+  .metric-label {
+    font-size: 13px;
+  }
+}
+
+@media (min-width: 2200px) {
+  .device-detail {
+    padding: 18px;
+  }
+
+  .detail-header {
+    padding: 14px 16px;
+  }
+
+  .sn {
+    font-size: 17px;
+  }
+
+  .name {
+    font-size: 15px;
+  }
+}
+
 @media (max-width: 900px) {
   .device-detail {
     padding: 8px;
@@ -704,6 +756,35 @@ watch(
 
   .detail-header {
     padding: 6px 8px;
+  }
+}
+
+@media (max-width: 680px) {
+  .toolbar-wrap {
+    gap: 6px;
+  }
+
+  .toolbar-wrap > * {
+    width: 100%;
+  }
+
+  .metric-label {
+    display: block;
+    width: 100%;
+    margin-bottom: -2px;
+  }
+
+  .path-input {
+    width: 100%;
+  }
+
+  .header-right {
+    width: 100%;
+  }
+
+  .name {
+    max-width: 100%;
+    word-break: break-word;
   }
 }
 </style>
