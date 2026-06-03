@@ -69,6 +69,17 @@
       </a-col>
     </a-row>
 
+    <a-card size="small" :title="t.visualPluginPanel">
+      <DeviceVisualPluginPanel
+        :health-score="healthScore"
+        :pump-rows="pumpRows"
+        :alarm-now-count="nowAlarmBits.length"
+        :alarm-history-count="historyAlarmBits.length"
+        :temp-values="tempValues"
+        :voltage-values="voltageValues"
+      />
+    </a-card>
+
     <a-row :gutter="[10, 10]">
       <a-col :xl="12" :lg="24" :md="24" :sm="24" :xs="24">
         <a-card size="small" :title="t.tempChannels">
@@ -107,11 +118,6 @@
         <template #bodyCell="{ column, record }">
           <template v-if="column.dataIndex === 'switch'">
             <a-tag :color="record.switch === t.switchOn ? 'green' : 'default'">{{ record.switch }}</a-tag>
-          </template>
-          <template v-else-if="column.dataIndex === 'delta'">
-            <a-tag :color="record.delta > 30 ? 'orange' : record.delta < -30 ? 'red' : 'default'">
-              {{ record.delta }}
-            </a-tag>
           </template>
         </template>
       </a-table>
@@ -165,6 +171,7 @@
 import { computed } from 'vue'
 import type { Device } from '@/types/api'
 import MetricLineChart from './MetricLineChart.vue'
+import DeviceVisualPluginPanel from './DeviceVisualPluginPanel.vue'
 
 const props = defineProps<{ info: Device }>()
 
@@ -214,6 +221,7 @@ const t = {
   totalUptime: '\u7d2f\u8ba1\u8fd0\u884c\u65f6\u957f',
   systemTime: '\u7cfb\u7edf\u65f6\u95f4',
   alarmBitmap: '\u544a\u8b66\u4f4d\u56fe',
+  visualPluginPanel: '\u9ad8\u7ea7\u53ef\u89c6\u5316\u63d2\u4ef6\u770b\u677f',
   currentAlarm: '\u5f53\u524d\u544a\u8b66 (Now)',
   historyAlarm: '\u5386\u53f2\u544a\u8b66 (History)',
   bitPrefix: '\u4f4d',
@@ -233,8 +241,6 @@ const t = {
   channel: '\u901a\u9053',
   state: '\u72b6\u6001',
   actualCurrent: '\u5b9e\u9645\u7535\u6d41',
-  fpgaCurrent: 'FPGA \u7535\u6d41',
-  delta: '\u504f\u5dee',
   second: '\u79d2',
   minute: '\u5206',
   hour: '\u65f6',
@@ -295,13 +301,10 @@ const pumpRows = computed(() => {
   const pumps = Array.isArray(monReg.value?.Pump_mon) ? monReg.value.Pump_mon : []
   return pumps.map((item: any, index: number) => {
     const actual = toSafeNumber(item?.Actual_cur)
-    const fpga = toSafeNumber(item?.Fpga_cur)
     return {
       index,
       switch: toSafeNumber(item?.Pump_sw) > 0 ? t.switchOn : t.switchOff,
       actual,
-      fpga,
-      delta: actual - fpga,
     }
   })
 })
@@ -310,8 +313,6 @@ const pumpColumns = [
   { title: t.channel, dataIndex: 'index', width: 80, customRender: ({ text }: { text: number }) => `CH${text}` },
   { title: t.state, dataIndex: 'switch', width: 90 },
   { title: t.actualCurrent, dataIndex: 'actual', width: 120 },
-  { title: t.fpgaCurrent, dataIndex: 'fpga', width: 120 },
-  { title: t.delta, dataIndex: 'delta', width: 100 },
 ]
 
 const nowAlarmBits = computed<number[]>(() => decodeAlarmBits(alarmReg.value?.Now))
@@ -321,6 +322,57 @@ const nowAlarmBitsPreview = computed(() => nowAlarmBits.value.slice(0, ALARM_PRE
 const nowAlarmBitsRemain = computed(() => Math.max(0, nowAlarmBits.value.length - ALARM_PREVIEW_LIMIT))
 const historyAlarmBitsPreview = computed(() => historyAlarmBits.value.slice(0, ALARM_PREVIEW_LIMIT))
 const historyAlarmBitsRemain = computed(() => Math.max(0, historyAlarmBits.value.length - ALARM_PREVIEW_LIMIT))
+
+const healthScore = computed(() => {
+  let score = 100
+
+  const laserStatus = toSafeNumber(inputReg.value?.Status)
+  const readyState = toSafeNumber(userPara.value?.Laser_ready)
+
+  if (laserStatus === 3) {
+    score -= 35
+  } else if (laserStatus === 0) {
+    score -= 12
+  } else if (laserStatus === 1) {
+    score -= 6
+  }
+
+  if (readyState === 0) {
+    score -= 15
+  } else if (readyState === 1) {
+    score -= 8
+  }
+
+  score -= Math.min(25, nowAlarmBits.value.length * 2)
+  score -= Math.min(10, historyAlarmBits.value.length)
+
+  const actualValues = pumpRows.value.map((item) => toSafeNumber(item.actual))
+  if (actualValues.length > 0) {
+    const maxActual = Math.max(...actualValues)
+    if (maxActual >= 65000) {
+      score -= 12
+    } else if (maxActual >= 50000) {
+      score -= 6
+    }
+  }
+
+  if (tempValues.value.length > 0) {
+    const maxTemp = Math.max(...tempValues.value)
+    if (maxTemp >= 900) {
+      score -= 10
+    } else if (maxTemp >= 750) {
+      score -= 5
+    }
+  }
+
+  if (score < 0) {
+    return 0
+  }
+  if (score > 100) {
+    return 100
+  }
+  return Number(score.toFixed(1))
+})
 
 function toSafeNumber(value: unknown): number {
   const n = Number(value ?? 0)

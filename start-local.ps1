@@ -1,6 +1,7 @@
 param(
     [switch]$Lan,
-    [string]$LanIP = ""
+    [string]$LanIP = "",
+    [switch]$SkipFrontendBuild
 )
 
 $ErrorActionPreference = "Stop"
@@ -11,6 +12,11 @@ $tmpDir = Join-Path $projectRoot "tmp"
 $dataDir = Join-Path $workspaceRoot "mariadb-data"
 $myIni = Join-Path $dataDir "my.ini"
 $backendExe = Join-Path $tmpDir "qa_test_server-local.exe"
+$frontendDir = Join-Path $projectRoot "qa-test-web"
+$templatesDir = Join-Path $projectRoot "templates"
+$templatesAssetsDir = Join-Path $templatesDir "assets"
+$backendPidFile = Join-Path $tmpDir "backend.pid"
+$frontendPidFile = Join-Path $tmpDir "frontend.pid"
 
 $goExe = "C:\Program Files\Go\bin\go.exe"
 $mariadbdExe = "C:\Program Files\MariaDB 12.2\bin\mariadbd.exe"
@@ -30,6 +36,40 @@ function Test-IsAdmin {
     $identity = [Security.Principal.WindowsIdentity]::GetCurrent()
     $principal = New-Object Security.Principal.WindowsPrincipal($identity)
     return $principal.IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
+}
+
+function Stop-ByPidFile {
+    param(
+        [string]$PidFile
+    )
+
+    if (-not (Test-Path $PidFile)) {
+        return
+    }
+
+    $procIdRaw = Get-Content $PidFile -ErrorAction SilentlyContinue
+    if ($procIdRaw) {
+        $procId = [int]$procIdRaw
+        if ($procId -ne $PID) {
+            Stop-Process -Id $procId -Force -ErrorAction SilentlyContinue
+        }
+    }
+    Remove-Item $PidFile -Force -ErrorAction SilentlyContinue
+}
+
+function Stop-LocalServiceProcesses {
+    Stop-ByPidFile -PidFile $backendPidFile
+    Stop-ByPidFile -PidFile $frontendPidFile
+
+    foreach ($port in @(8080, 5173)) {
+        $conns = Get-NetTCPConnection -LocalPort $port -State Listen -ErrorAction SilentlyContinue
+        foreach ($conn in $conns) {
+            $proc = Get-Process -Id $conn.OwningProcess -ErrorAction SilentlyContinue
+            if ($proc -and $proc.ProcessName -in @("node", "qa_test_server", "qa_test_server-local", "go")) {
+                Stop-Process -Id $proc.Id -Force -ErrorAction SilentlyContinue
+            }
+        }
+    }
 }
 
 function Get-PreferredIPv4 {
@@ -158,6 +198,38 @@ for ($i = 0; $i -lt 15; $i++) {
 
 & $mysqlExe --no-defaults --protocol=tcp --host=127.0.0.1 --port=3306 --user=root "--password=$dbPassword" -e "CREATE DATABASE IF NOT EXISTS go_test CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;"
 
+# Always restart frontend/backend so 8080 can load the latest compiled templates.
+Stop-LocalServiceProcesses
+
+if (-not $SkipFrontendBuild) {
+    $frontendBuildOut = Join-Path $tmpDir "frontend-build.out.log"
+    $frontendBuildErr = Join-Path $tmpDir "frontend-build.err.log"
+    $frontendBuildProc = Start-Process `
+        -FilePath $npxCmd `
+        -ArgumentList "-y", "node@20.20.1", "node_modules/vite/bin/vite.js", "build" `
+        -WorkingDirectory $frontendDir `
+        -WindowStyle Hidden `
+        -RedirectStandardOutput $frontendBuildOut `
+        -RedirectStandardError $frontendBuildErr `
+        -PassThru `
+        -Wait
+
+    if ($frontendBuildProc.ExitCode -ne 0) {
+        throw "Frontend build failed. Check $frontendBuildErr"
+    }
+
+    $distDir = Join-Path $frontendDir "dist"
+    if (-not (Test-Path (Join-Path $distDir "index.html"))) {
+        throw "Frontend build succeeded but dist/index.html is missing."
+    }
+
+    if (Test-Path $templatesAssetsDir) {
+        Remove-Item $templatesAssetsDir -Recurse -Force
+    }
+    Copy-Item (Join-Path $distDir "assets") $templatesAssetsDir -Recurse -Force
+    Copy-Item (Join-Path $distDir "index.html") (Join-Path $templatesDir "index.html") -Force
+}
+
 $env:QA_HTTP_ADDR = $httpBindAddr
 $env:QA_TCP_ADDR = $tcpBindAddr
 $env:QA_PROXY_FROM_PORT = "0"
@@ -166,7 +238,19 @@ $env:QA_DB_DSN = "root:$dbPassword@tcp(127.0.0.1:3306)/go_test?charset=utf8mb4&p
 
 $buildOut = Join-Path $tmpDir "backend-build.out.log"
 $buildErr = Join-Path $tmpDir "backend-build.err.log"
-& $goExe build -o $backendExe . 1>$buildOut 2>$buildErr
+$goBuildProc = Start-Process `
+    -FilePath $goExe `
+    -ArgumentList "build", "-o", $backendExe, "." `
+    -WorkingDirectory $projectRoot `
+    -WindowStyle Hidden `
+    -RedirectStandardOutput $buildOut `
+    -RedirectStandardError $buildErr `
+    -PassThru `
+    -Wait
+
+if ($goBuildProc.ExitCode -ne 0) {
+    throw "Backend build failed. Check $buildErr"
+}
 
 if (Test-IsAdmin) {
     Ensure-FirewallProgramRule -RuleName "QA Local Backend 8080" -ProgramPath $backendExe -Ports "8080"
@@ -183,29 +267,23 @@ if (Test-IsAdmin) {
     }
 }
 
-$backendListening = Get-NetTCPConnection -LocalPort 8080 -State Listen -ErrorAction SilentlyContinue
-if (-not $backendListening) {
-    $backendOut = Join-Path $tmpDir "backend.out.log"
-    $backendErr = Join-Path $tmpDir "backend.err.log"
-    $backendProc = Start-Process -FilePath $backendExe -WorkingDirectory $projectRoot -WindowStyle Hidden -RedirectStandardOutput $backendOut -RedirectStandardError $backendErr -PassThru
-    Set-Content -Path (Join-Path $tmpDir "backend.pid") -Value $backendProc.Id
-}
+$backendOut = Join-Path $tmpDir "backend.out.log"
+$backendErr = Join-Path $tmpDir "backend.err.log"
+$backendProc = Start-Process -FilePath $backendExe -WorkingDirectory $projectRoot -WindowStyle Hidden -RedirectStandardOutput $backendOut -RedirectStandardError $backendErr -PassThru
+Set-Content -Path $backendPidFile -Value $backendProc.Id
 
-$frontendListening = Get-NetTCPConnection -LocalPort 5173 -State Listen -ErrorAction SilentlyContinue
-if (-not $frontendListening) {
-    $frontendOut = Join-Path $tmpDir "frontend.out.log"
-    $frontendErr = Join-Path $tmpDir "frontend.err.log"
-    # Vite 2 works reliably with Node 20 in this project.
-    $frontendProc = Start-Process `
-        -FilePath $npxCmd `
-        -ArgumentList "-y", "node@20.20.1", "node_modules/vite/bin/vite.js", "--host", $viteHost, "--port", "5173", "--strictPort" `
-        -WorkingDirectory (Join-Path $projectRoot "qa-test-web") `
-        -WindowStyle Hidden `
-        -RedirectStandardOutput $frontendOut `
-        -RedirectStandardError $frontendErr `
-        -PassThru
-    Set-Content -Path (Join-Path $tmpDir "frontend.pid") -Value $frontendProc.Id
-}
+$frontendOut = Join-Path $tmpDir "frontend.out.log"
+$frontendErr = Join-Path $tmpDir "frontend.err.log"
+# Vite 2 works reliably with Node 20 in this project.
+$frontendProc = Start-Process `
+    -FilePath $npxCmd `
+    -ArgumentList "-y", "node@20.20.1", "node_modules/vite/bin/vite.js", "--host", $viteHost, "--port", "5173", "--strictPort" `
+    -WorkingDirectory $frontendDir `
+    -WindowStyle Hidden `
+    -RedirectStandardOutput $frontendOut `
+    -RedirectStandardError $frontendErr `
+    -PassThru
+Set-Content -Path $frontendPidFile -Value $frontendProc.Id
 
 if ($Lan) {
     Write-Host "LAN stack is ready."

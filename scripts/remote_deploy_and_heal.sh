@@ -130,9 +130,12 @@ build_frontend() {
   ensure_pnpm "$desired_pnpm_major"
 
   cd "$web_dir"
-  if ! pnpm install --frozen-lockfile; then
+  export npm_config_registry="${npm_config_registry:-https://registry.npmmirror.com}"
+  # Always include devDependencies because the frontend build needs vue-tsc/vite.
+  rm -rf node_modules
+  if ! pnpm install --prod=false --frozen-lockfile; then
     log "frozen lockfile install failed, retrying without frozen lockfile"
-    pnpm install --no-frozen-lockfile
+    pnpm install --prod=false --no-frozen-lockfile
   fi
   pnpm build
 

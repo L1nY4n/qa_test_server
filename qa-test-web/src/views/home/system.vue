@@ -548,7 +548,10 @@ onBeforeUnmount(() => {
 
 <style scoped>
 .page {
+  height: 100%;
+  overflow: auto;
   padding: 12px;
+  padding-bottom: 18px;
 }
 
 .card {
@@ -601,6 +604,7 @@ onBeforeUnmount(() => {
 @media (min-width: 1600px) {
   .page {
     padding: 16px;
+    padding-bottom: 22px;
   }
 
   .card {
@@ -616,6 +620,7 @@ onBeforeUnmount(() => {
 @media (max-width: 900px) {
   .page {
     padding: 8px;
+    padding-bottom: 14px;
   }
 }
 </style>
