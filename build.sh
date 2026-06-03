@@ -11,7 +11,8 @@ export npm_config_registry="${npm_config_registry:-https://registry.npmmirror.co
 if [ ! -x node_modules/.bin/vue-tsc ] || [ ! -x node_modules/.bin/vite ]; then
   pnpm install --prod=false
 fi
-pnpm build
+./node_modules/.bin/vue-tsc --noEmit
+./node_modules/.bin/vite build
 
 mkdir -p ../templates
 rm -rf ../templates/assets

@@ -137,7 +137,8 @@ build_frontend() {
     log "frozen lockfile install failed, retrying without frozen lockfile"
     pnpm install --prod=false --no-frozen-lockfile
   fi
-  pnpm build
+  ./node_modules/.bin/vue-tsc --noEmit
+  ./node_modules/.bin/vite build
 
   # Sync Vite output to Gin templates dir used by backend static serving.
   mkdir -p "${APP_DIR}/templates"
